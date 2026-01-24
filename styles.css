@@ -141,17 +141,14 @@ a{ color:inherit; text-decoration:none; }
   border-radius: 12px;
   white-space:nowrap;
 }
-.brand__name{
-  letter-spacing: 0.2px;
-  color: var(--text);
-  font-size: 16px;
-}
-.brand__tag{
-  margin-top: 3px;
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--muted);
+
+/* ✅ Responsive logo sizing */
+.brand img{
+  display:block;
+  height: clamp(120px, 2.2vw, 150px); /* scales with screen */
+  width: auto;                      /* keeps SVG proportions */
+  max-width: 140px;                 /* prevents it from getting huge */
+  object-fit: contain;
 }
 
 /* Links (desktop) */

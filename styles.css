@@ -3,6 +3,8 @@ html, body { min-height: 100%; }
 body{
   margin: 0;
   position: relative; /* needed for layering */
+  overflow: hidden;
+
 
   background:
     /* soft white highlight (small, subtle) */
@@ -363,6 +365,12 @@ a{ color:inherit; text-decoration:none; }
   .nav__cta{ transition: none; }
 }
 
+
+
+
+
+
+
 /* ===== HERO SECTION (TRANSPARENT – ready for global ambient background) ===== */
 .hero{
   position: relative;
@@ -404,20 +412,43 @@ a{ color:inherit; text-decoration:none; }
   color: #ffffff;
 }
 
+
+/* second line (pure white, crisp) */
+.hero__title-line--white{
+  color: #ffffff;
+}
+
+
 .hero__title-line--accent{
   background: linear-gradient(90deg, #18C9FF 30%, #0B3CFF 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  /* color: transparent; */
   text-shadow: 0 0 18px rgba(24,201,255,0.18);
   margin-bottom: 2rem;
 }
 
+/* gradient ONLY on the words that need it */
+.hero__gradient{
+  display: inline-block;
+  background: linear-gradient(90deg, #18C9FF 30%, #0B3CFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* key for iOS */
+  color: transparent;
+
+  /* keep this subtle — big glow makes iOS text look soft */
+  text-shadow: 0 0 10px rgba(24,201,255,0.12);
+}
+
+
+
+/* your accent box, but responsive (2rem was huge on mobile) */
 .accent-box{
   position: relative;
   display: inline-block;
   border: 2px solid rgb(0, 102, 255);
-  padding: 2rem;
+  padding: clamp(14px, 3.2vw, 28px);
 }
 
 .span-white {
@@ -429,10 +460,8 @@ a{ color:inherit; text-decoration:none; }
 .accent-box::after{
   content:"";
   position:absolute;
-  inset: -7px;              /* pushes the squares slightly outside the border */
+  inset: -7px;
   pointer-events:none;
-
-  /* four 10x10 squares placed at each corner */
   background:
     linear-gradient(rgb(0, 162, 255), rgb(0, 162, 255)) left  top    / 10px 10px no-repeat,
     linear-gradient(rgb(0, 162, 255), rgb(0, 162, 255)) right top    / 10px 10px no-repeat,

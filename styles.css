@@ -421,7 +421,8 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .span-white {
-    color: white;
+  padding-top: 2rem;
+  color: white;
 }
 
 /* 4 corner squares */

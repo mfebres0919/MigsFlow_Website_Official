@@ -3,45 +3,43 @@ html, body { min-height: 100%; }
 body{
   margin: 0;
   position: relative; /* needed for layering */
-  overflow: hidden;
+  overflow-x: hidden;
 
 
   background:
-    /* soft white highlight (small, subtle) */
-    radial-gradient(620px 320px at 150% 58%,
-      rgba(255,255,255,0.16),
-      rgba(255,255,255,0) 60%
+
+    /* bright blue glow (main hotspot) */
+    radial-gradient(1100px 780px at 110% 4%,
+      rgba(0, 104, 231, 0.62),
+      rgba(27, 120, 255, 0) 62%
     ),
 
     /* bright blue glow (main hotspot) */
-    radial-gradient(1100px 780px at 120% 4%,
-      rgba(0, 112, 231, 0.62),
+    radial-gradient(100px 80px at 110% 10%,
+      rgba(181, 214, 255, 0.62),
       rgba(27, 120, 255, 0) 62%
     ),
+
+
       
     /* bright blue glow (main hotspot) */
     radial-gradient(1100px 780px at 0% 45%,
       rgba(0, 112, 231, 0.62),
-      rgba(27, 120, 255, 0) 62%
+      rgba(217, 255, 27, 0) 62%
     ),
 
     /* bright blue glow (main hotspot) */
-    radial-gradient(1100px 780px at 0% 20%,
+    radial-gradient(1100px 780px at -15% 15%,
       rgba(0, 112, 231, 0.62),
       rgba(27, 120, 255, 0) 62%
     ),
 
     /* deep blue wash (adds depth behind the hotspot) */
-    radial-gradient(500px 300px at 110% 30%,
+    radial-gradient(500px 500px at 105% 30%,
       rgba(0, 143, 225, 0.45),
       rgba(10, 55, 170, 0) 70%
     ),
 
-    /* deep blue wash (adds depth behind the hotspot) */
-    radial-gradient(600px 500px at 105% 80%,
-      rgba(7, 189, 255, 0.235),
-      rgba(10, 55, 170, 0) 70%
-    ),
 
     /* deep blue wash (adds depth behind the hotspot) */
     radial-gradient(500px 500px at 3% 40%,
@@ -56,8 +54,14 @@ body{
       rgba(10, 55, 170, 0) 70%
     ),
 
+            /* deep blue wash (adds depth behind the hotspot) */
+    radial-gradient(500px 500px at 0% 70%,
+      rgba(7, 189, 255, 0.235),
+      rgba(10, 55, 170, 0) 70%
+    ),
+
         /* deep blue wash (adds depth behind the hotspot) */
-    radial-gradient(500px 500px at 3% 90%,
+    radial-gradient(500px 500px at 100% 90%,
       rgba(7, 189, 255, 0.235),
       rgba(10, 55, 170, 0) 70%
     ),
@@ -65,6 +69,26 @@ body{
     /* black base */
     #000;
 }
+
+/* ✅ smaller screens: push that hotspot further right */
+@media (max-width: 600px){
+  body{
+    background:
+      radial-gradient(620px 320px at 150% 58%,
+        rgba(255,255,255,0.16),
+        rgba(255,255,255,0) 60%
+      ),
+
+      /* move it more off-screen to the right */
+      radial-gradient(1100px 780px at 180% 3%,
+        rgba(0, 35, 231, 0.62),
+        rgba(27, 120, 255, 0) 62%
+      ),
+
+      #000;
+  }
+}
+
 
 
 p,a,li {
@@ -103,7 +127,7 @@ a{ color:inherit; text-decoration:none; }
 
 /* ===== NAV ===== */
 .site-header{
-  padding: 14px 18px;
+  padding: 34px 18px;
   display:flex;
   justify-content:center;
 }
@@ -111,7 +135,7 @@ a{ color:inherit; text-decoration:none; }
 .nav{
   width: min(1100px, 100%);
   height: var(--nav-h);
-  padding: 10px 12px;
+  padding: 35px 22px;
   display:flex;
   align-items:center;
   gap: 12px;
@@ -147,7 +171,7 @@ a{ color:inherit; text-decoration:none; }
 /* ✅ Responsive logo sizing */
 .brand img{
   display:block;
-  height: clamp(120px, 2.2vw, 150px); /* scales with screen */
+  height: clamp(125px, 2.2vw, 200px); /* scales with screen */
   width: auto;                      /* keeps SVG proportions */
   max-width: 140px;                 /* prevents it from getting huge */
   object-fit: contain;
@@ -163,7 +187,7 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .nav__link{
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   padding: 10px 6px;
   position: relative;
@@ -173,6 +197,8 @@ a{ color:inherit; text-decoration:none; }
   color: var(--text);
   transform: translateY(-1px);
 }
+
+
 .nav__link.is-active{
   color: var(--text);
 }
@@ -181,10 +207,8 @@ a{ color:inherit; text-decoration:none; }
   position:absolute;
   left: 10%;
   right: 10%;
-  bottom: 6px;
   height: 2px;
   border-radius: 99px;
-  background: rgba(255,255,255,0.75);
 }
 
 /* CTA button (right) */
@@ -386,7 +410,7 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .hero__container{
-  width: min(1200px, 100%);
+  width: min(1600px, 100%);
   margin: 0 auto;
 
   display:grid;
@@ -397,7 +421,7 @@ a{ color:inherit; text-decoration:none; }
 
 /* LEFT */
 .hero__content{
-  max-width: 1020px;
+  max-width: 1220px;
 }
 
 .hero__title{
@@ -447,8 +471,9 @@ a{ color:inherit; text-decoration:none; }
 .accent-box{
   position: relative;
   display: inline-block;
-  border: 2px solid rgb(0, 102, 255);
+  border: 1px solid rgb(0, 102, 255);
   padding: clamp(14px, 3.2vw, 28px);
+  margin-bottom: 1.2rem;
 }
 
 .span-white {
@@ -463,10 +488,10 @@ a{ color:inherit; text-decoration:none; }
   inset: -7px;
   pointer-events:none;
   background:
-    linear-gradient(rgb(0, 162, 255), rgb(0, 162, 255)) left  top    / 10px 10px no-repeat,
-    linear-gradient(rgb(0, 162, 255), rgb(0, 162, 255)) right top    / 10px 10px no-repeat,
-    linear-gradient(rgb(0, 162, 255), rgb(0, 162, 255)) left  bottom / 10px 10px no-repeat,
-    linear-gradient(rgb(0, 162, 255), rgb(0, 162, 255)) right bottom / 10px 10px no-repeat;
+    linear-gradient(rgba(0, 162, 255, 0), rgb(0, 162, 255)) left  top    / 10px 10px no-repeat,
+    linear-gradient(rgb(0, 162, 255,0), rgb(0, 162, 255)) right top    / 10px 10px no-repeat,
+    linear-gradient(rgb(0, 162, 255,0), rgb(0, 162, 255)) left  bottom / 10px 10px no-repeat,
+    linear-gradient(rgb(0, 162, 255,0), rgb(0, 162, 255)) right bottom / 10px 10px no-repeat;
 }
 
 
@@ -525,18 +550,15 @@ a{ color:inherit; text-decoration:none; }
 .hero__btn--primary:active{ transform: translateY(0px); }
 
 .hero__btn-icon{
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display:grid;
   place-items:center;
   border-radius: 999px;
-  background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.18);
 }
-.hero__btn-icon svg{
-  width: 16px;
-  height: 16px;
-  color: #fff;
+
+.hero__btn .code-icon {
+  width: 32px;
 }
 
 /* ghost */
@@ -647,6 +669,7 @@ a{ color:inherit; text-decoration:none; }
   .hero__content{
     order: 1;
     max-width: 680px;
+    padding: 0rem 1.5rem 0rem 1.5rem;
   }
   .hero__code-marks{ display:none; }
 }
@@ -701,6 +724,8 @@ a{ color:inherit; text-decoration:none; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  font-family: "Poppins", sans-serif;
+
 
   width: fit-content;
   padding: 9px 14px;
@@ -942,6 +967,10 @@ a{ color:inherit; text-decoration:none; }
   box-shadow: 0 0 14px rgba(24,201,255,0.35);
 }
 
+.poppins {
+    font-family: "Poppins", sans-serif;
+}
+
 .why__title{
   margin: 16px 0 10px;
   line-height: 1.05;
@@ -977,7 +1006,7 @@ a{ color:inherit; text-decoration:none; }
   position: relative;
   text-align: left;
   padding: clamp(22px, 2.4vw, 34px);
-  border-radius: 28px;
+  border-radius: 8px;
 
   /* dark card fill + subtle depth */
   background:
@@ -1154,6 +1183,8 @@ a{ color:inherit; text-decoration:none; }
   color: rgba(255,255,255,0.92);
   font-size: 13px;
   background: transparent;
+  font-family: "Poppins", sans-serif;
+
 }
 
 .work__dot{
@@ -1569,6 +1600,15 @@ a{ color:inherit; text-decoration:none; }
   line-height: 1;
   text-decoration: none;
 }
+
+.footer__logo img {
+  width: clamp(22rem, 14vh, 12rem);  
+  height: auto;                    /* keeps SVG proportions */
+  max-width: 140px;  
+  object-fit: contain;
+ 
+}
+
 
 .footer__logo-name{
   font-family: "Orbitron", sans-serif;

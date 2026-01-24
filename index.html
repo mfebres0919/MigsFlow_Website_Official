@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Lobster&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <!-- Brand -->
+    <a class="brand" href="#">
+      <span class="brand__name">migs flow</span>
+      <span class="brand__tag">web design</span>
+    </a>
+
+    <!-- Mobile toggle -->
+    <button
+      class="nav__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Open menu"
+    >
+      <span class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <!-- Links -->
+    <div class="nav__links" id="primary-nav">
+      <a class="nav__link is-active" href="#">Home</a>
+      <a class="nav__link" href="#about">About</a>
+      <a class="nav__link" href="#services">Services</a>
+      <a class="nav__link" href="#contact">Contact</a>
+      <a class="nav__link" href="#faq">FAQ</a>
+    </div>
+
+    <!-- CTA -->
+    <a class="nav__cta" href="#quote">
+      <span>Get a Quote</span>
+      <span class="nav__cta-icon" aria-hidden="true">
+        <!-- arrow icon -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M8 16L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M10 8h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+  </nav>
+</header>
+
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="hero__container">
+
+    <!-- LEFT: TEXT -->
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="hero__title-line hero__title-line--accent">
+            <span class="accent-box">Hand-coded websites</span>
+            <span class="span-white">for small busnesses ready to level up.</span>
+        </span>
+      </h1>
+
+      <p class="hero__subtext">
+        I build custom-coded websites for small businesses that want to feel good about
+        their online presence. Whether you're just starting out or ready for something new,
+        you're at the right place!
+      </p>
+
+      <div class="hero__actions">
+        <a class="hero__btn hero__btn--primary" href="#quote">
+          <span>Get A Quote</span>
+          <span class="hero__btn-icon" aria-hidden="true">
+            <!-- code icon inside a circle -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L3 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 6L21 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="hero__btn hero__btn--ghost" href="#work">
+          <span class="hero__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M10 8.5V15.5L16 12L10 8.5Z" fill="currentColor"/>
+            </svg>
+          </span>
+          <span>View My Work</span>
+        </a>
+      </div>
+
+      <div class="hero__badges" aria-label="Featured platforms">
+        <span class="hero__badge hero__badge--one" title="Badge 1">
+          <!-- placeholder icon -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 12l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 6h12v12H6z" stroke="currentColor" stroke-width="2" opacity=".55"/>
+          </svg>
+        </span>
+
+        <span class="hero__badge hero__badge--two" title="Badge 2">J</span>
+
+        <span class="hero__badge hero__badge--three" title="Badge 3">
+          <!-- waves icon -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 10c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- RIGHT: IMAGE -->
+    <div class="hero__media">
+      <div class="hero__portrait">
+        <!-- Replace src with your actual photo path -->
+        <img src="images/hero-portrait.jpg" alt="Portrait photo" />
+      </div>
+
+      <!-- subtle decorative “<>” marks on right like your screenshot -->
+      <div class="hero__code-marks" aria-hidden="true">
+        <span>&lt;</span><span>/</span><span>&gt;</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- WHO I WORK WITH SECTION -->
+<section class="who-section" id="who">
+  <div class="who__container">
+
+    <!-- LEFT -->
+    <div class="who__left">
+      <span class="who__pill">
+        <span class="who__dot" aria-hidden="true"></span>
+        Who We Are
+      </span>
+
+      <h2 class="who__title">
+        <span class="who__title-accent">Who I</span> Work With
+      </h2>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="who__right">
+      <p class="who__blurb">
+        From hairstylists and barbers to photographers and content creators, I love helping
+        passionate business owners create websites that reflect who they are. No pressure, no fluff,
+        just something that feels right.
+      </p>
+
+      <div class="who__stats" role="list">
+        <div class="who__stat" role="listitem">
+          <div class="who__num">2+</div>
+          <div class="who__label">Years of experience</div>
+        </div>
+
+        <div class="who__divider" aria-hidden="true"></div>
+
+        <div class="who__stat" role="listitem">
+          <div class="who__num">50+</div>
+          <div class="who__label">Successful projects</div>
+        </div>
+
+        <div class="who__divider" aria-hidden="true"></div>
+
+        <div class="who__stat" role="listitem">
+          <div class="who__num">120+</div>
+          <div class="who__label">Satisfied Clients</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- WHY MIGSFLOW SECTION -->
+<section class="why" id="why">
+  <div class="why__container">
+
+    <div class="why__pill">
+      <span class="why__dot" aria-hidden="true"></span>
+      <span>Why MigsFlow</span>
+    </div>
+
+    <h2 class="why__title">
+      <span class="why__title-accent">What makes</span> this different?
+    </h2>
+
+    <p class="why__subtext">
+      I’m a developer who hand-codes every site from scratch, and I work with a talented designer to bring each idea to life visually.
+      I keep communication easy, pricing honest, and the entire process collaborative. You’re never just handed something and expected to run with it.
+    </p>
+
+    <div class="why__grid">
+      <!-- Card 1 -->
+      <article class="why__card">
+        <div class="why__icon" aria-hidden="true">‹›</div>
+        <h3 class="why__card-title">Hand Coded</h3>
+        <p class="why__card-text">Every site built from scratch using clean HTML, CSS, and JavaScript.</p>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="why__card">
+        <div class="why__icon" aria-hidden="true">▦</div>
+        <h3 class="why__card-title">Professional Design</h3>
+        <p class="why__card-text">Collaboration with talented UX/UI designers to bring ideas to life.</p>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="why__card">
+        <div class="why__icon" aria-hidden="true">💬</div>
+        <h3 class="why__card-title">Easy Communication</h3>
+        <p class="why__card-text">I keep communication simple and always keep you in the loop.</p>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="why__card">
+        <div class="why__icon" aria-hidden="true">$</div>
+        <h3 class="why__card-title">Honest Pricing</h3>
+        <p class="why__card-text">Clear pricing, no fluff — you’ll always know what you’re paying for.</p>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="why__card">
+        <div class="why__icon" aria-hidden="true">⚡</div>
+        <h3 class="why__card-title">Fast Performance</h3>
+        <p class="why__card-text">Lightweight, optimized code for lightning-fast load times.</p>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="why__card">
+        <div class="why__icon" aria-hidden="true">🛡</div>
+        <h3 class="why__card-title">You Own It</h3>
+        <p class="why__card-text">Complete ownership of your site files and source code.</p>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<script src="main.js"></script>
+
+</body>
+</html>

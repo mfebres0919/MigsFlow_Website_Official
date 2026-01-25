@@ -80,8 +80,20 @@ body{
       ),
 
       /* move it more off-screen to the right */
-      radial-gradient(1100px 780px at 180% 3%,
-        rgba(0, 35, 231, 0.62),
+      radial-gradient(1100px 780px at 160% 6%,
+        rgba(0, 119, 231, 0.62),
+        rgba(27, 120, 255, 0) 62%
+      ),
+
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 0% 20%,
+        rgba(0, 108, 231, 0.402),
+        rgba(27, 120, 255, 0) 62%
+      ),
+
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 100% 32%,
+        rgba(121, 183, 255, 0.402),
         rgba(27, 120, 255, 0) 62%
       ),
 
@@ -699,7 +711,7 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .who-section{
-  padding: clamp(46px, 7vw, 90px) 18px;
+  padding: clamp(46px, 7vw, 90px) 40px;
   background: transparent;
 }
 
@@ -1001,85 +1013,80 @@ a{ color:inherit; text-decoration:none; }
   gap: 18px;
 }
 
-/* ===== UPDATED CARD BORDER + GLOW (matches your screenshot) ===== */
+
+/* ===== TRUE INWARD BORDER GLOW ===== */
 .why__card{
   position: relative;
   text-align: left;
   padding: clamp(22px, 2.4vw, 34px);
-  border-radius: 8px;
+  border-radius: 22px;
 
-  /* dark card fill + subtle depth */
-  background:
-    radial-gradient(120% 140% at 20% 10%,
-      rgba(24,201,255,0.08),
-      rgba(0,0,0,0) 55%
-    ),
-    linear-gradient(180deg,
-      rgba(10,14,26,0.92) 0%,
-      rgba(6,8,14,0.92) 100%
-    );
+  background: #05070c; /* pure black inside */
+  border: 1px solid rgba(0, 76, 228, 0.55);
 
-  border: none;
-
+  /* keep outer glow subtle */
   box-shadow:
-    0 24px 60px rgba(0,0,0,0.55),
-    inset 0 1px 0 rgba(255,255,255,0.06);
+    0 0 22px rgba(24,201,255,0.18),
+    0 0 60px rgba(11,60,255,0.12),
+    0 24px 60px rgba(0,0,0,0.55);
 
+  overflow: hidden;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-
-  overflow: hidden; /* keeps edges clean */
-  transition: transform 220ms ease;
 }
 
-/* crisp gradient border ring */
+/* INWARD GLOW LAYER */
 .why__card::before{
   content:"";
   position:absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 2px;
-
-  background: linear-gradient(
-    90deg,
-    rgba(24,201,255,0.95) 0%,
-    rgba(11,60,255,0.95) 100%
-  );
-
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
   pointer-events:none;
-  z-index: 1;
-  opacity: 0.65;
+
+  /* This is the magic: an inside “ring” that fades inward */
+  background:
+    radial-gradient(120% 120% at 50% 50%,
+      rgba(0,0,0,0) 58%,
+      rgba(0,0,0,0.55) 100%),
+    linear-gradient(180deg,
+      rgba(24,201,255,0.1),
+      rgba(11,60,255,0.1));
+
+  /* makes it feel like it’s coming from the border inward */
+  mask:
+    radial-gradient(closest-side,
+      transparent 62%,
+      #000 100%);
+  -webkit-mask:
+    radial-gradient(closest-side,
+      transparent 62%,
+      #000 100%);
+
+  /* strengthen the inward effect */
+  opacity: 0.9;
 }
 
-/* soft outer glow halo */
+/* Crisp inner rim (helps “inward border” feel) */
 .why__card::after{
   content:"";
   position:absolute;
-  inset: -14px;
+  inset: 0;
   border-radius: inherit;
-
-  background: radial-gradient(120% 120% at 50% 50%,
-    rgba(11,60,255,0.28) %,
-    rgba(0,0,0,0) 70%
-  );
-
-  filter: blur(18px);
-  opacity: 0.9;
   pointer-events:none;
-  z-index: 0;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(24,201,255,0.22),
+    inset 0 0 28px rgba(24,201,255,0.14),
+    inset 0 0 70px rgba(11,60,255,0.12);
+  opacity: 1;
 }
 
-/* keep card content above border/glow */
+/* keep content above overlays */
 .why__card > *{
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
+
 
 .why__card:hover{
   transform: translateY(-3px);
@@ -1159,7 +1166,7 @@ a{ color:inherit; text-decoration:none; }
 /* =============================== */
 
 .work{
-  padding: clamp(70px, 8vw, 110px) 18px;
+  padding: clamp(0px, 8vw, 110px) 18px;
   background: transparent; /* IMPORTANT: no section background */
 }
 

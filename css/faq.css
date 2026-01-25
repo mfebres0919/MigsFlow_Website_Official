@@ -411,15 +411,16 @@ a{ color:inherit; text-decoration:none; }
 
 
 
-
 /* ============================
-========== FAQ SECTION =========
-Tabs + Smooth Accordion
+=========== FAQ CSS ============
+Tabs width = questions width
+Smooth accordion animation
 ============================ */
 
 .faq{
   padding: clamp(70px, 8vw, 110px) 18px;
-  background: transparent;
+  position: relative;
+  overflow: hidden;
 }
 
 .faq__container{
@@ -450,7 +451,7 @@ Tabs + Smooth Accordion
 }
 
 .faq__title{
-  margin: 16px 0 18px;
+  margin: 16px 0 10px;
   line-height: 1.05;
   letter-spacing: -0.02em;
   font-size: clamp(34px, 4.7vw, 56px);
@@ -464,182 +465,182 @@ Tabs + Smooth Accordion
   color: transparent;
 }
 
-/* ===== Tabs ===== */
+.faq__subtext{
+  margin: 0 auto 28px;
+  max-width: 900px;
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(14px, 1.15vw, 18px);
+  line-height: 1.7;
+}
+
+/* ✅ THIS IS THE IMPORTANT PART:
+   faq__shell sets ONE shared width for tabs + questions */
+.faq__shell{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+/* Tabs row (same width as questions because it's inside faq__shell) */
 .faq__tabs{
-  margin: 0 auto 26px;
-  width: min(1080px, 100%);
+  width: 100%;
   display: flex;
-  gap: 10px;
+  gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 18px 0 18px;
 }
 
 .faq__tab{
-  border: 1px solid rgba(24,201,255,0.22);
-  background: rgba(5,7,12,0.70);
-  color: rgba(255,255,255,0.78);
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(0,0,0,0.20);
+  color: rgba(255,255,255,0.70);
+  padding: 12px 18px;
+  border-radius: 8px;
   cursor: pointer;
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  font-size: 15px;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
 }
 
 .faq__tab:hover{
   transform: translateY(-1px);
-  border-color: rgba(24,201,255,0.35);
+  border-color: rgba(24,201,255,0.45);
 }
 
 .faq__tab.is-active{
-  color: rgba(255,255,255,0.92);
-  background-color: rgba(0, 76, 255, 0.274);
-  border-color: rgba(24,201,255,0.45);
+  background: linear-gradient(180deg, rgba(24,201,255,0.25), rgba(11,60,255,0.25));
+  border-color: rgba(24,201,255,0.55);
+  color: rgba(255,255,255,0.95);
   box-shadow:
-    0 0 22px rgba(24,201,255,0.12),
-    inset 0 0 0 1px rgba(24,201,255,0.10);
+    0 0 22px rgba(24,201,255,0.18),
+    0 0 60px rgba(11,60,255,0.12);
 }
 
 /* Panels */
-.faq__panel{ display: none; }
-.faq__panel.is-active{ display: block; }
+.faq__panels{
+  width: 100%;
+}
 
-/* List */
+.faq__panel{
+  width: 100%;
+}
+
 .faq__list{
-  width: min(980px, 100%);
-  margin: 0 auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  gap: 14px;
-  text-align: left;
+  gap: 18px;
 }
 
-/* ===== Accordion item ===== */
+/* Question card */
 .faq__item{
-  border-radius: 18px;
-  border: 1px solid rgba(0, 102, 255, 0.35);
-  background: rgba(5,7,12,0.92);
-  overflow: hidden;
   position: relative;
-
+  border-radius: 18px;
+  background: #05070c;
+  border: 1px solid rgba(0, 76, 228, 0.55);
+  overflow: hidden;
   box-shadow:
-    0 0 22px rgba(24,201,255,0.08),
-    0 0 55px rgba(11,60,255,0.06);
+    0 0 22px rgba(24,201,255,0.18),
+    0 0 60px rgba(11,60,255,0.12),
+    0 24px 60px rgba(0,0,0,0.55);
 }
 
-/* inward border glow */
 .faq__item::after{
   content:"";
   position:absolute;
-  inset:0;
-  pointer-events:none;
+  inset: 0;
   border-radius: inherit;
+  pointer-events:none;
   box-shadow:
-    inset 0 0 0 1px rgba(24,201,255,0.16),
-    inset 0 0 26px rgba(24,201,255,0.10),
-    inset 0 0 70px rgba(11,60,255,0.08);
+    inset 0 0 0 1px rgba(24,201,255,0.18),
+    inset 0 0 28px rgba(24,201,255,0.10),
+    inset 0 0 70px rgba(11,60,255,0.10);
 }
 
-/* Question row */
+/* Question button */
 .faq__question{
   width: 100%;
-  background: transparent;
-  border: 0;
-  color: rgba(255,255,255,0.92);
-  text-align: left;
-  padding: clamp(18px, 2vw, 22px);
   display:flex;
   align-items:center;
   justify-content: space-between;
   gap: 18px;
+  padding: 22px 22px;
+  background: transparent;
+  border: 0;
   cursor: pointer;
-  position: relative;
-  z-index: 1;
+  text-align: left;
+  color: rgba(255,255,255,0.95);
+  font-size: clamp(18px, 1.25vw, 22px);
 }
 
-.faq__qtext{
-  font-size: clamp(16px, 1.5vw, 20px);
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-/* plus/minus */
-.faq__toggle{
-  width: 34px;
-  height: 34px;
-  display:grid;
-  place-items:center;
-  border-radius: 10px;
+/* Plus/Minus icon built with CSS */
+.faq__icon{
+  width: 26px;
+  height: 26px;
   position: relative;
   flex: 0 0 auto;
-  color: rgba(24,201,255,0.95);
 }
 
-.faq__toggle::before,
-.faq__toggle::after{
+.faq__icon::before,
+.faq__icon::after{
   content:"";
   position:absolute;
-  width: 18px;
-  height: 2px;
-  background: currentColor;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 3px;
+  background: rgba(24,201,255,0.95);
   border-radius: 999px;
+  transform: translate(-50%, -50%);
   transition: transform 260ms ease, opacity 260ms ease;
 }
 
-.faq__toggle::after{
-  transform: rotate(90deg);
+/* vertical bar (turns off when open) */
+.faq__icon::after{
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
-/* open -> minus */
-.faq__item.is-open .faq__toggle::after{
-  transform: rotate(90deg) scaleX(0);
-  opacity: 0;
-}
-
-/* ===== Smooth dropdown ===== */
+/* Answer wrapper (smooth open/close) */
 .faq__answer{
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 380ms ease;
-  position: relative;
-  z-index: 1;
-}
-
-.faq__answer > div{
+  max-height: 0;
   overflow: hidden;
-  padding: 0 clamp(18px, 2vw, 22px);
+  padding: 0 22px;
   opacity: 0;
   transform: translateY(-6px);
-  transition: opacity 260ms ease, transform 260ms ease;
+  transition: max-height 380ms ease, opacity 280ms ease, transform 280ms ease, padding 280ms ease;
 }
 
 .faq__answer p{
-  margin: 0 0 18px;
-  color: rgba(255,255,255,0.68);
-  line-height: 1.7;
-  font-size: clamp(14px, 1.1vw, 16px);
+  margin: 0;
+  padding: 0 0 22px;
+  color: rgba(255,255,255,0.70);
+  line-height: 1.65;
+  font-size: 16px;
 }
 
-/* open */
+/* OPEN STATE */
 .faq__item.is-open .faq__answer{
-  grid-template-rows: 1fr;
-}
-.faq__item.is-open .faq__answer > div{
   opacity: 1;
   transform: translateY(0);
-  padding-top: 4px;
+  padding: 0 22px;
 }
 
-/* mobile polish */
-@media (max-width: 520px){
-  .faq__tabs{ justify-content: flex-start; }
-  .faq__tab{ width: 100%; text-align: left; }
+.faq__item.is-open .faq__icon::after{
+  opacity: 0; /* hide vertical bar = minus */
 }
 
-
+/* Mobile */
+@media (max-width: 600px){
+  .faq__tabs{
+    justify-content: center;
+  }
+  .faq__tab{
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+  }
+}
 
 
 

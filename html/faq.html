@@ -55,8 +55,7 @@
 </header>
 
 
-
-
+<!-- FAQ  SECTION -->
 <section class="faq" id="faq">
   <div class="faq__container">
 
@@ -66,205 +65,145 @@
     </div>
 
     <h2 class="faq__title">
-      <span class="faq__title-accent">Questions</span> you might have
+      <span class="faq__title-accent">Frequently</span> Asked<br>
+      Questions
     </h2>
 
-    <!-- TABS -->
-    <div class="faq__tabs" role="tablist" aria-label="FAQ categories">
-      <button class="faq__tab is-active" role="tab"
-        id="tab-design"
-        aria-selected="true"
-        aria-controls="panel-design"
-        type="button">
-        Design &amp; Process
-      </button>
+    <p class="faq__subtext">
+      Discover answers to common questions about the design process, pricing, and what it’s like working together.
+    </p>
 
-      <button class="faq__tab" role="tab"
-        id="tab-pricing"
-        aria-selected="false"
-        aria-controls="panel-pricing"
-        type="button">
-        Pricing & Payments
-      </button>
+    <!-- THIS WRAPPER CONTROLS THE WIDTH FOR TABS + QUESTIONS -->
+    <div class="faq__shell">
 
-      <button class="faq__tab" role="tab"
-        id="tab-support"
-        aria-selected="false"
-        aria-controls="panel-support"
-        type="button">
-        Development & Tech
-      </button>
+      <!-- Tabs (same width as questions) -->
+      <div class="faq__tabs" role="tablist" aria-label="FAQ categories">
+        <button class="faq__tab is-active" role="tab" aria-selected="true" aria-controls="panel-design" id="tab-design" type="button">
+          Design &amp; Process
+        </button>
 
-      <button class="faq__tab" role="tab"
-        id="tab-technical"
-        aria-selected="false"
-        aria-controls="panel-technical"
-        type="button">
-        Working With Me/ Policies
-      </button>
-    </div>
+        <button class="faq__tab" role="tab" aria-selected="false" aria-controls="panel-pricing" id="tab-pricing" type="button">
+          Pricing &amp; Payments
+        </button>
 
-    <!-- PANELS -->
-    <div class="faq__panels">
+        <button class="faq__tab" role="tab" aria-selected="false" aria-controls="panel-tech" id="tab-tech" type="button">
+          Development &amp; Tech
+        </button>
 
-      <!-- PANEL 1 -->
-      <div class="faq__panel is-active" role="tabpanel"
-        id="panel-design"
-        aria-labelledby="tab-design">
+        <button class="faq__tab" role="tab" aria-selected="false" aria-controls="panel-policy" id="tab-policy" type="button">
+          Working With Me / Policies
+        </button>
+      </div>
 
-        <div class="faq__list">
+      <!-- Panels -->
+      <div class="faq__panels">
 
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">How long does a typical website take?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
+        <!-- PANEL 1 -->
+        <div class="faq__panel is-active" role="tabpanel" id="panel-design" aria-labelledby="tab-design">
+          <ul class="faq__list">
 
-            <div class="faq__answer">
-              <div>
+            <li class="faq__item">
+              <button class="faq__question" type="button" aria-expanded="true">
+                Do you design the websites yourself?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer" style="max-height: 0;">
                 <p>
-                  Most projects take 2–4 weeks depending on how many pages you need and how quickly
-                  content (photos, copy, branding) is ready. I’ll give you a clear timeline up front.
+                  I focus on building and developing your website (clean, responsive, hand-coded). For visual design,
+                  I collaborate with a professional UX/UI designer so every page feels intentional and polished.
                 </p>
               </div>
-            </div>
-          </article>
+            </li>
 
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">Do you help with content and copy?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-
-            <div class="faq__answer">
-              <div>
+            <li class="faq__item">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Will I be communicating with the designer directly?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
                 <p>
-                  Yes — I can guide you on what to write, help organize your message, and make sure
-                  everything flows clean. If you already have copy, I can polish and format it too.
+                  You’ll communicate with me as your main point of contact. I’ll gather your feedback and make sure
+                  everything stays aligned throughout the process.
                 </p>
               </div>
-            </div>
-          </article>
+            </li>
 
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">Can I request revisions?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-
-            <div class="faq__answer">
-              <div>
+            <li class="faq__item">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Can you match an existing brand or website style?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
                 <p>
-                  Absolutely. We’ll do revisions during the build so the final version feels right.
-                  I’ll keep it simple and organized so nothing feels overwhelming.
+                  Yes — if you have references or an existing brand, I can match the look and feel while still keeping
+                  things modern, clean, and responsive.
                 </p>
               </div>
-            </div>
-          </article>
+            </li>
 
+            <li class="faq__item">
+              <button class="faq__question" type="button" aria-expanded="false">
+                How long does the design phase usually take?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <p>
+                  It depends on the project size, but most designs move quickly once we have your direction, content,
+                  and feedback. I’ll give you an estimated timeline up front.
+                </p>
+              </div>
+            </li>
+
+          </ul>
         </div>
-      </div>
 
-      <!-- PANEL 2 -->
-      <div class="faq__panel" role="tabpanel"
-        id="panel-pricing"
-        aria-labelledby="tab-pricing"
-        hidden>
-
-        <div class="faq__list">
-          <!-- same questions for now (you’ll swap later) -->
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">How long does a typical website take?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer"><div><p>Placeholder answer. Replace with your pricing FAQ.</p></div></div>
-          </article>
-
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">Do you help with content and copy?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer"><div><p>Placeholder answer. Replace with your pricing FAQ.</p></div></div>
-          </article>
-
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">Can I request revisions?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer"><div><p>Placeholder answer. Replace with your pricing FAQ.</p></div></div>
-          </article>
+        <!-- PANEL 2 -->
+        <div class="faq__panel" role="tabpanel" id="panel-pricing" aria-labelledby="tab-pricing" hidden>
+          <ul class="faq__list">
+            <!-- You said keep same questions for now -->
+            <li class="faq__item">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Do you design the websites yourself?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <p>Placeholder answer — swap this out with your Pricing &amp; Payments content.</p>
+              </div>
+            </li>
+          </ul>
         </div>
-      </div>
 
-      <!-- PANEL 3 -->
-      <div class="faq__panel" role="tabpanel"
-        id="panel-support"
-        aria-labelledby="tab-support"
-        hidden>
-
-        <div class="faq__list">
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">How long does a typical website take?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer"><div><p>Placeholder answer. Replace with your support FAQ.</p></div></div>
-          </article>
-
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">Do you help with content and copy?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer"><div><p>Placeholder answer. Replace with your support FAQ.</p></div></div>
-          </article>
-
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">Can I request revisions?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer"><div><p>Placeholder answer. Replace with your support FAQ.</p></div></div>
-          </article>
+        <!-- PANEL 3 -->
+        <div class="faq__panel" role="tabpanel" id="panel-tech" aria-labelledby="tab-tech" hidden>
+          <ul class="faq__list">
+            <li class="faq__item">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Do you design the websites yourself?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <p>Placeholder answer — swap this out with your Development &amp; Tech content.</p>
+              </div>
+            </li>
+          </ul>
         </div>
-      </div>
 
-      <!-- PANEL 4 -->
-      <div class="faq__panel" role="tabpanel"
-        id="panel-technical"
-        aria-labelledby="tab-technical"
-        hidden>
-
-        <div class="faq__list">
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">How long does a typical website take?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer"><div><p>Placeholder answer. Replace with your technical FAQ.</p></div></div>
-          </article>
-
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">Do you help with content and copy?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer"><div><p>Placeholder answer. Replace with your technical FAQ.</p></div></div>
-          </article>
-
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              <span class="faq__qtext">Can I request revisions?</span>
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer"><div><p>Placeholder answer. Replace with your technical FAQ.</p></div></div>
-          </article>
+        <!-- PANEL 4 -->
+        <div class="faq__panel" role="tabpanel" id="panel-policy" aria-labelledby="tab-policy" hidden>
+          <ul class="faq__list">
+            <li class="faq__item">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Do you design the websites yourself?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <p>Placeholder answer — swap this out with your Working With Me / Policies content.</p>
+              </div>
+            </li>
+          </ul>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 </section>

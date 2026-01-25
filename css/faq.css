@@ -80,22 +80,18 @@ body{
       ),
 
       /* move it more off-screen to the right */
-      radial-gradient(1100px 780px at 160% 6%,
+      radial-gradient(1100px 780px at 160% 3%,
         rgba(0, 119, 231, 0.62),
         rgba(27, 120, 255, 0) 62%
       ),
 
       /* move it more off-screen to the right */
-      radial-gradient(700px 780px at 0% 20%,
+      radial-gradient(300px 380px at -10% 60%,
         rgba(0, 108, 231, 0.402),
         rgba(27, 120, 255, 0) 62%
       ),
 
-      /* move it more off-screen to the right */
-      radial-gradient(700px 780px at 100% 32%,
-        rgba(121, 183, 255, 0.402),
-        rgba(27, 120, 255, 0) 62%
-      ),
+
 
       #000;
   }

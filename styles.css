@@ -74,16 +74,6 @@ body{
 @media (max-width: 600px){
   body{
     background:
-      radial-gradient(620px 320px at 150% 58%,
-        rgba(255,255,255,0.16),
-        rgba(255,255,255,0) 60%
-      ),
-
-      /* move it more off-screen to the right */
-      radial-gradient(1100px 780px at 160% 6%,
-        rgba(0, 119, 231, 0.62),
-        rgba(27, 120, 255, 0) 62%
-      ),
 
       /* move it more off-screen to the right */
       radial-gradient(700px 780px at 0% 20%,

@@ -54,9 +54,9 @@
   </nav>
 </header>
 
-<!-- ============================
-============= FAQ ===============
-============================ -->
+
+
+
 <section class="faq" id="faq">
   <div class="faq__container">
 
@@ -66,273 +66,201 @@
     </div>
 
     <h2 class="faq__title">
-      <span class="faq__title-accent">Frequently</span> Asked<br />
-      Questions
+      <span class="faq__title-accent">Questions</span> you might have
     </h2>
 
-    <p class="faq__subtext">
-      Discover the world of business loans with our FAQs, covering key topics to help you make informed decisions
-      and unlock growth opportunities.
-    </p>
-
-    <!-- Tabs -->
+    <!-- TABS -->
     <div class="faq__tabs" role="tablist" aria-label="FAQ categories">
-      <button class="faq__tab is-active" role="tab" aria-selected="true" aria-controls="faq-panel-1" id="faq-tab-1" type="button">
+      <button class="faq__tab is-active" role="tab"
+        id="tab-design"
+        aria-selected="true"
+        aria-controls="panel-design"
+        type="button">
         Design &amp; Process
       </button>
 
-      <button class="faq__tab" role="tab" aria-selected="false" aria-controls="faq-panel-2" id="faq-tab-2" type="button">
-        Pricing &amp; Payments
+      <button class="faq__tab" role="tab"
+        id="tab-pricing"
+        aria-selected="false"
+        aria-controls="panel-pricing"
+        type="button">
+        Pricing & Payments
       </button>
 
-      <button class="faq__tab" role="tab" aria-selected="false" aria-controls="faq-panel-3" id="faq-tab-3" type="button">
-        Development &amp; Tech
+      <button class="faq__tab" role="tab"
+        id="tab-support"
+        aria-selected="false"
+        aria-controls="panel-support"
+        type="button">
+        Development & Tech
       </button>
 
-      <button class="faq__tab" role="tab" aria-selected="false" aria-controls="faq-panel-4" id="faq-tab-4" type="button">
-        Working With Me / Policies
+      <button class="faq__tab" role="tab"
+        id="tab-technical"
+        aria-selected="false"
+        aria-controls="panel-technical"
+        type="button">
+        Working With Me/ Policies
       </button>
     </div>
 
-    <!-- Panels (same questions copied into each tab for now — swap later) -->
+    <!-- PANELS -->
     <div class="faq__panels">
 
       <!-- PANEL 1 -->
-      <div class="faq__panel is-active" role="tabpanel" tabindex="0" aria-labelledby="faq-tab-1" id="faq-panel-1">
-        <div class="faq__accordion">
+      <div class="faq__panel is-active" role="tabpanel"
+        id="panel-design"
+        aria-labelledby="tab-design">
+
+        <div class="faq__list">
+
           <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="true">
-              Do you design the websites yourself?
+            <button class="faq__question" type="button" aria-expanded="false">
+              <span class="faq__qtext">How long does a typical website take?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
+
             <div class="faq__answer">
-              <p>
-                No. I specialize in coding and the development of your website. I take care of making it functional,
-                responsive, and clean under the hood. For design, I work closely with a professional UX/UI designer
-                who helps create visuals that align with your brand, goals, and industry. You get the best of both worlds:
-                a designer who makes it shine, and a developer who builds it right.
-              </p>
+              <div>
+                <p>
+                  Most projects take 2–4 weeks depending on how many pages you need and how quickly
+                  content (photos, copy, branding) is ready. I’ll give you a clear timeline up front.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false">
-              Will I be communicating with the designer directly?
+              <span class="faq__qtext">Do you help with content and copy?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
+
             <div class="faq__answer">
-              <p>
-                You’ll communicate with me as your main point of contact. I’ll collect your feedback, translate it into
-                clear action items, and coordinate with the designer so everything stays organized and smooth.
-              </p>
+              <div>
+                <p>
+                  Yes — I can guide you on what to write, help organize your message, and make sure
+                  everything flows clean. If you already have copy, I can polish and format it too.
+                </p>
+              </div>
             </div>
           </article>
 
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false">
-              Can you match an existing brand or website style?
+              <span class="faq__qtext">Can I request revisions?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
+
             <div class="faq__answer">
-              <p>
-                Yes — if you already have branding, a vibe, or reference sites you love, we can use that as inspiration
-                and create something that feels aligned while still being uniquely yours.
-              </p>
+              <div>
+                <p>
+                  Absolutely. We’ll do revisions during the build so the final version feels right.
+                  I’ll keep it simple and organized so nothing feels overwhelming.
+                </p>
+              </div>
             </div>
           </article>
 
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              How long does the design phase usually take?
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer">
-              <p>
-                It depends on the project scope, but most design phases take about 1–2 weeks. Larger sites or multiple
-                revision rounds may take a bit longer — but you’ll always know the timeline up front.
-              </p>
-            </div>
-          </article>
         </div>
       </div>
 
       <!-- PANEL 2 -->
-      <div class="faq__panel" role="tabpanel" tabindex="0" aria-labelledby="faq-tab-2" id="faq-panel-2" hidden>
-        <!-- Same FAQ for now -->
-        <div class="faq__accordion">
-          <!-- (copy of panel 1 items) -->
+      <div class="faq__panel" role="tabpanel"
+        id="panel-pricing"
+        aria-labelledby="tab-pricing"
+        hidden>
+
+        <div class="faq__list">
+          <!-- same questions for now (you’ll swap later) -->
           <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="true">
-              Do you design the websites yourself?
+            <button class="faq__question" type="button" aria-expanded="false">
+              <span class="faq__qtext">How long does a typical website take?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
-            <div class="faq__answer">
-              <p>
-                No. I specialize in coding and the development of your website. I take care of making it functional,
-                responsive, and clean under the hood. For design, I work closely with a professional UX/UI designer
-                who helps create visuals that align with your brand, goals, and industry. You get the best of both worlds:
-                a designer who makes it shine, and a developer who builds it right.
-              </p>
-            </div>
+            <div class="faq__answer"><div><p>Placeholder answer. Replace with your pricing FAQ.</p></div></div>
           </article>
 
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false">
-              Will I be communicating with the designer directly?
+              <span class="faq__qtext">Do you help with content and copy?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
-            <div class="faq__answer">
-              <p>
-                You’ll communicate with me as your main point of contact. I’ll collect your feedback, translate it into
-                clear action items, and coordinate with the designer so everything stays organized and smooth.
-              </p>
-            </div>
+            <div class="faq__answer"><div><p>Placeholder answer. Replace with your pricing FAQ.</p></div></div>
           </article>
 
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false">
-              Can you match an existing brand or website style?
+              <span class="faq__qtext">Can I request revisions?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
-            <div class="faq__answer">
-              <p>
-                Yes — if you already have branding, a vibe, or reference sites you love, we can use that as inspiration
-                and create something that feels aligned while still being uniquely yours.
-              </p>
-            </div>
-          </article>
-
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              How long does the design phase usually take?
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer">
-              <p>
-                It depends on the project scope, but most design phases take about 1–2 weeks. Larger sites or multiple
-                revision rounds may take a bit longer — but you’ll always know the timeline up front.
-              </p>
-            </div>
+            <div class="faq__answer"><div><p>Placeholder answer. Replace with your pricing FAQ.</p></div></div>
           </article>
         </div>
       </div>
 
       <!-- PANEL 3 -->
-      <div class="faq__panel" role="tabpanel" tabindex="0" aria-labelledby="faq-tab-3" id="faq-panel-3" hidden>
-        <!-- Same FAQ for now -->
-        <div class="faq__accordion">
+      <div class="faq__panel" role="tabpanel"
+        id="panel-support"
+        aria-labelledby="tab-support"
+        hidden>
+
+        <div class="faq__list">
           <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="true">
-              Do you design the websites yourself?
+            <button class="faq__question" type="button" aria-expanded="false">
+              <span class="faq__qtext">How long does a typical website take?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
-            <div class="faq__answer">
-              <p>
-                No. I specialize in coding and the development of your website. I take care of making it functional,
-                responsive, and clean under the hood. For design, I work closely with a professional UX/UI designer
-                who helps create visuals that align with your brand, goals, and industry. You get the best of both worlds:
-                a designer who makes it shine, and a developer who builds it right.
-              </p>
-            </div>
+            <div class="faq__answer"><div><p>Placeholder answer. Replace with your support FAQ.</p></div></div>
           </article>
 
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false">
-              Will I be communicating with the designer directly?
+              <span class="faq__qtext">Do you help with content and copy?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
-            <div class="faq__answer">
-              <p>
-                You’ll communicate with me as your main point of contact. I’ll collect your feedback, translate it into
-                clear action items, and coordinate with the designer so everything stays organized and smooth.
-              </p>
-            </div>
+            <div class="faq__answer"><div><p>Placeholder answer. Replace with your support FAQ.</p></div></div>
           </article>
 
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false">
-              Can you match an existing brand or website style?
+              <span class="faq__qtext">Can I request revisions?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
-            <div class="faq__answer">
-              <p>
-                Yes — if you already have branding, a vibe, or reference sites you love, we can use that as inspiration
-                and create something that feels aligned while still being uniquely yours.
-              </p>
-            </div>
-          </article>
-
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              How long does the design phase usually take?
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer">
-              <p>
-                It depends on the project scope, but most design phases take about 1–2 weeks. Larger sites or multiple
-                revision rounds may take a bit longer — but you’ll always know the timeline up front.
-              </p>
-            </div>
+            <div class="faq__answer"><div><p>Placeholder answer. Replace with your support FAQ.</p></div></div>
           </article>
         </div>
       </div>
 
       <!-- PANEL 4 -->
-      <div class="faq__panel" role="tabpanel" tabindex="0" aria-labelledby="faq-tab-4" id="faq-panel-4" hidden>
-        <!-- Same FAQ for now -->
-        <div class="faq__accordion">
+      <div class="faq__panel" role="tabpanel"
+        id="panel-technical"
+        aria-labelledby="tab-technical"
+        hidden>
+
+        <div class="faq__list">
           <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="true">
-              Do you design the websites yourself?
+            <button class="faq__question" type="button" aria-expanded="false">
+              <span class="faq__qtext">How long does a typical website take?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
-            <div class="faq__answer">
-              <p>
-                No. I specialize in coding and the development of your website. I take care of making it functional,
-                responsive, and clean under the hood. For design, I work closely with a professional UX/UI designer
-                who helps create visuals that align with your brand, goals, and industry. You get the best of both worlds:
-                a designer who makes it shine, and a developer who builds it right.
-              </p>
-            </div>
+            <div class="faq__answer"><div><p>Placeholder answer. Replace with your technical FAQ.</p></div></div>
           </article>
 
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false">
-              Will I be communicating with the designer directly?
+              <span class="faq__qtext">Do you help with content and copy?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
-            <div class="faq__answer">
-              <p>
-                You’ll communicate with me as your main point of contact. I’ll collect your feedback, translate it into
-                clear action items, and coordinate with the designer so everything stays organized and smooth.
-              </p>
-            </div>
+            <div class="faq__answer"><div><p>Placeholder answer. Replace with your technical FAQ.</p></div></div>
           </article>
 
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false">
-              Can you match an existing brand or website style?
+              <span class="faq__qtext">Can I request revisions?</span>
               <span class="faq__toggle" aria-hidden="true"></span>
             </button>
-            <div class="faq__answer">
-              <p>
-                Yes — if you already have branding, a vibe, or reference sites you love, we can use that as inspiration
-                and create something that feels aligned while still being uniquely yours.
-              </p>
-            </div>
-          </article>
-
-          <article class="faq__item">
-            <button class="faq__question" type="button" aria-expanded="false">
-              How long does the design phase usually take?
-              <span class="faq__toggle" aria-hidden="true"></span>
-            </button>
-            <div class="faq__answer">
-              <p>
-                It depends on the project scope, but most design phases take about 1–2 weeks. Larger sites or multiple
-                revision rounds may take a bit longer — but you’ll always know the timeline up front.
-              </p>
-            </div>
+            <div class="faq__answer"><div><p>Placeholder answer. Replace with your technical FAQ.</p></div></div>
           </article>
         </div>
       </div>
@@ -340,6 +268,7 @@
     </div>
   </div>
 </section>
+
 
 
 

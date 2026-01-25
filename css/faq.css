@@ -408,22 +408,27 @@ a{ color:inherit; text-decoration:none; }
 
 
 
+
+
+
+
 /* ============================
-============= FAQ ===============
+========== FAQ SECTION =========
+Tabs + Smooth Accordion
 ============================ */
+
 .faq{
   padding: clamp(70px, 8vw, 110px) 18px;
   background: transparent;
-  position: relative;
 }
 
 .faq__container{
-  width: min(1100px, 100%);
+  width: min(1200px, 100%);
   margin: 0 auto;
   text-align: center;
 }
 
-/* Pill */
+/* pill */
 .faq__pill{
   display: inline-flex;
   align-items: center;
@@ -444,13 +449,12 @@ a{ color:inherit; text-decoration:none; }
   box-shadow: 0 0 14px rgba(24,201,255,0.35);
 }
 
-/* Title */
 .faq__title{
-  margin: 16px 0 14px;
+  margin: 16px 0 18px;
   line-height: 1.05;
   letter-spacing: -0.02em;
   font-size: clamp(34px, 4.7vw, 56px);
-  color: rgba(255,255,255,0.94);
+  color: rgba(255,255,255,0.92);
 }
 
 .faq__title-accent{
@@ -460,211 +464,180 @@ a{ color:inherit; text-decoration:none; }
   color: transparent;
 }
 
-.faq__subtext{
-  margin: 0 auto 28px;
-  max-width: 900px;
-  color: rgba(255,255,255,0.70);
-  font-size: clamp(14px, 1.15vw, 18px);
-  line-height: 1.7;
-}
-
-/* Tabs */
+/* ===== Tabs ===== */
 .faq__tabs{
+  margin: 0 auto 26px;
+  width: min(1080px, 100%);
   display: flex;
-  gap: 14px;
+  gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 18px auto 26px;
 }
 
 .faq__tab{
-  appearance: none;
-  border: 1px solid rgba(255,255,255,0.22);
-  background: rgba(0,0,0,0.12);
-  color: rgba(255,255,255,0.70);
-  padding: 12px 18px;
-  border-radius: 14px;
-  font-size: 15px;
+  border: 1px solid rgba(24,201,255,0.22);
+  background: rgba(5,7,12,0.70);
+  color: rgba(255,255,255,0.78);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform 150ms ease, filter 150ms ease, background 150ms ease, border-color 150ms ease;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.faq__tab:hover{ transform: translateY(-1px); }
+.faq__tab:hover{
+  transform: translateY(-1px);
+  border-color: rgba(24,201,255,0.35);
+}
 
 .faq__tab.is-active{
-  background: linear-gradient(180deg, rgba(24,201,255,0.30), rgba(11,60,255,0.30));
-  border-color: rgba(24,201,255,0.55);
   color: rgba(255,255,255,0.92);
-  box-shadow: 0 0 22px rgba(24,201,255,0.18);
+  background-color: rgba(0, 76, 255, 0.274);
+  border-color: rgba(24,201,255,0.45);
+  box-shadow:
+    0 0 22px rgba(24,201,255,0.12),
+    inset 0 0 0 1px rgba(24,201,255,0.10);
 }
 
-.faq__tab:focus-visible{
-  outline: 2px solid rgba(24,201,255,0.65);
-  outline-offset: 3px;
-}
+/* Panels */
+.faq__panel{ display: none; }
+.faq__panel.is-active{ display: block; }
 
-/* Panel */
-.faq__panels{
+/* List */
+.faq__list{
   width: min(980px, 100%);
   margin: 0 auto;
-}
-
-.faq__panel{
+  display: grid;
+  gap: 14px;
   text-align: left;
 }
 
-.faq__panel[hidden]{ display: none; }
-
-/* Accordion cards (same inner-glow vibe as your screenshot) */
+/* ===== Accordion item ===== */
 .faq__item{
-  position: relative;
-  border-radius: 22px;
-  background: #05070c;
-  border: 1px solid rgba(0, 76, 228, 0.55);
+  border-radius: 18px;
+  border: 1px solid rgba(0, 102, 255, 0.35);
+  background: rgba(5,7,12,0.92);
   overflow: hidden;
+  position: relative;
 
   box-shadow:
-    0 0 22px rgba(24,201,255,0.18),
-    0 0 60px rgba(11,60,255,0.12),
-    0 24px 60px rgba(0,0,0,0.55);
-
-  margin-bottom: 18px;
+    0 0 22px rgba(24,201,255,0.08),
+    0 0 55px rgba(11,60,255,0.06);
 }
 
-/* inward glow layer */
-.faq__item::before{
-  content:"";
-  position:absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events:none;
-
-  background:
-    radial-gradient(120% 120% at 50% 50%,
-      rgba(0,0,0,0) 58%,
-      rgba(0,0,0,0.55) 100%),
-    linear-gradient(180deg,
-      rgba(24,201,255,0.10),
-      rgba(11,60,255,0.10));
-
-  -webkit-mask: radial-gradient(closest-side, transparent 62%, #000 100%);
-  mask: radial-gradient(closest-side, transparent 62%, #000 100%);
-
-  opacity: 0.95;
-}
-
-/* crisp inner rim */
+/* inward border glow */
 .faq__item::after{
   content:"";
   position:absolute;
-  inset: 0;
-  border-radius: inherit;
+  inset:0;
   pointer-events:none;
-
+  border-radius: inherit;
   box-shadow:
-    inset 0 0 0 1px rgba(24,201,255,0.22),
-    inset 0 0 28px rgba(24,201,255,0.14),
-    inset 0 0 70px rgba(11,60,255,0.12);
+    inset 0 0 0 1px rgba(24,201,255,0.16),
+    inset 0 0 26px rgba(24,201,255,0.10),
+    inset 0 0 70px rgba(11,60,255,0.08);
 }
 
 /* Question row */
 .faq__question{
   width: 100%;
-  border: 0;
   background: transparent;
+  border: 0;
   color: rgba(255,255,255,0.92);
-
-  display: flex;
-  align-items: center;
+  text-align: left;
+  padding: clamp(18px, 2vw, 22px);
+  display:flex;
+  align-items:center;
   justify-content: space-between;
-  gap: 20px;
-
-  padding: clamp(18px, 2.4vw, 26px);
-  font-size: clamp(18px, 2vw, 22px);
-  font-weight: 650;
+  gap: 18px;
   cursor: pointer;
-
   position: relative;
   z-index: 1;
 }
 
-.faq__question:focus-visible{
-  outline: 2px solid rgba(24,201,255,0.65);
-  outline-offset: -6px;
-  border-radius: 18px;
+.faq__qtext{
+  font-size: clamp(16px, 1.5vw, 20px);
+  font-weight: 600;
+  line-height: 1.25;
 }
 
-/* Plus/Minus icon on right */
+/* plus/minus */
 .faq__toggle{
-  width: 26px;
-  height: 26px;
+  width: 34px;
+  height: 34px;
+  display:grid;
+  place-items:center;
+  border-radius: 10px;
   position: relative;
-  flex: 0 0 26px;
+  flex: 0 0 auto;
+  color: rgba(24,201,255,0.95);
 }
 
 .faq__toggle::before,
 .faq__toggle::after{
   content:"";
   position:absolute;
-  inset: 50% auto auto 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(24,201,255,0.90);
-  border-radius: 99px;
-  box-shadow: 0 0 18px rgba(24,201,255,0.25);
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+  transition: transform 260ms ease, opacity 260ms ease;
 }
 
-/* horizontal bar */
-.faq__toggle::before{
-  width: 22px;
-  height: 3px;
-}
-
-/* vertical bar (makes the +). We hide it when expanded */
 .faq__toggle::after{
-  width: 3px;
-  height: 22px;
+  transform: rotate(90deg);
 }
 
-/* Answer */
-.faq__answer{
-  padding: 0 clamp(18px, 2.4vw, 26px) clamp(18px, 2.4vw, 26px);
-  color: rgba(255,255,255,0.70);
-  font-size: clamp(14px, 1.15vw, 18px);
-  line-height: 1.7;
+/* open -> minus */
+.faq__item.is-open .faq__toggle::after{
+  transform: rotate(90deg) scaleX(0);
+  opacity: 0;
+}
 
+/* ===== Smooth dropdown ===== */
+.faq__answer{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 380ms ease;
   position: relative;
   z-index: 1;
 }
 
-/* Collapse behavior */
-.faq__item .faq__answer{
-  display: none;
-}
-
-.faq__item.is-open .faq__answer{
-  display: block;
-}
-
-/* When open, show minus (hide the vertical bar) */
-.faq__item.is-open .faq__toggle::after{
+.faq__answer > div{
+  overflow: hidden;
+  padding: 0 clamp(18px, 2vw, 22px);
   opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 260ms ease, transform 260ms ease;
 }
 
-/* Mobile: tabs scroll nicely */
-@media (max-width: 720px){
-  .faq__tabs{
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 8px;
-    scrollbar-width: none;
-  }
-  .faq__tabs::-webkit-scrollbar{ display: none; }
-  .faq__tab{ white-space: nowrap; }
+.faq__answer p{
+  margin: 0 0 18px;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.7;
+  font-size: clamp(14px, 1.1vw, 16px);
 }
 
+/* open */
+.faq__item.is-open .faq__answer{
+  grid-template-rows: 1fr;
+}
+.faq__item.is-open .faq__answer > div{
+  opacity: 1;
+  transform: translateY(0);
+  padding-top: 4px;
+}
 
-
+/* mobile polish */
+@media (max-width: 520px){
+  .faq__tabs{ justify-content: flex-start; }
+  .faq__tab{ width: 100%; text-align: left; }
+}
 
 
 

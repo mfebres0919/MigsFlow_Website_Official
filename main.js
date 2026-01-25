@@ -31,70 +31,84 @@
 
 
 
-  /* ============================
+
+/* ============================
 =========== FAQ JS =============
-Tabs + Accordion
+Tabs + Smooth Accordion
+(ONE script only — no duplicates)
 ============================ */
 (() => {
   const tabs = Array.from(document.querySelectorAll(".faq__tab"));
   const panels = Array.from(document.querySelectorAll(".faq__panel"));
 
-  // Tabs
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const targetId = tab.getAttribute("aria-controls");
+  if (!tabs.length || !panels.length) return;
 
-      tabs.forEach(t => {
-        t.classList.remove("is-active");
-        t.setAttribute("aria-selected", "false");
-      });
+  // ---- Tabs ----
+  const activateTab = (tab) => {
+    const targetId = tab.getAttribute("aria-controls");
+    const panel = document.getElementById(targetId);
 
-      panels.forEach(p => {
-        p.classList.remove("is-active");
-        p.hidden = true;
-      });
-
-      tab.classList.add("is-active");
-      tab.setAttribute("aria-selected", "true");
-
-      const panel = document.getElementById(targetId);
-      if (panel) {
-        panel.hidden = false;
-        panel.classList.add("is-active");
-      }
+    // tabs UI
+    tabs.forEach(t => {
+      t.classList.remove("is-active");
+      t.setAttribute("aria-selected", "false");
     });
+    tab.classList.add("is-active");
+    tab.setAttribute("aria-selected", "true");
+
+    // panels UI
+    panels.forEach(p => {
+      p.classList.remove("is-active");
+      p.hidden = true;
+    });
+    if (panel) {
+      panel.hidden = false;
+      panel.classList.add("is-active");
+    }
+
+    // optional: close any open accordion items when switching tabs
+    if (panel) {
+      panel.querySelectorAll(".faq__item").forEach(item => {
+        item.classList.remove("is-open");
+        const btn = item.querySelector(".faq__question");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      });
+    }
+  };
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => activateTab(tab));
   });
 
-  // Accordion (works inside every panel)
-  const allItems = Array.from(document.querySelectorAll(".faq__item"));
+  // ensure first tab/panel state is correct on load
+  const initiallyActive = tabs.find(t => t.classList.contains("is-active")) || tabs[0];
+  activateTab(initiallyActive);
 
-  allItems.forEach((item) => {
-    const btn = item.querySelector(".faq__question");
-    const answer = item.querySelector(".faq__answer");
-    if (!btn || !answer) return;
+  // ---- Accordion (event delegation) ----
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".faq__question");
+    if (!btn) return;
 
-    // initial open state
-    const expanded = btn.getAttribute("aria-expanded") === "true";
-    item.classList.toggle("is-open", expanded);
+    const item = btn.closest(".faq__item");
+    const panel = btn.closest(".faq__panel");
+    if (!item || !panel) return;
 
-    btn.addEventListener("click", () => {
-      const isOpen = item.classList.contains("is-open");
+    const isOpen = item.classList.contains("is-open");
 
-      // Close all in the CURRENT panel (keeps it clean like your screenshot)
-      const panel = item.closest(".faq__panel");
-      if (panel) {
-        panel.querySelectorAll(".faq__item").forEach((sibling) => {
-          sibling.classList.remove("is-open");
-          const b = sibling.querySelector(".faq__question");
-          if (b) b.setAttribute("aria-expanded", "false");
-        });
-      }
-
-      // Toggle this one
-      if (!isOpen) {
-        item.classList.add("is-open");
-        btn.setAttribute("aria-expanded", "true");
-      }
+    // close others in THIS panel
+    panel.querySelectorAll(".faq__item").forEach(sibling => {
+      sibling.classList.remove("is-open");
+      const b = sibling.querySelector(".faq__question");
+      if (b) b.setAttribute("aria-expanded", "false");
     });
+
+    // toggle this one (allow close on second click)
+    if (!isOpen) {
+      item.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+    } else {
+      item.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    }
   });
 })();

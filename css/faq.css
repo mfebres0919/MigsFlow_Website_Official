@@ -214,6 +214,7 @@ a{ color:inherit; text-decoration:none; }
 
 .nav__link.is-active{
   color: var(--text);
+  font-weight: bold;
 }
 .nav__link.is-active::after{
   content:"";

@@ -1,6 +1,7 @@
 html, body{
   width: 100%;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body{
@@ -495,7 +496,7 @@ body{
 }
 
 .about__portrait{
-  width: clamp(375px, 38vw, 520px);
+  width: clamp(365px, 38vw, 520px);
   aspect-ratio: 1 / 1;
   border-radius: 999px;
   overflow: hidden;

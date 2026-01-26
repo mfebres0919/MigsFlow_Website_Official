@@ -1,6 +1,7 @@
 html, body{
   width: 100%;
   overflow-x: hidden; /* or: overflow-x: clip; */
+  scroll-behavior: smooth;
 }
 
 
@@ -474,7 +475,6 @@ Smooth accordion animation
   line-height: 1.7;
 }
 
-/* ✅ THIS IS THE IMPORTANT PART:
    faq__shell sets ONE shared width for tabs + questions */
 .faq__shell{
   width: min(1100px, 100%);
@@ -731,7 +731,6 @@ Tabs (super smooth) + Smooth Accordion
   border-radius: clamp(26px, 3vw, 46px);
   text-align: center;
 
-  /* ✅ add this */
   background:
     /* bottom light-blue glow */
     radial-gradient(900px 700px at 50% 105%,
@@ -761,7 +760,7 @@ Tabs (super smooth) + Smooth Accordion
 }
 
 
-/* ✅ CORNER VECTORS */
+/* CORNER VECTORS */
 .cta__card::before{
   content:"";
   position:absolute;
@@ -771,8 +770,8 @@ Tabs (super smooth) + Smooth Accordion
 
   /* CHANGE THIS PATH ONLY if needed */
   background-image:
-    url("images/vectors/code-symbol.svg"),
-    url("images/vectors/code-symbol.svg");
+    url("../images/vectors/code-symbol.svg"),
+    url("../images/vectors/code-symbol.svg");
 
   background-repeat: no-repeat, no-repeat;
 
@@ -781,7 +780,7 @@ Tabs (super smooth) + Smooth Accordion
     right -30px top -30px,
     left -40px bottom -40px;
 
-  /* ✅ FIXED clamp order (min < max) + smaller sizes */
+  /* FIXED clamp order (min < max) + smaller sizes */
   background-size:
     clamp(120px, 16vw, 190px),
     clamp(170px, 22vw, 100px);

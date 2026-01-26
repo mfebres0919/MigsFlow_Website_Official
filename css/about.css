@@ -563,12 +563,6 @@ a{ color:inherit; text-decoration:none; }
 
   .about__media {order: 2;}
 
-      .about__portrait {
-    width: clamp(505px, 38vw, 520px);
-  }
-
-
-
 }
 
 
@@ -599,8 +593,8 @@ a{ color:inherit; text-decoration:none; }
     text-align: left;
   }
 
-    .about__portrait {
-    width: clamp(505px, 38vw, 720px);
+  .about__portrait {
+    width: clamp(505px, 38vw, 520px);
   }
 }
 

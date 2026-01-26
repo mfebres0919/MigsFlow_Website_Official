@@ -1,6 +1,5 @@
 html, body{
   width: 100%;
-  overflow-x: hidden; /* or: overflow-x: clip; */
   scroll-behavior: smooth;
 }
 
@@ -76,7 +75,7 @@ body{
     #000;
 }
 
-/* ✅ smaller screens: push that hotspot further right */
+/* smaller screens: push that hotspot further right */
 @media (max-width: 600px){
   body{
     background:
@@ -149,7 +148,12 @@ a{ color:inherit; text-decoration:none; }
   padding: 34px 18px;
   display:flex;
   justify-content:center;
+
+  position: sticky;
+  top: 0;
+  z-index: 99999;
 }
+
 
 .nav{
   width: min(1100px, 100%);
@@ -234,14 +238,15 @@ a{ color:inherit; text-decoration:none; }
 /* CTA button (right) */
 .nav__cta{
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 
   display:inline-flex;
   align-items:center;
   gap: 8px;
 
   padding: 10px 14px;
-  height: calc(var(--nav-h) - 16px);
+  height: auto;
+  min-height: calc(var(--nav-h) - 16px);
   border-radius: 999px;
 
   color: var(--btn-white);

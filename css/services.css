@@ -1,6 +1,5 @@
 html, body{
   width: 100%;
-  overflow-x: hidden; /* or: overflow-x: clip; */
   scroll-behavior: smooth;
 }
 
@@ -146,6 +145,10 @@ a{ color:inherit; text-decoration:none; }
   padding: 34px 18px;
   display:flex;
   justify-content:center;
+
+  position: sticky;
+  top: 0;
+  z-index: 99999;
 }
 
 .nav{

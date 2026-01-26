@@ -5,7 +5,7 @@ html, body { min-height: 100%;
 body{
   margin: 0;
   position: relative; /* needed for layering */
-  overflow: hidden;
+  overflow-x: hidden;
 
 
 

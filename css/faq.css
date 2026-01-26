@@ -1,4 +1,8 @@
-html, body { min-height: 100%; }
+html, body{
+  width: 100%;
+  overflow-x: hidden; /* or: overflow-x: clip; */
+}
+
 
 body{
   margin: 0;

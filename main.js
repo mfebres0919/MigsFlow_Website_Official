@@ -30,32 +30,27 @@
 
 
 
-
 /* ============================
 =========== FAQ JS ============
-Tabs + Smooth Accordion
-(ONE script only)
+Tabs (smooth fade in/out) + Smooth Accordion
 ============================ */
 (() => {
   const tabs = Array.from(document.querySelectorAll(".faq__tab"));
   const panels = Array.from(document.querySelectorAll(".faq__panel"));
-
   if (!tabs.length || !panels.length) return;
 
-  // Helper: close all items inside a given panel
+  // Close all items inside a panel
   function closeAllInPanel(panel) {
     panel.querySelectorAll(".faq__item").forEach((item) => {
       item.classList.remove("is-open");
-
       const btn = item.querySelector(".faq__question");
       const ans = item.querySelector(".faq__answer");
-
       if (btn) btn.setAttribute("aria-expanded", "false");
       if (ans) ans.style.maxHeight = "0px";
     });
   }
 
-  // Helper: open one item
+  // Open one item smoothly
   function openItem(item) {
     const btn = item.querySelector(".faq__question");
     const ans = item.querySelector(".faq__answer");
@@ -64,14 +59,14 @@ Tabs + Smooth Accordion
     item.classList.add("is-open");
     btn.setAttribute("aria-expanded", "true");
 
-    // force recalculation + animate
+    // reset then expand
     ans.style.maxHeight = "0px";
     requestAnimationFrame(() => {
       ans.style.maxHeight = ans.scrollHeight + "px";
     });
   }
 
-  // Helper: refresh open heights (important after switching tabs)
+  // Keep open answers sized correctly (helps after panel animations)
   function refreshOpenHeights(panel) {
     panel.querySelectorAll(".faq__item.is-open").forEach((item) => {
       const ans = item.querySelector(".faq__answer");
@@ -79,34 +74,37 @@ Tabs + Smooth Accordion
     });
   }
 
-  // ---------- Tabs ----------
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const targetId = tab.getAttribute("aria-controls");
-      const targetPanel = document.getElementById(targetId);
-      if (!targetPanel) return;
+  // Switch active tab/panel
+  function activateTab(tab) {
+    const targetId = tab.getAttribute("aria-controls");
+    const targetPanel = document.getElementById(targetId);
+    if (!targetPanel) return;
 
-      // tab active state
-      tabs.forEach((t) => {
-        t.classList.remove("is-active");
-        t.setAttribute("aria-selected", "false");
-      });
-      tab.classList.add("is-active");
-      tab.setAttribute("aria-selected", "true");
-
-      // show/hide panels
-      panels.forEach((p) => {
-        const isTarget = p === targetPanel;
-        p.hidden = !isTarget;
-        p.classList.toggle("is-active", isTarget);
-      });
-
-      // if a panel has an open item, it needs height recalculated AFTER it's visible
-      requestAnimationFrame(() => refreshOpenHeights(targetPanel));
+    // tabs UI
+    tabs.forEach((t) => {
+      t.classList.remove("is-active");
+      t.setAttribute("aria-selected", "false");
     });
-  });
+    tab.classList.add("is-active");
+    tab.setAttribute("aria-selected", "true");
 
-  // ---------- Accordion (event delegation) ----------
+    // panels UI (no display none)
+    panels.forEach((p) => {
+      const isTarget = p === targetPanel;
+      p.classList.toggle("is-active", isTarget);
+
+      // optional: close accordion when leaving a panel
+      if (!isTarget) closeAllInPanel(p);
+    });
+
+    // after panel becomes visible, ensure heights are correct
+    requestAnimationFrame(() => refreshOpenHeights(targetPanel));
+  }
+
+  // Tabs events
+  tabs.forEach((tab) => tab.addEventListener("click", () => activateTab(tab)));
+
+  // Accordion event delegation
   document.addEventListener("click", (e) => {
     const btn = e.target.closest(".faq__question");
     if (!btn) return;
@@ -117,14 +115,14 @@ Tabs + Smooth Accordion
 
     const isOpen = item.classList.contains("is-open");
 
-    // close others in the same panel (your screenshot behavior)
+    // close siblings in same panel
     closeAllInPanel(panel);
 
     // toggle this one
     if (!isOpen) openItem(item);
   });
 
-  // ---------- Init: set all answers closed except any aria-expanded="true" ----------
+  // Init answers (set correct max-height for any pre-opened)
   panels.forEach((panel) => {
     panel.querySelectorAll(".faq__item").forEach((item) => {
       const btn = item.querySelector(".faq__question");
@@ -132,7 +130,6 @@ Tabs + Smooth Accordion
       if (!btn || !ans) return;
 
       const expanded = btn.getAttribute("aria-expanded") === "true";
-
       if (expanded) {
         item.classList.add("is-open");
         ans.style.maxHeight = ans.scrollHeight + "px";
@@ -142,4 +139,10 @@ Tabs + Smooth Accordion
       }
     });
   });
+
+  // Default active tab if none selected
+  const activeTab =
+    tabs.find((t) => t.classList.contains("is-active")) || tabs[0];
+
+  activateTab(activeTab);
 })();

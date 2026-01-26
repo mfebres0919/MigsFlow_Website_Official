@@ -640,6 +640,69 @@ Smooth accordion animation
   }
 }
 
+/* ============================
+=========== FAQ CSS ============
+Tabs (super smooth) + Smooth Accordion
+============================ */
+
+/* ---- PANELS: no display none; use visibility for smoothness ---- */
+.faq__panel {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 360ms ease, transform 360ms ease;
+  will-change: opacity, transform;
+
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+}
+
+/* active panel */
+.faq__panel.is-active {
+  opacity: 1;
+  transform: translateY(0);
+
+  visibility: visible;
+  pointer-events: auto;
+  height: auto;
+  overflow: visible;
+}
+
+/* optional: slightly reduce blur artifacts during anim */
+.faq__panel,
+.faq__panel * {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* ---- ACCORDION smooth drop ---- */
+.faq__answer {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 360ms ease;
+}
+
+.faq__answer-inner {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.faq__item.is-open .faq__answer-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Plus/Minus icon animation (optional) ---- */
+.faq__icon {
+  transition: transform 240ms ease, opacity 240ms ease;
+  transform-origin: center;
+}
+
+.faq__item.is-open .faq__icon {
+  transform: rotate(180deg);
+}
 
 
 

@@ -1,9 +1,11 @@
-html, body { min-height: 100%; }
+html, body { min-height: 100%; 
+  overflow-x: hidden;
+}
 
 body{
   margin: 0;
   position: relative; /* needed for layering */
-  overflow-x: hidden;
+  overflow: hidden;
 
 
 

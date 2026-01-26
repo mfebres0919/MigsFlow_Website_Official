@@ -3,7 +3,7 @@ html, body { min-height: 100%; }
 body{
   margin: 0;
   position: relative; /* needed for layering */
-  overflow-x: hidden;
+  overflow: hidden;
 
 
   background:

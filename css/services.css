@@ -6,6 +6,7 @@ html, body{
 
 body{
   margin: 0;
+  padding-top: 65px;
   position: relative; /* needed for layering */
 
 
@@ -97,6 +98,18 @@ body{
       /* move it more off-screen to the right */
       radial-gradient(700px 780px at 100% 32%,
         rgba(121, 183, 255, 0.402),
+        rgba(27, 120, 255, 0) 62%
+      ),
+
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 100% 55%,
+        rgba(0, 54, 180, 0.606),
+        rgba(27, 120, 255, 0) 62%
+      ),
+
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 0% 75%,
+        rgba(0, 15, 180, 0.576),
         rgba(27, 120, 255, 0) 62%
       ),
 
@@ -1272,4 +1285,123 @@ a{ color:inherit; text-decoration:none; }
   .footer__hero{
     padding: 26px 0 10px;
   }
+}
+
+
+
+
+/* ============================= */
+/* ===== WHY SECTION BUBBLES ==== */
+/* ============================= */
+
+.why{
+  position: relative;
+  overflow: hidden; /* prevents horizontal scroll from off-screen bubbles */
+}
+
+/* Bubble layer (behind content) */
+.why .why__bubbles{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content above bubbles */
+.why__container{
+  position: relative;
+  z-index: 2;
+}
+
+/* Base bubble style: black center (transparent fill) + neon blue ring */
+.why .why__bubbles .bubble{
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+
+  background: transparent; /* NOT filled */
+  border: 2px solid rgba(24,201,255,0.75);
+
+  box-shadow:
+    0 0 18px rgba(24,201,255,0.45),
+    0 0 45px rgba(11,60,255,0.35),
+    0 0 90px rgba(11,60,255,0.22);
+
+  /* subtle inner neon rim */
+  outline: 1px solid rgba(11,60,255,0.35);
+  outline-offset: -10px;
+
+  filter: saturate(1.15);
+
+  animation: bubbleFloat 10s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* LEFT bubbles */
+.why .why__bubbles .bubble--l1{
+  width: 260px;
+  height: 260px;
+  left: -135px;
+  top: 14%;
+  animation-duration: 12s;
+}
+
+.why .why__bubbles .bubble--l2{
+  width: 170px;
+  height: 170px;
+  left: -80px;
+  top: 52%;
+  animation-duration: 9.5s;
+  animation-delay: -2s;
+}
+
+.why .why__bubbles .bubble--l3{
+  width: 120px;
+  height: 120px;
+  left: -55px;
+  top: 78%;
+  animation-duration: 8.5s;
+  animation-delay: -1.5s;
+}
+
+/* RIGHT bubbles */
+.why .why__bubbles .bubble--r1{
+  width: 280px;
+  height: 280px;
+  right: -150px;
+  top: 22%;
+  animation-duration: 13s;
+  animation-delay: -3s;
+}
+
+.why .why__bubbles .bubble--r2{
+  width: 170px;
+  height: 170px;
+  right: -85px;
+  top: 72%;
+  animation-duration: 10s;
+  animation-delay: -1s;
+}
+
+/* Float motion */
+@keyframes bubbleFloat{
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(18px, -26px, 0) scale(1.03); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Mobile: shrink bubbles */
+@media (max-width: 600px){
+  .why .why__bubbles .bubble--l1{ width: 210px; height: 210px; left: -120px; top: 12%; }
+  .why .why__bubbles .bubble--r1{ width: 220px; height: 220px; right: -125px; top: 22%; }
+
+  .why .why__bubbles .bubble--l2{ width: 140px; height: 140px; left: -75px; top: 55%; }
+  .why .why__bubbles .bubble--r2{ width: 140px; height: 140px; right: -75px; top: 74%; }
+
+  .why .why__bubbles .bubble--l3{ width: 105px; height: 105px; left: -60px; top: 82%; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .why .why__bubbles .bubble{ animation: none; }
 }

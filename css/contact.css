@@ -9,6 +9,7 @@ body{
   margin: 0;
   position: relative; /* needed for layering */
   overflow-x: hidden;
+  padding-top: 65px;
 
 
   background:
@@ -740,7 +741,7 @@ a{ color:inherit; text-decoration:none; }
 
 @media (max-width: 520px){
   .contact{
-    padding: 60px 14px;
+    padding: 60px 25px;
   }
   .contact__info-card,
   .contact__hours{

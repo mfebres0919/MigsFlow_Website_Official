@@ -105,6 +105,40 @@ body{
         rgba(27, 120, 255, 0) 62%
       ),
 
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 0% 42%,
+        rgba(0, 85, 182, 0.402),
+        rgba(27, 120, 255, 0) 62%
+      ),      
+
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 100% 50%,
+        rgba(0, 85, 182, 0.402),
+        rgba(27, 120, 255, 0) 62%
+      ),      
+
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 0% 65%,
+        rgba(0, 112, 241, 0.402),
+        rgba(27, 120, 255, 0) 62%
+      ), 
+      
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 100% 80%,
+        rgba(0, 112, 241, 0.402),
+        rgba(27, 120, 255, 0) 62%
+      ),    
+      
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 0% 85%,
+        rgba(0, 112, 241, 0.402),
+        rgba(27, 120, 255, 0) 62%
+      ),    
+            
+
+
+
+
       #000;
   }
 }
@@ -164,7 +198,7 @@ a{ color:inherit; text-decoration:none; }
 
 /* IMPORTANT: prevent your page content from hiding under the fixed nav */
 body{
-  padding-top: 120px; /* adjust if your nav is taller/shorter */
+  padding-top: 105px; /* adjust if your nav is taller/shorter */
 }
 
 
@@ -597,7 +631,8 @@ body{
 
   .about__content {
     order: 1;
-    padding-right: 2rem;
+    /* padding-right: 2rem; */
+    text-align: center;
   }
   .about__media {order: 2;}
 
@@ -628,7 +663,7 @@ body{
 /* ============================= */
 
 .why{
-  padding: clamp(10px, 8vw, 110px) 3rem;
+  padding: clamp(10px, 8vw, 10px) 1.5rem;
   background: transparent; /* IMPORTANT: no section background */
   position: relative;
   overflow: hidden; /* keeps svg clean inside section */
@@ -874,7 +909,7 @@ body{
 
 .approach{
   position: relative;
-  padding: clamp(70px, 8vw, 120px) 18px;
+  padding: clamp(70px, 8vw, 120px) 1.5rem;
   background: transparent;
   overflow: hidden;
 }
@@ -1174,6 +1209,10 @@ body{
 .card-1 > *{
   position: relative;
   z-index: 1;
+}
+
+.card-1 p {
+  line-height: 1.5rem;
 }
 
 .card-content {
@@ -1641,4 +1680,120 @@ body{
   top: 50%;
   position: relative;
   z-index: 10;
+}
+
+
+
+/* ================================ */
+/* ===== APPROACH: NEON BUBBLES === */
+/* ================================ */
+
+.approach{
+  position: relative;
+  overflow: hidden; /* prevents horizontal scroll from off-screen bubbles */
+}
+
+/* Put bubbles behind content but above any section background */
+.approach .why__bubbles{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure your content stays above bubbles */
+.approach__container{
+  position: relative;
+  z-index: 2;
+}
+
+/* Base bubble style: black center (transparent fill) + neon ring glow */
+.approach .why__bubbles .bubble{
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+
+  background: transparent; /* NOT filled */
+  border: 2px solid rgba(24,201,255,0.75);
+
+  box-shadow:
+    0 0 18px rgba(24,201,255,0.45),
+    0 0 45px rgba(11,60,255,0.35),
+    0 0 90px rgba(11,60,255,0.22);
+
+  outline: 1px solid rgba(11,60,255,0.35);
+  outline-offset: -10px;
+
+  filter: saturate(1.15);
+
+  animation: bubbleFloat 10s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* LEFT bubbles */
+.approach .why__bubbles .bubble--l1{
+  width: 240px;
+  height: 240px;
+  left: -120px;
+  top: 18%;
+  animation-duration: 12s;
+}
+
+.approach .why__bubbles .bubble--l2{
+  width: 150px;
+  height: 150px;
+  left: -70px;
+  top: 52%;
+  animation-duration: 9s;
+  animation-delay: -2s;
+}
+
+.approach .why__bubbles .bubble--l3{
+  width: 150px;
+  height: 150px;
+  left: -70px;
+  top: 85%;
+  animation-duration: 9s;
+  animation-delay: -2s;
+}
+
+
+/* RIGHT bubbles */
+.approach .why__bubbles .bubble--r1{
+  width: 260px;
+  height: 260px;
+  right: -130px;
+  top: 28%;
+  animation-duration: 13s;
+  animation-delay: -3s;
+}
+
+.approach .why__bubbles .bubble--r2{
+  width: 170px;
+  height: 170px;
+  right: -85px;
+  top: 70%;
+  animation-duration: 10s;
+  animation-delay: -1s;
+}
+
+/* Float motion */
+@keyframes bubbleFloat{
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(18px, -26px, 0) scale(1.03); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Mobile: shrink bubbles */
+@media (max-width: 600px){
+  .approach .why__bubbles .bubble--l1{ width: 190px; height: 190px; left: -105px; }
+  .approach .why__bubbles .bubble--r1{ width: 200px; height: 200px; right: -110px; }
+  .approach .why__bubbles .bubble--l2{ width: 185px; height: 185px; left: -75px; }
+  .approach .why__bubbles .bubble--l3{ width: 180px; height: 180px; left: -70px; top: 85%; }
+  .approach .why__bubbles .bubble--r2{ width: 140px; height: 140px; right: -85px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .approach .why__bubbles .bubble{ animation: none; }
 }

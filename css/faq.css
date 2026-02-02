@@ -9,6 +9,7 @@ body{
   margin: 0;
   position: relative; /* needed for layering */
   overflow-x: hidden;
+  padding-top: 65px;
 
 
   background:
@@ -96,6 +97,17 @@ body{
         rgba(27, 120, 255, 0) 62%
       ),
 
+      /* move it more off-screen to the right */
+      radial-gradient(300px 380px at 0% 40%,
+        rgba(0, 108, 231, 0.402),
+        rgba(27, 120, 255, 0) 62%
+      ),
+
+      /* move it more off-screen to the right */
+      radial-gradient(700px 780px at 100% 60%,
+        rgba(0, 108, 231, 0.709),
+        rgba(27, 120, 255, 0) 62%
+      ),
 
 
       #000;

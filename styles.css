@@ -15,53 +15,53 @@ body{
 
     /* bright blue glow (main hotspot) */
     radial-gradient(1100px 780px at 110% 4%,
-      rgba(0, 104, 231, 0.62),
+      rgba(0, 112, 231, 0.62),
       rgba(27, 120, 255, 0) 62%
     ),
 
     /* bright blue glow (main hotspot) */
     radial-gradient(100px 80px at 110% 10%,
-      rgba(0, 51, 147, 0.62),
+      rgba(0, 112, 231, 0.62),
       rgba(27, 120, 255, 0) 62%
     ),
 
 
       
     /* bright blue glow (main hotspot) */
-    radial-gradient(1100px 780px at 0% 45%,
+    radial-gradient(900px 780px at -10% 45%,
       rgba(0, 112, 231, 0.62),
       rgba(217, 255, 27, 0) 62%
     ),
 
     /* bright blue glow (main hotspot) */
-    radial-gradient(1100px 780px at -15% 15%,
+    radial-gradient(800px 780px at 0% 15%,
       rgba(0, 112, 231, 0.62),
       rgba(27, 120, 255, 0) 62%
     ),
 
     /* deep blue wash (adds depth behind the hotspot) */
-    radial-gradient(500px 500px at 105% 30%,
-      rgba(0, 143, 225, 0.45),
+    radial-gradient(500px 600px at 100% 30%,
+      rgba(0, 112, 231, 0.62),
       rgba(10, 55, 170, 0) 70%
     ),
 
 
     /* deep blue wash (adds depth behind the hotspot) */
-    radial-gradient(500px 500px at 3% 40%,
-      rgba(7, 189, 255, 0.235),
+    radial-gradient(500px 500px at -10% 40%,
+      rgba(0, 112, 231, 0.62),
       rgba(10, 55, 170, 0) 70%
     ),
 
 
     /* deep blue wash (adds depth behind the hotspot) */
     radial-gradient(500px 500px at 100% 60%,
-      rgba(7, 189, 255, 0.235),
+      rgba(0, 112, 231, 0.62),
       rgba(10, 55, 170, 0) 70%
     ),
 
             /* deep blue wash (adds depth behind the hotspot) */
     radial-gradient(500px 500px at 0% 70%,
-      rgba(7, 189, 255, 0.235),
+      rgba(0, 112, 231, 0.62),
       rgba(10, 55, 170, 0) 70%
     ),
 
@@ -751,6 +751,138 @@ a{ color:inherit; text-decoration:none; }
 }
 
 
+/* ============================= */
+/* HERO STAR FIELD */
+/* ============================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* star layer behind content */
+.star-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* make sure hero content sits above stars */
+.hero > *:not(.star-field) {
+  position: relative;
+  z-index: 1;
+}
+
+/* individual stars */
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ffffff;
+
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.8),
+    0 0 12px rgba(190, 220, 255, 0.7),
+    0 0 22px rgba(170, 200, 255, 0.6);
+
+  opacity: 0.25;
+  animation: starFlicker 4s ease-in-out infinite;
+}
+
+@keyframes starFlicker {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+/* star positions */
+.star-field .star:nth-child(1)  { top: 10%; left: 15%; animation-delay: 0.2s; }
+.star-field .star:nth-child(2)  { top: 18%; left: 60%; animation-delay: 1.1s; }
+.star-field .star:nth-child(3)  { top: 25%; left: 35%; animation-delay: 2.4s; }
+.star-field .star:nth-child(4)  { top: 30%; left: 80%; animation-delay: 0.7s; }
+.star-field .star:nth-child(5)  { top: 38%; left: 20%; animation-delay: 3.2s; }
+
+.star-field .star:nth-child(6)  { top: 45%; left: 50%; animation-delay: 1.8s; }
+.star-field .star:nth-child(7)  { top: 52%; left: 72%; animation-delay: 0.4s; }
+.star-field .star:nth-child(8)  { top: 58%; left: 28%; animation-delay: 2.7s; }
+.star-field .star:nth-child(9)  { top: 65%; left: 10%; animation-delay: 1.3s; }
+.star-field .star:nth-child(10) { top: 68%; left: 90%; animation-delay: 3.6s; }
+
+.star-field .star:nth-child(11) { top: 75%; left: 42%; animation-delay: 0.9s; }
+.star-field .star:nth-child(12) { top: 82%; left: 65%; animation-delay: 2.1s; }
+.star-field .star:nth-child(13) { top: 85%; left: 18%; animation-delay: 3.9s; }
+.star-field .star:nth-child(14) { top: 88%; left: 78%; animation-delay: 1.6s; }
+.star-field .star:nth-child(15) { top: 92%; left: 33%; animation-delay: 0.3s; }
+
+.star-field .star:nth-child(16) { top: 12%; left: 90%; animation-delay: 2.9s; }
+.star-field .star:nth-child(17) { top: 22%; left: 5%;  animation-delay: 1.5s; }
+.star-field .star:nth-child(18) { top: 40%; left: 95%; animation-delay: 3.1s; }
+.star-field .star:nth-child(19) { top: 55%; left: 5%;  animation-delay: 0.6s; }
+.star-field .star:nth-child(20) { top: 70%; left: 85%; animation-delay: 2.0s; }
+
+
+/* ============================= */
+/* SHOOTING STARS */
+/* keep these if you already use them */
+/* ============================= */
+
+.shooting-star {
+  position: absolute;
+  width: 140px;
+  height: 2px;
+  border-radius: 999px;
+  opacity: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,0));
+  filter: blur(0.2px);
+  transform: rotate(-20deg);
+  animation: shoot 5s linear infinite;
+}
+
+.shooting-star-1 {
+  top: 20%;
+  left: -30%;
+  animation-delay: 14s;
+}
+
+.shooting-star-2 {
+  top: 55%;
+  left: -40%;
+  animation-delay: 10s;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-20deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(140vw) translateY(35vh) rotate(-20deg);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
 
 /* ===== WHO I WORK WITH SECTION (MOBILE-FIRST) ===== */
 :root{
@@ -1272,16 +1404,16 @@ a{ color:inherit; text-decoration:none; }
 .why__bubbles .bubble--l1{
   width: 240px;
   height: 240px;
-  left: -120px;
-  top: 18%;
+  left: 100px;
+  top: 28%;
   animation-duration: 12s;
 }
 
 .why__bubbles .bubble--l2{
   width: 150px;
   height: 150px;
-  left: -70px;
-  top: 62%;
+  left: 110px;
+  top: 72%;
   animation-duration: 9s;
   animation-delay: -2s;
 }
@@ -1290,8 +1422,8 @@ a{ color:inherit; text-decoration:none; }
 .why__bubbles .bubble--r1{
   width: 260px;
   height: 260px;
-  right: -130px;
-  top: 28%;
+  right: 100px;
+  top: 48%;
   animation-duration: 13s;
   animation-delay: -3s;
 }
@@ -1299,8 +1431,8 @@ a{ color:inherit; text-decoration:none; }
 .why__bubbles .bubble--r2{
   width: 170px;
   height: 170px;
-  right: -85px;
-  top: 70%;
+  right: 100px;
+  top: 85%;
   animation-duration: 10s;
   animation-delay: -1s;
 }
@@ -1326,7 +1458,45 @@ a{ color:inherit; text-decoration:none; }
 }
 
 
+@media (min-width: 2000px) {
 
+/* LEFT bubbles */
+.why__bubbles .bubble--l1{
+  width: 240px;
+  height: 240px;
+  left: 400px;
+  top: 28%;
+  animation-duration: 12s;
+}
+
+.why__bubbles .bubble--l2{
+  width: 150px;
+  height: 150px;
+  left: 450px;
+  top: 72%;
+  animation-duration: 9s;
+  animation-delay: -2s;
+}
+
+/* RIGHT bubbles */
+.why__bubbles .bubble--r1{
+  width: 260px;
+  height: 260px;
+  right: 380px;
+  top: 48%;
+  animation-duration: 13s;
+  animation-delay: -3s;
+}
+
+.why__bubbles .bubble--r2{
+  width: 170px;
+  height: 170px;
+  right: 450px;
+  top: 78%;
+  animation-duration: 10s;
+  animation-delay: -1s;
+}
+}
 
 
 /* =============================== */

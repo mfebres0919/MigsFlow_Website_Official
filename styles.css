@@ -8,7 +8,7 @@ body{
   margin: 0;
   position: relative; /* needed for layering */
   overflow-x: hidden;
-  padding-top: 45px;
+  padding-top: 10px;
 
 
   background:

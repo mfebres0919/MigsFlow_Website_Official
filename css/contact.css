@@ -754,7 +754,7 @@ a{ color:inherit; text-decoration:none; }
 
 @media (max-width: 520px){
   .contact{
-    padding: 60px 25px;
+    padding: 60px 12px;
   }
   .contact__info-card,
   .contact__hours{

@@ -723,15 +723,28 @@ a{ color:inherit; text-decoration:none; }
     grid-template-columns: 1fr;
   }
 
+  /* kill the 50% divider on mobile */
   .contact__panel::after{
+    content: none;
+  }
+
+  /* add a real divider between the stacked sections */
+  .contact__form-wrap{
+    border-top: 1px solid rgba(0, 76, 228, 0.55);
+    padding-top: clamp(22px, 3vw, 34px);
+    margin-top: 0; /* just in case */
+    position: relative;
+  }
+
+  /* optional glow like your original divider */
+  .contact__form-wrap::before{
+    content:"";
+    position:absolute;
     left: 0;
     right: 0;
-    top: 50%;
-    bottom: auto;
-
+    top: 0;
     height: 1px;
-    width: auto;
-
+    pointer-events: none;
     background: rgba(0, 76, 228, 0.55);
     box-shadow:
       0 0 18px rgba(24,201,255,0.35),

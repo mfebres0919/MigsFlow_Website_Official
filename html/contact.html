@@ -58,19 +58,19 @@
 <!-- ============================
 ========= CONTACT SECTION ========
 ============================= -->
-<section class="contact" id="contact">
-  <div class="contact__container">
+<section class="contact fade-section" id="contact">
+  <div class="contact__container fade-on-load">
 
-    <div class="contact__pill">
+    <div class="contact__pill fade-on-load">
       <span class="contact__dot" aria-hidden="true"></span>
-      <span class="poppins" >Get In Touch</span>
+      <span class="poppins">Get In Touch</span>
     </div>
 
-    <h2 class="contact__title">
+    <h2 class="contact__title fade-on-load">
       <span class="contact__title-accent">Let’s</span> Connect
     </h2>
 
-    <p class="contact__subtext">
+    <p class="contact__subtext fade-on-load">
       Whether you’re ready to get started or just have a few questions, feel free to reach out.<br>
       I’d be happy to learn more about your business and how I can help.
     </p>
@@ -78,48 +78,48 @@
     <div class="contact__panel">
 
       <!-- LEFT SIDE (INFO) -->
-      <aside class="contact__info" aria-label="Contact details">
+      <aside class="contact__info fade-on-load" aria-label="Contact details">
 
-        <h3 class="contact__info-title">Get in Touch</h3>
+        <h3 class="contact__info-title fade-on-load">Get in Touch</h3>
 
-        <div class="contact__info-card">
+        <div class="contact__info-card fade-on-load">
           <div class="contact__info-label">Email</div>
 
           <div class="contact__info-row">
             <span class="contact__info-icon" aria-hidden="true">
-                <img src="../images/icons/mail.svg" alt="">
+              <img src="../images/icons/mail.svg" alt="">
             </span>
             <a class="contact__info-link" href="mailto:migsflow@outlook.com">migsflow@outlook.com</a>
           </div>
         </div>
 
-        <div class="contact__info-card">
+        <div class="contact__info-card fade-on-load">
           <div class="contact__info-label">Phone Number</div>
 
           <div class="contact__info-row">
             <span class="contact__info-icon" aria-hidden="true">
-                <img src="../images/icons/mail.svg" alt="">
+              <img src="../images/icons/mail.svg" alt="">
             </span>
             <a class="contact__info-link" href="tel:18323480539">832–348–0539</a>
           </div>
         </div>
 
-        <div class="contact__info-card">
-          <div class="contact__info-label">Address</div>
+        <div class="contact__info-card fade-on-load">
+          <div class="contact__info-label">Based In</div>
           <div class="contact__info-row">
             <span class="contact__info-icon" aria-hidden="true">
-                <img src="../images/icons/pin.svg" alt="">
+              <img src="../images/icons/pin.svg" alt="">
             </span>
             <p class="contact__info-text">
-              21000 Southbank St. Ste 106 # 380, Sterling, VA 20165
+              Charleston, SC
             </p>
           </div>
         </div>
 
-        <div class="contact__hours">
+        <div class="contact__hours fade-on-load">
           <div class="contact__hours-title">Service Hours :</div>
           <p class="contact__hours-text">
-            Monday–Friday, 2:30 PM EST – 6:30 PM EST &amp;<br>
+            Monday–Friday, 2:30 PM EST – 6:30 PM EST<br>
             Saturday 12 PM EST – 6 PM EST
           </p>
         </div>
@@ -127,107 +127,126 @@
       </aside>
 
       <!-- RIGHT SIDE (FORM) -->
-      <div class="contact__form-wrap">
+      <div class="contact__form-wrap fade-on-load">
         <!-- Formspree compatible -->
-        <form class="contact__form" action="https://formspree.io/f/YOURENDPOINT" method="POST">
-          <label class="contact__label" for="firstName">First Name</label>
-          <input class="contact__input" id="firstName" name="firstName" type="text" placeholder="Enter your name" required>
+        <form class="contact__form" action="https://formspree.io/f/mnjbaazy" method="POST">
+          <label class="contact__label fade-on-load" for="firstName">First Name</label>
+          <input class="contact__input fade-on-load" id="firstName" name="firstName" type="text" placeholder="Enter your first name" required>
 
-          <label class="contact__label" for="email">Email</label>
-          <input class="contact__input" id="email" name="email" type="email" placeholder="Enter your Email" required>
+          <label class="contact__label fade-on-load" for="lastName">Last Name</label>
+          <input class="contact__input fade-on-load" id="lastName" name="lastName" type="text" placeholder="Enter your last name" required>
 
-          <label class="contact__label" for="business">Business Name</label>
-          <input class="contact__input" id="business" name="businessName" type="text" placeholder="Enter your Business name">
+          <label class="contact__label fade-on-load" for="email">Email</label>
+          <input class="contact__input fade-on-load" id="email" name="email" type="email" placeholder="Enter your Email" required>
 
-          <label class="contact__label" for="message">What kind of website are you looking for?</label>
-          <textarea class="contact__textarea" id="message" name="message" placeholder="Anything else you'd like to share?" required></textarea>
+          <label class="contact__label fade-on-load" for="phoneNumber">Phone Number</label>
+          <input class="contact__input fade-on-load"
+                 id="phoneNumber"
+                 name="phoneNumber"
+                 type="tel"
+                 inputmode="tel"
+                 autocomplete="tel"
+                 placeholder="Example: 123-456-7890"
+                 required
+                 pattern="^\(?\d{3}\)?-?\d{3}-?\d{4}$"
+                 title="Enter a valid 10-digit phone number. Example: 123-456-7890 or (123)456-7890.">
 
-          <button class="contact__btn" type="submit">
+          <label class="contact__label fade-on-load" for="business">Business Name</label>
+          <input class="contact__input fade-on-load" id="business" name="businessName" type="text" placeholder="Enter your Business name">
+
+          <label class="contact__label fade-on-load" for="message">What kind of website are you looking for?</label>
+          <textarea class="contact__textarea fade-on-load" id="message" name="message" placeholder="Anything else you'd like to share?" required></textarea>
+
+          <!-- Formspree extras -->
+          <input type="hidden" name="_subject" value="New website inquiry from MigsFlow">
+          <input type="hidden" name="_replyto" value="">
+          <input type="hidden" name="_next" value="https://migsflow.com/thank-you.html">
+
+          <button class="contact__btn fade-on-load" type="submit">
             <span>Send Message</span>
             <img src="../images/vectors/code-white.svg" alt="">
-        </button>
+          </button>
         </form>
       </div>
 
     </div>
   </div>
 
-    <!-- STAR BACKGROUND -->
-    <div class="star-field">
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
+  <!-- STAR BACKGROUND -->
+  <div class="star-field">
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-    </div>   
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+  </div>   
 </section>
-
-
 
 
 <!-- =============================== -->
 <!-- ===== CTA / GET A QUOTE ======= -->
 <!-- =============================== -->
-<section class="cta" id="quote-cta">
+<section class="cta fade-section" id="quote-cta">
   <div class="cta__container">
-    <div class="cta__card">
-      <h2 class="cta__title">Curious about working<br>together?</h2>
+    <div class="cta__card fade-on-load">
+      <h2 class="cta__title fade-on-load">Curious about working<br>together?</h2>
 
-      <p class="cta__subtext">
+      <p class="cta__subtext fade-on-load">
         I'd love to hear what you're working on. Let's explore whether this<br>
         could be a good fit for you!
       </p>
 
-      <a class="cta__btn" href="#contact">
+      <a class="cta__btn fade-on-load" href="#contact">
         <span>Get A Quote</span>
         <img class="code-icon" src="../images/vectors/code-blue.svg" alt="">
       </a>
     </div>
   </div>
-    <!-- STAR BACKGROUND -->
-    <div class="star-field">
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
+  <!-- STAR BACKGROUND -->
+  <div class="star-field">
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-    </div>   
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+  </div>   
 </section>
 
 
@@ -235,26 +254,25 @@
 <!-- ===================== -->
 <!-- ====== FOOTER ======= -->
 <!-- ===================== -->
-<footer class="footer" id="contact">
+<footer class="footer fade-section" id="contact">
   <div class="footer__container">
 
     <!-- Top row -->
     <div class="footer__top">
 
       <!-- Left: brand + blurb + socials -->
-      <div class="footer__brand">
-        <a class="footer__logo" href="#home" aria-label="MigsFlow home">
-            <img src="../images/migsflow-logo(2).svg" alt="">
+      <div class="footer__brand fade-on-load">
+        <a class="footer__logo fade-on-load" href="#home" aria-label="MigsFlow home">
+          <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="">
         </a>
 
-        <p class="footer__blurb">
+        <p class="footer__blurb fade-on-load">
           I build custom-coded websites for small businesses that want to feel good about
           their online presence.
         </p>
 
-        <div class="footer__social" aria-label="Social links">
-
-          <a class="footer__social-btn" href="https://www.instagram.com/migsflow/" aria-label="Instagram">
+        <div class="footer__social fade-on-load" aria-label="Social links">
+          <a class="footer__social-btn fade-on-load" href="https://www.instagram.com/migsflow/" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="2"/>
               <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
@@ -262,8 +280,7 @@
             </svg>
           </a>
 
-
-          <a class="footer__social-btn" href="https://www.linkedin.com/in/mfebres0919/" aria-label="LinkedIn">
+          <a class="footer__social-btn fade-on-load" href="https://www.linkedin.com/in/mfebres0919/" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6.5 9H3.8v11H6.5V9ZM5.1 3.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.2 13.3c0-2.6-1.4-4.5-4.1-4.5-1.4 0-2.4.7-2.8 1.4V9H10.8v11h2.7v-5.7c0-1.5.3-3 2.1-3 1.8 0 1.8 1.7 1.8 3.1V20H21v-6.7Z" fill="currentColor"/>
             </svg>
@@ -272,67 +289,68 @@
       </div>
 
       <!-- Right: link columns -->
-      <div class="footer__cols" aria-label="Footer navigation">
-        <div class="footer__col">
-          <h3 class="footer__heading">Navigation</h3>
-          <a class="footer__link" href="../index.html">Home</a>
-          <a class="footer__link" href="about.html">About</a>
-          <a class="footer__link" href="services.html">Services</a>
-          <a class="footer__link" href="#contact">Contact</a>
-          <a class="footer__link" href="faq.html">FAQ</a>
+      <div class="footer__cols fade-on-load" aria-label="Footer navigation">
+        <div class="footer__col fade-on-load">
+          <h3 class="footer__heading fade-on-load">Navigation</h3>
+          <a class="footer__link fade-on-load" href="../index.html">Home</a>
+          <a class="footer__link fade-on-load" href="about.html">About</a>
+          <a class="footer__link fade-on-load" href="services.html">Services</a>
+          <a class="footer__link fade-on-load" href="#contact">Contact</a>
+          <a class="footer__link fade-on-load" href="faq.html">FAQ</a>
         </div>
 
-        <div class="footer__col">
-          <h3 class="footer__heading">Help</h3>
-          <a class="footer__link" href="#cookies">Cookies</a>
-          <a class="footer__link" href="#privacy">Privacy</a>
-          <a class="footer__link" href="#policy">Policy</a>
-          <a class="footer__link" href="#contact">Contact</a>
+        <div class="footer__col fade-on-load">
+          <h3 class="footer__heading fade-on-load">Help</h3>
+          <a class="footer__link fade-on-load" href="#cookies">Cookies</a>
+          <a class="footer__link fade-on-load" href="#privacy">Privacy</a>
+          <a class="footer__link fade-on-load" href="#policy">Policy</a>
         </div>
       </div>
     </div>
 
     <!-- Giant word + circle CTA -->
-    <div class="footer__hero" aria-hidden="true">
-      <div class="footer__giant">LET’S COLLABORATE</div>
-      <a class="footer__bubble" href="#contact" aria-label="Get in touch">
+    <div class="footer__hero fade-on-load" aria-hidden="true">
+      <div class="footer__giant fade-on-load">LET’S COLLABORATE</div>
+      <a class="footer__bubble fade-on-load" href="#contact" aria-label="Get in touch">
         <span>GET IN TOUCH</span>
       </a>
     </div>
 
     <!-- Bottom -->
-    <div class="footer__bottom">
-    <div class="copyright"><p>© Copyright 2025 MigsFlow Web Design</p><div>
+    <div class="footer__bottom fade-on-load">
+      <div class="copyright fade-on-load"><p class="fade-on-load">© Copyright 2025 MigsFlow Web Design</p></div>
     </div>
 
   </div>
-    <!-- STAR BACKGROUND -->
-    <div class="star-field">
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
+  <!-- STAR BACKGROUND -->
+  <div class="star-field">
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
 
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-    </div>   
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+  </div>   
 </footer>
+
 <script src="../main.js"></script>
 
 </body>

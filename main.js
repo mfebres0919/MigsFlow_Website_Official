@@ -146,3 +146,60 @@ Tabs (smooth fade in/out) + Smooth Accordion
 
   activateTab(activeTab);
 })();
+
+
+
+
+// FORMSPREE 
+// FORMSPREE (guarded so it doesn't crash pages without the field)
+const phoneInput = document.getElementById("phoneNumber");
+
+if (phoneInput) {
+  const phoneRegex = /^\(?\d{3}\)?-?\d{3}-?\d{4}$/;
+
+  phoneInput.addEventListener("input", () => {
+    phoneInput.value = phoneInput.value.replace(/\s+/g, "");
+
+    if (phoneInput.value === "" || phoneRegex.test(phoneInput.value)) {
+      phoneInput.setCustomValidity("");
+    } else {
+      phoneInput.setCustomValidity(
+        "Please enter a valid 10-digit phone number. Example: 832-348-0539 or (832)348-0539."
+      );
+    }
+  });
+}
+
+
+
+  //TRANSITIONS CODE 
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".fade-on-load");
+  if (!items.length) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const el = entry.target;
+      const section = el.closest(".fade-section");
+
+      // Stagger everything inside the section when it hits the screen
+      if (section) {
+        const group = section.querySelectorAll(".fade-on-load");
+        group.forEach((node, i) => {
+          node.style.animationDelay = `${i * 120}ms`;
+          node.classList.add("in-view");
+        });
+        group.forEach((node) => io.unobserve(node));
+      } else {
+        // Single element fallback
+        el.style.animationDelay = "0ms";
+        el.classList.add("in-view");
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+
+  items.forEach((el) => io.observe(el));
+});

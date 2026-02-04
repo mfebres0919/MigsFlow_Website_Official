@@ -656,8 +656,6 @@ body{
 
 
 
-
-
 /* ============================= */
 /* ===== WHY SECTION (CARDS) ==== */
 /* ============================= */
@@ -1689,6 +1687,7 @@ body{
 .approach{
   position: relative;
   overflow: hidden; /* prevents horizontal scroll from off-screen bubbles */
+
 }
 
 /* Put bubbles behind content but above any section background */
@@ -1750,7 +1749,7 @@ body{
   width: 150px;
   height: 150px;
   left: -70px;
-  top: 85%;
+  top: 75%;
   animation-duration: 9s;
   animation-delay: -2s;
 }
@@ -1970,5 +1969,41 @@ body{
   }
   100% {
     opacity: 0;
+  }
+}
+
+
+/* POP IN ON SCROLL (safe: nothing hides unless JS adds body.reveal) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Base state: hidden until it enters view */
+.fade-on-load{
+  opacity: 0;
+}
+
+/* Animate only when JS adds .in-view */
+.fade-on-load.in-view{
+  animation: fadeIn .5s ease-in-out forwards;
+}
+
+/* Optional: fade + slide up looks nicer */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* If you want the slide effect instead, swap fadeIn for fadeUp below */
+.fade-on-load.in-view{
+  animation: fadeUp .6s ease-in-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .fade-on-load{
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }

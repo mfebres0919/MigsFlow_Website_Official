@@ -4,6 +4,11 @@ html, body{
   overflow-x: hidden;
 }
 
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+
 body{
   margin: 0;
   position: relative; /* needed for layering */
@@ -883,9 +888,6 @@ a{ color:inherit; text-decoration:none; }
 
 
 
-
-
-
 /* ===== WHO I WORK WITH SECTION (MOBILE-FIRST) ===== */
 :root{
   --who-accent: #18C9FF;
@@ -895,16 +897,22 @@ a{ color:inherit; text-decoration:none; }
   --who-line: rgba(24,201,255,0.20);
 }
 
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
 .who-section{
-  padding: clamp(46px, 7vw, 0px) 40px;
+  padding-block: clamp(46px, 7vw, 80px);
+  padding-inline: 18px;
   background: transparent;
+  overflow-x: hidden;
 }
 
 .who__container{
-  width: min(1200px, 100%);
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 
-  /* ✅ mobile-first: stack everything */
   display: grid;
   grid-template-columns: 1fr;
   gap: 22px;
@@ -915,6 +923,7 @@ a{ color:inherit; text-decoration:none; }
 .who__left{
   display: grid;
   gap: 14px;
+  min-width: 0;
 }
 
 .who__pill{
@@ -922,7 +931,6 @@ a{ color:inherit; text-decoration:none; }
   align-items: center;
   gap: 10px;
   font-family: "Poppins", sans-serif;
-
 
   width: fit-content;
   padding: 9px 14px;
@@ -947,7 +955,6 @@ a{ color:inherit; text-decoration:none; }
   margin: 0;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  /* ✅ mobile-friendly sizing */
   font-size: clamp(34px, 8.5vw, 56px);
   color: #fff;
 }
@@ -964,6 +971,7 @@ a{ color:inherit; text-decoration:none; }
 .who__right{
   display: grid;
   gap: 18px;
+  min-width: 0;
 }
 
 .who__blurb{
@@ -974,22 +982,19 @@ a{ color:inherit; text-decoration:none; }
   line-height: 1.7;
 }
 
-/* ✅ mobile-first stats: stack */
+/* ===== STATS ===== */
+/* Mobile default: stacked stats + HORIZONTAL dividers */
 .who__stats{
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 18px;
 }
 
 .who__stat{
   text-align: left;
-  padding: 12px 0;
-  border-top: 1px solid rgba(24,201,255,0.14);
-}
-
-.who__stat:first-child{
-  border-top: none;
-  padding-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .who__num{
@@ -1006,15 +1011,59 @@ a{ color:inherit; text-decoration:none; }
 .who__label{
   margin-top: 8px;
   color: var(--who-muted);
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.3;
   font-family: "Poppins", sans-serif;
 }
 
-/* Hide dividers on mobile (you don’t need them) */
-.who__divider{ display: none; }
+/* Divider: horizontal on stacked layout */
+.who__divider{
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
 
-/* ===== Desktop / larger screens: switch to 2 columns + row dividers ===== */
+  background: linear-gradient(
+    to right,
+    rgba(24,201,255,0.00) 0%,
+    rgba(24,201,255,0.85) 45%,
+    rgba(24,201,255,0.85) 55%,
+    rgba(24,201,255,0.00) 100%
+  );
+
+  box-shadow:
+    0 0 16px rgba(24,201,255,0.35),
+    0 0 42px rgba(24,201,255,0.18);
+}
+
+/* ===== Stats row: switch to 3 columns + VERTICAL dividers when there's room ===== */
+@media (min-width: 520px){
+  .who__stats{
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .who__stat{
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .who__divider{
+    width: 2px;
+    height: 120px;
+
+    background: linear-gradient(
+      to bottom,
+      rgba(24,201,255,0.00) 0%,
+      rgba(24,201,255,0.85) 45%,
+      rgba(24,201,255,0.85) 55%,
+      rgba(24,201,255,0.00) 100%
+    );
+  }
+}
+
+/* ===== Desktop / larger screens: switch to 2 columns ===== */
 @media (min-width: 980px){
   .who__container{
     grid-template-columns: 1.05fr 0.95fr;
@@ -1030,74 +1079,10 @@ a{ color:inherit; text-decoration:none; }
     font-size: 16px;
   }
 
-  /* Stats row like your screenshot */
-  .who__stats{
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    align-items: center;
-    gap: 22px;
-  }
-
-  .who__stat{
-    text-align: center;
-    padding: 0;
-    border-top: none;
-  }
-
-  .who__divider{
-    display: block;
-    width: 1px;
-    height: 58px;
-    background: linear-gradient(
-      to bottom,
-      rgba(24,201,255,0.00),
-      rgba(24,201,255,0.35),
-      rgba(24,201,255,0.00)
-    );
-  }
-
   .who__num{
     font-size: clamp(44px, 4.2vw, 68px);
   }
 }
-
-/* ===== WHO STATS: 600px+ = 3 columns with VERTICAL neon dividers ===== */
-@media (min-width: 350px){
-  .who__stats{
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    align-items: center;
-    gap: 18px;
-  }
-
-  /* remove the mobile horizontal separators */
-  .who__stat{
-    border-top: none;
-    padding: 0;
-    text-align: center;
-  }
-
-  /* show the dividers again */
-  .who__divider{
-    display: block;
-    width: 2px;
-    height: 120px; /* taller = closer to your screenshot */
-    border-radius: 999px;
-
-    /* neon line with fade top/bottom */
-    background: linear-gradient(
-      to bottom,
-      rgba(24,201,255,0.00) 0%,
-      rgba(24,201,255,0.85) 45%,
-      rgba(24,201,255,0.85) 55%,
-      rgba(24,201,255,0.00) 100%
-    );
-
-    /* glow */
-    box-shadow:
-      0 0 16px rgba(24,201,255,0.35),
-      0 0 42px rgba(24,201,255,0.18);
-  }
-}
-
 
 
 

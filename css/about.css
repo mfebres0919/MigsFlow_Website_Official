@@ -613,6 +613,7 @@ body{
 @media (max-width: 980px) {
   .about__content {
     order: 1;
+    padding: 2rem;
     margin: auto;
   }
 

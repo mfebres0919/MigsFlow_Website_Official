@@ -330,6 +330,12 @@ a{ color:inherit; text-decoration:none; }
   color: var(--btn-white);
 }
 
+
+.code-icon {
+  margin: 2rem;
+}
+
+
 /* Toggle (mobile) */
 .nav__toggle{
   display:none;

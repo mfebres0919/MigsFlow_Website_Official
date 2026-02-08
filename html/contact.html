@@ -100,7 +100,7 @@
             <span class="contact__info-icon" aria-hidden="true">
               <img src="../images/icons/mail.svg" alt="">
             </span>
-            <a class="contact__info-link" href="tel:18323480539">832–648–0539</a>
+            <a class="contact__info-link" href="tel:18326480539">832–648–0539</a>
           </div>
         </div>
 
@@ -129,37 +129,68 @@
       <!-- RIGHT SIDE (FORM) -->
       <div class="contact__form-wrap fade-on-load">
         <!-- Formspree compatible -->
-        <form class="contact__form" action="https://formspree.io/f/mnjbaazy" method="POST">
+        <form class="contact__form"
+              action="https://formspree.io/f/mnjbaazy"
+              method="POST"
+              autocomplete="on">
+
           <label class="contact__label fade-on-load" for="firstName">First Name</label>
-          <input class="contact__input fade-on-load" id="firstName" name="firstName" type="text" placeholder="Enter your first name" required>
+          <input class="contact__input fade-on-load"
+                id="firstName"
+                name="firstName"
+                type="text"
+                placeholder="Enter your first name"
+                autocomplete="given-name"
+                required>
 
           <label class="contact__label fade-on-load" for="lastName">Last Name</label>
-          <input class="contact__input fade-on-load" id="lastName" name="lastName" type="text" placeholder="Enter your last name" required>
+          <input class="contact__input fade-on-load"
+                id="lastName"
+                name="lastName"
+                type="text"
+                placeholder="Enter your last name"
+                autocomplete="family-name"
+                required>
 
           <label class="contact__label fade-on-load" for="email">Email</label>
-          <input class="contact__input fade-on-load" id="email" name="email" type="email" placeholder="Enter your Email" required>
+          <input class="contact__input fade-on-load"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Enter your Email"
+                autocomplete="email"
+                required>
 
           <label class="contact__label fade-on-load" for="phoneNumber">Phone Number</label>
           <input class="contact__input fade-on-load"
-                 id="phoneNumber"
-                 name="phoneNumber"
-                 type="tel"
-                 inputmode="tel"
-                 autocomplete="tel"
-                 placeholder="Example: 123-456-7890"
-                 required
-                 pattern="^\(?\d{3}\)?-?\d{3}-?\d{4}$"
-                 title="Enter a valid 10-digit phone number. Example: 123-456-7890 or (123)456-7890.">
+                id="phoneNumber"
+                name="phone"
+                type="tel"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="Example: 123-456-7890"
+                required
+                pattern="^\(?\d{3}\)?-?\d{3}-?\d{4}$"
+                title="Enter a valid 10-digit phone number. Example: 123-456-7890 or (123)456-7890.">
 
           <label class="contact__label fade-on-load" for="business">Business Name</label>
-          <input class="contact__input fade-on-load" id="business" name="businessName" type="text" placeholder="Enter your Business name">
+          <input class="contact__input fade-on-load"
+                id="business"
+                name="businessName"
+                type="text"
+                placeholder="Enter your Business name"
+                autocomplete="organization">
 
           <label class="contact__label fade-on-load" for="message">What kind of website are you looking for?</label>
-          <textarea class="contact__textarea fade-on-load" id="message" name="message" placeholder="Anything else you'd like to share?" required></textarea>
+          <textarea class="contact__textarea fade-on-load"
+                    id="message"
+                    name="message"
+                    placeholder="Anything else you'd like to share?"
+                    autocomplete="off"
+                    required></textarea>
 
           <!-- Formspree extras -->
           <input type="hidden" name="_subject" value="New website inquiry from MigsFlow">
-          <input type="hidden" name="_replyto" value="">
           <input type="hidden" name="_next" value="https://migsflow.com/thank-you.html">
 
           <button class="contact__btn fade-on-load" type="submit">
@@ -168,7 +199,6 @@
           </button>
         </form>
       </div>
-
     </div>
   </div>
 

@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "New Web Design Folder",
+			"path": "../.."
+		},
+		{
+			"name": "kathryn-murphy-package",
+			"path": "../../../../Downloads/kathryn-murphy-package"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "New Web Design Folder"
+	}
+}

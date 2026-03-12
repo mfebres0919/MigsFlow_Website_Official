@@ -1,6 +1,9 @@
+/* ── NAV ── */
+(() => {
   const nav = document.querySelector(".nav");
   const toggle = document.querySelector(".nav__toggle");
   const menu = document.getElementById("primary-nav");
+  if (!nav || !toggle || !menu) return;
 
   function setOpen(isOpen){
     nav.classList.toggle("is-open", isOpen);
@@ -27,6 +30,7 @@
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setOpen(false);
   });
+})();
 
 
 
@@ -177,6 +181,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".fade-on-load");
   if (!items.length) return;
 
+  // Respect prefers-reduced-motion
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach((el) => el.classList.add("in-view"));
+    return;
+  }
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -184,16 +194,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const el = entry.target;
       const section = el.closest(".fade-section");
 
-      // Stagger everything inside the section when it hits the screen
       if (section) {
         const group = section.querySelectorAll(".fade-on-load");
         group.forEach((node, i) => {
-          node.style.animationDelay = `${i * 120}ms`;
+          node.style.animationDelay = `${Math.min(i * 120, 600)}ms`;
           node.classList.add("in-view");
         });
         group.forEach((node) => io.unobserve(node));
       } else {
-        // Single element fallback
         el.style.animationDelay = "0ms";
         el.classList.add("in-view");
         io.unobserve(el);

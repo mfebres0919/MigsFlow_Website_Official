@@ -28,7 +28,15 @@
   <meta name="twitter:description" content="Learn more about MigsFlow and how I build fast, custom coded websites for small businesses.">
   <meta name="twitter:image" content="https://migsflow.com/images/og-cover.png">
 
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" as="font" href="../fonts/orbitron-v35-latin-600.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../fonts/poppins-v24-latin-regular.woff2" type="font/woff2" crossorigin>
+
+  <!-- Critical CSS -->
   <link rel="stylesheet" href="../css/about.css">
+
+
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -37,10 +45,7 @@
   <link rel="icon" href="../favicon.ico">
   <link rel="manifest" href="../site.webmanifest">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Lobster&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
 </head>
 
 
@@ -59,8 +64,8 @@
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
     <!-- Brand -->
-    <a class="brand" href="../index.html">
-      <img src="../images/migsflow-logo(2).svg" alt="">
+    <a class="brand" href="../index.html" aria-label="MigsFlow home">
+      <img src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
     </a>
 
     <!-- Mobile toggle -->
@@ -90,11 +95,12 @@
       <span>Get a Quote</span>
       <span class="nav__cta-icon" aria-hidden="true">
         <!-- arrow icon -->
-        <img src="../images/vectors/code-blue.svg" alt="">
+        <img src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </span>
     </a>
   </nav>
 </header>
+<main>
 
 
 <!-- MAIN HERO SECTION -->
@@ -104,7 +110,13 @@
     <div class="about__media fade-on-load">
       <div class="about__portrait fade-on-load">
         <!-- replace src with your photo -->
-        <img class="fade-on-load" src="../images/about-hero.svg" alt="Photo of Miguelle">
+        <picture>
+          <source media="(max-width: 600px)" srcset="../images/about-img-m.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="../images/about-img-m.png">
+          <source srcset="../images/about-img-d.webp" type="image/webp">
+          <source srcset="../images/about-img-d.png">
+          <img class="fade-on-load" src="../images/about-img-d.png" alt="Photo of Miguelle" width="644" height="570" decoding="async">
+        </picture>
       </div>
     </div>
 
@@ -192,21 +204,21 @@
     <div class="why__grid fade-on-load">
       <!-- Card 1 -->
       <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="../images/vectors/structure.svg" alt=""></div>
+        <div class="why__icon" aria-hidden="true"><img src="../images/vectors/structure.svg" alt="" loading="lazy" decoding="async"></div>
         <h3 class="why__card-title">Built For Clarity</h3>
         <p class="why__card-text">Simple strcuture and clear sections so visitors understand your business fact.</p>
       </article>
 
       <!-- Card 2 -->
       <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="../images/vectors/design.svg" alt=""></div>
+        <div class="why__icon" aria-hidden="true"><img src="../images/vectors/design.svg" alt="" loading="lazy" decoding="async"></div>
         <h3 class="why__card-title">Designed With Intention</h3>
         <p class="why__card-text">I collaborate with a professional UX/UI designer to ensure every page feels aligned and confident!</p>
       </article>
 
       <!-- Card 3 -->
       <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="../images/vectors/chat.svg" alt=""></div>
+        <div class="why__icon" aria-hidden="true"><img src="../images/vectors/chat.svg" alt="" loading="lazy" decoding="async"></div>
         <h3 class="why__card-title why__card--center">Fast + Clean</h3>
         <p class="why__card-text">No bloated themes. Just clean code, and a smooth experience.</p>
       </article>
@@ -284,7 +296,7 @@
 
         <!-- replace with your own logo -->
         <div class="approach__icon">
-          <img src="../images/vectors/html5.svg" alt="HTML5">
+          <img src="../images/vectors/html5.svg" alt="HTML5" loading="lazy" decoding="async">
         </div>
 
         <p class="approach__level">Advanced</p>
@@ -294,7 +306,7 @@
       <article class="approach__bubble fade-on-load">
         <p class="approach__top">CSS</p>
         <div class="approach__icon">
-          <img src="../images/vectors/css.svg" alt="CSS">
+          <img src="../images/vectors/css.svg" alt="CSS" loading="lazy" decoding="async">
         </div>
         <p class="approach__level">Advanced</p>
       </article>
@@ -303,7 +315,7 @@
       <article class="approach__bubble fade-on-load">
         <p class="approach__top">JavaScript</p>
         <div class="approach__icon">
-          <img src="../images/vectors/js.svg" alt="CSS">
+          <img src="../images/vectors/js.svg" alt="CSS" loading="lazy" decoding="async">
         </div>
         <p class="approach__level">Advanced</p>
       </article>
@@ -312,7 +324,7 @@
       <article class="approach__bubble fade-on-load">
         <p class="approach__top">Testing</p>
         <div class="approach__icon">
-          <img src="../images/vectors/testing.svg" alt="CSS">
+          <img src="../images/vectors/testing.svg" alt="CSS" loading="lazy" decoding="async">
         </div>
         <p class="approach__level">Advanced</p>
       </article>
@@ -370,7 +382,7 @@
       <!-- CARD 1 -->
       <div class="card-1 fade-on-load">
         <div class="card-content">
-          <img class="right-arrow" src="../images/vectors/right-arrow.svg" alt="">
+          <img class="right-arrow" src="../images/vectors/right-arrow.svg" alt="" loading="lazy" decoding="async">
           <h1 class="number" >1</h1>
         </div>
           <h2>Discovery Call and Questionnaire</h2>
@@ -380,7 +392,7 @@
       <!-- CARD 1 -->
       <div class="card-1 fade-on-load">
         <div class="card-content">
-          <img class="right-arrow" src="../images/vectors/right-arrow.svg" alt="">
+          <img class="right-arrow" src="../images/vectors/right-arrow.svg" alt="" loading="lazy" decoding="async">
           <h1 class="number" >2</h1>
         </div>
           <h2>Deposit, Content, and Getting Started</h2>
@@ -390,7 +402,7 @@
       <!-- CARD 1 -->
       <div class="card-1 fade-on-load">
         <div class="card-content">
-          <img class="right-arrow" src="../images/vectors/right-arrow.svg" alt="">
+          <img class="right-arrow" src="../images/vectors/right-arrow.svg" alt="" loading="lazy" decoding="async">
           <h1 class="number" >3</h1>
         </div>
           <h2>Build, Domain Setup, and Launch</h2>
@@ -444,7 +456,7 @@
 
       <a class="cta__btn fade-on-load" href="contact.html">
         <span>Get A Quote</span>
-        <img class="code-icon" src="../images/vectors/code-blue.svg" alt="">
+        <img class="code-icon" src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </a>
     </div>
   </div>
@@ -482,6 +494,8 @@
 <!-- ===================== -->
 <!-- ====== FOOTER ======= -->
 <!-- ===================== -->
+</main>
+
 <footer class="footer fade-section" id="contact">
   <div class="footer__container">
 
@@ -491,7 +505,7 @@
       <!-- Left: brand + blurb + socials -->
       <div class="footer__brand fade-on-load">
         <a class="footer__logo fade-on-load" href="../index.html" aria-label="MigsFlow home">
-          <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="">
+          <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
         </a>
 
         <p class="footer__blurb fade-on-load">
@@ -532,16 +546,15 @@
           <h3 class="footer__heading fade-on-load">Contact</h3>
 
           <!-- Email -->
-          <a class="footer__link fade-on-load"
-            href="mailto:migsflow@outlook.com">
-            <img class="email" src="../images/logos/mail.svg" alt="">
-            migsflow@outlook.com
+          <a class="footer__link fade-on-load" href="/cdn-cgi/l/email-protection#0d60646a7e6b61627a4d62787961626266236e6260">
+            <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+            <span class="__cf_email__" data-cfemail="9cf1f5fbeffaf0f3ebdcf3e9e8f0f3f3f7b2fff3f1">[email&#160;protected]</span>
           </a>
 
           <!-- Phone -->
           <a class="footer__link fade-on-load"
             href="tel:+18326480539">
-            <img class="phone" src="../images/logos/phone-call.svg" alt="">
+            <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             (832) 648-0539
           </a>
 
@@ -549,7 +562,7 @@
           <a class="footer__link fade-on-load"
             href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC"
             target="_blank" rel="noopener">
-            <img class="location" src="../images/icons/location.svg" alt="">
+            <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             Charleston, SC
           </a>
         </div>
@@ -596,11 +609,10 @@
     <span class="star"></span>
     <span class="star"></span>
     <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
   </div>   
 </footer>
 
-<script src="../main.js"></script>
+<script defer src="../main.js"></script>
 
 </body>
+</html>

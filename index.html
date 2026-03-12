@@ -27,7 +27,20 @@
   <meta name="twitter:description" content="Fast, custom coded websites for small businesses. Mobile responsive and launch ready support.">
   <meta name="twitter:image" content="https://migsflow.com/images/og-cover.png">
 
+
+  <!-- Preload LCP element (logo SVG identified by PageSpeed Insights) -->
+  <link rel="preload" as="image" href="images/migsflow-logo(2).svg">
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="images/hero-img-d.webp" type="image/webp">
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" as="font" href="fonts/orbitron-v35-latin-600.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/poppins-v24-latin-regular.woff2" type="font/woff2" crossorigin>
+
+  <!-- Critical CSS -->
   <link rel="stylesheet" href="styles.css">
+
+
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -35,22 +48,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="icon" href="favicon.ico">
   <link rel="manifest" href="site.webmanifest">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Lobster&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
 
-  <!-- NAVIGATION MENU -->
+<!-- NAVIGATION MENU -->
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
     <!-- Brand -->
-    <a class="brand" href="index.html">
-      <img src="images/migsflow-logo(2).svg" alt="">
+    <a class="brand" href="index.html" aria-label="MigsFlow home">
+      <img src="images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
     </a>
 
     <!-- Mobile toggle -->
@@ -80,7 +88,7 @@
       <span>Get a Quote</span>
       <span class="nav__cta-icon" aria-hidden="true">
         <!-- arrow icon -->
-        <img class="code-icon" src="images/vectors/code-blue.svg" alt="">
+        <img class="code-icon" src="images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </span>
     </a>
   </nav>
@@ -88,6 +96,7 @@
 
 <!-- <img class="code-symbol" src="images/vectors/code-symbol.svg" alt=""> -->
 
+<main>
 <!-- HERO SECTION -->
 <section class="hero fade-section" id="home">
   <div class="hero__container">
@@ -114,19 +123,19 @@
         <a class="hero__btn hero__btn--primary fade-on-load" href="html/contact.html">
           <span>Get A Quote</span>
           <span class="hero__btn-icon" aria-hidden="true">
-            <img class="code-icon" src="images/vectors/code-white.svg" alt="">
+            <img class="code-icon" src="images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
           </span>
         </a>
 
         <a class="hero__btn hero__btn--ghost fade-on-load" href="#work">
           <span class="hero__play" aria-hidden="true">
-            <img class="play-icon" src="images/vectors/play-btn.svg" alt="">
+            <img class="play-icon" src="images/vectors/play-btn.svg" alt="" width="24" height="24" decoding="async">
           </span>
           <span>View My Work</span>
         </a>
       </div>
 
-      <div class="hero__badges fade-on-load" aria-label="Featured platforms">
+      <div class="hero__badges fade-on-load">
         <!-- <span class="hero__badge hero__badge--one" title="Badge 1"> -->
           <!-- placeholder icon -->
           <!-- <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -151,7 +160,16 @@
     <div class="hero__media fade-on-load">
       <div class="hero__portrait fade-on-load">
         <!-- Replace src with your actual photo path -->
-        <img class="fade-on-load" src="images/hero-img.png" alt="Portrait photo" />
+        <picture>
+          <!-- Mobile (≤600px) -->
+          <source media="(max-width: 600px)" srcset="images/hero-img-m.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="images/hero-img-m.png">
+          <!-- Desktop -->
+          <source srcset="images/hero-img-d.webp" type="image/webp">
+          <source srcset="images/hero-img-d.png">
+          <!-- Fallback -->
+          <img class="fade-on-load" src="images/hero-img-d.png" alt="Portrait photo" width="1056" height="1046" decoding="async" />
+        </picture>
       </div>
 
       <!-- subtle decorative “<>” marks on right like your screenshot -->
@@ -301,42 +319,42 @@
     <div class="why__grid fade-on-load">
       <!-- Card 1 -->
       <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/code2.svg" alt=""></div>
+        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/code2.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
         <h3 class="why__card-title">Hand Coded</h3>
         <p class="why__card-text">Every site built from scratch using clean HTML, CSS, and JavaScript.</p>
       </article>
 
       <!-- Card 2 -->
       <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/design.svg" alt=""></div>
+        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/design.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
         <h3 class="why__card-title">Professional Design</h3>
         <p class="why__card-text">Collaboration with talented UX/UI designers to bring ideas to life visually.</p>
       </article>
 
       <!-- Card 3 -->
       <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="images/vectors/chat.svg" alt=""></div>
+        <div class="why__icon" aria-hidden="true"><img src="images/vectors/chat.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
         <h3 class="why__card-title">Easy Communication</h3>
         <p class="why__card-text">I keep communication simple and always keep you in the loop.</p>
       </article>
 
       <!-- Card 4 -->
       <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/money.svg" alt=""></div>
+        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/money.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
         <h3 class="why__card-title">Honest Pricing</h3>
         <p class="why__card-text">Clear pricing, no fluff, and you’ll always know what you’re paying for.</p>
       </article>
 
       <!-- Card 5 -->
       <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/fast.svg" alt=""></div>
+        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/fast.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
         <h3 class="why__card-title">Fast Performance</h3>
         <p class="why__card-text">Lightweight, optimized code for lightning-fast load times.</p>
       </article>
 
       <!-- Card 6 -->
       <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/ownership.svg" alt=""></div>
+        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/ownership.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
         <h3 class="why__card-title">You Own It</h3>
         <p class="why__card-text">Complete ownership of your site files and source code.</p>
       </article>
@@ -379,13 +397,19 @@
 
           <a class="work__btn fade-on-load" href="https://mfebres0919.github.io/Creative-Technologist/">
             <span>View Project</span>
-            <img src="./images/vectors/code-white.svg" alt="">
+            <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
           </a>
         </div>
 
         <div class="work__media fade-on-load">
           <div class="work__frame fade-on-load">
-            <img class="fade-on-load" src="images/project-1.png" alt="Digital agency website preview">
+            <picture>
+              <source media="(max-width: 600px)" srcset="images/project-1-m.webp" type="image/webp">
+              <source media="(max-width: 600px)" srcset="images/project-1-m.png">
+              <source srcset="images/project-1-d.webp" type="image/webp">
+              <source srcset="images/project-1-d.png">
+              <img class="fade-on-load" src="images/project-1-d.png" alt="Digital agency website preview" width="1200" height="966" loading="lazy" decoding="async">
+            </picture>
           </div>
         </div>
       </article>
@@ -400,13 +424,19 @@
 
           <a class="work__btn fade-on-load" href="https://mfebres0919.github.io/Lisas_Catering_5/">
             <span>View Project</span>
-            <img src="./images/vectors/code-white.svg" alt="">
+            <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
           </a>
         </div>
 
         <div class="work__media fade-on-load">
           <div class="work__frame fade-on-load">
-            <img class="fade-on-load" src="images/project-2.png" alt="B2B service platform preview">
+            <picture>
+              <source media="(max-width: 600px)" srcset="images/project-2-m.webp" type="image/webp">
+              <source media="(max-width: 600px)" srcset="images/project-2-m.png">
+              <source srcset="images/project-2-d.webp" type="image/webp">
+              <source srcset="images/project-2-d.png">
+              <img class="fade-on-load" src="images/project-2-d.png" alt="B2B service platform preview" width="1200" height="966" loading="lazy" decoding="async">
+            </picture>
           </div>
         </div>
       </article>
@@ -457,7 +487,7 @@
 
       <a class="cta__btn fade-on-load" href="https://companyname383467.hbportal.co/schedule/6990029c9142bc002036fe52">
         <span>Discovery Call</span>
-        <img class="code-icon" src="images/vectors/code-blue.svg" alt="">
+        <img class="code-icon" src="images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </a>
     </div>
   </div>
@@ -492,6 +522,8 @@
 
 
 
+</main>
+
 <!-- ===================== -->
 <!-- ====== FOOTER ======= -->
 <!-- ===================== -->
@@ -504,7 +536,7 @@
       <!-- Left: brand + blurb + socials -->
       <div class="footer__brand fade-on-load">
         <a class="footer__logo fade-on-load" href="#home" aria-label="MigsFlow home">
-          <img class="fade-on-load" src="images/migsflow-logo(2).svg" alt="">
+          <img class="fade-on-load" src="images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
         </a>
 
         <p class="footer__blurb fade-on-load">
@@ -545,16 +577,15 @@
           <h3 class="footer__heading fade-on-load">Contact</h3>
 
           <!-- Email -->
-          <a class="footer__link fade-on-load"
-            href="mailto:migsflow@outlook.com">
-            <img class="email" src="images/logos/mail.svg" alt="">
-            migsflow@outlook.com
+          <a class="footer__link fade-on-load" href="/cdn-cgi/l/email-protection#d9b4b0beaabfb5b6ae99b6acadb5b6b6b2f7bab6b4">
+            <img class="email" src="images/logos/mail.svg" alt="" width="20" height="20" decoding="async">
+            <span class="__cf_email__" data-cfemail="7815111f0b1e14170f38170d0c14171713561b1715">[email&#160;protected]</span>
           </a>
 
           <!-- Phone -->
           <a class="footer__link fade-on-load"
             href="tel:+18326480539">
-            <img class="phone" src="images/logos/phone-call.svg" alt="">
+            <img class="phone" src="images/logos/phone-call.svg" alt="" width="20" height="20" decoding="async">
             (832) 648-0539
           </a>
 
@@ -562,7 +593,7 @@
           <a class="footer__link fade-on-load"
             href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC"
             target="_blank" rel="noopener">
-            <img class="location" src="images/icons/location.svg" alt="">
+            <img class="location" src="images/icons/location.svg" alt="" width="20" height="20" decoding="async">
             Charleston, SC
           </a>
         </div>
@@ -570,7 +601,7 @@
     </div>
 
     <!-- Giant word + circle CTA -->
-    <div class="footer__hero fade-on-load" aria-hidden="true">
+    <div class="footer__hero fade-on-load">
       <div class="footer__giant fade-on-load">LET’S COLLABORATE</div>
       <a class="footer__bubble fade-on-load" href="html/contact.html" aria-label="Get in touch">
         <span>GET IN TOUCH</span>
@@ -607,13 +638,10 @@
     <span class="star"></span>
     <span class="star"></span>
     <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
   </div>   
 </footer>
 
-
-<script src="main.js" defer></script>
+<script defer src="main.js"></script>
 
 </body>
 </html>

@@ -1195,7 +1195,7 @@ a{ color:inherit; text-decoration:none; }
   pointer-events: none;
   z-index: 0;
 
-  background-image: url("images/vectors.svg");
+  background-image: url("images/vectors/vectors.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

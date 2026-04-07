@@ -557,7 +557,7 @@ body{
 /* =============================== */
 .shop-hero{
   position: relative;
-  padding: clamp(140px, 18vw, 200px) 20px clamp(70px, 9vw, 100px);
+  padding: 2rem;
   overflow: hidden;
 }
 

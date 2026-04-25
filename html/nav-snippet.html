@@ -1,0 +1,75 @@
+<!-- ============================================= -->
+<!-- GLOBAL NAVIGATION — paste this on every page  -->
+<!-- Add .is-active to the link matching the       -->
+<!-- current page (see notes at the bottom).       -->
+<!-- ============================================= -->
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="../index.html" aria-label="MigsFlow home">
+      <img src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
+    </a>
+
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <span class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
+
+    <div class="nav__links" id="primary-nav">
+      <a class="nav__link" href="../index.html">Home</a>
+      <a class="nav__link" href="about.html">About</a>
+
+      <!-- Services dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Services
+          <svg class="nav__chevron" viewBox="0 0 12 8" fill="none" aria-hidden="true" width="10" height="6">
+            <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav__dropdown-menu" role="menu">
+          <a class="nav__dropdown-item" href="shop.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Template Shop</span>
+            <span class="nav__dropdown-item-sub">Ready-made hairstylist sites</span>
+          </a>
+          <a class="nav__dropdown-item" href="custom.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Custom Websites</span>
+            <span class="nav__dropdown-item-sub">Fully bespoke builds</span>
+          </a>
+          <a class="nav__dropdown-item" href="services.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Add-Ons &amp; Maintenance</span>
+            <span class="nav__dropdown-item-sub">Hosting, edits, ongoing support</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav__link" href="contact.html">Contact</a>
+    </div>
+
+    <a class="nav__cta" href="contact.html">
+      <span>Get a Quote</span>
+      <span class="nav__cta-icon" aria-hidden="true">
+        <img src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
+      </span>
+    </a>
+  </nav>
+</header>
+
+<!--
+  ACTIVE STATE CHEAT SHEET
+  Add class="nav__link is-active" to the matching link on each page:
+
+  index.html     → Home link
+  about.html     → About link
+  shop.html      → Services dropdown toggle (add is-active to the button)
+                   AND the Template Shop dropdown item
+  custom.html    → Services dropdown toggle
+                   AND the Custom Websites dropdown item
+  services.html  → Services dropdown toggle
+                   AND the Add-Ons & Maintenance dropdown item
+  contact.html   → Contact link
+
+  Example for shop.html:
+    <button class="nav__link nav__dropdown-toggle is-active" ...>
+    <a class="nav__dropdown-item is-active" href="shop.html" ...>
+-->

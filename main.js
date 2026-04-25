@@ -1,36 +1,124 @@
-/* ── NAV ── */
-(() => {
+/* ===== NAV (mobile hamburger + dropdown tap-to-toggle) =====
+   Desktop (hover-capable + >=821px): CSS :hover opens the dropdown.
+   Tablet & mobile: tap to open, tap again to close.
+   Keyboard: Enter/Space/ArrowDown opens, Escape closes.
+
+   Wrapped in DOMContentLoaded to guarantee DOM is fully parsed
+   before attaching listeners — avoids timing issues on pages with
+   heavy inline scripts (carousels, etc.).
+================================================================ */
+document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav");
   const toggle = document.querySelector(".nav__toggle");
   const menu = document.getElementById("primary-nav");
   if (!nav || !toggle || !menu) return;
 
-  function setOpen(isOpen){
+  const dropdowns = nav.querySelectorAll(".nav__dropdown");
+  const hoverDesktopMQ = window.matchMedia("(hover: hover) and (min-width: 821px)");
+  const mobileMQ = window.matchMedia("(max-width: 820px)");
+
+  function setMenuOpen(isOpen){
     nav.classList.toggle("is-open", isOpen);
     toggle.setAttribute("aria-expanded", String(isOpen));
     toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    if (!isOpen) closeAllDropdowns();
   }
 
-  toggle.addEventListener("click", () => {
+  function closeAllDropdowns(){
+    dropdowns.forEach((dd) => {
+      const btn = dd.querySelector(".nav__dropdown-toggle");
+      const panel = dd.querySelector(".nav__dropdown-menu");
+      if (!btn || !panel) return;
+      btn.setAttribute("aria-expanded", "false");
+      panel.classList.remove("is-open");
+    });
+  }
+
+  /* Mobile hamburger */
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
     const isOpen = toggle.getAttribute("aria-expanded") === "true";
-    setOpen(!isOpen);
+    setMenuOpen(!isOpen);
   });
 
-  // Close menu when clicking a link (mobile)
+  /* Dropdown toggle — tap-to-toggle on anything that's NOT a hover-capable desktop */
+  dropdowns.forEach((dd) => {
+    const btn = dd.querySelector(".nav__dropdown-toggle");
+    const panel = dd.querySelector(".nav__dropdown-menu");
+    if (!btn || !panel) return;
+
+    btn.addEventListener("click", (e) => {
+      /* On true desktop (hover + wide), CSS :hover handles it — bail out */
+      if (hoverDesktopMQ.matches) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+      /* Close any other open dropdowns first */
+      dropdowns.forEach((other) => {
+        if (other !== dd){
+          const oBtn = other.querySelector(".nav__dropdown-toggle");
+          const oPanel = other.querySelector(".nav__dropdown-menu");
+          if (oBtn) oBtn.setAttribute("aria-expanded", "false");
+          if (oPanel) oPanel.classList.remove("is-open");
+        }
+      });
+
+      /* Toggle this one */
+      if (isOpen){
+        btn.setAttribute("aria-expanded", "false");
+        panel.classList.remove("is-open");
+      } else {
+        btn.setAttribute("aria-expanded", "true");
+        panel.classList.add("is-open");
+      }
+    });
+
+    /* Keyboard a11y */
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown"){
+        e.preventDefault();
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        closeAllDropdowns();
+        if (!isOpen){
+          btn.setAttribute("aria-expanded", "true");
+          panel.classList.add("is-open");
+          const firstItem = panel.querySelector(".nav__dropdown-item");
+          if (firstItem) firstItem.focus();
+        }
+      }
+    });
+  });
+
+  /* Close mobile menu when tapping a real link (not the dropdown toggle) */
   menu.addEventListener("click", (e) => {
-    if (e.target.matches("a")) setOpen(false);
+    const link = e.target.closest("a");
+    if (link && mobileMQ.matches) setMenuOpen(false);
   });
 
-  // Close menu when clicking outside
+  /* Close everything on outside click */
   document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target)) setOpen(false);
+    if (!nav.contains(e.target)){
+      setMenuOpen(false);
+      closeAllDropdowns();
+    }
   });
 
-  // Close menu on Escape
+  /* Close on Escape */
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setOpen(false);
+    if (e.key === "Escape"){
+      setMenuOpen(false);
+      closeAllDropdowns();
+    }
   });
-})();
+
+  /* Reset dropdown state when crossing the hover/mobile breakpoint */
+  hoverDesktopMQ.addEventListener("change", () => {
+    setMenuOpen(false);
+    closeAllDropdowns();
+  });
+});
 
 
 
@@ -38,12 +126,11 @@
 =========== FAQ JS ============
 Tabs (smooth fade in/out) + Smooth Accordion
 ============================ */
-(() => {
+document.addEventListener("DOMContentLoaded", () => {
   const tabs = Array.from(document.querySelectorAll(".faq__tab"));
   const panels = Array.from(document.querySelectorAll(".faq__panel"));
   if (!tabs.length || !panels.length) return;
 
-  // Close all items inside a panel
   function closeAllInPanel(panel) {
     panel.querySelectorAll(".faq__item").forEach((item) => {
       item.classList.remove("is-open");
@@ -54,7 +141,6 @@ Tabs (smooth fade in/out) + Smooth Accordion
     });
   }
 
-  // Open one item smoothly
   function openItem(item) {
     const btn = item.querySelector(".faq__question");
     const ans = item.querySelector(".faq__answer");
@@ -63,14 +149,12 @@ Tabs (smooth fade in/out) + Smooth Accordion
     item.classList.add("is-open");
     btn.setAttribute("aria-expanded", "true");
 
-    // reset then expand
     ans.style.maxHeight = "0px";
     requestAnimationFrame(() => {
       ans.style.maxHeight = ans.scrollHeight + "px";
     });
   }
 
-  // Keep open answers sized correctly (helps after panel animations)
   function refreshOpenHeights(panel) {
     panel.querySelectorAll(".faq__item.is-open").forEach((item) => {
       const ans = item.querySelector(".faq__answer");
@@ -78,13 +162,11 @@ Tabs (smooth fade in/out) + Smooth Accordion
     });
   }
 
-  // Switch active tab/panel
   function activateTab(tab) {
     const targetId = tab.getAttribute("aria-controls");
     const targetPanel = document.getElementById(targetId);
     if (!targetPanel) return;
 
-    // tabs UI
     tabs.forEach((t) => {
       t.classList.remove("is-active");
       t.setAttribute("aria-selected", "false");
@@ -92,23 +174,17 @@ Tabs (smooth fade in/out) + Smooth Accordion
     tab.classList.add("is-active");
     tab.setAttribute("aria-selected", "true");
 
-    // panels UI (no display none)
     panels.forEach((p) => {
       const isTarget = p === targetPanel;
       p.classList.toggle("is-active", isTarget);
-
-      // optional: close accordion when leaving a panel
       if (!isTarget) closeAllInPanel(p);
     });
 
-    // after panel becomes visible, ensure heights are correct
     requestAnimationFrame(() => refreshOpenHeights(targetPanel));
   }
 
-  // Tabs events
   tabs.forEach((tab) => tab.addEventListener("click", () => activateTab(tab)));
 
-  // Accordion event delegation
   document.addEventListener("click", (e) => {
     const btn = e.target.closest(".faq__question");
     if (!btn) return;
@@ -118,15 +194,10 @@ Tabs (smooth fade in/out) + Smooth Accordion
     if (!item || !panel) return;
 
     const isOpen = item.classList.contains("is-open");
-
-    // close siblings in same panel
     closeAllInPanel(panel);
-
-    // toggle this one
     if (!isOpen) openItem(item);
   });
 
-  // Init answers (set correct max-height for any pre-opened)
   panels.forEach((panel) => {
     panel.querySelectorAll(".faq__item").forEach((item) => {
       const btn = item.querySelector(".faq__question");
@@ -144,21 +215,18 @@ Tabs (smooth fade in/out) + Smooth Accordion
     });
   });
 
-  // Default active tab if none selected
   const activeTab =
     tabs.find((t) => t.classList.contains("is-active")) || tabs[0];
-
   activateTab(activeTab);
-})();
+});
 
 
 
+/* ===== FORMSPREE phone validation ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  const phoneInput = document.getElementById("phoneNumber");
+  if (!phoneInput) return;
 
-// FORMSPREE 
-// FORMSPREE (guarded so it doesn't crash pages without the field)
-const phoneInput = document.getElementById("phoneNumber");
-
-if (phoneInput) {
   const phoneRegex = /^\(?\d{3}\)?-?\d{3}-?\d{4}$/;
 
   phoneInput.addEventListener("input", () => {
@@ -172,16 +240,15 @@ if (phoneInput) {
       );
     }
   });
-}
+});
 
 
 
-  //TRANSITIONS CODE 
+/* ===== Fade-in transitions ===== */
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".fade-on-load");
   if (!items.length) return;
 
-  // Respect prefers-reduced-motion
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     items.forEach((el) => el.classList.add("in-view"));
     return;

@@ -31,7 +31,8 @@
   <link rel="preload" as="font" href="../fonts/poppins-v24-latin-regular.woff2" type="font/woff2" crossorigin>
 
   <!-- Critical CSS -->
-  <link rel="stylesheet" href="../css/pricing.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="../css/global.css">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -59,11 +60,33 @@
     <div class="nav__links" id="primary-nav">
       <a class="nav__link" href="../index.html">Home</a>
       <a class="nav__link" href="about.html">About</a>
-      <a class="nav__link" href="services.html">Services</a>
-      <a class="nav__link is-active" href="#pricing">Pricing</a>
-      <!-- <a class="nav__link" href="shop.html">Shop</a> -->
+
+      <!-- Services dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Services
+          <svg class="nav__chevron" viewBox="0 0 12 8" fill="none" aria-hidden="true" width="10" height="6">
+            <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav__dropdown-menu" role="menu">
+          <a class="nav__dropdown-item" href="shop.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Template Shop</span>
+            <span class="nav__dropdown-item-sub">Ready-made hairstylist sites</span>
+          </a>
+          <a class="nav__dropdown-item" href="custom.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Custom Websites</span>
+            <span class="nav__dropdown-item-sub">Fully bespoke builds</span>
+          </a>
+          <a class="nav__dropdown-item" href="services.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Add-Ons &amp; Maintenance</span>
+            <span class="nav__dropdown-item-sub">Hosting, edits, ongoing support</span>
+          </a>
+        </div>
+      </div>
+
       <a class="nav__link" href="contact.html">Contact</a>
-      <a class="nav__link" href="faq.html">FAQ</a>
+      <a class="nav__link" href="faq.html">FAQs</a>
     </div>
 
     <a class="nav__cta" href="contact.html">
@@ -74,6 +97,7 @@
     </a>
   </nav>
 </header>
+
 
 <main>
 
@@ -298,10 +322,10 @@
         <h4 class="plan-path__title">Lump Sum</h4>
         <p class="plan-path__subtitle">You own it outright</p>
         <ul class="plan-path__list">
-          <li>Your site is fully yours — all code, files, and content</li>
+          <li>Your site is fully yours. All code, files, and content belong to you</li>
           <li>Add $25/mo hosting if you need it managed for you</li>
           <li>Add the $50/mo maintenance plan for ongoing edits and support</li>
-          <li>Or manage and host it yourself — no strings attached</li>
+          <li>Or manage and host it yourself, no strings attached</li>
         </ul>
       </div>
 
@@ -310,9 +334,9 @@
         <h4 class="plan-path__title">Monthly</h4>
         <p class="plan-path__subtitle">Lease it, with the option to own</p>
         <ul class="plan-path__list">
-          <li>6-month minimum — hosting, edits, and support all included</li>
+          <li>6-month minimum: hosting, edits, and support all included</li>
           <li>After 6 months, continue month-to-month as long as you'd like</li>
-          <li>Ready to own? Buy out your site at any time — your monthly payments get subtracted from the total</li>
+          <li>Ready to own? Buy out your site at any time. Your monthly payments get subtracted from the total</li>
           <li>If you cancel without buying out, the site goes offline</li>
         </ul>
       </div>
@@ -471,6 +495,7 @@
 
 </main>
 
+
 <!-- ===================== -->
 <!-- ====== FOOTER ======= -->
 <!-- ===================== -->
@@ -504,23 +529,23 @@
           <h3 class="footer__heading fade-on-load">Navigation</h3>
           <a class="footer__link fade-on-load" href="../index.html">Home</a>
           <a class="footer__link fade-on-load" href="about.html">About</a>
-          <a class="footer__link fade-on-load" href="services.html">Services</a>
-          <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
-          <!-- <a class="footer__link fade-on-load" href="shop.html">Shop</a> -->
+          <a class="footer__link fade-on-load" href="shop.html">Template Shop</a>
+          <a class="footer__link fade-on-load" href="custom.html">Custom Websites</a>
           <a class="footer__link fade-on-load" href="contact.html">Contact</a>
-          <a class="footer__link fade-on-load" href="faq.html">FAQ</a>
+          <a class="footer__link fade-on-load" href="faq.html">FAQs</a>
         </div>
+
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Contact</h3>
-          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com">
+          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com" aria-label="Email MigsFlow">
             <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             <span>migsflow@outlook.com</span>
           </a>
-          <a class="footer__link fade-on-load" href="tel:+18326480539">
+          <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
             <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             (832) 648-0539
           </a>
-          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener">
+          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View MigsFlow's location">
             <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             Charleston, SC
           </a>
@@ -546,6 +571,7 @@
     <span class="star"></span><span class="star"></span><span class="star"></span>
   </div>
 </footer>
+
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="../main.js"></script>
 

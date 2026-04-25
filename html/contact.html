@@ -35,6 +35,7 @@
 
   <!-- Critical CSS -->
   <link rel="stylesheet" href="../css/contact.css">
+  <link rel="stylesheet" href="../css/global.css">
 
 
 
@@ -49,48 +50,60 @@
 </head>
 
 <body>
+
+  <!-- NAVIGATION MENU -->
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
-    <!-- Brand -->
     <a class="brand" href="../index.html" aria-label="MigsFlow home">
       <img src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
     </a>
 
-    <!-- Mobile toggle -->
-    <button
-      class="nav__toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="primary-nav"
-      aria-label="Open menu"
-    >
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
       <span class="hamburger" aria-hidden="true">
         <span></span><span></span><span></span>
       </span>
     </button>
 
-    <!-- Links -->
     <div class="nav__links" id="primary-nav">
       <a class="nav__link" href="../index.html">Home</a>
       <a class="nav__link" href="about.html">About</a>
-      <a class="nav__link" href="services.html">Services</a>
-      <a class="nav__link" href="pricing.html">Pricing</a>
-      <!-- <a class="nav__link" href="shop.html">Shop</a> -->
-      <a class="nav__link is-active" href="contact.html">Contact</a>
-      <a class="nav__link" href="faq.html">FAQ</a>
+
+      <!-- Services dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Services
+          <svg class="nav__chevron" viewBox="0 0 12 8" fill="none" aria-hidden="true" width="10" height="6">
+            <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav__dropdown-menu" role="menu">
+          <a class="nav__dropdown-item" href="shop.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Template Shop</span>
+            <span class="nav__dropdown-item-sub">Ready-made hairstylist sites</span>
+          </a>
+          <a class="nav__dropdown-item" href="custom.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Custom Websites</span>
+            <span class="nav__dropdown-item-sub">Fully bespoke builds</span>
+          </a>
+          <a class="nav__dropdown-item" href="services.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Add-Ons &amp; Maintenance</span>
+            <span class="nav__dropdown-item-sub">Hosting, edits, ongoing support</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav__link active" href="contact.html">Contact</a>
+      <a class="nav__link" href="faq.html">FAQs</a>
     </div>
 
-    <!-- CTA -->
-    <a class="nav__cta" href="#contact">
+    <a class="nav__cta" href="contact.html">
       <span>Get a Quote</span>
       <span class="nav__cta-icon" aria-hidden="true">
-        <!-- arrow icon -->
         <img src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </span>
     </a>
   </nav>
 </header>
-<main>
 
 
 <!-- ============================
@@ -318,29 +331,19 @@
 </section>
 
 
-
 <!-- ===================== -->
 <!-- ====== FOOTER ======= -->
 <!-- ===================== -->
-</main>
-
 <footer class="footer fade-section" id="contact">
   <div class="footer__container">
-
-    <!-- Top row -->
     <div class="footer__top">
-
-      <!-- Left: brand + blurb + socials -->
       <div class="footer__brand fade-on-load">
-        <a class="footer__logo fade-on-load" href="#home" aria-label="MigsFlow home">
+        <a class="footer__logo fade-on-load" href="../index.html" aria-label="MigsFlow home">
           <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
         </a>
-
         <p class="footer__blurb fade-on-load">
-          I build custom-coded websites for small businesses that want to feel good about
-          their online presence.
+          I build custom-coded websites for small businesses that want to feel good about their online presence.
         </p>
-
         <div class="footer__social fade-on-load" aria-label="Social links">
           <a class="footer__social-btn fade-on-load" href="https://www.instagram.com/migsflow/" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -349,7 +352,6 @@
               <path d="M17.2 6.8h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             </svg>
           </a>
-
           <a class="footer__social-btn fade-on-load" href="https://www.linkedin.com/in/mfebres0919/" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6.5 9H3.8v11H6.5V9ZM5.1 3.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.2 13.3c0-2.6-1.4-4.5-4.1-4.5-1.4 0-2.4.7-2.8 1.4V9H10.8v11h2.7v-5.7c0-1.5.3-3 2.1-3 1.8 0 1.8 1.7 1.8 3.1V20H21v-6.7Z" fill="currentColor"/>
@@ -357,80 +359,52 @@
           </a>
         </div>
       </div>
-
-      <!-- Right: link columns -->
       <div class="footer__cols fade-on-load" aria-label="Footer navigation">
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Navigation</h3>
           <a class="footer__link fade-on-load" href="../index.html">Home</a>
           <a class="footer__link fade-on-load" href="about.html">About</a>
-          <a class="footer__link fade-on-load" href="services.html">Services</a>
-          <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
-          <!-- <a class="footer__link fade-on-load" href="shop.html">Shop</a> -->
-          <a class="footer__link fade-on-load" href="#contact">Contact</a>
-          <a class="footer__link fade-on-load" href="faq.html">FAQ</a>
+          <a class="footer__link fade-on-load" href="shop.html">Template Shop</a>
+          <a class="footer__link fade-on-load" href="custom.html">Custom Websites</a>
+          <a class="footer__link fade-on-load" href="contact.html">Contact</a>
+          <a class="footer__link fade-on-load" href="faq.html">FAQs</a>
         </div>
 
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Contact</h3>
-
-          <!-- Email -->
-          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com">
+          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com" aria-label="Email MigsFlow">
             <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             <span>migsflow@outlook.com</span>
           </a>
-
-          <!-- Phone -->
-          <a class="footer__link fade-on-load"
-            href="tel:+18326480539">
+          <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
             <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             (832) 648-0539
           </a>
-
-          <!-- Location (opens maps) -->
-          <a class="footer__link fade-on-load"
-            href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC"
-            target="_blank" rel="noopener">
+          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View MigsFlow's location">
             <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             Charleston, SC
           </a>
         </div>
       </div>
     </div>
-
-    <!-- Giant word + circle CTA -->
-    <div class="footer__hero fade-on-load" aria-hidden="true">
-      <div class="footer__giant fade-on-load">LET’S COLLABORATE</div>
-      <a class="footer__bubble fade-on-load" href="#contact" aria-label="Get in touch">
+    <div class="footer__hero fade-on-load">
+      <div class="footer__giant fade-on-load">LET'S COLLABORATE</div>
+      <a class="footer__bubble fade-on-load" href="contact.html" aria-label="Get in touch">
         <span>GET IN TOUCH</span>
       </a>
     </div>
-
-    <!-- Bottom -->
     <div class="footer__bottom fade-on-load">
       <div class="copyright fade-on-load"><p class="fade-on-load">© Copyright 2025 MigsFlow Web Design</p></div>
     </div>
-
   </div>
-
-  <!-- STAR BACKGROUND -->
   <div class="star-field">
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-  </div>   
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+  </div>
 </footer>
 
 <script defer src="../main.js"></script>

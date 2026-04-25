@@ -35,6 +35,8 @@
 
   <!-- Critical CSS -->
   <link rel="stylesheet" href="../css/faq.css">
+  <link rel="stylesheet" href="../css/global.css">
+
 
 
 
@@ -48,52 +50,62 @@
 
 </head>
 
-
 <body>
 
+<main>
+<!-- NAVIGATION MENU -->
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
-    <!-- Brand -->
     <a class="brand" href="../index.html" aria-label="MigsFlow home">
       <img src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
     </a>
 
-    <!-- Mobile toggle -->
-    <button
-      class="nav__toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="primary-nav"
-      aria-label="Open menu"
-    >
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
       <span class="hamburger" aria-hidden="true">
         <span></span><span></span><span></span>
       </span>
     </button>
 
-    <!-- Links -->
     <div class="nav__links" id="primary-nav">
       <a class="nav__link" href="../index.html">Home</a>
       <a class="nav__link" href="about.html">About</a>
-      <a class="nav__link" href="services.html">Services</a>
-      <a class="nav__link" href="pricing.html">Pricing</a>
-      <!-- <a class="nav__link" href="shop.html">Shop</a> -->
+
+      <!-- Services dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Services
+          <svg class="nav__chevron" viewBox="0 0 12 8" fill="none" aria-hidden="true" width="10" height="6">
+            <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav__dropdown-menu" role="menu">
+          <a class="nav__dropdown-item" href="shop.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Template Shop</span>
+            <span class="nav__dropdown-item-sub">Ready-made hairstylist sites</span>
+          </a>
+          <a class="nav__dropdown-item" href="custom.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Custom Websites</span>
+            <span class="nav__dropdown-item-sub">Fully bespoke builds</span>
+          </a>
+          <a class="nav__dropdown-item" href="services.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Add-Ons &amp; Maintenance</span>
+            <span class="nav__dropdown-item-sub">Hosting, edits, ongoing support</span>
+          </a>
+        </div>
+      </div>
+
       <a class="nav__link" href="contact.html">Contact</a>
-      <a class="nav__link is-active" href="#faq">FAQ</a>
+      <a class="nav__link active" href="faq.html">FAQs</a>      
     </div>
 
-    <!-- CTA -->
     <a class="nav__cta" href="contact.html">
       <span>Get a Quote</span>
       <span class="nav__cta-icon" aria-hidden="true">
-        <!-- arrow icon -->
-        <img class="nav-code-logo" src="../images/vectors/code-blue.svg" alt="" decoding="async">
+        <img src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </span>
     </a>
   </nav>
 </header>
-<main>
-
 
 <!-- FAQ  SECTION -->
 <section class="faq fade-section" id="faq">
@@ -110,63 +122,137 @@
     </h2>
 
     <p class="faq__subtext fade-on-load">
-      Discover answers to common questions about the design process, pricing, and what it’s like working together.
+      Answers to the most common questions about templates, custom websites, and ongoing support.
     </p>
 
     <!-- THIS WRAPPER CONTROLS THE WIDTH FOR TABS + QUESTIONS -->
     <div class="faq__shell fade-on-load">
 
-      <!-- Tabs (same width as questions) -->
+      <!-- Tabs -->
       <div class="faq__tabs fade-on-load" role="tablist" aria-label="FAQ categories">
-        <button class="faq__tab is-active fade-on-load" role="tab" aria-selected="true" aria-controls="panel-design" id="tab-design" type="button">
-          Design &amp; Process
+        <button class="faq__tab is-active fade-on-load" role="tab" aria-selected="true" aria-controls="panel-template" id="tab-template" type="button">
+          Template Shop
         </button>
 
-        <button class="faq__tab fade-on-load" role="tab" aria-selected="false" aria-controls="panel-pricing" id="tab-pricing" type="button">
-          Pricing &amp; Payments
+        <button class="faq__tab fade-on-load" role="tab" aria-selected="false" aria-controls="panel-custom" id="tab-custom" type="button">
+          Custom Websites
         </button>
 
-        <button class="faq__tab fade-on-load" role="tab" aria-selected="false" aria-controls="panel-tech" id="tab-tech" type="button">
-          Development &amp; Tech
-        </button>
-
-        <button class="faq__tab fade-on-load" role="tab" aria-selected="false" aria-controls="panel-policy" id="tab-policy" type="button">
-          Working With Me / Policies
+        <button class="faq__tab fade-on-load" role="tab" aria-selected="false" aria-controls="panel-addons" id="tab-addons" type="button">
+          Add-Ons &amp; Maintenance
         </button>
       </div>
 
       <!-- Panels -->
       <div class="faq__panels fade-on-load">
 
-        <!-- PANEL 1 -->
-        <div class="faq__panel is-active fade-on-load" role="tabpanel" id="panel-design" aria-labelledby="tab-design">
+        <!-- ============================================= -->
+        <!-- PANEL 1: TEMPLATE SHOP                         -->
+        <!-- ============================================= -->
+        <div class="faq__panel is-active fade-on-load" role="tabpanel" id="panel-template" aria-labelledby="tab-template">
           <ul class="faq__list">
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="true">
-                Do you design the websites yourself?
+                What exactly am I getting when I buy a template?
                 <span class="faq__icon" aria-hidden="true"></span>
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>
-                    I focus on building and developing your website (clean, responsive, hand-coded). I'm basically responsible for bringing your website to life!<br><br>For visual design,
-                    I collaborate with a professional UX/UI designer so every page feels intentional and polished.
-                  </p>
+                  <p>You're not getting files to install yourself, you're getting my service. Every template is hand-coded by me, so when you purchase one, I take the base design and tailor it to your brand by swapping in your colors, font style, and images. The structural layout stays the same, but the site becomes yours.</p>
                 </div>
               </div>
             </li>
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
-                Will I be communicating with the designer directly?
+                What's the difference between Starter, Standard, and Premium?
                 <span class="faq__icon" aria-hidden="true"></span>
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>
-                    No, you'll communicate with me as your main point of contact. I'll gather any feedback you have for the designer and make sure everything is running smoothly!
-                  </p>
+                  <p>Starter ($250) is a streamlined one-page site &mdash; great if you're just getting online. Standard ($500) is a multi-page site with more room to showcase your work and services. Premium ($850) is built for stylists ready to get serious about their brand &mdash; shops, waitlists, deeper customization, and the most room to scale. Each tier includes 10 unique template designs to choose from.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Can I customize the template with my own branding?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>You won't be editing anything yourself. I handle all of it. You'll send me your branding (colors, fonts, photos, service list, etc.) and I'll apply it to the template for you. That's the whole point of this service: you get a professional, custom-looking site without touching any code.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Do I need to know how to code?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>Not at all. This isn't a traditional template where you download files and make changes yourself. I do all the work, you just send me your content and I bring the site to life for you.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                How fast can I get my template site online?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>Once I have your content, it usually takes about 3 to 4 days for me to complete the setup. You'll also need a free GitHub account for the code and a Netlify account for hosting. Netlify hosting typically runs $10&ndash;$20/mo depending on your traffic. If you'd rather have me handle hosting for you, I offer a $25/mo hosting service.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Are refunds available on templates?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>Because templates are digital files delivered instantly, all sales are final. If you're unsure whether a template is right for you, reach out before purchasing and I'll help you figure out the best fit.</p>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- PANEL 2: CUSTOM WEBSITES                       -->
+        <!-- ============================================= -->
+        <div class="faq__panel fade-on-load" role="tabpanel" id="panel-custom" aria-labelledby="tab-custom">
+          <ul class="faq__list">
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Do you design the websites yourself?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>I handle the build and development. For visual design, I collaborate with a professional UX/UI designer so every page feels intentional and polished.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Will I communicate with the designer directly?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>No, I'm your main point of contact. I'll pass your feedback to the designer and keep everything moving smoothly on your end.</p>
                 </div>
               </div>
             </li>
@@ -178,44 +264,34 @@
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>
-                    Yes! If you have any websites/ brands that you take inspiration from, I'll let me designer know.
-                  </p>
+                  <p>Yes. If you have brands or websites you draw inspiration from, share them during onboarding and I'll loop my designer in.</p>
                 </div>
               </div>
             </li>
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
-                How long does the design phase usually take?
+                How long does the design phase take?
                 <span class="faq__icon" aria-hidden="true"></span>
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>
-                    The timeline really depends on the project scope and how quickly you’re able to send feedback. <br><br>Once we have your content and your direction, things usually move pretty quickly. Either way, I’ll give you an estimated timeline up front.
-                  </p>
+                  <p>Timelines depend on scope and how quickly you send content and feedback. Once I have both, things move fast. You'll always get an estimated timeline up front.</p>
                 </div>
               </div>
             </li>
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
-                How do you handle communication and timelines?
+                How do you handle communication and updates?
                 <span class="faq__icon" aria-hidden="true"></span>
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>Communication is simple and consistent. Most updates and feedback are handled through email, and if something is urgent, we can use text or a quick call. <br><br>You’ll also have a clear timeline from the start, and I’ll send progress updates at key milestones so you always know where we are in the process. The faster feedback and content are provided, the faster your website can be completed.</p>
+                  <p>Most updates happen over email, with text or a quick call for anything urgent. You'll get progress updates at key milestones so you always know where the project stands.</p>
                 </div>
               </div>
             </li>
-          </ul>
-        </div>
-
-        <!-- PANEL 2 -->
-        <div class="faq__panel fade-on-load" role="tabpanel" id="panel-pricing" aria-labelledby="tab-pricing">
-          <ul class="faq__list">
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
@@ -224,7 +300,7 @@
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>With the lump sum plan, you pay upfront and own everything from day one. With the monthly plan, you're leasing the website at $150/mo with a 6-month minimum. After that, you can keep going month-to-month, or buy out the site to officially own it. Both plans include design, development, and up to 5 pages.</p>
+                  <p>Lump Sum: pay upfront, own everything day one. Monthly: lease the site at $150/mo with a 6-month minimum, then month-to-month with the option to buy out whenever you're ready. Both include design, development, and up to 5 pages.</p>
                 </div>
               </div>
             </li>
@@ -236,7 +312,7 @@
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>The buyout cost depends on what a comparable lump sum build would have been. Your monthly payments get subtracted from that total. For example, if the equivalent lump sum would be $1,500 and you've paid 6 months at $150/mo ($900), your buyout would be around $600. If your project included extra pages or features, the total adjusts accordingly.</p>
+                  <p>Your buyout is the equivalent lump sum cost minus what you've already paid. Example: if the lump sum would've been $1,500 and you've paid $900 over 6 months, your buyout is around $600. Extra pages or features adjust the total.</p>
                 </div>
               </div>
             </li>
@@ -248,31 +324,19 @@
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>If you cancel without buying out, the site goes offline. Think of the monthly plan like a lease — you can lease forever, lease to own, or walk away. If you do buy out before canceling, everything is yours to keep.</p>
+                  <p>If you cancel without buying out, the site goes offline. Think of it like a lease. Lease forever, lease to own, or walk away. Buying out before canceling means everything is yours to keep.</p>
                 </div>
               </div>
             </li>
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
-                Does working with a UX/UI designer affect the price?
+                Does working with a UX/UI designer cost extra?
                 <span class="faq__icon" aria-hidden="true"></span>
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>Nope! I cover the cost of working with my designer — that's on me. I partner with a professional UX/UI designer because I want every site to feel intentional and polished, and I don't think you should have to pay extra for that. The prices you see on my pricing page include everything: design and development.</p>
-                </div>
-              </div>
-            </li>
-
-            <li class="faq__item fade-on-load">
-              <button class="faq__question" type="button" aria-expanded="false">
-                What payment methods do you accept?
-                <span class="faq__icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq__answer">
-                <div class="faq__answer-inner">
-                  <p>I handle all payments through HoneyBook, which makes everything simple and secure. You can pay with any major credit or debit card (Visa, Mastercard, Amex, Discover) or ACH bank transfer. Everything is processed securely through Stripe on the backend, so your payment info is always protected.</p>
+                  <p>Builds with 5 pages or less will not incur additional design costs. Anything over 5 will have a design fee applied. For e-commerce sites, the design fee is included in the overall quote due to the complexity of the design and development process.</p>
                 </div>
               </div>
             </li>
@@ -284,52 +348,79 @@
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>For lump sum projects, yes. A deposit is required to reserve your spot and begin work. My minimum deposit is $100, and for most projects it is 50 percent of the total quote. For the monthly plan, your first month's payment kicks things off.</p>
+                  <p>For lump sum projects, yes. The deposit reserves your spot and is typically 50% of the total quote ($100 minimum). For monthly plans, your first month's payment kicks things off.</p>
+                  <p>For Subscription plans, a one-time setup fee is required to initiate the service.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Why hand-coded instead of WordPress or a builder?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>Custom code is lean, fast, and built only with what your site actually needs. It's more secure (fewer plugins, no admin dashboard to break into) and more flexible. Your site is built around your brand instead of boxed into a template.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Will my site work on phones and tablets?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>Yes. Every site is fully responsive and tested across phones, tablets, laptops, and desktops to make sure it looks clean and works smoothly everywhere.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                Can I switch developers in the future?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>Lump sum clients: yes, absolutely. You own all the code and files. Monthly plan clients: you'd need to buy out the site first to get full ownership. Once you do, you're free to take it anywhere.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                What if I need to cancel after we start?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>Lump sum: your deposit is non-refundable, but any remaining balance for unfinished work is refunded. Monthly: you can cancel after the 6-month minimum. Without a buyout, the site goes offline.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                What's your refund policy?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>Deposits are non-refundable once work begins. After that, payments are tied to progress. You only pay for work that's been completed. Third-party costs like domain and hosting are non-refundable.</p>
                 </div>
               </div>
             </li>
           </ul>
         </div>
 
-        <!-- PANEL 3 -->
-        <div class="faq__panel fade-on-load" role="tabpanel" id="panel-tech" aria-labelledby="tab-tech">
+        <!-- ============================================= -->
+        <!-- PANEL 3: ADD-ONS & MAINTENANCE                 -->
+        <!-- ============================================= -->
+        <div class="faq__panel fade-on-load" role="tabpanel" id="panel-addons" aria-labelledby="tab-addons">
           <ul class="faq__list">
-
-            <li class="faq__item fade-on-load">
-              <button class="faq__question" type="button" aria-expanded="false">
-                Do you use templates or website builders like Wix or WordPress?
-                <span class="faq__icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq__answer">
-                <div class="faq__answer-inner">
-                  <p>No. I do not use templates or website builders like Wix or WordPress. Everything I build is hand coded from scratch, so your site feels like your brand and not a copy and paste of someone else’s.</p>
-                </div>
-              </div>
-            </li>
-
-            <li class="faq__item fade-on-load">
-              <button class="faq__question" type="button" aria-expanded="false">
-                What's the benefit of custom code over using something like WordPress?
-                <span class="faq__icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq__answer">
-                <div class="faq__answer-inner">
-                  <p>Custom code is lean, fast, and built only with what your website actually needs. Website builders often come with extra features and plugins running in the background that you may never use, which can slow things down. <br><br>It can also be more secure. With a hand coded site, there are fewer moving parts, fewer third party plugins, and no admin dashboard for someone to try to break into. In other words, there’s simply less stuff for hackers to mess with. Clean, simple, and a lot harder to poke at. <br><br>And of course, custom code gives you more flexibility and uniqueness. Your site is built around your brand, not boxed into a template. Basically, no extra fluff. Just the good stuff.</p>
-                </div>
-              </div>
-            </li>
-
-            <li class="faq__item fade-on-load">
-              <button class="faq__question" type="button" aria-expanded="false">
-                Will my website work on phones and tablets?
-                <span class="faq__icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq__answer">
-                <div class="faq__answer-inner">
-                  <p>Yes! I build every website to be fully responsive, which means it will look great and work smoothly on phones, tablets, laptops, and desktops. <br><br> I test it across screen sizes to make sure everything stays clean, readable, and easy to use no matter what device your customers are on.</p>
-                </div>
-              </div>
-            </li>
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
@@ -338,74 +429,67 @@
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>Yes, with a small note. Since your site is hand coded, you can't just log into a dashboard and click a few buttons to change things unless you know how to code. <br><br>Monthly plan subscribers get unlimited edits included for as long as they're subscribed. Lump sum and buyout clients can add the $50/mo maintenance plan for ongoing edits, or request one-off changes at a flat rate. Think of me like your website's personal mechanic. You drive it, I keep it running and looking fresh.</p>
+                  <p>Since your site is hand-coded, there's no dashboard to click through unless you know how to code. Monthly plan clients get unlimited edits while subscribed. Lump sum and buyout clients can add my $50/mo maintenance plan, or request one-off edits at a flat rate.</p>
                 </div>
               </div>
             </li>
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
-                What if I want to switch developers in the future? Can I do that?
+                What does the $50/mo maintenance plan include?
                 <span class="faq__icon" aria-hidden="true"></span>
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>If you went with the lump sum plan, absolutely! You own all the code and files, so switching is totally possible. <br><br>If you're on the monthly plan, you'd need to buy out the site first to get full ownership. Once you own it, you're free to take it wherever you want. Even if I get abducted by aliens, you'll have everything you need to keep your site going.</p>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-        <!-- PANEL 4 -->
-        <div class="faq__panel fade-on-load" role="tabpanel" id="panel-policy" aria-labelledby="tab-policy">
-          <ul class="faq__list">
-
-            <li class="faq__item fade-on-load">
-              <button class="faq__question" type="button" aria-expanded="false">
-               What happens if I need to cancel the project after we start?
-                <span class="faq__icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq__answer">
-                <div class="faq__answer-inner">
-                  <p>For lump sum projects, if you need to cancel after we've started, you can — no hard feelings. Your deposit is non-refundable since it reserves your spot and covers time invested. Any remaining balance for unfinished work gets refunded. <br><br>For the monthly plan, you can cancel after your 6-month minimum. If you cancel without buying out, the site goes offline. If you want to keep it, you can buy out at any time and your monthly payments get subtracted from the total.</p>
+                  <p>Ongoing edits, content updates, bug fixes, and general site care. Think of me as your website's personal mechanic. You drive it, I keep it running smooth. Available to both lump sum and template shop clients.</p>
                 </div>
               </div>
             </li>
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
-                Are there refunds?
+                Do you offer one-time edits instead of a monthly plan?
                 <span class="faq__icon" aria-hidden="true"></span>
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>Refunds depend on the stage of the project. The deposit is non refundable once work begins. <br><br>After that, payments are tied to progress, so you’re only paying for work that’s been completed. Domain and hosting costs paid to third party providers are non refundable.</p>
+                  <p>Yes. If you don't need ongoing support, request one-off updates as needed and I'll quote a flat rate based on the change so you always know the cost up front.</p>
                 </div>
               </div>
             </li>
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
-                Do you offer ongoing support after the website is launched?
+                Do I need to buy a domain or hosting?
                 <span class="faq__icon" aria-hidden="true"></span>
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>Monthly plan subscribers already get unlimited edits and 24/7 support included. <br><br>For lump sum and buyout clients, I offer a $50/month maintenance plan for ongoing edits and site care. If you don't need monthly support, you can also request one-time updates as needed, and I'll quote a flat rate based on the change so you know the cost up front.</p>
+                  <p>You'll need a domain (your website name) regardless of plan. I recommend Porkbun. For hosting: monthly plan clients have it included. Everyone else can either manage their own (I recommend Netlify, usually $9&ndash;$20/mo) or add my $25/mo hosting service.</p>
                 </div>
               </div>
             </li>
 
             <li class="faq__item fade-on-load">
               <button class="faq__question" type="button" aria-expanded="false">
-                Will I need to buy anything else like a domain or hosting?
+                Do you offer ongoing support after launch?
                 <span class="faq__icon" aria-hidden="true"></span>
               </button>
               <div class="faq__answer">
                 <div class="faq__answer-inner">
-                  <p>You'll need a domain (your website name) regardless of which plan you choose. I recommend buying it through Porkbun. <br><br>For hosting, monthly plan subscribers have it included. Lump sum clients can either manage their own hosting or add my $25/mo hosting service. I recommend Netlify, and the cost is typically around $9–$20/month depending on your needs and traffic. I'll guide you through setup either way.</p>
+                  <p>Monthly plan clients have unlimited edits and 24/7 support built in. Lump sum and template shop clients can add the $50/mo maintenance plan or request one-time updates whenever they need them.</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="faq__item fade-on-load">
+              <button class="faq__question" type="button" aria-expanded="false">
+                What payment methods do you accept?
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__answer">
+                <div class="faq__answer-inner">
+                  <p>All payments run through HoneyBook. You can pay with any major credit or debit card (Visa, Mastercard, Amex, Discover) or ACH bank transfer. Stripe handles the processing, so your payment info stays secure.</p>
                 </div>
               </div>
             </li>
@@ -442,10 +526,8 @@
     <span class="star"></span>
     <span class="star"></span>
     <span class="star"></span>
-  </div>  
+  </div>
 </section>
-
-
 
 <!-- =============================== -->
 <!-- ===== CTA / GET A QUOTE ======= -->
@@ -495,32 +577,22 @@
   </div>  
 </section>
 
-
+</main>
 
 <!-- ===================== -->
 <!-- ====== FOOTER ======= -->
 <!-- ===================== -->
-</main>
-
 <footer class="footer fade-section" id="contact">
   <div class="footer__container">
-
-    <!-- Top row -->
     <div class="footer__top">
-
-      <!-- Left: brand + blurb + socials -->
       <div class="footer__brand fade-on-load">
-        <a class="footer__logo fade-on-load" href="#home" aria-label="MigsFlow home">
+        <a class="footer__logo fade-on-load" href="../index.html" aria-label="MigsFlow home">
           <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
         </a>
-
         <p class="footer__blurb fade-on-load">
-          I build custom-coded websites for small businesses that want to feel good about
-          their online presence.
+          I build custom-coded websites for small businesses that want to feel good about their online presence.
         </p>
-
         <div class="footer__social fade-on-load" aria-label="Social links">
-
           <a class="footer__social-btn fade-on-load" href="https://www.instagram.com/migsflow/" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="2"/>
@@ -528,7 +600,6 @@
               <path d="M17.2 6.8h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             </svg>
           </a>
-
           <a class="footer__social-btn fade-on-load" href="https://www.linkedin.com/in/mfebres0919/" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6.5 9H3.8v11H6.5V9ZM5.1 3.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.2 13.3c0-2.6-1.4-4.5-4.1-4.5-1.4 0-2.4.7-2.8 1.4V9H10.8v11h2.7v-5.7c0-1.5.3-3 2.1-3 1.8 0 1.8 1.7 1.8 3.1V20H21v-6.7Z" fill="currentColor"/>
@@ -536,87 +607,56 @@
           </a>
         </div>
       </div>
-
-      <!-- Right: link columns -->
       <div class="footer__cols fade-on-load" aria-label="Footer navigation">
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Navigation</h3>
           <a class="footer__link fade-on-load" href="../index.html">Home</a>
           <a class="footer__link fade-on-load" href="about.html">About</a>
-          <a class="footer__link fade-on-load" href="services.html">Services</a>
-          <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
-          <!-- <a class="footer__link fade-on-load" href="shop.html">Shop</a> -->
+          <a class="footer__link fade-on-load" href="shop.html">Template Shop</a>
+          <a class="footer__link fade-on-load" href="custom.html">Custom Websites</a>
           <a class="footer__link fade-on-load" href="contact.html">Contact</a>
-          <a class="footer__link fade-on-load" href="#faq">FAQ</a>
+          <a class="footer__link fade-on-load" href="faq.html">FAQs</a>
         </div>
 
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Contact</h3>
-
-          <!-- Email -->
-          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com">
+          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com" aria-label="Email MigsFlow">
             <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             <span>migsflow@outlook.com</span>
           </a>
-
-          <!-- Phone -->
-          <a class="footer__link fade-on-load"
-            href="tel:+18326480539">
+          <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
             <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             (832) 648-0539
           </a>
-
-          <!-- Location (opens maps) -->
-          <a class="footer__link fade-on-load"
-            href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC"
-            target="_blank" rel="noopener">
+          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View MigsFlow's location">
             <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             Charleston, SC
           </a>
         </div>
       </div>
     </div>
-
-    <!-- Giant word + circle CTA -->
-    <div class="footer__hero fade-on-load" aria-hidden="true">
-      <div class="footer__giant fade-on-load">LET’S COLLABORATE</div>
+    <div class="footer__hero fade-on-load">
+      <div class="footer__giant fade-on-load">LET'S COLLABORATE</div>
       <a class="footer__bubble fade-on-load" href="contact.html" aria-label="Get in touch">
         <span>GET IN TOUCH</span>
       </a>
     </div>
-
-    <!-- Bottom -->
     <div class="footer__bottom fade-on-load">
-      <div class="copyright fade-on-load"><p class="fade-on-load">© Copyright 2025 MigsFlow Web Design</p><div>
+      <div class="copyright fade-on-load"><p class="fade-on-load">© Copyright 2025 MigsFlow Web Design</p></div>
     </div>
-
   </div>
-
-  <!-- STAR BACKGROUND -->
   <div class="star-field">
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-
-    <span class="star"></span>
-  </div>   
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+  </div>
 </footer>
 
-<script defer src="../main.js"></script>
 
+<script defer src="../main.js"></script>
+</main>
 </body>
 </html>

@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Website Templates for Hairstylists | MigsFlow Web Design</title>
+  <title>Template Shop | MigsFlow Web Design</title>
 
   <!-- SEO -->
-  <meta name="description" content="Ready-made website templates for hairstylists. Choose from Starter, Standard, or Premium tiers. Get a polished, professional website without the custom price tag.">
+  <meta name="description" content="Ready-made website templates for hairstylists. Starter, Standard, and Premium tiers — fully customized to your brand.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://migsflow.com/html/shop.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://migsflow.com/html/shop.html">
-  <meta property="og:title" content="Website Templates for Hairstylists | MigsFlow Web Design">
+  <meta property="og:title" content="Template Shop | MigsFlow Web Design">
   <meta property="og:description" content="Ready-made website templates for hairstylists. Three tiers, transparent pricing, fully customized to your brand.">
   <meta property="og:image" content="https://migsflow.com/images/og-cover.png">
   <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Website Templates for Hairstylists | MigsFlow Web Design">
+  <meta name="twitter:title" content="Template Shop | MigsFlow Web Design">
   <meta name="twitter:description" content="Ready-made website templates for hairstylists. Three tiers, transparent pricing.">
   <meta name="twitter:image" content="https://migsflow.com/images/og-cover.png">
 
@@ -32,6 +32,7 @@
 
   <!-- Critical CSS -->
   <link rel="stylesheet" href="../css/shop.css">
+  <link rel="stylesheet" href="../css/global.css">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -59,11 +60,33 @@
     <div class="nav__links" id="primary-nav">
       <a class="nav__link" href="../index.html">Home</a>
       <a class="nav__link" href="about.html">About</a>
-      <a class="nav__link" href="services.html">Services</a>
-      <a class="nav__link" href="pricing.html">Pricing</a>
-      <!-- <a class="nav__link is-active" href="#shop">Shop</a> -->
+
+      <!-- Services dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Services
+          <svg class="nav__chevron" viewBox="0 0 12 8" fill="none" aria-hidden="true" width="10" height="6">
+            <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav__dropdown-menu" role="menu">
+          <a class="nav__dropdown-item" href="shop.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Template Shop</span>
+            <span class="nav__dropdown-item-sub">Ready-made hairstylist sites</span>
+          </a>
+          <a class="nav__dropdown-item" href="custom.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Custom Websites</span>
+            <span class="nav__dropdown-item-sub">Fully bespoke builds</span>
+          </a>
+          <a class="nav__dropdown-item" href="services.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Add-Ons &amp; Maintenance</span>
+            <span class="nav__dropdown-item-sub">Hosting, edits, ongoing support</span>
+          </a>
+        </div>
+      </div>
+
       <a class="nav__link" href="contact.html">Contact</a>
-      <a class="nav__link" href="faq.html">FAQ</a>
+      <a class="nav__link" href="faq.html">FAQs</a>
     </div>
 
     <a class="nav__cta" href="contact.html">
@@ -75,7 +98,6 @@
   </nav>
 </header>
 
-<main>
 
 <!-- =============================== -->
 <!-- ===== HERO ==================== -->
@@ -83,90 +105,30 @@
 <section class="shop-hero fade-section" id="shop">
   <div class="shop-hero__container">
 
-    <span class="shop-hero__pill fade-on-load">
+    <span class="shop-hero__pill fade-on-load poppins">
       <span class="shop-hero__dot" aria-hidden="true"></span>
-      Template Shop
+      Template Shop · Hairstylists
     </span>
 
     <h1 class="shop-hero__title fade-on-load">
-      Ready-Made Website<br>
-      Templates for<br>
-      <span class="shop-hero__title-accent">Hairstylists</span>
+      A website built<br>
+      for your brand —<br>
+      <span class="shop-hero__title-accent">not from scratch</span>
     </h1>
 
     <p class="shop-hero__sub fade-on-load">
-      For stylists who are ready to look more established online — without paying full custom website prices.
+      Pick a tier, choose your template, send your content. I customize it and get you live. No custom prices, no drawn-out process.
     </p>
 
     <div class="shop-hero__ctas fade-on-load">
       <a class="shop-btn shop-btn--primary" href="#tiers">
-        <span>Shop Templates</span>
+        <span>Browse Templates</span>
         <img src="../images/vectors/code-white.svg" alt="" width="20" height="20" decoding="async">
       </a>
-      <a class="shop-btn shop-btn--ghost" href="#compare">
-        <span>Compare Tiers</span>
+      <a class="shop-btn shop-btn--ghost" href="#how-it-works">
+        <span>How It Works</span>
       </a>
     </div>
-  </div>
-
-  <!-- STAR BACKGROUND -->
-  <div class="star-field">
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span>
-  </div>
-</section>
-
-
-<!-- =============================== -->
-<!-- ===== THE PROBLEM ============= -->
-<!-- =============================== -->
-<section class="shop-problem fade-section">
-  <div class="shop-problem__container">
-
-    <span class="shop-problem__pill fade-on-load">
-      <span class="shop-problem__dot" aria-hidden="true"></span>
-      Why a Website?
-    </span>
-
-    <h2 class="shop-problem__title fade-on-load">
-      A booking link <span class="shop-problem__title-accent">isn't a brand</span>
-    </h2>
-
-    <p class="shop-problem__sub fade-on-load">
-      Instagram and Acuity are helpful, but they can only take your business so far. A website helps you look more professional, build trust faster, and give clients one place to view your services, see your work, and book with confidence.
-    </p>
-
-    <div class="problem-cards">
-      <div class="problem-card fade-on-load">
-        <div class="problem-card__icon" aria-hidden="true">
-          <span>01</span>
-        </div>
-        <h3 class="problem-card__title">Look more established</h3>
-        <p class="problem-card__text">A polished website signals to clients that you're serious about your craft and your business.</p>
-      </div>
-
-      <div class="problem-card fade-on-load">
-        <div class="problem-card__icon" aria-hidden="true">
-          <span>02</span>
-        </div>
-        <h3 class="problem-card__title">Everything in one place</h3>
-        <p class="problem-card__text">Services, gallery, contact, booking — all on one clean page instead of scattered across apps.</p>
-      </div>
-
-      <div class="problem-card fade-on-load">
-        <div class="problem-card__icon" aria-hidden="true">
-          <span>03</span>
-        </div>
-        <h3 class="problem-card__title">Build trust faster</h3>
-        <p class="problem-card__text">New clients feel more comfortable booking when they can see who you are and what you offer.</p>
-      </div>
-    </div>
-
   </div>
 
   <!-- STAR BACKGROUND -->
@@ -194,11 +156,11 @@
     </span>
 
     <h2 class="tiers__title fade-on-load">
-      Choose the tier that <span class="tiers__title-accent">fits you</span>
+      Pick the tier that <span class="tiers__title-accent">fits where you are</span>
     </h2>
 
     <p class="tiers__sub fade-on-load">
-      Every tier is fully customized with your brand, photos, and content. Pick the one that matches where your business is right now.
+      Every tier is customized with your brand, photos, and content. Same quality, different scope.
     </p>
 
     <div class="tier-cards">
@@ -215,25 +177,24 @@
           <span class="tier-card__period">flat</span>
         </div>
 
-        <p class="tier-card__who">For stylists just starting out who want something simple and professional beyond just Instagram and Acuity.</p>
+        <p class="tier-card__who">Best for stylists who want something clean and professional without jumping into a full custom build.</p>
 
         <div class="tier-card__divider" aria-hidden="true"></div>
 
-        <p class="tier-card__includes-label">What's included:</p>
         <ul class="tier-card__features" role="list">
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> 10 templates to choose from</li>
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> Home page</li>
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> Contact page</li>
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> Services section</li>
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> Gallery section</li>
+          <li><span class="tier-card__check" aria-hidden="true">✓</span> Home + Contact pages</li>
+          <li><span class="tier-card__check" aria-hidden="true">✓</span> Services + Gallery sections</li>
           <li><span class="tier-card__check" aria-hidden="true">✓</span> Acuity booking embed</li>
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> Mobile responsive</li>
+          <li><span class="tier-card__check" aria-hidden="true">✓</span> 10 templates to choose from</li>
         </ul>
 
-        <a class="tier-card__btn" href="shop-starter.html">
-          <span>View Starter Templates</span>
-          <img src="../images/vectors/code-blue.svg" alt="" width="20" height="20" decoding="async">
-        </a>
+        <div class="tier-card__actions">
+          <a class="tier-card__btn" href="shop-starter.html">
+            <span>Browse Starter Templates</span>
+            <img src="../images/vectors/code-blue.svg" alt="" width="18" height="18" decoding="async">
+          </a>
+          <a class="tier-card__link" href="faq.html">What's included + pricing details →</a>
+        </div>
       </article>
 
       <!-- TIER 2: STANDARD -->
@@ -249,23 +210,24 @@
           <span class="tier-card__period">flat</span>
         </div>
 
-        <p class="tier-card__who">For stylists who want to look more established and give clients more information before they book.</p>
+        <p class="tier-card__who">Best for stylists who want clients to know more about them before booking and want their brand to feel more established.</p>
 
         <div class="tier-card__divider" aria-hidden="true"></div>
 
-        <p class="tier-card__includes-label">Everything in Starter, plus:</p>
         <ul class="tier-card__features" role="list">
+          <li><span class="tier-card__check" aria-hidden="true">✓</span> Everything in Starter</li>
           <li><span class="tier-card__check" aria-hidden="true">✓</span> About section</li>
           <li><span class="tier-card__check" aria-hidden="true">✓</span> FAQ or Testimonials</li>
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> Embedded Google Map</li>
           <li><span class="tier-card__check" aria-hidden="true">✓</span> Elevated layout & styling</li>
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> 10 templates to choose from</li>
         </ul>
 
-        <a class="tier-card__btn tier-card__btn--primary" href="shop-standard.html">
-          <span>View Standard Templates</span>
-          <img src="../images/vectors/code-white.svg" alt="" width="20" height="20" decoding="async">
-        </a>
+        <div class="tier-card__actions">
+          <a class="tier-card__btn tier-card__btn--primary" href="#">
+            <span>Coming Soon</span>
+            <img src="../images/vectors/code-white.svg" alt="" width="18" height="18" decoding="async">
+          </a>
+          <a class="tier-card__link" href="faq.html">What's included + pricing details →</a>
+        </div>
       </article>
 
       <!-- TIER 3: PREMIUM -->
@@ -280,100 +242,25 @@
           <span class="tier-card__period">flat</span>
         </div>
 
-        <p class="tier-card__who">For hairstylists and salons who want a more complete brand presence and may want to sell products too.</p>
+        <p class="tier-card__who">Best for hairstylists and salons who want a full brand presence, sell products, or want educational content on their site.</p>
 
         <div class="tier-card__divider" aria-hidden="true"></div>
 
-        <p class="tier-card__includes-label">Everything in Standard, plus:</p>
         <ul class="tier-card__features" role="list">
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> Shop / ecommerce</li>
+          <li><span class="tier-card__check" aria-hidden="true">✓</span> Everything in Standard</li>
+          <li><span class="tier-card__check" aria-hidden="true">✓</span> Shop / ecommerce page</li>
           <li><span class="tier-card__check" aria-hidden="true">✓</span> Blog</li>
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> Optional hair / nail care page</li>
           <li><span class="tier-card__check" aria-hidden="true">✓</span> Most elevated styling</li>
-          <li><span class="tier-card__check" aria-hidden="true">✓</span> 10 templates to choose from</li>
         </ul>
 
-        <a class="tier-card__btn" href="shop-premium.html">
-          <span>View Premium Templates</span>
-          <img src="../images/vectors/code-blue.svg" alt="" width="20" height="20" decoding="async">
-        </a>
+        <div class="tier-card__actions">
+          <a class="tier-card__btn" href="#">
+            <span>Coming Soon</span>
+            <img src="../images/vectors/code-blue.svg" alt="" width="18" height="18" decoding="async">
+          </a>
+          <a class="tier-card__link" href="faq.html">What's included + pricing details →</a>
+        </div>
       </article>
-
-    </div>
-  </div>
-
-  <!-- STAR BACKGROUND -->
-  <div class="star-field">
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span>
-  </div>
-</section>
-
-
-<!-- =============================== -->
-<!-- ===== WHICH TIER FITS YOU? === -->
-<!-- =============================== -->
-<section class="fits fade-section" id="compare">
-  <div class="fits__container">
-
-    <span class="fits__pill fade-on-load">
-      <span class="fits__dot" aria-hidden="true"></span>
-      Not Sure Which?
-    </span>
-
-    <h2 class="fits__title fade-on-load">
-      Which one is <span class="fits__title-accent">right for you?</span>
-    </h2>
-
-    <p class="fits__sub fade-on-load">
-      A quick checklist to help you self-select. If most of these sound like you, that's probably your tier.
-    </p>
-
-    <div class="fits-cols">
-
-      <div class="fits-col fade-on-load">
-        <h3 class="fits-col__title">
-          <span class="fits-col__num">01</span>
-          Starter is for you if...
-        </h3>
-        <ul class="fits-col__list" role="list">
-          <li>You're newer in business</li>
-          <li>You mainly use Instagram and Acuity right now</li>
-          <li>You want something simple but professional</li>
-          <li>You need a lower-cost option to get started</li>
-        </ul>
-      </div>
-
-      <div class="fits-col fits-col--featured fade-on-load">
-        <h3 class="fits-col__title">
-          <span class="fits-col__num">02</span>
-          Standard is for you if...
-        </h3>
-        <ul class="fits-col__list" role="list">
-          <li>You want clients to know more about you</li>
-          <li>You want to answer questions before they ask</li>
-          <li>You want your business to feel more established</li>
-          <li>You want more than just the basics</li>
-        </ul>
-      </div>
-
-      <div class="fits-col fade-on-load">
-        <h3 class="fits-col__title">
-          <span class="fits-col__num">03</span>
-          Premium is for you if...
-        </h3>
-        <ul class="fits-col__list" role="list">
-          <li>You want your site to feel like a full brand</li>
-          <li>You sell products or want to later</li>
-          <li>You want educational content on your site</li>
-          <li>You want the most complete online presence</li>
-        </ul>
-      </div>
 
     </div>
   </div>
@@ -394,11 +281,11 @@
 <!-- =============================== -->
 <!-- ===== HOW IT WORKS ============ -->
 <!-- =============================== -->
-<section class="howshop fade-section">
+<section class="howshop fade-section" id="how-it-works">
   <div class="howshop__container">
 
     <span class="howshop__pill fade-on-load">
-      <span class="howshop__dot" aria-hidden="true"></span>
+      <span class="howshop__dot poppins" aria-hidden="true"></span>
       The Process
     </span>
 
@@ -418,7 +305,6 @@
           <p class="howshop-step__text">Pick the tier that matches what your business needs right now.</p>
         </div>
       </div>
-
       <div class="howshop-step fade-on-load">
         <div class="howshop-step__num">02</div>
         <div class="howshop-step__content">
@@ -426,23 +312,20 @@
           <p class="howshop-step__text">Browse the templates in your tier and choose the one that matches your vibe.</p>
         </div>
       </div>
-
       <div class="howshop-step fade-on-load">
         <div class="howshop-step__num">03</div>
         <div class="howshop-step__content">
           <h3 class="howshop-step__title">Send your content</h3>
-          <p class="howshop-step__text">Photos, services list, booking link, contact info — anything you want on the site.</p>
+          <p class="howshop-step__text">Photos, services list, booking link, contact info. Anything you want on the site.</p>
         </div>
       </div>
-
       <div class="howshop-step fade-on-load">
         <div class="howshop-step__num">04</div>
         <div class="howshop-step__content">
           <h3 class="howshop-step__title">I customize it</h3>
-          <p class="howshop-step__text">I take the template and make it yours — your colors, your photos, your brand.</p>
+          <p class="howshop-step__text">I take the template and make it yours, down to the colors, your photos, your brand.</p>
         </div>
       </div>
-
       <div class="howshop-step fade-on-load">
         <div class="howshop-step__num">05</div>
         <div class="howshop-step__content">
@@ -468,25 +351,19 @@
 
 
 <!-- =============================== -->
-<!-- ===== CTA / GET A QUOTE ======= -->
+<!-- ===== CTA ===================== -->
 <!-- =============================== -->
 <section class="cta fade-section" id="quote-cta">
   <div class="cta__container">
     <div class="cta__card fade-on-load">
-      <h2 class="cta__title fade-on-load">Ready to claim<br>your template?</h2>
-
-      <p class="cta__subtext fade-on-load">
-        Pick the tier that fits where you are now and let's get you online.
-      </p>
-
+      <h2 class="cta__title fade-on-load">Ready to get started?</h2>
+      <p class="cta__subtext fade-on-load poppins">Browse the templates, pick your tier, and let's get your site live.</p>
       <a class="cta__btn fade-on-load" href="#tiers">
-        <span>Shop Templates</span>
+        <span class="poppins">Browse Templates</span>
         <img class="code-icon" src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </a>
     </div>
   </div>
-
-  <!-- STAR BACKGROUND -->
   <div class="star-field">
     <span class="star"></span><span class="star"></span><span class="star"></span>
     <span class="star"></span><span class="star"></span><span class="star"></span>
@@ -533,23 +410,23 @@
           <h3 class="footer__heading fade-on-load">Navigation</h3>
           <a class="footer__link fade-on-load" href="../index.html">Home</a>
           <a class="footer__link fade-on-load" href="about.html">About</a>
-          <a class="footer__link fade-on-load" href="services.html">Services</a>
-          <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
-          <a class="footer__link fade-on-load" href="shop.html">Shop</a>
+          <a class="footer__link fade-on-load" href="shop.html">Template Shop</a>
+          <a class="footer__link fade-on-load" href="custom.html">Custom Websites</a>
           <a class="footer__link fade-on-load" href="contact.html">Contact</a>
-          <a class="footer__link fade-on-load" href="faq.html">FAQ</a>
+          <a class="footer__link fade-on-load" href="faq.html">FAQs</a>
         </div>
+
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Contact</h3>
-          <a class="footer__link fade-on-load" href="mailto:migsflowdesign@gmail.com">
+          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com" aria-label="Email MigsFlow">
             <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
-            migsflowdesign@gmail.com
+            <span>migsflow@outlook.com</span>
           </a>
-          <a class="footer__link fade-on-load" href="tel:+18326480539">
+          <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
             <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             (832) 648-0539
           </a>
-          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener">
+          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View MigsFlow's location">
             <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             Charleston, SC
           </a>
@@ -576,6 +453,8 @@
   </div>
 </footer>
 
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script defer src="../main.js"></script>
 
 </body>

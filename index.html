@@ -38,7 +38,9 @@
   <link rel="preload" as="font" href="fonts/poppins-v24-latin-regular.woff2" type="font/woff2" crossorigin>
 
   <!-- Critical CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">   
+  <link rel="stylesheet" href="css/global.css">
+
 
 
 
@@ -56,41 +58,53 @@
 <!-- NAVIGATION MENU -->
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
-    <!-- Brand -->
-    <a class="brand" href="#hero" aria-label="MigsFlow home">
-      <img src="images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
+    <a class="brand" href="../index.html" aria-label="MigsFlow home">
+      <img src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
     </a>
 
-    <!-- Mobile toggle -->
-    <button
-      class="nav__toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="primary-nav"
-      aria-label="Open menu"
-    >
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
       <span class="hamburger" aria-hidden="true">
         <span></span><span></span><span></span>
       </span>
     </button>
 
-    <!-- Links -->
     <div class="nav__links" id="primary-nav">
-      <a class="nav__link is-active" href="#home">Home</a>
-      <a class="nav__link" href="./html/about.html">About</a>
-      <a class="nav__link" href="html/services.html">Services</a>
-      <a class="nav__link" href="html/pricing.html">Pricing</a>
-      <!-- <a class="nav__link" href="html/shop.html">Shop</a> -->
-      <a class="nav__link" href="html/contact.html">Contact</a>
-      <a class="nav__link" href="html/faq.html">FAQ</a>
+      <a class="nav__link active" href="../index.html">Home</a>
+      <a class="nav__link" href="html/about.html">About</a>
+
+      <!-- Services dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Services
+          <svg class="nav__chevron" viewBox="0 0 12 8" fill="none" aria-hidden="true" width="10" height="6">
+            <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.
+            5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav__dropdown-menu" role="menu">
+          <a class="nav__dropdown-item" href="./html/shop.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Template Shop</span>
+            <span class="nav__dropdown-item-sub">Ready-made hairstylist sites</span>
+          </a>
+          <a class="nav__dropdown-item" href="./html/custom.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Custom Websites</span>
+            <span class="nav__dropdown-item-sub">Fully bespoke builds</span>
+          </a>
+          <a class="nav__dropdown-item" href="./html/services.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Add-Ons &amp; Maintenance</span>
+            <span class="nav__dropdown-item-sub">Hosting, edits, ongoing support</span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav__link" href="./html/contact.html">Contact</a>
+      <a class="nav__link" href="./html/faq.html">FAQs</a>      
     </div>
 
-    <!-- CTA -->
-    <a class="nav__cta" href="html/contact.html">
+    <a class="nav__cta" href="contact.html">
       <span>Get a Quote</span>
       <span class="nav__cta-icon" aria-hidden="true">
-        <!-- arrow icon -->
-        <img class="code-icon" src="images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
+        <img src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </span>
     </a>
   </nav>
@@ -230,7 +244,7 @@
     <!-- RIGHT -->
     <div class="who__right">
       <p class="who__blurb fade-on-load">
-        From hairstylists and barbers to photographers and content creators, I love helping
+        From hairstylists and barbers to lawyers and content creators, I love helping
         passionate business owners create websites that reflect who they are. No pressure, no fluff,
         just something that feels right.
       </p>
@@ -392,12 +406,12 @@
       <!-- Item 1 (text left / image right) -->
       <article class="work__item work__item--a fade-on-load">
         <div class="work__content fade-on-load">
-          <h3 class="work__item-title fade-on-load">Portfolio Website - Creative Technologist</h3>
+          <h3 class="work__item-title fade-on-load">Warner & Associates PLLC | Lawyer Website</h3>
           <p class="work__item-text fade-on-load">
-           A personal site designed to make complex work feel simple and exciting. The goal was to present engineering and design projects clearly, with strong visuals, smooth flow, and a structure that tells the story behind each build.
+            A clean, modern website for a law firm specializing in business and real estate law. Built to highlight their expertise, educate potential clients, and make it easy for them to get in touch.
           </p>
 
-          <a class="work__btn fade-on-load" href="https://mfebres0919.github.io/Creative-Technologist/">
+          <a class="work__btn fade-on-load" href="https://warnerandassociates.com/">
             <span>View Project</span>
             <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
           </a>
@@ -406,11 +420,11 @@
         <div class="work__media fade-on-load">
           <div class="work__frame fade-on-load">
             <picture>
-              <source media="(max-width: 600px)" srcset="images/project-1-m.webp" type="image/webp">
-              <source media="(max-width: 600px)" srcset="images/project-1-m.png">
-              <source srcset="images/project-1-d.webp" type="image/webp">
-              <source srcset="images/project-1-d.png">
-              <img class="fade-on-load" src="images/project-1-d.png" alt="Digital agency website preview" width="1200" height="966" loading="lazy" decoding="async">
+              <source media="(max-width: 600px)" srcset="images/project-3-m.webp" type="image/webp">
+              <source media="(max-width: 600px)" srcset="images/project-3-m.png">
+              <source srcset="images/project-3-d.webp" type="image/webp">
+              <source srcset="images/project-3-d.png">
+              <img class="fade-on-load" src="images/project-3-d.png" alt="Digital agency website preview" width="1200" height="966" loading="lazy" decoding="async">
             </picture>
           </div>
         </div>
@@ -524,30 +538,20 @@
 
 
 
-</main>
-
 <!-- ===================== -->
 <!-- ====== FOOTER ======= -->
 <!-- ===================== -->
 <footer class="footer fade-section" id="contact">
   <div class="footer__container">
-
-    <!-- Top row -->
     <div class="footer__top">
-
-      <!-- Left: brand + blurb + socials -->
       <div class="footer__brand fade-on-load">
-        <a class="footer__logo fade-on-load" href="#home" aria-label="MigsFlow home">
-          <img class="fade-on-load" src="images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
+        <a class="footer__logo fade-on-load" href="../index.html" aria-label="MigsFlow home">
+          <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
         </a>
-
         <p class="footer__blurb fade-on-load">
-          I build custom-coded websites for small businesses that want to feel good about
-          their online presence.
+          I build custom-coded websites for small businesses that want to feel good about their online presence.
         </p>
-
         <div class="footer__social fade-on-load" aria-label="Social links">
-
           <a class="footer__social-btn fade-on-load" href="https://www.instagram.com/migsflow/" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="2"/>
@@ -555,7 +559,6 @@
               <path d="M17.2 6.8h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             </svg>
           </a>
-
           <a class="footer__social-btn fade-on-load" href="https://www.linkedin.com/in/mfebres0919/" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6.5 9H3.8v11H6.5V9ZM5.1 3.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.2 13.3c0-2.6-1.4-4.5-4.1-4.5-1.4 0-2.4.7-2.8 1.4V9H10.8v11h2.7v-5.7c0-1.5.3-3 2.1-3 1.8 0 1.8 1.7 1.8 3.1V20H21v-6.7Z" fill="currentColor"/>
@@ -563,86 +566,51 @@
           </a>
         </div>
       </div>
-
-      <!-- Right: link columns -->
       <div class="footer__cols fade-on-load" aria-label="Footer navigation">
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Navigation</h3>
-          <a class="footer__link fade-on-load" href="#home">Home</a>
-          <a class="footer__link fade-on-load" href="html/about.html">About</a>
-          <a class="footer__link fade-on-load" href="html/services.html">Services</a>          
-          <a class="footer__link fade-on-load" href="html/pricing.html">Pricing</a>
-          <!-- <a class="footer__link fade-on-load" href="html/shop.html">Shop</a> -->
-          <a class="footer__link fade-on-load" href="html/contact.html">Contact</a>
-          <a class="footer__link fade-on-load" href="html/faq.html">FAQ</a>
+          <a class="footer__link fade-on-load" href="index.html">Home</a>
+          <a class="footer__link fade-on-load" href="./html/about.html">About</a>
+          <a class="footer__link fade-on-load" href="./html/shop.html">Template Shop</a>
+          <a class="footer__link fade-on-load" href="./html/custom.html">Custom Websites</a>
+          <a class="footer__link fade-on-load" href="./html/contact.html">Contact</a>
+          <a class="footer__link fade-on-load" href="./html/faq.html">FAQs</a>
         </div>
-
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Contact</h3>
-
-          <!-- Email -->
-          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com">
-            <img class="email" src="images/logos/mail.svg" alt="" width="20" height="20" decoding="async">
+          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com" aria-label="Email MigsFlow">
+            <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             <span>migsflow@outlook.com</span>
           </a>
-
-          <!-- Phone -->
-          <a class="footer__link fade-on-load"
-            href="tel:+18326480539">
-            <img class="phone" src="images/logos/phone-call.svg" alt="" width="20" height="20" decoding="async">
+          <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
+            <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             (832) 648-0539
           </a>
-
-          <!-- Location (opens maps) -->
-          <a class="footer__link fade-on-load"
-            href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC"
-            target="_blank" rel="noopener">
-            <img class="location" src="images/icons/location.svg" alt="" width="20" height="20" decoding="async">
+          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View MigsFlow's location">
+            <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             Charleston, SC
           </a>
         </div>
       </div>
     </div>
-
-    <!-- Giant word + circle CTA -->
     <div class="footer__hero fade-on-load">
-      <div class="footer__giant fade-on-load">LET’S COLLABORATE</div>
-      <a class="footer__bubble fade-on-load" href="html/contact.html" aria-label="Get in touch">
+      <div class="footer__giant fade-on-load">LET'S COLLABORATE</div>
+      <a class="footer__bubble fade-on-load" href="contact.html" aria-label="Get in touch">
         <span>GET IN TOUCH</span>
       </a>
     </div>
-
-    <!-- Bottom -->
     <div class="footer__bottom fade-on-load">
       <div class="copyright fade-on-load"><p class="fade-on-load">© Copyright 2025 MigsFlow Web Design</p></div>
     </div>
-
   </div>
-
-  <!-- STAR BACKGROUND -->
   <div class="star-field">
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-
-    <span class="star"></span>
-    <span class="star"></span>
-    <span class="star"></span>
-  </div>   
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+    <span class="star"></span><span class="star"></span><span class="star"></span>
+  </div>
 </footer>
 
 <script defer src="main.js"></script>

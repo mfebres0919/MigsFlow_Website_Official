@@ -31,7 +31,9 @@
   <link rel="preload" as="font" href="../fonts/poppins-v24-latin-regular.woff2" type="font/woff2" crossorigin>
 
   <!-- Critical CSS -->
+  <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/shop-starter.css">
+
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -59,11 +61,33 @@
     <div class="nav__links" id="primary-nav">
       <a class="nav__link" href="../index.html">Home</a>
       <a class="nav__link" href="about.html">About</a>
-      <a class="nav__link" href="services.html">Services</a>
-      <a class="nav__link" href="pricing.html">Pricing</a>
-      <!-- <a class="nav__link is-active" href="shop.html">Shop</a> -->
+
+      <!-- Services dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+          Services
+          <svg class="nav__chevron" viewBox="0 0 12 8" fill="none" aria-hidden="true" width="10" height="6">
+            <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="nav__dropdown-menu" role="menu">
+          <a class="nav__dropdown-item" href="shop.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Template Shop</span>
+            <span class="nav__dropdown-item-sub">Ready-made hairstylist sites</span>
+          </a>
+          <a class="nav__dropdown-item" href="custom.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Custom Websites</span>
+            <span class="nav__dropdown-item-sub">Fully bespoke builds</span>
+          </a>
+          <a class="nav__dropdown-item" href="services.html" role="menuitem">
+            <span class="nav__dropdown-item-label">Add-Ons &amp; Maintenance</span>
+            <span class="nav__dropdown-item-sub">Hosting, edits, ongoing support</span>
+          </a>
+        </div>
+      </div>
+
       <a class="nav__link" href="contact.html">Contact</a>
-      <a class="nav__link" href="faq.html">FAQ</a>
+      <a class="nav__link" href="faq.html">FAQs</a>
     </div>
 
     <a class="nav__cta" href="contact.html">
@@ -75,7 +99,6 @@
   </nav>
 </header>
 
-<main>
 
 <!-- =============================== -->
 <!-- ===== STARTER HERO ============ -->
@@ -122,339 +145,6 @@
   </div>
 </section>
 
-
-<!-- =============================== -->
-<!-- ===== VALUE SECTION =========== -->
-<!-- =============================== -->
-<section class="value fade-section">
-  <div class="value__container">
-
-    <span class="value__pill fade-on-load">
-      <span class="value__dot" aria-hidden="true"></span>
-      Why Starter
-    </span>
-
-    <h2 class="value__title fade-on-load">
-      Built for stylists who are <span class="value__title-accent">ready for the next step</span>
-    </h2>
-
-    <div class="value-cards">
-      <div class="value-card fade-on-load">
-        <span class="value-card__label">Who it's for</span>
-        <h3 class="value-card__title">Stylists who want to look more established</h3>
-        <p class="value-card__text">
-          This tier is for hairstylists who are just starting out or keeping things simple, but are tired of relying only on Instagram and a booking link. It’s for the stylist who wants a clean, professional website without jumping straight into a custom build.
-        </p>
-      </div>
-
-      <div class="value-card fade-on-load">
-        <span class="value-card__label">Why it matters</span>
-        <h3 class="value-card__title">A real home for your business online</h3>
-        <p class="value-card__text">
-          If you're only sending clients to Instagram or an Acuity link, your online presence can feel incomplete. The starter tier gives you the essentials you need to look more established and give clients one clear place to go.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- STAR BACKGROUND -->
-  <div class="star-field">
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span>
-  </div>
-</section>
-
-
-<!-- =============================== -->
-<!-- ===== WHAT'S INCLUDED ========= -->
-<!-- =============================== -->
-<section class="included fade-section">
-  <div class="included__container">
-
-    <span class="included__pill fade-on-load">
-      <span class="included__dot" aria-hidden="true"></span>
-      What You Get
-    </span>
-
-    <h2 class="included__title fade-on-load">
-      Everything you need<span class="included__title-accent"> to get started</span>
-    </h2>
-
-    <p class="included__sub fade-on-load">
-      Each starter template gives you the essentials to look professional online without overcomplicating things. The layout style changes, but every template is built to help you show your work, share your services, and guide clients to book.
-    </p>
-
-    <div class="included-card fade-on-load">
-      <ul class="included-list" role="list">
-        <li><span class="included-list__check" aria-hidden="true">✓</span> Home page</li>
-        <li><span class="included-list__check" aria-hidden="true">✓</span> Contact page</li>
-        <li><span class="included-list__check" aria-hidden="true">✓</span> Services section</li>
-        <li><span class="included-list__check" aria-hidden="true">✓</span> Gallery section</li>
-        <li><span class="included-list__check" aria-hidden="true">✓</span> Acuity booking embed</li>
-        <li><span class="included-list__check" aria-hidden="true">✓</span> Mobile responsive design</li>
-        <li><span class="included-list__check" aria-hidden="true">✓</span> Customized with your brand</li>
-        <li><span class="included-list__check" aria-hidden="true">✓</span> 10 templates to choose from</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- STAR BACKGROUND -->
-  <div class="star-field">
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span>
-  </div>
-</section>
-
-
-<!-- =============================== -->
-<!-- ===== THE FULL PICTURE ======== -->
-<!-- =============================== -->
-<section class="full-picture fade-section" id="full-picture">
-  <div class="full-picture__container">
-
-    <span class="full-picture__pill fade-on-load">
-      <span class="full-picture__dot" aria-hidden="true"></span>
-      Heads Up
-    </span>
-
-    <h2 class="full-picture__title fade-on-load">
-      The <span class="full-picture__title-accent">full picture</span>
-    </h2>
-
-    <p class="full-picture__sub fade-on-load">
-      The $250 covers your custom design and development. Here's everything else you'll need to get your site fully launched — no surprises later.
-    </p>
-
-    <!-- HOSTING OPTIONS -->
-    <div class="hosting-options">
-      <div class="hosting-card fade-on-load">
-        <span class="hosting-card__tag">Recommended</span>
-        <h3 class="hosting-card__title">Hosted by Me</h3>
-        <div class="hosting-card__price">
-          <span class="hosting-card__dollar">$</span>
-          <span class="hosting-card__amount">25</span>
-          <span class="hosting-card__period">/mo</span>
-        </div>
-        <p class="hosting-card__text">
-          I handle everything — Netlify hosting, deployments, GitHub setup, and any technical hiccups. You stay focused on your business.
-        </p>
-        <ul class="hosting-card__list" role="list">
-          <li><span class="hosting-card__check" aria-hidden="true">✓</span> Hosted on Netlify</li>
-          <li><span class="hosting-card__check" aria-hidden="true">✓</span> I manage everything</li>
-          <li><span class="hosting-card__check" aria-hidden="true">✓</span> No GitHub account needed</li>
-          <li><span class="hosting-card__check" aria-hidden="true">✓</span> Hands-off for you</li>
-        </ul>
-      </div>
-
-      <div class="hosting-card fade-on-load">
-        <span class="hosting-card__tag hosting-card__tag--alt">DIY Option</span>
-        <h3 class="hosting-card__title">Hosted Solo</h3>
-        <div class="hosting-card__price">
-          <span class="hosting-card__dollar">$</span>
-          <span class="hosting-card__amount">9–10</span>
-          <span class="hosting-card__period">/mo</span>
-        </div>
-        <p class="hosting-card__text">
-          You set up your own Netlify account and manage hosting yourself. Cheaper, but you'll need to handle the technical side.
-        </p>
-        <ul class="hosting-card__list" role="list">
-          <li><span class="hosting-card__check" aria-hidden="true">✓</span> Your own Netlify account</li>
-          <li><span class="hosting-card__check" aria-hidden="true">✓</span> GitHub account required</li>
-          <li><span class="hosting-card__check" aria-hidden="true">✓</span> You manage deployments</li>
-          <li><span class="hosting-card__check" aria-hidden="true">✓</span> Lower monthly cost</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- WHAT YOU'LL NEED -->
-    <div class="needs">
-      <h3 class="needs__title fade-on-load">You'll also need</h3>
-      <p class="needs__sub fade-on-load">A few things on your end so I can build and launch your site smoothly.</p>
-
-      <div class="needs-grid">
-        <div class="need-item fade-on-load">
-          <div class="need-item__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-          </div>
-          <div class="need-item__content">
-            <h4 class="need-item__title">A Domain Name</h4>
-            <p class="need-item__price">~$12–15/year</p>
-            <p class="need-item__text">Your website address (yourname.com). I recommend buying through Porkbun or Namecheap. This is a yearly cost paid directly to the domain provider.</p>
-          </div>
-        </div>
-
-        <div class="need-item fade-on-load">
-          <div class="need-item__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-          </div>
-          <div class="need-item__content">
-            <h4 class="need-item__title">A GitHub Account</h4>
-            <p class="need-item__price">Free</p>
-            <p class="need-item__text">Only required if you choose the DIY hosting option. GitHub stores your website code so Netlify can deploy it. Free to create at github.com.</p>
-          </div>
-        </div>
-
-        <div class="need-item fade-on-load">
-          <div class="need-item__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <div class="need-item__content">
-            <h4 class="need-item__title">Acuity Booking Access</h4>
-            <p class="need-item__price">Your existing account</p>
-            <p class="need-item__text">I'll need access to your Acuity account to grab the embed code for your booking widget. If you don't have one yet, you can sign up at acuityscheduling.com.</p>
-          </div>
-        </div>
-
-        <div class="need-item fade-on-load">
-          <div class="need-item__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-          </div>
-          <div class="need-item__content">
-            <h4 class="need-item__title">Your Content</h4>
-            <p class="need-item__price">Provided by you</p>
-            <p class="need-item__text">Photos, service list, prices, contact info, and any text you want on the site. The faster you get me your content, the faster you go live.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- STAR BACKGROUND -->
-  <div class="star-field">
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span>
-  </div>
-</section>
-
-
-<!-- =============================== -->
-<!-- ===== COST STACK ============== -->
-<!-- =============================== -->
-<section class="cost-stack-section">
-  <div class="cost-stack__inner">
-
-    <div class="cost-stack__intro">
-      <p class="cost-stack__intro-label">Breaking it down</p>
-      <h3 class="cost-stack__intro-title">What you're actually paying for</h3>
-    </div>
-
-    <div class="cost-stack">
-
-      <div class="cost-stack__item">
-        <div class="cost-stack__node">
-          <div class="cost-stack__dot"></div>
-        </div>
-        <!-- CARD 01: The Build -->
-        <div class="cost-stack__card cost-stack__card--01">
-          <div class="cost-stack__head">
-            <span class="cost-stack__step">01</span>
-            <span class="cost-stack__chip">Paid to MigsFlow · One-Time</span>
-          </div>
-          <h4 class="cost-stack__card-title">The Build</h4>
-          <div class="cost-stack__price-row">
-            <span class="cost-stack__currency">$</span>
-            <span class="cost-stack__amount">250</span>
-            <span class="cost-stack__period">flat</span>
-          </div>
-          <p class="cost-stack__card-text">Custom design and development of your starter template — branded with your colors, photos, services, and content. Paid once. Yours forever.</p>
-          <span class="cost-stack__paid-to">→ Paid directly to MigsFlow</span>
-        </div>
-      </div>
-
-      <div class="cost-stack__item">
-        <div class="cost-stack__node">
-          <div class="cost-stack__dot"></div>
-        </div>
-        <!-- CARD 02: Hosting -->
-        <div class="cost-stack__card cost-stack__card--02">
-          <div class="cost-stack__head">
-            <span class="cost-stack__step">02</span>
-            <span class="cost-stack__chip">Monthly · Ongoing</span>
-          </div>
-          <h4 class="cost-stack__card-title">Hosting</h4>
-          <div class="cost-stack__price-row">
-            <span class="cost-stack__currency">$</span>
-            <span class="cost-stack__amount">9–25</span>
-            <span class="cost-stack__period">/mo</span>
-          </div>
-          <p class="cost-stack__card-text">$25/mo if I manage it for you — hands-off, I handle everything. $9–10/mo if you host it yourself through your own Netlify account.</p>
-          <span class="cost-stack__paid-to">→ Paid to Netlify (or to me for managed hosting)</span>
-        </div>
-      </div>
-
-      <div class="cost-stack__item">
-        <div class="cost-stack__node">
-          <div class="cost-stack__dot"></div>
-        </div>
-        <!-- CARD 03: Domain -->
-        <div class="cost-stack__card cost-stack__card--03">
-          <div class="cost-stack__head">
-            <span class="cost-stack__step">03</span>
-            <span class="cost-stack__chip">Yearly · Ongoing</span>
-          </div>
-          <h4 class="cost-stack__card-title">Your Domain</h4>
-          <div class="cost-stack__price-row">
-            <span class="cost-stack__currency">$</span>
-            <span class="cost-stack__amount">12–15</span>
-            <span class="cost-stack__period">/yr</span>
-          </div>
-          <p class="cost-stack__card-text">Your website address — yourname.com. Registered through Porkbun or Namecheap. Renewed yearly. You own it regardless of who you work with.</p>
-          <span class="cost-stack__paid-to">→ Paid to Porkbun or Namecheap</span>
-        </div>
-      </div>
-
-      <div class="cost-stack__item">
-        <div class="cost-stack__node">
-          <div class="cost-stack__dot"></div>
-        </div>
-        <!-- CARD 04: The Essentials -->
-        <div class="cost-stack__card cost-stack__card--04">
-          <div class="cost-stack__head">
-            <span class="cost-stack__step">04</span>
-            <span class="cost-stack__chip">Always Free</span>
-          </div>
-          <h4 class="cost-stack__card-title">The Essentials</h4>
-          <div class="cost-stack__price-row">
-            <span class="cost-stack__free-label">Free</span>
-          </div>
-          <p class="cost-stack__card-text">GitHub (only needed if you self-host), Acuity Scheduling access, and your content — photos, service list, prices, contact info. Free to set up.</p>
-          <span class="cost-stack__paid-to">→ No cost to you</span>
-          <p class="cost-stack__footnote">All recurring costs go directly to the providers. I only collect the $250 build fee, plus the $25/mo if you want managed hosting.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
 <!-- =============================== -->
 <!-- ===== TEMPLATE GRID =========== -->
 <!-- =============================== -->
@@ -474,20 +164,21 @@
       Ten starter templates. Same solid foundation, different looks. Pick the one that feels the most like your style, and I’ll customize it with your brand/colors, photos, services, and content.
     </p>
 
-    <div class="template-grid">
+    <!-- Carousel wrapper: clips the fade, holds the arrows -->
+    <div class="carousel-wrap">
+
+      <div class="template-carousel" id="templateCarousel">
 
       <!-- TEMPLATE 01 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
-          <!-- When ready, replace placeholder with: -->
-          <!-- <picture><source srcset="../images/templates/starter-01.webp" type="image/webp"><img src="../images/templates/starter-01.png" alt="Template name preview" width="600" height="450" loading="lazy" decoding="async"></picture> -->
+          <img src="/images/mockups/mockup-official-1.jpeg" alt="Mocha Muse Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Luxe Start</h3>
-          <p class="template-card__vibe">Clean, modern, and polished.</p>
-          <p class="template-card__best"><strong>Best for:</strong> newer stylists, braiders, solo beauty brands.</p>
-          <a class="template-card__btn" href="shop-starter-luxe.html">
+          <h3 class="template-card__name">Mocha Muse</h3>
+          <p class="template-card__vibe">Warm, editorial, and effortlessly feminine.</p>
+          <p class="template-card__best"><strong>Best for:</strong> wig stylists, hair artists, soft luxe brands.</p>
+          <a class="template-card__btn" href="https://mfebres0919.github.io/new-starter-template-1/">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
@@ -495,15 +186,15 @@
       </article>
 
       <!-- TEMPLATE 02 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
+          <img src="/images/mockups/mockup-official-2.jpeg" alt="Midas Hour Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Soft Glow</h3>
-          <p class="template-card__vibe">Warm, feminine, and inviting.</p>
-          <p class="template-card__best"><strong>Best for:</strong> lash techs, brow artists, makeup artists.</p>
-          <a class="template-card__btn" href="shop-starter-soft-glow.html">
+          <h3 class="template-card__name">Midas Hour</h3>
+          <p class="template-card__vibe">Moody, cinematic, and intentional.</p>
+          <p class="template-card__best"><strong>Best for:</strong> locticians, natural hair specialists, premium studios.</p>
+          <a class="template-card__btn" href="shop-starter-midas-hour.html">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
@@ -511,15 +202,15 @@
       </article>
 
       <!-- TEMPLATE 03 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
+          <img src="/images/mockups/mockup-official-3.jpeg" alt="Midnight Pier Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Sleek Studio</h3>
-          <p class="template-card__vibe">Minimal, sharp, and editorial.</p>
-          <p class="template-card__best"><strong>Best for:</strong> color specialists, hair stylists, modern salons.</p>
-          <a class="template-card__btn" href="shop-starter-sleek.html">
+          <h3 class="template-card__name">Midnight Pier</h3>
+          <p class="template-card__vibe">Confident, sophisticated, and elevated.</p>
+          <p class="template-card__best"><strong>Best for:</strong> braiders, protective stylists, polished studios.</p>
+          <a class="template-card__btn" href="shop-starter-midnight-pier.html">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
@@ -527,15 +218,15 @@
       </article>
 
       <!-- TEMPLATE 04 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
+          <img src="/images/mockups/mockup-official-4.jpeg" alt="Cocoa Atelier Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Bloom</h3>
-          <p class="template-card__vibe">Romantic, soft, and feminine.</p>
-          <p class="template-card__best"><strong>Best for:</strong> bridal stylists, special occasion specialists.</p>
-          <a class="template-card__btn" href="shop-starter-bloom.html">
+          <h3 class="template-card__name">Cocoa Atelier</h3>
+          <p class="template-card__vibe">Refined, artisan, and editorial.</p>
+          <p class="template-card__best"><strong>Best for:</strong> wig artisans, custom unit makers, luxury stylists.</p>
+          <a class="template-card__btn" href="https://mfebres0919.github.io/new-starter-template-4/">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
@@ -543,15 +234,15 @@
       </article>
 
       <!-- TEMPLATE 05 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
+          <img src="/images/mockups/mockup-official-5.jpeg" alt="Sage Sanctuary Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Studio Noir</h3>
-          <p class="template-card__vibe">Bold, dark, and dramatic.</p>
-          <p class="template-card__best"><strong>Best for:</strong> edgy stylists, tattoo artists, alt beauty pros.</p>
-          <a class="template-card__btn" href="shop-starter-noir.html">
+          <h3 class="template-card__name">Sage Sanctuary</h3>
+          <p class="template-card__vibe">Serene, airy, and spa-inspired.</p>
+          <p class="template-card__best"><strong>Best for:</strong> wig stylists, wellness-focused studios, calm brands.</p>
+          <a class="template-card__btn" href="https://mfebres0919.github.io/new-starter-template-5/">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
@@ -559,15 +250,15 @@
       </article>
 
       <!-- TEMPLATE 06 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
+          <img src="/images/mockups/mockup-official-6.jpeg" alt="Pink Riot Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Honey &amp; Co</h3>
-          <p class="template-card__vibe">Warm, golden, and welcoming.</p>
-          <p class="template-card__best"><strong>Best for:</strong> natural hair stylists, organic beauty brands.</p>
-          <a class="template-card__btn" href="shop-starter-honey.html">
+          <h3 class="template-card__name">Pink Riot</h3>
+          <p class="template-card__vibe">Bold, loud, and unapologetic.</p>
+          <p class="template-card__best"><strong>Best for:</strong> braiders, bold beauty pros, statement brands.</p>
+          <a class="template-card__btn" href="https://mfebres0919.github.io/new-starter-template-6/">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
@@ -575,15 +266,15 @@
       </article>
 
       <!-- TEMPLATE 07 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
+          <img src="/images/mockups/mockup-official-7.jpeg" alt="Velvet Rouge Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Velvet</h3>
-          <p class="template-card__vibe">Rich, luxurious, and bold.</p>
-          <p class="template-card__best"><strong>Best for:</strong> luxury stylists, premium beauty services.</p>
-          <a class="template-card__btn" href="shop-starter-velvet.html">
+          <h3 class="template-card__name">Velvet Rouge</h3>
+          <p class="template-card__vibe">Romantic, opulent, and cinematic.</p>
+          <p class="template-card__best"><strong>Best for:</strong> braiders, bridal stylists, old-Hollywood glam brands.</p>
+          <a class="template-card__btn" href="https://mfebres0919.github.io/new-starter-template-7/">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
@@ -591,15 +282,15 @@
       </article>
 
       <!-- TEMPLATE 08 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
+          <img src="/images/mockups/mockup-official-8.jpeg" alt="Blanco Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Minted</h3>
-          <p class="template-card__vibe">Fresh, airy, and youthful.</p>
-          <p class="template-card__best"><strong>Best for:</strong> nail techs, fresh beauty brands, new businesses.</p>
-          <a class="template-card__btn" href="shop-starter-minted.html">
+          <h3 class="template-card__name">Blanco</h3>
+          <p class="template-card__vibe">Clean, editorial, and timeless.</p>
+          <p class="template-card__best"><strong>Best for:</strong> locticians, minimalist brands, modern studios.</p>
+          <a class="template-card__btn" href="https://mfebres0919.github.io/new-starter-template-8/">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
@@ -607,15 +298,15 @@
       </article>
 
       <!-- TEMPLATE 09 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
+          <img src="/images/mockups/mockup-official-9.jpeg" alt="Atelier Press Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Modern Muse</h3>
-          <p class="template-card__vibe">Contemporary, balanced, and chic.</p>
-          <p class="template-card__best"><strong>Best for:</strong> stylists who want a more contemporary aesthetic.</p>
-          <a class="template-card__btn" href="shop-starter-muse.html">
+          <h3 class="template-card__name">Atelier Press</h3>
+          <p class="template-card__vibe">Editorial, refined, and magazine-inspired.</p>
+          <p class="template-card__best"><strong>Best for:</strong> wig artisans, high-end stylists, legacy brands.</p>
+          <a class="template-card__btn" href="https://mfebres0919.github.io/new-starter-template-9/">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
@@ -623,22 +314,34 @@
       </article>
 
       <!-- TEMPLATE 10 -->
-      <article class="template-card fade-on-load">
+      <article class="template-card">
         <div class="template-card__media" aria-hidden="true">
-          <span class="template-card__placeholder-label">Preview Coming Soon</span>
+          <img src="/images/mockups/mockup-official-10.jpeg" alt="Neon Era Template preview" width="400" height="300" loading="lazy" decoding="async">
         </div>
         <div class="template-card__body">
-          <h3 class="template-card__name">Pure</h3>
-          <p class="template-card__vibe">Quiet luxury and refined simplicity.</p>
-          <p class="template-card__best"><strong>Best for:</strong> stylists who love minimalism and white space.</p>
-          <a class="template-card__btn" href="shop-starter-pure.html">
+          <h3 class="template-card__name">Neon Era</h3>
+          <p class="template-card__vibe">Edgy, modern, and streetwear-inspired.</p>
+          <p class="template-card__best"><strong>Best for:</strong> locticians, alt beauty pros, bold tech-forward brands.</p>
+          <a class="template-card__btn" href="https://mfebres0919.github.io/new-starter-template-10/">
             <span>View Template</span>
             <img src="../images/vectors/code-blue.svg" alt="" width="16" height="16" decoding="async">
           </a>
         </div>
       </article>
 
-    </div>
+      </div><!-- /.template-carousel -->
+
+      <!-- Prev / Next arrows -->
+      <div class="carousel-arrows">
+        <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Previous templates">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Next templates">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+    </div><!-- /.carousel-wrap -->
   </div>
 
   <!-- STAR BACKGROUND -->
@@ -653,90 +356,6 @@
   </div>
 </section>
 
-
-<!-- =============================== -->
-<!-- ===== STARTER FAQ ============= -->
-<!-- =============================== -->
-<section class="starter-faq fade-section" id="starter-faq">
-  <div class="starter-faq__container">
-
-    <span class="starter-faq__pill fade-on-load">
-      <span class="starter-faq__dot" aria-hidden="true"></span>
-      Quick Answers
-    </span>
-
-    <h2 class="starter-faq__title fade-on-load">
-      Got <span class="starter-faq__title-accent">questions?</span>
-    </h2>
-
-    <p class="starter-faq__sub fade-on-load">
-      The most common things I hear from stylists about the starter tier.
-    </p>
-
-    <div class="accordion">
-      <div class="accordion__item fade-on-load">
-        <button class="accordion__btn" type="button" aria-expanded="false">
-          <span>Is this a custom website or a ready-made template?</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
-        </button>
-        <div class="accordion__body">
-          <p>It’s a ready-made template that gets customized with your brand. That means you get the speed and affordability of a template, but the final site is still built around your colors, photos, services, and content so it feels like your business.</p>
-        </div>
-      </div>
-
-      <div class="accordion__item fade-on-load">
-        <button class="accordion__btn" type="button" aria-expanded="false">
-          <span>Can I use my own photos?</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
-        </button>
-        <div class="accordion__body">
-          <p>Yes. You’ll send over your own photos, and I’ll place them throughout the site. If you don’t have professional photos yet, I can guide you on what kind of content to send so your site still looks polished.</p>
-        </div>
-      </div>
-
-      <div class="accordion__item fade-on-load">
-        <button class="accordion__btn" type="button" aria-expanded="false">
-          <span>Can I change the text on the template?</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
-        </button>
-        <div class="accordion__body">
-          <p>Yes. Your services, descriptions, pricing, and contact details will all be added with your business in mind. The template gives us the structure, but the content is yours.</p>
-        </div>
-      </div>
-
-      <div class="accordion__item fade-on-load">
-        <button class="accordion__btn" type="button" aria-expanded="false">
-          <span>Do I need my own booking link?</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
-        </button>
-        <div class="accordion__body">
-          <p>Yes. The starter tier includes an embedded Acuity booking section, so you’ll need your booking account set up beforehand so I can access the code needed to make it work. If you use a different platform, let me know and I can see what options fit best.</p>
-        </div>
-      </div>
-
-      <div class="accordion__item fade-on-load">
-        <button class="accordion__btn" type="button" aria-expanded="false">
-          <span>How long does it take to launch?</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
-        </button>
-        <div class="accordion__body">
-          <p>Most starter websites take about 2-3 days once I have your content. Since the design is already built, the process is much faster than a custom website.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STAR BACKGROUND -->
-  <div class="star-field">
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span><span class="star"></span>
-    <span class="star"></span><span class="star"></span>
-  </div>
-</section>
 
 
 <!-- =============================== -->
@@ -745,7 +364,7 @@
 <section class="cta fade-section" id="quote-cta">
   <div class="cta__container">
     <div class="cta__card fade-on-load">
-      <h2 class="cta__title fade-on-load">Ready to move beyond just a booking link?</p></h2>
+      <h2 class="cta__title fade-on-load">Ready to move beyond just a booking link?</h2>
 
       <p class="cta__subtext fade-on-load">
         Choose your starter template and get a polished website that helps your brand look more professional, complete, and trustworthy.</p>
@@ -770,7 +389,6 @@
 </section>
 
 </main>
-
 <!-- ===================== -->
 <!-- ====== FOOTER ======= -->
 <!-- ===================== -->
@@ -804,23 +422,27 @@
           <h3 class="footer__heading fade-on-load">Navigation</h3>
           <a class="footer__link fade-on-load" href="../index.html">Home</a>
           <a class="footer__link fade-on-load" href="about.html">About</a>
-          <a class="footer__link fade-on-load" href="services.html">Services</a>
-          <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
-          <a class="footer__link fade-on-load" href="shop.html">Shop</a>
+          <a class="footer__link fade-on-load" href="shop.html">Template Shop</a>
+          <a class="footer__link fade-on-load" href="custom.html">Custom Websites</a>
           <a class="footer__link fade-on-load" href="contact.html">Contact</a>
-          <a class="footer__link fade-on-load" href="faq.html">FAQ</a>
+        </div>
+        <div class="footer__col fade-on-load">
+          <h3 class="footer__heading fade-on-load">FAQ</h3>
+          <a class="footer__link fade-on-load" href="faq.html">Template Shop FAQ</a>
+          <a class="footer__link fade-on-load" href="faq.html">Custom Websites FAQ</a>
+          <a class="footer__link fade-on-load" href="faq.html">Website Maintenance FAQ</a>
         </div>
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Contact</h3>
-          <a class="footer__link fade-on-load" href="/cdn-cgi/l/email-protection#ddb0b4baaebbb1b2aab9b8aeb4bab39dbab0bcb4b1f3beb2b0">
+          <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com" aria-label="Email MigsFlow">
             <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
-            <span class="__cf_email__" data-cfemail="4c21252b3f2a20233b28293f252b220c2b212d2520622f2321">[email&#160;protected]</span>
+            <span>migsflow@outlook.com</span>
           </a>
-          <a class="footer__link fade-on-load" href="tel:+18326480539">
+          <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
             <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             (832) 648-0539
           </a>
-          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener">
+          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View MigsFlow's location">
             <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             Charleston, SC
           </a>
@@ -847,61 +469,74 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="../main.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="../main.js"></script>
 
-<!-- Starter page: accordion -->
+
+<!-- ===== CAROUSEL AUTO-SCROLL ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".accordion__btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const item = btn.closest(".accordion__item");
-      const body = item.querySelector(".accordion__body");
-      const isOpen = item.classList.contains("is-open");
+  const carousel = document.getElementById('templateCarousel');
+  const btnPrev  = document.getElementById('carouselPrev');
+  const btnNext  = document.getElementById('carouselNext');
+  if (!carousel) return;
 
-      // Close all
-      document.querySelectorAll(".accordion__item.is-open").forEach(open => {
-        open.classList.remove("is-open");
-        open.querySelector(".accordion__btn").setAttribute("aria-expanded","false");
-        open.querySelector(".accordion__body").style.maxHeight = "0px";
-      });
+  const cardScrollWidth = () => {
+    const card = carousel.querySelector('.template-card');
+    return card ? card.offsetWidth + 24 : 320;
+  };
 
-      // Toggle this one
-      if (!isOpen) {
-        item.classList.add("is-open");
-        btn.setAttribute("aria-expanded","true");
-        body.style.maxHeight = body.scrollHeight + "px";
-      }
+  // Auto-scroll: move one card every 2s, loop back to start at end
+  let autoTimer;
+  const tick = () => {
+    const atEnd = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10;
+    if (atEnd) {
+      carousel.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      carousel.scrollBy({ left: cardScrollWidth(), behavior: 'smooth' });
+    }
+  };
+  const startAutoScroll = () => { autoTimer = setInterval(tick, 3200); };
+  const clearAutoScroll = () => { clearInterval(autoTimer); };
+
+  // Arrow buttons (if present) — pause auto-scroll when user interacts
+  if (btnNext) {
+    btnNext.addEventListener('click', () => {
+      clearAutoScroll();
+      carousel.scrollBy({ left: cardScrollWidth(), behavior: 'smooth' });
     });
-  });
+  }
+  if (btnPrev) {
+    btnPrev.addEventListener('click', () => {
+      clearAutoScroll();
+      carousel.scrollBy({ left: -cardScrollWidth(), behavior: 'smooth' });
+    });
+  }
 
-  // ===== BACK TO TOP BUTTON =====
-  const backToTop = document.querySelector(".back-to-top");
-  if (backToTop) {
-    const toggleBtn = () => {
-      if (window.scrollY > 600) {
-        backToTop.classList.add("is-visible");
-      } else {
-        backToTop.classList.remove("is-visible");
-      }
+  // Hide/show arrows based on scroll position
+  if (btnPrev && btnNext) {
+    const updateArrows = () => {
+      btnPrev.classList.toggle('is-hidden', carousel.scrollLeft < 10);
+      btnNext.classList.toggle('is-hidden',
+        carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10
+      );
     };
-    window.addEventListener("scroll", toggleBtn, { passive: true });
-    toggleBtn();
+    carousel.addEventListener('scroll', updateArrows, { passive: true });
+    updateArrows();
+  }
 
-    backToTop.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+  // Pause on hover/touch, resume when they leave
+  carousel.addEventListener('mouseenter', clearAutoScroll);
+  carousel.addEventListener('mouseleave', startAutoScroll);
+  carousel.addEventListener('touchstart', clearAutoScroll, { passive: true });
+  carousel.addEventListener('touchend',   () => setTimeout(startAutoScroll, 1500), { passive: true });
+
+  // Respect user's reduced-motion preference
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    startAutoScroll();
   }
 });
 </script>
-
-<!-- BACK TO TOP BUTTON -->
-<button class="back-to-top" type="button" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <line x1="12" y1="19" x2="12" y2="5"/>
-    <polyline points="5 12 12 5 19 12"/>
-  </svg>
-</button>
 
 </body>
 </html>

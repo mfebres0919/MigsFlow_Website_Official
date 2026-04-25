@@ -236,7 +236,8 @@ h1,h2,h3,h4,h5 {
   --nav-h: 56px;
 
   --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.68);
+  --muted: rgba(255, 255, 255, 0.774);
+  --text-ghost: rgba(255,255,255,0.408);
 
   --line: rgba(255,255,255,0.10);
   --line-strong: rgba(255,255,255,0.18);
@@ -557,6 +558,7 @@ body{
 .pricing-hero{
   position: relative;
   padding: clamp(40px, 18vw, 0px) 20px clamp(80px, 10vw, 120px);
+  margin-top: 4rem;
   overflow: hidden;
 }
 
@@ -691,7 +693,7 @@ body{
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.50);
+  color: var(--muted);
 }
 
 .card__name{
@@ -729,7 +731,7 @@ body{
 .card__period{
   font-family: 'Orbitron', sans-serif;
   font-size: 16px;
-  color: rgba(255,255,255,0.50);
+  color:var(--muted);
   margin-left: 2px;
 }
 

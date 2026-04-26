@@ -802,9 +802,6 @@
 }
 
 
-/* ── Shop-starter footer layout override ── */
-.footer__top { grid-template-columns: 1fr 1fr; }
-
 .footer__cols {
   grid-template-columns: 1fr 1fr;
   justify-content: end;

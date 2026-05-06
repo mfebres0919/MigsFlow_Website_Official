@@ -1351,7 +1351,7 @@ TESTIMONIALS SECTION
 }
 
 @media (max-width: 520px) {
-  .about__title { font-size: clamp(36px, 10vw, 56px); }
+  .about__title { font-size: clamp(36px, 10vw, 50px); }
   .about__lead br { display: none; }
   .about__content {
     order: 1;

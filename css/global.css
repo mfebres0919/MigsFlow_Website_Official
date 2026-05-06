@@ -96,8 +96,8 @@
   --text-primary:   rgba(255, 255, 255, 0.95);  /* headings, prices, strong labels */
   --text:           rgba(255, 255, 255, 0.92);  /* primary body copy               */
   --text-secondary: rgba(255, 255, 255, 0.78);  /* list items, card labels         */
-  --muted:          rgba(255, 255, 255, 0.68);  /* nav links, general muted text   */
-  --text-muted:     rgba(255, 255, 255, 0.62);  /* body paragraphs                 */
+  --muted:          rgba(255, 255, 255, 0.832);  /* nav links, general muted text   */
+  --text-muted:     rgba(255, 255, 255, 0.854);  /* body paragraphs                 */
   --text-dim:       rgba(255, 255, 255, 0.55);  /* secondary paragraphs            */
   --text-subtle:    rgba(255, 255, 255, 0.45);  /* small labels, meta text         */
   --text-ghost:     rgba(255, 255, 255, 0.408); /* footnotes, fine print           */
@@ -107,7 +107,7 @@
   --surface-glass:  rgba(255, 255, 255, 0.03);  /* glass / frosted card overlay    */
 
   /* ── Borders / lines ── */
-  --line:           rgba(255, 255, 255, 0.10);
+  --line:           rgba(255, 255, 255, 0.276);
   --line-strong:    rgba(255, 255, 255, 0.18);
   --line-subtle:    rgba(255, 255, 255, 0.06);
 
@@ -134,7 +134,7 @@
   /* ── Legacy hero aliases (kept for backward compatibility) ── */
   --hero-accent: #18c9ff;
   --hero-text:   rgba(255, 255, 255, 0.92);
-  --hero-muted:  rgba(255, 255, 255, 0.62);
+  --hero-muted:  rgba(255, 255, 255, 0.759);
 }
 
 
@@ -172,7 +172,7 @@ p, a, li, label, .poppins, .who__label, .work__pill {
 
 h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
-  font-weight: normal;
+  font-weight: 500;
 }
 
 
@@ -1059,4 +1059,14 @@ body {
     animation: none;
   }
   .star { opacity: 0.3; }
+}
+
+
+.cta__eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0 0 16px;
 }

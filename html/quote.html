@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get a Quote | MigsFlow Web Design</title>
+
+  <meta name="description" content="Get a custom website quote from MigsFlow. Answer 7 quick questions and receive a personalized welcome package instantly.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://migsflow.com/html/quote.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://migsflow.com/html/quote.html">
+  <meta property="og:title" content="Get a Quote | MigsFlow Web Design">
+  <meta property="og:description" content="Answer 7 quick questions and get a custom welcome package and quote within 24 hours.">
+  <meta property="og:image" content="https://migsflow.com/images/og-cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://migsflow.com/html/quote.html">
+  <meta name="twitter:title" content="Get a Quote | MigsFlow Web Design">
+  <meta name="twitter:description" content="Answer 7 quick questions and get a custom welcome package and quote within 24 hours.">
+  <meta name="twitter:image" content="https://migsflow.com/images/og-cover.png">
+
+  <link rel="preload" as="font" href="../fonts/orbitron-v35-latin-600.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../fonts/poppins-v24-latin-regular.woff2" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/contact.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="manifest" href="../site.webmanifest">
+</head>
+
+<body class="page-quote">
+
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="../index.html" aria-label="MigsFlow home">
+        <img src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="hamburger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <div class="nav__links" id="primary-nav">
+        <a class="nav__link" href="../index.html#work">Work</a>
+        <a class="nav__link" href="pricing.html">Pricing</a>
+        <a class="nav__link active" href="quote.html">Get Quote</a>
+
+        <!-- <div class="nav__dropdown">
+          <button class="nav__link nav__dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg class="nav__chevron" viewBox="0 0 12 8" fill="none" aria-hidden="true" width="10" height="6">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav__dropdown-menu" role="menu">
+            <a class="nav__dropdown-item" href="shop.html" role="menuitem">
+              <span class="nav__dropdown-item-label">Template Shop</span>
+              <span class="nav__dropdown-item-sub">Ready-made hairstylist sites</span>
+            </a>
+            <a class="nav__dropdown-item" href="custom.html" role="menuitem">
+              <span class="nav__dropdown-item-label">Custom Websites</span>
+              <span class="nav__dropdown-item-sub">Fully bespoke builds</span>
+            </a>
+            <a class="nav__dropdown-item" href="services.html" role="menuitem">
+              <span class="nav__dropdown-item-label">Add-Ons &amp; Maintenance</span>
+              <span class="nav__dropdown-item-sub">Hosting, edits, ongoing support</span>
+            </a>
+          </div>
+        </div> -->
+        <!-- <a class="nav__link" href="contact.html">Contact</a> -->
+      </div>
+
+      <a class="nav__cta" href="contact.html">
+        <span>Contact</span>
+        <span class="nav__cta-icon" aria-hidden="true">
+          <img src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
+        </span>
+      </a>
+    </nav>
+  </header>
+
+
+  <!-- QUOTE SECTION -->
+  <section class="quote-section" id="quote">
+    <div class="quote__container">
+
+      <!-- Header -->
+      <div class="quote__header fade-on-load">
+        <div class="quote__pill">
+          <span class="quote__dot"></span>
+          Get a Quote
+        </div>
+        <h1 class="quote__title">
+          <span class="quote__title-accent">Zero commitment.</span><br>
+          100% worth your time.
+        </h1>
+      </div>
+
+      <!-- Intro card -->
+      <div class="quiz__intro fade-on-load">
+        <h2 class="quiz__intro-title">Get a welcome package + custom quote now</h2>
+        <p class="quiz__intro-text">
+          Answer a few quick questions and we'll send you a custom welcome package right away.
+          If we're a good fit, you'll have a detailed quote within 24 hours.
+        </p>
+        <p class="quiz__intro-meta">Estimated time: 1-2 minutes</p>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="quiz__progress-wrap fade-on-load" id="progressWrap">
+        <div class="quiz__progress-row">
+          <span class="quiz__progress-label" id="progressLabel">Progress (0/7)</span>
+          <span class="quiz__progress-pct" id="progressPct">0%</span>
+        </div>
+        <div class="quiz__progress-track">
+          <div class="quiz__progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- STEP 1: Project -->
+      <div class="quiz__step is-active" id="step-1" data-step="1">
+        <h3 class="quiz__step-title">Project</h3>
+        <p class="quiz__step-desc">Tell us about your business so we can tailor your quote.</p>
+
+        <label class="quiz__question-label" for="businessName">Company Name</label>
+        <input class="quiz__input" id="businessName" name="businessName" type="text" placeholder="Acme Co" autocomplete="organization" required>
+
+        <label class="quiz__question-label" for="websiteUrl">Website URL</label>
+        <span class="quiz__question-sub">Optional, if you already have a site.</span>
+        <input class="quiz__input" id="websiteUrl" name="websiteUrl" type="url" placeholder="https://yoursite.com" autocomplete="url">
+
+        <p class="quiz__required-hint" id="hint-1">Please enter your business name to continue.</p>
+        <div class="quiz__nav">
+          <span class="quiz__nav-hint">Step 1 of 7</span>
+          <button class="quiz__btn-next" type="button" data-next="2">Next →</button>
+        </div>
+      </div>
+
+        <!-- STEP 2: Purpose -->
+      <div class="quiz__step" id="step-2" data-step="2">
+        <h3 class="quiz__step-title">Purpose</h3>
+        <p class="quiz__step-desc">Select everything that applies. This helps us understand the purpose and complexity of your site.</p>
+
+        <label class="quiz__question-label">What do you need your website to do?</label>
+        <span class="quiz__question-sub">Choose all that apply.</span>
+
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="checkbox" name="purpose" value="Get leads or inquiries">
+            <svg class="quiz__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span class="quiz__option-text">Get leads or inquiries</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="purpose" value="Allow customers to book appointments">
+            <svg class="quiz__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <span class="quiz__option-text">Allow customers to book appointments</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="purpose" value="Sell products or accept payments">
+            <svg class="quiz__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+            <span class="quiz__option-text">Sell products or accept payments</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="purpose" value="Display my work or portfolio">
+            <svg class="quiz__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <span class="quiz__option-text">Display my work or portfolio</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="purpose" value="Publish articles or updates">
+            <svg class="quiz__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 20h9"/>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+            <span class="quiz__option-text">Publish articles or updates</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="purpose" value="Edit pages or content myself">
+            <svg class="quiz__option-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            <span class="quiz__option-text">Edit pages or content myself</span>
+          </label>
+        </div><!-- ← closes quiz__options -->
+
+        <p class="quiz__required-hint" id="hint-2">Please select at least one option.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="1">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="3">Next →</button>
+        </div>
+      </div><!-- ← closes step-2 -->
+
+      <!-- STEP 3: Budget -->
+      <div class="quiz__step" id="step-3" data-step="3">
+        <h3 class="quiz__step-title">Budget</h3>
+        <p class="quiz__step-desc">This helps us provide you with a custom quote that fits your project.</p>
+
+        <label class="quiz__question-label">What budget range are you considering? *</label>
+
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="radio" name="budget" value="Under $1,500">
+            <span class="quiz__option-text">Under $1,500</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="budget" value="$1,500 – $5,000">
+            <span class="quiz__option-text">$1,500 – $5,000</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="budget" value="$5,000+">
+            <span class="quiz__option-text">$5,000+</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="budget" value="Not sure yet">
+            <span class="quiz__option-text">Not sure yet</span>
+          </label>
+        </div><!-- ← closes quiz__options -->
+
+        <p class="quiz__required-hint" id="hint-3">Please select a budget range.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="2">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="4">Next →</button>
+        </div>
+      </div><!-- ← closes step-3 -->
+
+      <!-- STEP 3: Budget -->
+      <div class="quiz__step" id="step-3" data-step="3">
+        <h3 class="quiz__step-title">Budget</h3>
+        <p class="quiz__step-desc">This helps us provide you with a custom quote that fits your project.</p>
+
+        <label class="quiz__question-label">What budget range are you considering?</label>
+
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="radio" name="budget" value="Under $1,500">
+            <span class="quiz__option-text">Under $1,500</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="budget" value="$1,500 – $5,000">
+            <span class="quiz__option-text">$1,500 – $5,000</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="budget" value="$5,000+">
+            <span class="quiz__option-text">$5,000+</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="budget" value="Not sure yet">
+            <span class="quiz__option-text">Not sure yet</span>
+          </label>
+        </div>
+
+        <p class="quiz__required-hint" id="hint-3">Please select a budget range.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="2">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="4">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Website Size -->
+      <div class="quiz__step" id="step-4" data-step="4">
+        <h3 class="quiz__step-title">Website Size</h3>
+        <p class="quiz__step-desc">This helps us estimate project complexity right away.</p>
+
+        <label class="quiz__question-label">Roughly how many pages will you need? *</label>
+
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="radio" name="pageCount" value="1 page (landing page)">
+            <span class="quiz__option-text">1 page (landing page)</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="pageCount" value="3–5 pages">
+            <span class="quiz__option-text">3–5 pages</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="pageCount" value="6–10 pages">
+            <span class="quiz__option-text">6–10 pages</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="pageCount" value="10+ pages">
+            <span class="quiz__option-text">10+ pages</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="pageCount" value="Not sure yet">
+            <span class="quiz__option-text">Not sure yet</span>
+          </label>
+        </div>
+
+        <p class="quiz__required-hint" id="hint-4">Please select a page count.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="3">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="5">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: Design Phase -->
+      <div class="quiz__step" id="step-5" data-step="5">
+        <h3 class="quiz__step-title">Design Phase</h3>
+        <p class="quiz__step-desc">
+          Our design phase consists of custom mockups built for you before we begin coding.
+          Skipping this step can reduce cost but the site will be less unique visually.
+        </p>
+
+        <label class="quiz__question-label">Do you want a dedicated design phase? *</label>
+
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="radio" name="designPhase" value="Yes — include a design phase">
+            <span class="quiz__option-text">Yes, include a design phase</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="designPhase" value="No — skip design to reduce cost">
+            <span class="quiz__option-text">No, skip design to reduce cost</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="designPhase" value="Not sure yet">
+            <span class="quiz__option-text">Not sure yet (decide later)</span>
+          </label>
+        </div>
+
+        <p class="quiz__required-hint" id="hint-5">Please select an option.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="4">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="6">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: Details -->
+      <div class="quiz__step" id="step-6" data-step="6">
+        <h3 class="quiz__step-title">Website Details</h3>
+        <p class="quiz__step-desc">This helps us understand your goals, structure, and any special requirements.</p>
+
+        <label class="quiz__question-label" for="projectDetails">Briefly describe your website *</label>
+        <span class="quiz__question-sub">What is the site for? Pages, features, integrations, inspiration, etc.</span>
+        <textarea class="quiz__textarea" id="projectDetails" name="projectDetails"
+          placeholder="Example: 3-5 page site for a local pool builder. Need a portfolio gallery, service area map, and a consultation request form. The site should feel premium and load fast on mobile."
+          required></textarea>
+
+        <p class="quiz__required-hint" id="hint-6">Please describe your project before continuing.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="5">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="7">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: Delivery -->
+      <div class="quiz__step" id="step-7" data-step="7">
+        <h3 class="quiz__step-title">Where should we send your welcome package?</h3>
+        <p class="quiz__step-desc">We'll email you a custom overview with next steps based on your answers.</p>
+
+        <p class="quiz__delivery-note">
+          Your privacy is protected and we never send spam.
+          You are NOT signing up for a newsletter — you will only be contacted regarding this submission.
+        </p>
+
+        <label class="quiz__question-label" for="clientName">Your name *</label>
+        <input class="quiz__input" id="clientName" name="clientName" type="text" placeholder="Jane Doe" autocomplete="name" required>
+
+        <label class="quiz__question-label" for="clientEmail">Email address *</label>
+        <input class="quiz__input" id="clientEmail" name="clientEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
+
+        <p class="quiz__required-hint" id="hint-7">Please enter your name and a valid email address.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="6">← Back</button>
+          <button class="quiz__btn-submit" type="button" id="submitBtn">Submit →</button>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="quiz__success" id="quizSuccess" aria-live="polite">
+        <div class="quiz__success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3 class="quiz__success-title">You're all set!</h3>
+        <p class="quiz__success-text">
+          Your welcome package is on its way to your inbox.<br>
+          If we're a good fit, expect a detailed quote from us within 24 hours.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Stars -->
+    <div class="star-field" aria-hidden="true">
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer fade-section" id="footer">
+    <div class="footer__container">
+      <div class="footer__top">
+        <div class="footer__brand fade-on-load">
+          <a class="footer__logo fade-on-load" href="../index.html" aria-label="MigsFlow home">
+            <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
+          </a>
+          <p class="footer__blurb fade-on-load">
+            Custom websites for small businesses that want to feel good about their online presence.
+          </p>
+          <div class="footer__social fade-on-load" aria-label="Social links">
+            <a class="footer__social-btn fade-on-load" href="https://www.instagram.com/migsflow/" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M17.2 6.8h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a class="footer__social-btn fade-on-load" href="https://www.linkedin.com/in/mfebres0919/" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6.5 9H3.8v11H6.5V9ZM5.1 3.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.2 13.3c0-2.6-1.4-4.5-4.1-4.5-1.4 0-2.4.7-2.8 1.4V9H10.8v11h2.7v-5.7c0-1.5.3-3 2.1-3 1.8 0 1.8 1.7 1.8 3.1V20H21v-6.7Z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__cols fade-on-load" aria-label="Footer navigation">
+          <div class="footer__col fade-on-load">
+            <h3 class="footer__heading fade-on-load">Navigation</h3>
+            <a class="footer__link fade-on-load" href="portfolio.html">Work</a>
+            <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
+            <a class="footer__link fade-on-load" href="#quote">Get Quote</a>
+          </div>
+          <div class="footer__col fade-on-load">
+            <h3 class="footer__heading fade-on-load">Contact</h3>
+            <a class="footer__link fade-on-load" href="mailto:migsflow@outlook.com" aria-label="Email MigsFlow">
+              <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+              <span>migsflow@outlook.com</span>
+            </a>
+            <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
+              <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+              (832) 648-0539
+            </a>
+            <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View location">
+              <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+              Charleston, SC
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__hero fade-on-load">
+        <div class="footer__giant fade-on-load">LET'S COLLABORATE</div>
+        <a class="footer__bubble fade-on-load" href="contact.html" aria-label="Get in touch">
+          <span>GET IN TOUCH</span>
+        </a>
+      </div>
+      <div class="footer__bottom fade-on-load">
+        <div class="copyright fade-on-load"><p>© Copyright 2025 MigsFlow Web Design</p></div>
+      </div>
+    </div>
+    <div class="star-field" aria-hidden="true">
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+    </div>
+  </footer>
+
+  <script defer src="../main.js"></script>
+
+  <script>
+  /* ============================================================
+     MIGSFLOW QUOTE QUIZ
+     GHL webhook: swap YOUR_GHL_WEBHOOK_URL below when ready
+  ============================================================ */
+  (function () {
+    const TOTAL_STEPS   = 7;
+    const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL';
+    let currentStep     = 1;
+
+    const progressFill  = document.getElementById('progressFill');
+    const progressLabel = document.getElementById('progressLabel');
+    const progressPct   = document.getElementById('progressPct');
+
+    function updateProgress(step) {
+      const pct = Math.round((step / TOTAL_STEPS) * 100);
+      progressFill.style.width  = pct + '%';
+      progressLabel.textContent = 'Progress (' + step + '/' + TOTAL_STEPS + ')';
+      progressPct.textContent   = pct + '%';
+    }
+
+    function showStep(n) {
+      document.querySelectorAll('.quiz__step').forEach(function (el) { el.classList.remove('is-active'); });
+      var target = document.getElementById('step-' + n);
+      if (target) {
+        target.classList.add('is-active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      currentStep = n;
+      updateProgress(n - 1);
+    }
+
+    function showHint(n) {
+      var h = document.getElementById('hint-' + n);
+      if (h) h.classList.add('is-visible');
+    }
+
+    function hideHint(n) {
+      var h = document.getElementById('hint-' + n);
+      if (h) h.classList.remove('is-visible');
+    }
+
+    function validateStep(n) {
+      switch (n) {
+        case 1: return document.getElementById('businessName').value.trim().length > 0;
+        case 2: return document.querySelectorAll('input[name="purpose"]:checked').length > 0;
+        case 3: return !!document.querySelector('input[name="budget"]:checked');
+        case 4: return !!document.querySelector('input[name="pageCount"]:checked');
+        case 5: return !!document.querySelector('input[name="designPhase"]:checked');
+        case 6: return document.getElementById('projectDetails').value.trim().length > 0;
+        case 7: {
+          var name  = document.getElementById('clientName').value.trim();
+          var email = document.getElementById('clientEmail').value.trim();
+          return name.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        default: return true;
+      }
+    }
+
+    function collectAnswers() {
+      var purposeVals = [];
+      document.querySelectorAll('input[name="purpose"]:checked').forEach(function (el) { purposeVals.push(el.value); });
+      var budgetEl     = document.querySelector('input[name="budget"]:checked');
+      var pageEl       = document.querySelector('input[name="pageCount"]:checked');
+      var designEl     = document.querySelector('input[name="designPhase"]:checked');
+      return {
+        businessName:   document.getElementById('businessName').value.trim(),
+        websiteUrl:     document.getElementById('websiteUrl').value.trim(),
+        purpose:        purposeVals.join(', '),
+        budget:         budgetEl  ? budgetEl.value  : '',
+        pageCount:      pageEl    ? pageEl.value    : '',
+        designPhase:    designEl  ? designEl.value  : '',
+        projectDetails: document.getElementById('projectDetails').value.trim(),
+        clientName:     document.getElementById('clientName').value.trim(),
+        clientEmail:    document.getElementById('clientEmail').value.trim(),
+        submittedAt:    new Date().toISOString(),
+        source:         'migsflow.com/quote'
+      };
+    }
+
+    async function submitToGHL(data) {
+      if (GHL_WEBHOOK_URL === 'YOUR_GHL_WEBHOOK_URL') {
+        console.log('[MigsFlow Quiz] Submission data:', data);
+        return { ok: true };
+      }
+      try {
+        var res = await fetch(GHL_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        return res;
+      } catch (err) {
+        console.error('[MigsFlow Quiz] Webhook error:', err);
+        return { ok: false };
+      }
+    }
+
+    function showSuccess() {
+      document.getElementById('progressWrap').style.display = 'none';
+      document.querySelectorAll('.quiz__step').forEach(function (el) { el.classList.remove('is-active'); });
+      document.querySelector('.quiz__intro').style.display = 'none';
+      document.getElementById('quizSuccess').classList.add('is-active');
+    }
+
+    document.querySelector('.quote__container').addEventListener('click', async function (e) {
+      var btn = e.target.closest('[data-next], [data-prev], #submitBtn');
+      if (!btn) return;
+
+      if (btn.dataset.next) {
+        if (!validateStep(currentStep)) { showHint(currentStep); return; }
+        hideHint(currentStep);
+        showStep(parseInt(btn.dataset.next));
+      }
+
+      if (btn.dataset.prev) {
+        hideHint(currentStep);
+        showStep(parseInt(btn.dataset.prev));
+      }
+
+      if (btn.id === 'submitBtn') {
+        if (!validateStep(7)) { showHint(7); return; }
+        hideHint(7);
+        btn.textContent = 'Sending...';
+        btn.disabled    = true;
+        var result = await submitToGHL(collectAnswers());
+        if (result.ok) {
+          showSuccess();
+        } else {
+          btn.textContent = 'Submit →';
+          btn.disabled    = false;
+          var hint = document.getElementById('hint-7');
+          hint.textContent = 'Something went wrong. Please try again or email us directly.';
+          hint.classList.add('is-visible');
+        }
+      }
+    });
+
+    updateProgress(0);
+  })();
+  </script>
+
+</body>
+</html>

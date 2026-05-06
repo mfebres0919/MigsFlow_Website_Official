@@ -6,6 +6,34 @@
 /* This page uses padding-top: 105px for the taller nav offset */
 body { padding-top: 105px; }
 
+/* ── Mobile background override — quote page ── */
+@media (max-width: 600px) {
+  body.pricing-page {
+    background:
+      radial-gradient(600px 500px at 10% 5%,
+        rgba(0, 119, 231, 0.38),
+        rgba(27, 120, 255, 0) 65%
+      ),
+      radial-gradient(600px 500px at 120% 15%,
+        rgba(0, 104, 231, 0.38),
+        rgba(27, 120, 255, 0) 65%
+      ),
+      radial-gradient(600px 500px at 50% 35%,
+        rgba(0, 112, 241, 0.28),
+        rgba(10, 55, 170, 0) 65%
+      ),
+      radial-gradient(600px 500px at 60% 70%,
+        rgba(7, 189, 255, 0.25),
+        rgba(10, 55, 170, 0) 65%
+      ),
+      radial-gradient(800px 600px at 30% 80%,
+        rgba(0, 85, 182, 0.15),
+        rgba(10, 55, 170, 0) 70%
+      ),
+      #000;
+  }
+}
+
 
 /* ── Pricing Hero ── */
 .pricing-hero {
@@ -44,7 +72,6 @@ body { padding-top: 105px; }
 
 .pricing-hero__title {
   font-family: var(--font-heading);
-  font-weight: 400;
   font-size: clamp(32px, 5.5vw, 60px);
   line-height: 1.15;
   color: var(--text-primary);
@@ -62,7 +89,7 @@ body { padding-top: 105px; }
   font-family: var(--font-body);
   font-size: clamp(15px, 1.6vw, 18px);
   line-height: 1.7;
-  color: var(--text-dim);
+  color: var(--text-muted);
   max-width: 540px;
   margin: 18px auto 0;
 }

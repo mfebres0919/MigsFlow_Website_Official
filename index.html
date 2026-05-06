@@ -38,7 +38,8 @@
   <link rel="preload" as="font" href="fonts/poppins-v24-latin-regular.woff2" type="font/woff2" crossorigin>
 
   <!-- Critical CSS -->
-  <link rel="stylesheet" href="styles.css">   
+  <link rel="stylesheet" href="styles.css">  
+  <link rel="stylesheet" href="css/mobile-typography.css"> 
   <link rel="stylesheet" href="css/global.css">
 
 
@@ -55,7 +56,10 @@
 
 <body>
 
-<!-- NAVIGATION MENU -->
+
+<!-- =============================== -->
+<!-- ======== HEADER SECTION ======= -->
+<!-- =============================== -->
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="../index.html" aria-label="MigsFlow home">
@@ -69,11 +73,14 @@
     </button>
 
     <div class="nav__links" id="primary-nav">
-      <a class="nav__link active" href="../index.html">Home</a>
-      <a class="nav__link" href="html/about.html">About</a>
+      <a class="nav__link " href="#work">Work</a>
+      <a class="nav__link" href="./html/pricing.html">Pricing</a>
+      <a class="nav__link" href="./html/quote.html">Get Quote</a>
+    
+      <!-- <a class="nav__link" href="html/about.html">About</a> -->
 
       <!-- Services dropdown -->
-      <div class="nav__dropdown">
+      <!-- <div class="nav__dropdown">
         <button class="nav__link nav__dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
           Services
           <svg class="nav__chevron" viewBox="0 0 12 8" fill="none" aria-hidden="true" width="10" height="6">
@@ -86,7 +93,7 @@
             <span class="nav__dropdown-item-label">Template Shop</span>
             <span class="nav__dropdown-item-sub">Ready-made hairstylist sites</span>
           </a>
-          <a class="nav__dropdown-item" href="./html/custom.html" role="menuitem">
+          <a class="nav__dropdown-item" href="./html/pricing.html" role="menuitem">
             <span class="nav__dropdown-item-label">Custom Websites</span>
             <span class="nav__dropdown-item-sub">Fully bespoke builds</span>
           </a>
@@ -95,14 +102,13 @@
             <span class="nav__dropdown-item-sub">Hosting, edits, ongoing support</span>
           </a>
         </div>
-      </div>
+      </div> -->
 
-      <a class="nav__link" href="./html/contact.html">Contact</a>
-      <a class="nav__link" href="./html/faq.html">FAQs</a>      
+      <!-- <a class="nav__link" href="./html/faq.html">FAQs</a>       -->
     </div>
 
-    <a class="nav__cta" href="contact.html">
-      <span>Get a Quote</span>
+    <a class="nav__cta" href="./html/quote.html">
+      <span>Get Started</span>
       <span class="nav__cta-icon" aria-hidden="true">
         <img src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </span>
@@ -113,31 +119,29 @@
 <!-- <img class="code-symbol" src="images/vectors/code-symbol.svg" alt=""> -->
 
 <main>
-<!-- HERO SECTION -->
+
+
+
+<!-- =============================== -->
+<!-- ======== HERO SECTION ========= -->
+<!-- =============================== -->
 <section class="hero fade-section" id="home">
   <div class="hero__container">
 
     <!-- LEFT: TEXT -->
     <div class="hero__content">
       <h1 class="hero__title fade-on-load">
-        <span class="hero__title-line">
-          <span class="hero__gradient accent-box fade-element fade-on-load">Hand-coded websites</span>
-        </span>
-
         <span class="hero__title-line hero__title-line--white fade-element fade-on-load">
-          for small businesses ready to level up.
-        </span>
+          We <span class="hero__gradient fade-element fade-on-load">Design & Build</span> Amazing Websites</span>                    
       </h1>
 
       <p class="hero__subtext fade-on-load">
-        I build custom-coded websites for small businesses that want to feel good about
-        their online presence. Whether you're just starting out or ready for something new,
-        you're at the right place!
+        Designed to attract. Built to last.
       </p>
 
       <div class="hero__actions fade-on-load">
         <a class="hero__btn hero__btn--primary fade-on-load" href="html/contact.html">
-          <span>Get A Quote</span>
+          <span>Pricing</span>
           <span class="hero__btn-icon" aria-hidden="true">
             <img class="code-icon" src="images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
           </span>
@@ -147,7 +151,7 @@
           <span class="hero__play" aria-hidden="true">
             <img class="play-icon" src="images/vectors/play-btn.svg" alt="" width="24" height="24" decoding="async">
           </span>
-          <span>View My Work</span>
+          <span>View Work</span>
         </a>
       </div>
 
@@ -174,17 +178,17 @@
 
     <!-- RIGHT: IMAGE -->
     <div class="hero__media fade-on-load">
-      <div class="hero__portrait fade-on-load">
+      <div class=" hero__portrait work__frame fade-on-load">
         <!-- Replace src with your actual photo path -->
         <picture>
           <!-- Mobile (≤600px) -->
-          <source media="(max-width: 600px)" srcset="images/hero-img-m.webp" type="image/webp">
-          <source media="(max-width: 600px)" srcset="images/hero-img-m.png">
+          <source media="(max-width: 600px)" srcset="images/project-1-d.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="images/project-1-d.png">
           <!-- Desktop -->
-          <source srcset="images/hero-img-d.webp" type="image/webp">
-          <source srcset="images/hero-img-d.png">
+          <source srcset="images/project-1.webp" type="images/webp">
+          <source srcset="images/project-1-d.png">
           <!-- Fallback -->
-          <img class="fade-on-load" src="images/hero-img-d.png" alt="Portrait photo" width="1056" height="1046" decoding="async" />
+          <img class="fade-on-load" src="images/project-1-d.png" alt="Portrait photo" width="1056" height="1046" decoding="async" />
         </picture>
       </div>
 
@@ -225,52 +229,46 @@
   </div>
 </section>
 
-<!-- WHO I WORK WITH SECTION -->
+
+
+
+<!-- =============================== -->
+<!-- ======== STATS SECTION ======== -->
+<!-- =============================== -->
 <section class="who-section fade-section" id="who">
   <div class="who__container">
-
     <!-- LEFT -->
     <div class="who__left">
       <span class="who__pill fade-on-load">
         <span class="who__dot" aria-hidden="true"></span>
-        Who We Are
+        Who I Work With
       </span>
-
       <h2 class="who__title fade-on-load">
-        <span class="who__title-accent">Who I</span> Work With
+        <span class="who__title-accent">Built for</span> small businesses ready to grow
       </h2>
     </div>
 
     <!-- RIGHT -->
     <div class="who__right">
-      <p class="who__blurb fade-on-load">
-        From hairstylists and barbers to lawyers and content creators, I love helping
-        passionate business owners create websites that reflect who they are. No pressure, no fluff,
-        just something that feels right.
-      </p>
-
       <div class="who__stats fade-on-load" role="list">
         <div class="who__stat fade-on-load" role="listitem">
           <div class="who__num">2+</div>
-          <div class="who__label">Years of experience</div>
+          <div class="who__label">Years building for small businesses</div>
         </div>
-
         <div class="who__divider" aria-hidden="true"></div>
-
+        <div class="who__stat fade-on-load" role="listitem">
+          <div class="who__num">98+</div>
+          <div class="who__label">PageSpeed score on every build</div>
+        </div>
+        <div class="who__divider" aria-hidden="true"></div>
         <div class="who__stat fade-on-load" role="listitem">
           <div class="who__num">100%</div>
-          <div class="who__label">Hand coded builds</div>
-        </div>
-
-        <div class="who__divider" aria-hidden="true"></div>
-
-        <div class="who__stat fade-on-load" role="listitem">
-          <div class="who__num">100%</div>
-          <div class="who__label">Launch ready</div>
+          <div class="who__label">Custom design, no templates</div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
   <!-- STAR BACKGROUND -->
   <div class="star-field">
@@ -302,82 +300,6 @@
 
 
 
-<!-- WHY MIGSFLOW SECTION -->
-<section class="why fade-section" id="why">
-
-  <!-- NEON BUBBLES BACKGROUND -->
-  <div class="why__bubbles" aria-hidden="true">
-    <!-- LEFT SIDE -->
-    <span class="bubble bubble--left bubble--l1"></span>
-    <span class="bubble bubble--left bubble--l2"></span>
-
-    <!-- RIGHT SIDE -->
-    <span class="bubble bubble--right bubble--r1"></span>
-    <span class="bubble bubble--right bubble--r2"></span>
-  </div>
-
-  <div class="why__container">
-
-    <div class="why__pill fade-on-load">
-      <span class="why__dot" aria-hidden="true"></span>
-      <span class="poppins">Why MigsFlow</span>
-    </div>
-
-    <h2 class="why__title fade-on-load">
-      <span class="why__title-accent">What makes</span> this different?
-    </h2>
-
-    <p class="why__subtext fade-on-load">
-      I’m a developer who hand-codes every site from scratch, and I work with a talented designer to bring each idea to life visually. <br><br>
-      I keep communication easy, pricing honest, and the entire process collaborative. You’re never just handed something and expected to run with it.
-    </p>
-
-    <div class="why__grid fade-on-load">
-      <!-- Card 1 -->
-      <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/code2.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Hand Coded</h3>
-        <p class="why__card-text">Every site built from scratch using clean HTML, CSS, and JavaScript.</p>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/design.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Professional Design</h3>
-        <p class="why__card-text">Collaboration with talented UX/UI designers to bring ideas to life visually.</p>
-      </article>
-
-      <!-- Card 3 -->
-      <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="images/vectors/chat.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Easy Communication</h3>
-        <p class="why__card-text">I keep communication simple and always keep you in the loop.</p>
-      </article>
-
-      <!-- Card 4 -->
-      <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/money.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Honest Pricing</h3>
-        <p class="why__card-text">Clear pricing, no fluff, and you’ll always know what you’re paying for.</p>
-      </article>
-
-      <!-- Card 5 -->
-      <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/fast.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Fast Performance</h3>
-        <p class="why__card-text">Lightweight, optimized code for lightning-fast load times.</p>
-      </article>
-
-      <!-- Card 6 -->
-      <article class="why__card fade-on-load">
-        <div class="why__icon" aria-hidden="true"><img src="./images/vectors/ownership.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">You Own It</h3>
-        <p class="why__card-text">Complete ownership of your site files and source code.</p>
-      </article>
-    </div>
-  </div>  
-</section>
-
 
 <!-- =============================== -->
 <!-- ====== PROOF OF WORK ========= -->
@@ -388,17 +310,15 @@
     <div class="work__header">
       <span class="work__pill fade-on-load">
         <span class="work__dot poppins" aria-hidden="true"></span>
-        Proof of work
+        Our Work
       </span>
 
-      <h2 class="work__title fade-on-load">
-        <span class="work__title-accent">Websites that</span> feel good to share
-      </h2>
-
-      <p class="work__subtext fade-on-load">
-        Whether you're promoting your services, building a brand, or just getting your work out there,
-        your website should feel like a place you're proud to send people. That's what I strive to build.
-      </p>
+        <h2 class="work__title fade-on-load">
+          We Let The Work<span class="work__title-accent"> Do The Talking</span> 
+        </h2>
+        <p class="work__subtext fade-on-load">
+          Custom websites. Unique design. Real results. Every site we build is crafted from scratch to load fast, look sharp, and bring your business more clients.
+        </p>
     </div>
 
     <div class="work__list">
@@ -408,15 +328,14 @@
         <div class="work__content fade-on-load">
           <h3 class="work__item-title fade-on-load">Warner & Associates PLLC | Lawyer Website</h3>
           <p class="work__item-text fade-on-load">
-            A clean, modern website for a law firm specializing in business and real estate law. Built to highlight their expertise, educate potential clients, and make it easy for them to get in touch.
+            A modern law firm website built to establish credibility and 
+            turn visitors into clients from the first click.
           </p>
-
           <a class="work__btn fade-on-load" href="https://warnerandassociates.com/">
             <span>View Project</span>
             <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
           </a>
         </div>
-
         <div class="work__media fade-on-load">
           <div class="work__frame fade-on-load">
             <picture>
@@ -424,7 +343,7 @@
               <source media="(max-width: 600px)" srcset="images/project-3-m.png">
               <source srcset="images/project-3-d.webp" type="image/webp">
               <source srcset="images/project-3-d.png">
-              <img class="fade-on-load" src="images/project-3-d.png" alt="Digital agency website preview" width="1200" height="966" loading="lazy" decoding="async">
+              <img class="fade-on-load" src="images/project-3-d.png" alt="Warner and Associates law firm website preview" width="1200" height="966" loading="lazy" decoding="async">
             </picture>
           </div>
         </div>
@@ -433,29 +352,28 @@
       <!-- Item 2 (image left / text right) -->
       <article class="work__item work__item--b fade-on-load">
         <div class="work__content fade-on-load">
-          <h3 class="work__item-title fade-on-load">Lisa's Catering -<br>Events Made Easy</h3>
+          <h3 class="work__item-title fade-on-load">Voiceovers By LA Pope</h3>
           <p class="work__item-text fade-on-load">
-            A catering website built to showcase menus, highlight past events, and make booking simple. Perfect for weddings, parties, corporate lunches, and everything in between.
+            A radio DJ turned voice over artist needed a site as bold as her personality. We built a custom showcase designed to attract new clients and let her work speak for itself.
           </p>
-
           <a class="work__btn fade-on-load" href="https://mfebres0919.github.io/Lisas_Catering_5/">
             <span>View Project</span>
             <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
           </a>
         </div>
-
         <div class="work__media fade-on-load">
           <div class="work__frame fade-on-load">
             <picture>
-              <source media="(max-width: 600px)" srcset="images/project-2-m.webp" type="image/webp">
-              <source media="(max-width: 600px)" srcset="images/project-2-m.png">
-              <source srcset="images/project-2-d.webp" type="image/webp">
-              <source srcset="images/project-2-d.png">
-              <img class="fade-on-load" src="images/project-2-d.png" alt="B2B service platform preview" width="1200" height="966" loading="lazy" decoding="async">
+              <source media="(max-width: 600px)" srcset="images/project-4-m.webp" type="image/webp">
+              <source media="(max-width: 600px)" srcset="images/project-4-m.png">
+              <source srcset="images/project-4-d.webp" type="image/webp">
+              <source srcset="images/project-4-d.png">
+              <img class="fade-on-load" src="images/project-4-d.png" alt="Lisa's Catering website preview" width="1200" height="966" loading="lazy" decoding="async">
             </picture>
           </div>
         </div>
       </article>
+
     </div>
   </div>
 
@@ -488,21 +406,448 @@
 </section>
 
 
+
+
+<!-- =============================== -->
+<!-- ====== PROCESS SECTION========= -->
+<!-- =============================== -->
+<section class="why-section" id="process">
+  <div class="why__container">
+
+    <!-- Header -->
+    <div class="work__header fade-on-load">
+      <span class="work__pill">
+        <span class="work__dot"></span>
+        Process
+      </span>
+      <h2 class="work__title fade-on-load">
+        How We <span class="work__title-accent">Work</span>
+      </h2>
+      <p class="work__subtext fade-on-load">
+        We build every project from scratch to fit your goals, your audience, and your brand.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="process__steps">
+
+      <div class="process__card fade-on-load">
+        <div class="process__card-top">
+          <span class="process__icon" aria-hidden="true">
+            <!-- Pencil / design icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+              <path d="M12 20h9"/>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
+          </span>
+          <span class="process__step-label">Step 01</span>
+        </div>
+        <h3 class="process__card-title">Design</h3>
+        <p class="process__card-desc">
+          We start with your brand, your audience, and your goals. 
+          From there we create a custom design built specifically for 
+          your business and not pulled from a template library.
+        </p>
+        <span class="process__tag">Custom Design &amp; Strategy</span>
+        <a class="contact-btn process__tag" href="html/quote.html">Get Started →</a>
+      </div>
+
+      <div class="process__divider" aria-hidden="true">→</div>
+
+      <div class="process__card fade-on-load">
+        <div class="process__card-top">
+          <span class="process__icon" aria-hidden="true">
+            <!-- Code brackets icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </span>
+          <span class="process__step-label">Step 02</span>
+        </div>
+        <h3 class="process__card-title">Development</h3>
+        <p class="process__card-desc">
+          We hand-code every site from scratch, making it clean, fast, and 
+          mobile-first. No page builders, no bloated plugins. Just 
+          lean code that loads fast and works on every device.
+        </p>
+        <span class="process__tag">Hand-Coded &amp; Mobile-First</span>
+        <a class="contact-btn process__tag" href="html/contact.html">Get Started →</a>
+      </div>
+
+      <div class="process__divider" aria-hidden="true">→</div>
+
+      <div class="process__card fade-on-load">
+        <div class="process__card-top">
+          <span class="process__icon" aria-hidden="true">
+            <!-- Rocket / launch icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+            </svg>
+          </span>
+          <span class="process__step-label">Step 03</span>
+        </div>
+        <h3 class="process__card-title">Launch</h3>
+        <p class="process__card-desc">
+          We handle domain setup, hosting, and go-live. Before launch 
+          every site is speed tested, mobile checked, and ready to 
+          start bringing you clients from day one, as well as 30-day post launch support.
+        </p>
+        <span class="process__tag">Launch &amp; Ongoing Support</span>
+        <a class="contact-btn process__tag" href="html/contact.html">Get Started →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- MAIN HERO SECTION -->
+<section class="about fade-section" id="about">
+  <div class="about__container">
+
+    <!-- LEFT: photo -->
+    <div class="about__media fade-on-load">
+      <div class="about__portrait fade-on-load">
+        <picture>
+          <source media="(max-width: 600px)" srcset="../images/hero-img-m.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="../images/hero-img-m.png">
+          <source srcset="../images/hero-img-d.webp" type="image/webp">
+          <source srcset="../images/hero-img-d.png">
+          <img class="fade-on-load" src="../images/hero-img-d.png" alt="Photo of Miguelle" width="644" height="570" decoding="async">
+        </picture>
+      </div>
+    </div>
+
+    <!-- RIGHT: content -->
+    <div class="about__content">
+      <div class="about__pill fade-on-load">
+        <span class="about__dot" aria-hidden="true"></span>
+        <span class="poppins">About</span>
+      </div>
+
+      <h2 class="about__title fade-on-load">
+        Websites designed to <span class="hero__gradient">turn visitors into clients</span>
+      </h2>
+
+      <p class="about__lead fade-on-load">
+        You work directly with Miguelle from start to finish. Strategy, design, and development all stay aligned so nothing gets lost and your vision is carried through the entire process.
+      </p>
+
+      <p class="about__text fade-on-load">
+        The goal is simple. Create a website that builds trust quickly and makes it easy for people to choose you. Your site is designed around your business, your audience, and what you want to achieve.
+      </p>
+
+      <p class="about__text fade-on-load">
+        Every website is custom built and hand coded for performance. You get a clean, modern online presence that feels complete, looks professional, and helps your business grow.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- STAR BACKGROUND -->
+  <div class="star-field">
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+    <span class="star"></span>
+  </div>    
+</section>
+
+
+<!-- =============================== -->
+<!-- ====== TESTIMONIALS ============ -->
+<!-- =============================== -->
+<section class="testimonials fade-section" id="testimonials">
+  <div class="testimonials__header fade-on-load">
+    <span class="work__pill">
+      <span class="work__dot"></span>
+      Testimonials
+    </span>
+    <h2 class="work__title fade-on-load">
+      What our <span class="work__title-accent">clients say</span>
+    </h2>
+  </div>
+
+  <!-- Track wrapper — clips overflow -->
+  <div class="testimonials__outer">
+    <div class="testimonials__track" id="testimonialsTrack">
+
+      <!-- Card 1 -->
+      <article class="testimonials__card">
+        <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="testimonials__quote">
+          "Working with MigsFlow Web Design, and especially Miguelle, was an absolute dream. 
+          I needed a new website built quickly after learning my old site had been dismantled, 
+          and Miguelle stepped in right away with calm, clear guidance and real expertise."
+        </blockquote>
+        <div class="testimonials__author">
+          <div class="testimonials__avatar">
+            <picture>
+              <source srcset="images/testimonials/testimonial-1-d.webp" type="image/webp">
+              <img src="images/testimonials/testimonial-1-d.png" alt="Lori P." width="48" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="testimonials__meta">
+            <span class="testimonials__name">Lori P.</span>
+            <span class="testimonials__role">Voice Narrator</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="testimonials__card">
+        <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="testimonials__quote">
+          "I am beyond grateful to Miguelle for fully coding my new website. She is professional, 
+          intelligent, patient, and an incredible web designer. I truly hope she goes far 
+          because her work speaks for itself."
+        </blockquote>
+        <div class="testimonials__author">
+          <div class="testimonials__avatar">
+            <picture>
+              <source srcset="images/testimonials/testimonial-3-d.webp" type="image/webp">
+              <img src="images/testimonials/testimonial-3-d.png" alt="Asia J." width="48" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="testimonials__meta">
+            <span class="testimonials__name">Asia J.</span>
+            <span class="testimonials__role">Founder, Anjelic Hair Care</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="testimonials__card">
+        <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="testimonials__quote">
+          "The website looks great and my wife loves it too. It's a 1000% upgrade from my old site!"
+        </blockquote>
+        <div class="testimonials__author">
+          <div class="testimonials__avatar">
+            <picture>
+              <source srcset="images/testimonials/testimonial-2-d.webp" type="image/webp">
+              <img src="images/testimonials/testimonial-2-d.png" alt="Deon W." width="48" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="testimonials__meta">
+            <span class="testimonials__name">Deon W.</span>
+            <span class="testimonials__role">Corporate Real Estate Lawyer</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Duplicates for seamless loop -->
+      <article class="testimonials__card" aria-hidden="true">
+        <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="testimonials__quote">
+          "Working with MigsFlow Web Design, and especially Miguelle, was an absolute dream. 
+          I needed a new website built quickly after learning my old site had been dismantled, 
+          and Miguelle stepped in right away with calm, clear guidance and real expertise."
+        </blockquote>
+        <div class="testimonials__author">
+          <div class="testimonials__avatar">
+            <picture>
+              <source srcset="images/testimonials/testimonial-1-d.webp" type="image/webp">
+              <img src="images/testimonials/testimonial-1-d.png" alt="" width="48" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="testimonials__meta">
+            <span class="testimonials__name">Lori P.</span>
+            <span class="testimonials__role">Voice Narrator</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonials__card" aria-hidden="true">
+        <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="testimonials__quote">
+          "I am beyond grateful to Miguelle for fully coding my new website. She is professional, 
+          intelligent, patient, and an incredible web designer. I truly hope she goes far 
+          because her work speaks for itself."
+        </blockquote>
+        <div class="testimonials__author">
+          <div class="testimonials__avatar">
+            <picture>
+              <source srcset="images/testimonials/testimonial-3-d.webp" type="image/webp">
+              <img src="images/testimonials/testimonial-3-d.png" alt="" width="48" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="testimonials__meta">
+            <span class="testimonials__name">Asia J.</span>
+            <span class="testimonials__role">Founder, Anjelic Hair Care</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonials__card" aria-hidden="true">
+        <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="testimonials__quote">
+          "The website looks great and my wife loves it too. It's a 1000% upgrade from my old site!"
+        </blockquote>
+        <div class="testimonials__author">
+          <div class="testimonials__avatar">
+            <picture>
+              <source srcset="images/testimonials/testimonial-2-d.webp" type="image/webp">
+              <img src="images/testimonials/testimonial-2-d.png" alt="" width="48" height="48" loading="lazy" decoding="async">
+            </picture>  
+          </div>
+          <div class="testimonials__meta">
+            <span class="testimonials__name">Deon W.</span>
+            <span class="testimonials__role">Corporate Real Estate Lawyer</span>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- end track -->
+  </div><!-- end outer -->
+</section>
+
+
+
+
+
+<!-- =============================== -->
+<!-- ======== FAQ SECTION ========== -->
+<!-- =============================== -->
+<section class="faq-section fade-section" id="faq">
+  <div class="faq__container">
+    <div class="faq__header fade-on-load">
+      <span class="work__pill">
+        <span class="work__dot"></span>
+        FAQ
+      </span>
+      <h2 class="work__title fade-on-load">
+        Have a <span class="work__title-accent">question?</span>
+      </h2>
+      <p class="work__subtext fade-on-load">
+        Everything you need to know before we get started.
+      </p>
+    </div>
+    <div class="faq__list fade-on-load">
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <h3 class="faq__heading">How long does a website take to build?</h3>
+          <span class="faq__chevron" aria-hidden="true"></span>
+        </summary>
+        <p class="faq__answer">
+          Most projects are completed within 2 to 4 weeks from the time 
+          I have everything I need from you. Larger or more complex sites 
+          may take a bit longer. I'll always give you a clear timeline 
+          before we start so there are no surprises.
+        </p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <h3 class="faq__heading">What do I need to have ready before we start?</h3>
+          <span class="faq__chevron" aria-hidden="true"></span>
+        </summary>
+        <p class="faq__answer">
+          At minimum we need your logo, brand colors, and any photos or 
+          content you want on the site. If you don't have everything ready 
+          yet that's okay. We can use placeholders and fill things in as 
+          we go.
+        </p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <h3 class="faq__heading">How does pricing work?</h3>
+          <span class="faq__chevron" aria-hidden="true"></span>
+        </summary>
+        <p class="faq__answer">
+          Every project is scoped based on what you actually need. We offer 
+          a lump sum option for clients who want to pay once and be done, 
+          and a monthly plan for those who prefer to spread the cost out. 
+          Answer the 7 questions in the quote form and we'll send over your custom quote 
+          within 24-48 hours.
+        </p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <h3 class="faq__heading">Will my site work on phones and tablets?</h3>
+          <span class="faq__chevron" aria-hidden="true"></span>
+        </summary>
+        <p class="faq__answer">
+          Yes! Every site we build is mobile first. That means it's designed 
+          for phones before anything else, then scaled up for tablets and 
+          desktops. Most of your visitors are coming from their phones 
+          and your site will be ready for them.
+        </p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <h3 class="faq__heading">Why not just use Wix or Squarespace?</h3>
+          <span class="faq__chevron" aria-hidden="true"></span>
+        </summary>
+        <p class="faq__answer">
+          Wix and Squarespace are fine for getting something up quickly. 
+          But they come with slow load times, limited flexibility, and 
+          templates your competitors are also using. A custom coded site 
+          loads faster, ranks better on Google, and is built specifically 
+          around your business instead of a generic layout.
+        </p>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <h3 class="faq__heading">What happens after my site goes live?</h3>
+          <span class="faq__chevron" aria-hidden="true"></span>
+        </summary>
+        <p class="faq__answer">
+          We offer 30 days of post launch support included on every project. 
+          If you want ongoing updates and maintenance beyond that we offer 
+          a $50/monthly plan to keep your site current as your business grows.
+        </p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
 <!-- =============================== -->
 <!-- ===== CTA / GET A QUOTE ======= -->
 <!-- =============================== -->
 <section class="cta fade-section" id="quote-cta">
   <div class="cta__container">
     <div class="cta__card fade-on-load">
-      <h2 class="cta__title fade-on-load">Thinking about a<br>new website?</h2>
-
+      <p class="cta__eyebrow fade-on-load">Ready to Get Started?</p>
+      <h2 class="cta__title fade-on-load">
+        Zero commitment.<br>100% worth your time.
+      </h2>
       <p class="cta__subtext fade-on-load">
-        I'd love to hear what you're working on. Let's explore whether this<br>
-        could be a good fit for you!
+        Fill out a short form and we'll send you a custom welcome package instantly.<br>
+        If we're a good fit, you'll have a detailed quote within 24-48 hours.
       </p>
-
-      <a class="cta__btn fade-on-load" href="https://companyname383467.hbportal.co/schedule/6990029c9142bc002036fe52">
-        <span>Discovery Call</span>
+      <a class="cta__btn fade-on-load" href="html/contact.html">
+        <span>Get a Quote</span>
         <img class="code-icon" src="images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
       </a>
     </div>
@@ -549,7 +894,7 @@
           <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
         </a>
         <p class="footer__blurb fade-on-load">
-          I build custom-coded websites for small businesses that want to feel good about their online presence.
+          Custom websites for small businesses that want to feel good about their online presence.
         </p>
         <div class="footer__social fade-on-load" aria-label="Social links">
           <a class="footer__social-btn fade-on-load" href="https://www.instagram.com/migsflow/" aria-label="Instagram">
@@ -569,12 +914,14 @@
       <div class="footer__cols fade-on-load" aria-label="Footer navigation">
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Navigation</h3>
-          <a class="footer__link fade-on-load" href="index.html">Home</a>
-          <a class="footer__link fade-on-load" href="./html/about.html">About</a>
-          <a class="footer__link fade-on-load" href="./html/shop.html">Template Shop</a>
-          <a class="footer__link fade-on-load" href="./html/custom.html">Custom Websites</a>
+          <a class="footer__link fade-on-load" href="#work">Work</a>
+          <a class="footer__link fade-on-load" href="./html/pricing.html">Pricing</a>
+          <!-- <a class="footer__link fade-on-load" href="./html/about.html">About</a> -->
+          <!-- <a class="footer__link fade-on-load" href="./html/shop.html">Template Shop</a>
+          <a class="footer__link fade-on-load" href="./html/pricing.html">Custom Websites</a> -->
+          <a class="footer__link fade-on-load" href="./html/quote.html">Get Quote</a>
           <a class="footer__link fade-on-load" href="./html/contact.html">Contact</a>
-          <a class="footer__link fade-on-load" href="./html/faq.html">FAQs</a>
+          <!-- <a class="footer__link fade-on-load" href="./html/faq.html">FAQs</a> -->
         </div>
         <div class="footer__col fade-on-load">
           <h3 class="footer__heading fade-on-load">Contact</h3>
@@ -595,12 +942,12 @@
     </div>
     <div class="footer__hero fade-on-load">
       <div class="footer__giant fade-on-load">LET'S COLLABORATE</div>
-      <a class="footer__bubble fade-on-load" href="contact.html" aria-label="Get in touch">
+      <a class="footer__bubble fade-on-load" href="./html/contact.html" aria-label="Get in touch">
         <span>GET IN TOUCH</span>
       </a>
     </div>
     <div class="footer__bottom fade-on-load">
-      <div class="copyright fade-on-load"><p class="fade-on-load">© Copyright 2025 MigsFlow Web Design</p></div>
+      <div class="copyright fade-on-load"><p class="fade-on-load">© Copyright 2026 MigsFlow Web Design</p></div>
     </div>
   </div>
   <div class="star-field">

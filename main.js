@@ -278,3 +278,68 @@ document.addEventListener("DOMContentLoaded", () => {
 
   items.forEach((el) => io.observe(el));
 });
+
+
+
+
+
+// FAQ toggle for home page 
+
+ document.querySelectorAll('.faq__item').forEach(details => {
+    const summary = details.querySelector('summary');
+    const answer  = details.querySelector('.faq__answer');
+    let animation = null;
+    let isClosing = false;
+    let isOpening = false;
+
+    summary.addEventListener('click', e => {
+      e.preventDefault();
+      details.style.overflow = 'hidden';
+
+      if (isClosing || !details.open) {
+        open();
+      } else if (isOpening || details.open) {
+        close();
+      }
+    });
+
+    function open() {
+      isOpening = true;
+      details.open = true;
+      const startH = `${details.offsetHeight}px`;
+      const endH   = `${summary.offsetHeight + answer.offsetHeight + 22}px`;
+
+      if (animation) animation.cancel();
+      animation = details.animate(
+        { height: [startH, endH] },
+        { duration: 320, easing: 'ease' }
+      );
+      animation.onfinish = () => {
+        animation = null;
+        isOpening = false;
+        details.style.height = '';
+        details.style.overflow = '';
+      };
+      animation.oncancel = () => isOpening = false;
+    }
+
+    function close() {
+      isClosing = true;
+      const startH = `${details.offsetHeight}px`;
+      const endH   = `${summary.offsetHeight}px`;
+
+      if (animation) animation.cancel();
+      animation = details.animate(
+        { height: [startH, endH] },
+        { duration: 280, easing: 'ease' }
+      );
+      animation.onfinish = () => {
+        animation  = null;
+        isClosing  = false;
+        details.open = false;
+        details.style.height   = '';
+        details.style.overflow = '';
+      };
+      animation.oncancel = () => isClosing = false;
+    }
+  });

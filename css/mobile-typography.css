@@ -1,0 +1,185 @@
+/* =========================================================
+   MOBILE TYPOGRAPHY OVERRIDES — max-width: 520px
+   Standardizes all headings to 25px max and body text
+   to 14.5px max on small screens. Add at bottom of styles.css
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  /* ── Root token overrides ── */
+  :root {
+    --fs-xs:   12px;
+    --fs-sm:   13px;
+    --fs-base: 14px;
+    --fs-md:   14.5px;
+  }
+
+  /* ── Hero ── */
+  .hero__title-line,
+  .hero__gradient, 
+  .work__title-accent,
+  .who__title-accent {
+    font-size: 25px;
+    line-height: 1.2;
+  }
+
+  .hero__subtext {
+    font-size: 14px;
+  }
+
+  .hero__code-marks {
+    font-size: 32px;
+  }
+
+  /* ── Who section ── */
+  .who__title {
+    font-size: 25px;
+    line-height: 1.15;
+  }
+
+  .who__blurb {
+    font-size: 14px;
+  }
+
+  .who__num {
+    font-size: 32px;
+  }
+
+  .who__label {
+    font-size: 14px;
+  }
+
+  /* ── Why / cards section ── */
+  .why__title {
+    font-size: 25px;
+  }
+
+  .why__subtext {
+    font-size: 14px;
+  }
+
+  .why__card-title {
+    font-size: 17px;
+  }
+
+  .why__card-text {
+    font-size: 14px;
+  }
+
+  /* ── Work section ── */
+  .work__title {
+    font-size: 25px;
+  }
+
+  .work__subtext {
+    font-size: 14px;
+  }
+
+  .work__item-title {
+    font-size: 20px;
+  }
+
+  .work__item-text {
+    font-size: 14px;
+  }
+
+  .work__btn {
+    font-size: 12px;
+  }
+
+  /* ── CTA section ── */
+  .cta__title {
+    font-size: 25px;
+    line-height: 1.15;
+  }
+
+  .cta__subtext {
+    font-size: 14px;
+  }
+
+  .cta__eyebrow {
+    font-size: 10px;
+  }
+
+  .cta__btn {
+    font-size: 12px;
+  }
+
+  /* ── About section ── */
+  .about__title {
+    font-size: 25px;
+    line-height: 1.15;
+  }
+
+  .about__lead {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .about__text {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* ── Process section ── */
+  .process__card-title {
+    font-size: 18px;
+  }
+
+  .process__card-desc {
+    font-size: 14px;
+  }
+
+  .process__step-label {
+    font-size: 11px;
+  }
+
+  .process__tag {
+    font-size: 11px;
+  }
+
+  /* ── FAQ section ── */
+  .faq__question {
+    font-size: 14.5px;
+    padding: 18px 2px;
+  }
+
+  .faq__answer {
+    font-size: 14px;
+    padding: 0 2px 18px;
+  }
+
+  .faq__heading {
+    font-size: 14.5px;
+  }
+
+  /* ── Global spans, links, pills, labels ── */
+  .work__pill,
+  .why__pill,
+  .who__pill,
+  .about__pill,
+  .work__dot,
+  .why__dot,
+  .who__dot,
+  .about__dot {
+    font-size: 11px;
+  }
+
+  /* Catch-all for any remaining body copy spans and anchors
+     that inherit font-size but aren't explicitly set above */
+  p, span, a, li, label {
+    font-size: 14px;
+  }
+
+  /* Re-exempt decorative/structural elements that
+     should not be affected by the catch-all above */
+  .hero__btn,
+  .work__btn,
+  .cta__btn,
+  .nav__link,
+  .nav__cta,
+  .footer__link {
+    font-size: 13px;
+  }
+
+}

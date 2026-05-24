@@ -127,6 +127,18 @@ body { padding-top: 105px; }
   margin: clamp(48px, 6vw, 72px) auto 0;
 }
 
+@media (min-width: 1000px) {
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    justify-content: center;
+    width: min(1800px, 100%);
+    margin: clamp(48px, 6vw, 2px) auto 0;
+  }
+}
+
 .card {
   position: relative;
   background: rgba(255, 255, 255, 0.03);

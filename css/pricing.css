@@ -780,3 +780,16 @@ body { padding-top: 105px; }
 
 /* custom.css footer layout override */
 .footer__giant { font-size: clamp(24px, 10vw, 72px); }
+
+
+.card__best-for {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.card__badge--custom {
+  background-color: var(--clr-accent);
+  color: white;
+}

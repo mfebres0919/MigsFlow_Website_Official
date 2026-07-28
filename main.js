@@ -1,5 +1,5 @@
 /* ===== NAV (mobile hamburger + dropdown tap-to-toggle) =====
-   Desktop (hover-capable + >=821px): CSS :hover opens the dropdown.
+   Desktop (hover-capable + >=901px): CSS :hover opens the dropdown.
    Tablet & mobile: tap to open, tap again to close.
    Keyboard: Enter/Space/ArrowDown opens, Escape closes.
 
@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!nav || !toggle || !menu) return;
 
   const dropdowns = nav.querySelectorAll(".nav__dropdown");
-  const hoverDesktopMQ = window.matchMedia("(hover: hover) and (min-width: 821px)");
-  const mobileMQ = window.matchMedia("(max-width: 820px)");
+  const hoverDesktopMQ = window.matchMedia("(hover: hover) and (min-width: 901px)");
+  const mobileMQ = window.matchMedia("(max-width: 900px)");
 
   function setMenuOpen(isOpen){
     nav.classList.toggle("is-open", isOpen);
@@ -283,7 +283,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// FAQ toggle for home page 
+/* ===== Scroll-spy: highlight the nav link for the section in view =====
+   As the user scrolls the home page, the nav link pointing to the section
+   currently crossing the middle of the viewport gets the .is-active state
+   (white + bold). Only sections that exist on THIS page are tracked, so this
+   stays inert on sub-pages whose section links point to ../index.html#... */
+document.addEventListener("DOMContentLoaded", () => {
+  const links = Array.from(document.querySelectorAll(".nav__link"))
+    .filter((a) => (a.getAttribute("href") || "").includes("#"));
+  if (!links.length) return;
+
+  // Map: section id -> nav link, only for sections present on this page
+  const linkFor = new Map();
+  links.forEach((a) => {
+    const id = (a.getAttribute("href").split("#")[1] || "").trim();
+    if (id && document.getElementById(id)) linkFor.set(id, a);
+  });
+  if (!linkFor.size) return;
+
+  const sections = Array.from(linkFor.keys()).map((id) => document.getElementById(id));
+  const visible = new Set();
+
+  function setActive(id) {
+    linkFor.forEach((link, key) => link.classList.toggle("is-active", key === id));
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visible.add(entry.target.id);
+        else visible.delete(entry.target.id);
+      });
+
+      // Activate the first visible section in document order
+      const current = sections.find((s) => visible.has(s.id));
+      if (current) setActive(current.id);
+    },
+    { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+  );
+
+  sections.forEach((s) => io.observe(s));
+});
+
+
+
+// FAQ toggle for home page
 
  document.querySelectorAll('.faq__item').forEach(details => {
     const summary = details.querySelector('summary');

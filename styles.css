@@ -1105,7 +1105,7 @@ TESTIMONIALS SECTION
   display: flex;
   gap: 20px;
   width: max-content;
-  animation: testimonialsScroll 28s linear infinite;
+  animation: testimonialsScroll 208s linear infinite;
   padding: 12px 10px 24px;
 }
 

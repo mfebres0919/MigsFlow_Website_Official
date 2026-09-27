@@ -805,3 +805,151 @@ body { padding-top: 105px; }
   background-color: var(--clr-accent);
   color: white;
 }
+
+
+/* =========================================================
+   WHAT'S INCLUDED SECTION
+   (header + card styles copied from styles.css — homepage
+   stylesheet isn't loaded on this page)
+   ========================================================= */
+
+.why-section {
+  padding: clamp(70px, 8vw, 110px) 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.why__container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.work__header {
+  text-align: center;
+  padding: 1rem;
+}
+
+.work__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(24, 201, 255, 0.35);
+  color: var(--text);
+  font-size: var(--fs-xs);
+  background: transparent;
+}
+
+.work__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+
+.work__title {
+  margin: 16px 0 10px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-size: clamp(34px, 4.7vw, 50px);
+  color: var(--text);
+}
+
+.work__title-accent {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.work__subtext {
+  margin: 0 auto;
+  max-width: 920px;
+  color: var(--text-muted);
+  font-size: clamp(16px, 1.15vw, 15px);
+  line-height: 1.7;
+}
+
+.process__steps {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: clamp(32px, 4vw, 52px);
+  text-align: left;
+}
+
+.process__card {
+  flex: 1;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: var(--radius-card);
+  border: 1.4px solid var(--line);
+  background: var(--surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255,255,255,0.05) inset;
+  transition: border-color 220ms ease, transform 220ms ease;
+}
+
+.process__card:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-3px);
+}
+
+.process__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.process__icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: rgba(24, 201, 255, 0.08);
+  border: 1px solid rgba(24, 201, 255, 0.15);
+  color: var(--accent); /* SVG inherits this via currentColor */
+  flex-shrink: 0;
+}
+
+.process__card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.process__card-desc {
+  font-family: var(--font-body);
+  font-size: clamp(13px, 1.2vw, 15px);
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .process__steps {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .process__card {
+    margin: 0;
+  }
+}

@@ -261,29 +261,35 @@
         </div>
       </div>
 
-      <!-- STEP 5: Design Phase -->
+      <!-- STEP 5: Timeline -->
       <div class="quiz__step" id="step-5" data-step="5">
-        <h3 class="quiz__step-title">Design Phase</h3>
+        <h3 class="quiz__step-title">Timeline</h3>
         <p class="quiz__step-desc">
-          Our design phase includes custom mockups built for your business before we write a single line of code.
-          This ensures the visual direction matches your brand and your goals before we build.
-          Skipping this step can reduce cost but the site will be less visually unique.
+          Knowing when you'd like to get started helps us plan your project and give you an accurate schedule.
         </p>
 
-        <label class="quiz__question-label">Do you want a dedicated design phase? *</label>
+        <label class="quiz__question-label">What is your timeline? *</label>
 
         <div class="quiz__options">
           <label class="quiz__option">
-            <input type="radio" name="designPhase" value="Yes — include a design phase">
-            <span class="quiz__option-text">Yes, include a design phase</span>
+            <input type="radio" name="timeline" value="Immediately">
+            <span class="quiz__option-text">Immediately (within 1-3 days)</span>
           </label>
           <label class="quiz__option">
-            <input type="radio" name="designPhase" value="No — skip design to reduce cost">
-            <span class="quiz__option-text">No, skip design to reduce cost</span>
+            <input type="radio" name="timeline" value="1–2 weeks">
+            <span class="quiz__option-text">1–2 weeks</span>
           </label>
           <label class="quiz__option">
-            <input type="radio" name="designPhase" value="Not sure yet">
-            <span class="quiz__option-text">Not sure yet (decide later)</span>
+            <input type="radio" name="timeline" value="2–4 weeks">
+            <span class="quiz__option-text">2–4 weeks</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="timeline" value="4–6 weeks">
+            <span class="quiz__option-text">4–6 weeks</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="timeline" value="Not sure">
+            <span class="quiz__option-text">Not sure</span>
           </label>
         </div>
 
@@ -481,7 +487,7 @@
         case 2: return document.querySelectorAll('input[name="purpose"]:checked').length > 0;
         case 3: return !!document.querySelector('input[name="budget"]:checked');
         case 4: return !!document.querySelector('input[name="pageCount"]:checked');
-        case 5: return !!document.querySelector('input[name="designPhase"]:checked');
+        case 5: return !!document.querySelector('input[name="timeline"]:checked');
         case 6: return document.getElementById('projectDetails').value.trim().length > 0;
         case 7: {
           var name  = document.getElementById('clientName').value.trim();
@@ -497,7 +503,7 @@
       document.querySelectorAll('input[name="purpose"]:checked').forEach(function (el) { purposeVals.push(el.value); });
       var budgetEl     = document.querySelector('input[name="budget"]:checked');
       var pageEl       = document.querySelector('input[name="pageCount"]:checked');
-      var designEl     = document.querySelector('input[name="designPhase"]:checked');
+      var timelineEl   = document.querySelector('input[name="timeline"]:checked');
       var clientName   = document.getElementById('clientName').value.trim();
       var clientEmail  = document.getElementById('clientEmail').value.trim();
       var businessName = document.getElementById('businessName').value.trim();
@@ -511,7 +517,7 @@
         purpose:        purposeVals.join(', '),
         budget:         budgetEl ? budgetEl.value : '',
         pageCount:      pageEl   ? pageEl.value   : '',
-        designPhase:    designEl ? designEl.value : '',
+        timeline:       timelineEl ? timelineEl.value : '',
         projectDetails: document.getElementById('projectDetails').value.trim(),
         submittedAt:    new Date().toISOString(),
         source:         'migsflow.com/quote'

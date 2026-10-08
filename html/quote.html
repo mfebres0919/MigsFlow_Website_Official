@@ -334,6 +334,13 @@
         <label class="quiz__question-label" for="clientEmail">Email address *</label>
         <input class="quiz__input" id="clientEmail" name="clientEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
 
+        <!-- Honeypot: hidden from people (and screen readers), filled in by bots.
+             Formspree silently drops any submission where it has a value. -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label for="quizGotcha">Leave this field empty</label>
+          <input id="quizGotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+
         <p class="quiz__required-hint" id="hint-7">Please enter your name and a valid email address.</p>
         <div class="quiz__nav">
           <button class="quiz__btn-back" type="button" data-prev="6">← Back</button>
@@ -519,8 +526,8 @@
         pageCount:      pageEl   ? pageEl.value   : '',
         timeline:       timelineEl ? timelineEl.value : '',
         projectDetails: document.getElementById('projectDetails').value.trim(),
-        submittedAt:    new Date().toISOString(),
-        source:         'migsflow.com/quote'
+        // Honeypot: always empty for real visitors
+        _gotcha:        document.getElementById('quizGotcha').value
       };
     }
 

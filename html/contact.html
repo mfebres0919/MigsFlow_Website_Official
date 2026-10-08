@@ -129,7 +129,13 @@
                   required></textarea>
 
         <input type="hidden" name="_subject" value="New contact message from MigsFlow">
-        <input type="hidden" name="_next" value="https://migsflow.com/thank-you.html">
+
+        <!-- Honeypot: hidden from people (and screen readers), filled in by bots.
+             Formspree silently drops any submission where it has a value. -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label for="contactGotcha">Leave this field empty</label>
+          <input id="contactGotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
 
         <button class="contact__simple-btn" type="submit">
           <span>Send Message</span>

@@ -7,7 +7,9 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(44px, 6vw, 100rem) 48px;
+  /* Less room on top than below: the fixed nav already sits over the
+     first 88px (margin-top) */
+  padding: clamp(14px, 2.5vw, 40px) 48px clamp(44px, 6vw, 96px);
   background: transparent;
   margin-top: 5.5rem;
 }
@@ -674,7 +676,7 @@ a.devices:hover .devices__device--laptop {
 }
 
 @media (max-width: 520px) {
-  .hero { padding: 42px 14px; margin-top: 4rem; }
+  .hero { padding: 18px 14px 42px; margin-top: 4rem; }
   .hero__actions {
     flex-direction: row;
     flex-wrap: wrap;

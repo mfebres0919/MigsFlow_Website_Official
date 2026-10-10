@@ -895,7 +895,7 @@
   background: white;
 }
 
-/* Contact form result (thank-you or error), shown in place of the form */
+/* Contact form error, shown under the form */
 .contact__simple-status {
   margin: 18px 0 0;
   padding: 16px 18px;
@@ -906,4 +906,26 @@
   font-size: 15px;
   line-height: 1.6;
   color: var(--text-primary);
+}
+
+/* "Message sent!" card on the contact page (uses the quote form's
+   .quiz__success styles) */
+.contact__success {
+  margin-top: 8px;
+  animation: contact-success-in 0.5s ease;
+}
+
+@keyframes contact-success-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact__success { animation: none; }
+}
+
+/* The form's display: grid would otherwise override [hidden] */
+.contact__simple-form[hidden],
+.contact__simple-status[hidden] {
+  display: none;
 }

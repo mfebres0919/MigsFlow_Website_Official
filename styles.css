@@ -1834,7 +1834,7 @@ TESTIMONIALS SECTION
 
 /* ── FAQ Section ── */
 .faq-section {
-  padding: clamp(60px, 7vw, 110px) 18px;
+  padding: clamp(60px, 7vw, 110px) clamp(20px, 5vw, 48px);
   background: transparent;
   font-family: 'Orbitron';
   font-style: normal;
@@ -1884,6 +1884,15 @@ TESTIMONIALS SECTION
 
 
 .faq__question::-webkit-details-marker { display: none; }
+
+/* The question text is an <h3>: reset its heading margins and size so
+   it sits inside the row like a label */
+.faq__heading {
+  margin: 0;
+  font-size: clamp(15px, 1.4vw, 17px);
+  font-weight: 500;
+  line-height: 1.4;
+}
 
 .faq__question:hover {
   color: var(--accent);

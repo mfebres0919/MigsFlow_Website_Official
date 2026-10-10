@@ -929,3 +929,325 @@
 .contact__simple-status[hidden] {
   display: none;
 }
+
+/* ==========================================================================
+   $80 Homepage Redesign page (html/redesign.html)
+   Reuses the quote quiz; these add the offer card and a few question types.
+   ========================================================================== */
+.offer {
+  margin: 0 0 22px;
+  padding: clamp(22px, 3vw, 32px);
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(24, 201, 255, 0.35);
+  background: linear-gradient(135deg, rgba(24, 201, 255, 0.08), rgba(11, 60, 255, 0.06));
+  box-shadow: 0 0 40px var(--accent-glow);
+}
+
+.offer__price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.offer__amount {
+  font-family: var(--font-heading);
+  font-size: clamp(42px, 6vw, 56px);
+  line-height: 1;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.offer__label {
+  font-family: var(--font-heading);
+  font-size: clamp(14px, 1.6vw, 17px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.offer__list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offer__list li {
+  position: relative;
+  padding-left: 28px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.offer__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-gradient) ;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12'/%3E%3C/svg%3E") center / contain;
+}
+
+.offer__list li::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 7px;
+  width: 8px;
+  height: 5px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+
+.offer__list strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.offer__fine {
+  margin: 16px 0 0;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.offer__packet {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.offer__packet:hover {
+  color: var(--text-primary);
+}
+
+/* Short answers laid out as a wrap of pills */
+.quiz__options--chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quiz__options--chips .quiz__option {
+  padding: 10px 14px;
+  gap: 10px;
+}
+
+.quiz__step .quiz__options + .quiz__question-label {
+  margin-top: 22px;
+}
+
+.quiz__textarea--short {
+  min-height: 90px;
+}
+
+select.quiz__input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+select.quiz__input option {
+  color: #111;
+}
+
+.quiz__enterprise-note {
+  margin-top: 16px;
+  border-color: rgba(255, 196, 0, 0.45);
+  background: rgba(255, 196, 0, 0.08);
+  color: var(--text-secondary);
+}
+
+.quiz__enterprise-note strong {
+  color: #ffd84d;
+}
+
+.quiz__agree {
+  margin-top: 22px;
+  align-items: flex-start;
+}
+
+.quiz__agree input {
+  margin-top: 2px;
+}
+
+/* ---------- Redesign page: brighter, larger form ----------
+   Scoped to .page-redesign so the quote form keeps its look. */
+.page-redesign .quote__header {
+  margin-bottom: 22px;
+}
+
+.page-redesign .quote__title {
+  font-size: clamp(26px, 4.4vw, 44px);
+}
+
+.page-redesign .quiz__step,
+.page-redesign .quiz__progress-wrap,
+.page-redesign .quiz__intro {
+  border-color: rgba(24, 201, 255, 0.35);
+  background: linear-gradient(160deg, rgba(24, 201, 255, 0.12), rgba(11, 60, 255, 0.07) 60%, rgba(255, 255, 255, 0.04));
+  box-shadow: 0 0 40px rgba(24, 201, 255, 0.12), 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.page-redesign .quiz__step {
+  padding: clamp(24px, 3.5vw, 40px);
+}
+
+.page-redesign .quiz__step-title,
+.page-redesign .quiz__intro-title {
+  font-size: clamp(20px, 2.6vw, 26px);
+}
+
+.page-redesign .quiz__step-desc,
+.page-redesign .quiz__intro-text {
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.page-redesign .quiz__question-label {
+  font-size: clamp(15px, 1.6vw, 17px);
+  color: #6fdcff;
+}
+
+.page-redesign .quiz__question-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.page-redesign .quiz__input,
+.page-redesign .quiz__textarea {
+  font-size: 16px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--text-primary);
+}
+
+.page-redesign .quiz__input::placeholder,
+.page-redesign .quiz__textarea::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.page-redesign .quiz__input:focus,
+.page-redesign .quiz__textarea:focus {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.page-redesign .quiz__option {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.page-redesign .quiz__option:hover {
+  background: rgba(24, 201, 255, 0.12);
+  border-color: rgba(24, 201, 255, 0.6);
+}
+
+.page-redesign .quiz__option:has(input:checked) {
+  background: rgba(24, 201, 255, 0.2);
+  border-color: var(--accent);
+}
+
+.page-redesign .quiz__option-text {
+  font-size: clamp(15px, 1.5vw, 16px);
+  color: var(--text-primary);
+}
+
+.page-redesign .quiz__progress-label,
+.page-redesign .quiz__progress-pct,
+.page-redesign .quiz__nav-hint {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.page-redesign .quiz__btn-next,
+.page-redesign .quiz__btn-submit,
+.page-redesign .quiz__btn-back {
+  font-size: 15px;
+  padding: 13px 26px;
+}
+
+.page-redesign .quiz__required-hint {
+  font-size: 14px;
+}
+
+.page-redesign .quiz__delivery-note {
+  font-size: 14px;
+}
+
+.quiz__inline-link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.page-redesign .offer {
+  margin-top: 28px;
+}
+
+.page-redesign .offer__list li,
+.page-redesign .offer__fine {
+  font-size: 16px;
+}
+
+/* Space between stacked questions inside a step */
+.page-redesign .quiz__step .quiz__input + .quiz__question-label,
+.page-redesign .quiz__step .quiz__textarea + .quiz__question-label,
+.page-redesign .quiz__step select + .quiz__question-label {
+  margin-top: 20px;
+}
+
+/* Header button that jumps down to the offer details */
+.quote__offer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(24, 201, 255, 0.55);
+  background: rgba(24, 201, 255, 0.1);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quote__offer-btn:hover,
+.quote__offer-btn:focus-visible {
+  background: rgba(24, 201, 255, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 24px var(--accent-glow);
+}
+
+.page-redesign .offer {
+  scroll-margin-top: 130px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:has(body.page-redesign) {
+    scroll-behavior: smooth;
+  }
+}

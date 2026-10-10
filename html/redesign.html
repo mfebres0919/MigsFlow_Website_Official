@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$80 Homepage Redesign | MigsFlow Web Design</title>
+
+  <meta name="description" content="Get a custom redesign of your website's homepage for $80, plus a walkthrough of every change. Credited toward your deposit if you move forward. Only 5 spots per week.">
+  <!-- Offer page for the TikTok campaign: kept out of search results -->
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://migsflow.com/html/redesign.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://migsflow.com/html/redesign.html">
+  <meta property="og:title" content="$80 Homepage Redesign | MigsFlow">
+  <meta property="og:description" content="See what a fresh, custom homepage could look like for your business. Only 5 spots per week.">
+  <meta property="og:image" content="https://migsflow.com/images/og-cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://migsflow.com/html/redesign.html">
+  <meta name="twitter:title" content="$80 Homepage Redesign | MigsFlow">
+  <meta name="twitter:description" content="See what a fresh, custom homepage could look like for your business. Only 5 spots per week.">
+  <meta name="twitter:image" content="https://migsflow.com/images/og-cover.png">
+
+  <link rel="preload" as="font" href="../fonts/orbitron-v35-latin-600.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../fonts/poppins-v24-latin-regular.woff2" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/contact.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="manifest" href="../site.webmanifest">
+</head>
+
+<body class="page-quote page-redesign">
+
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="../index.html" aria-label="MigsFlow home">
+        <img src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="hamburger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <div class="nav__links" id="primary-nav">
+        <a class="nav__link" href="../index.html#work">Work</a>
+        <a class="nav__link" href="../index.html#about">About</a>
+        <a class="nav__link" href="../index.html#testimonials">Testimonials</a>
+        <a class="nav__link" href="../index.html#faq">FAQ</a>
+        <a class="nav__link" href="pricing.html">Pricing</a>
+        <a class="nav__link" href="quote.html">Get Quote</a>
+      </div>
+
+      <a class="nav__cta" href="contact.html">
+        <span>Contact</span>
+        <span class="nav__cta-icon" aria-hidden="true">
+          <img src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
+        </span>
+      </a>
+    </nav>
+  </header>
+
+
+  <!-- REDESIGN OFFER + APPLICATION
+       Landing page for the $80 homepage redesign offer (TikTok). Submissions
+       go to the Netlify form "redesign"; netlify/functions/
+       submission-created.mjs then emails the applicant the redesign packet
+       (downloads/migsflow-homepage-redesign-packet.pdf) through Brevo. -->
+  <section class="quote-section redesign-section" id="apply">
+    <div class="quote__container">
+
+      <div class="quote__header fade-on-load">
+        <div class="quote__pill">
+          <span class="quote__dot"></span>
+          Homepage Redesign · Only 5 spots per week
+        </div>
+        <h1 class="quote__title">
+          <span class="quote__title-accent">$80 Homepage Redesign.</span><br>
+          Apply in 2 minutes.
+        </h1>
+        <a class="quote__offer-btn" href="#offer">See what's included ↓</a>
+      </div>
+
+      <div class="quiz__progress-wrap fade-on-load" id="progressWrap">
+        <div class="quiz__progress-row">
+          <span class="quiz__progress-label" id="progressLabel">Progress (0/8)</span>
+          <span class="quiz__progress-pct" id="progressPct">0%</span>
+        </div>
+        <div class="quiz__progress-track">
+          <div class="quiz__progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- STEP 1: Business type -->
+      <div class="quiz__step is-active" id="step-1" data-step="1">
+        <h3 class="quiz__step-title">Your Business</h3>
+        <p class="quiz__step-desc">A few quick taps first, then the details at the end. Want to know what's included? <a class="quiz__inline-link" href="#offer">See the offer</a>.</p>
+        <label class="quiz__question-label">What type of business do you run? *</label>
+        <div class="quiz__options quiz__options--chips">
+          <label class="quiz__option">
+            <input type="radio" name="businessType" value="Home services">
+            <span class="quiz__option-text">Home services</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="businessType" value="Food or restaurant">
+            <span class="quiz__option-text">Food or restaurant</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="businessType" value="Beauty or wellness">
+            <span class="quiz__option-text">Beauty or wellness</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="businessType" value="Retail or e-commerce">
+            <span class="quiz__option-text">Retail or e-commerce</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="businessType" value="Professional services">
+            <span class="quiz__option-text">Professional services</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="businessType" value="Other">
+            <span class="quiz__option-text">Other</span>
+          </label>
+        </div>
+        <p class="quiz__required-hint" id="hint-1">Please choose your business type.</p>
+        <div class="quiz__nav">
+          <span class="quiz__nav-hint">Step 1 of 8</span>
+          <button class="quiz__btn-next" type="button" data-next="2">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: What's not working -->
+      <div class="quiz__step" id="step-2" data-step="2">
+        <h3 class="quiz__step-title">Your Current Website</h3>
+        <p class="quiz__step-desc">This tells me what your new homepage needs to fix first.</p>
+        <label class="quiz__question-label">What's not working about your current site? *</label>
+        <span class="quiz__question-sub">Choose all that apply.</span>
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="checkbox" name="currentIssues" value="It looks outdated">
+            <span class="quiz__option-text">It looks outdated</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="currentIssues" value="It doesn't bring in enough customers">
+            <span class="quiz__option-text">It doesn't bring in enough customers</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="currentIssues" value="It's hard to use on phones">
+            <span class="quiz__option-text">It's hard to use on phones</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="currentIssues" value="It doesn't reflect my brand anymore">
+            <span class="quiz__option-text">It doesn't reflect my brand anymore</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="currentIssues" value="It's hard for me to update">
+            <span class="quiz__option-text">It's hard for me to update</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="currentIssues" value="Nothing major, I just want a fresh look">
+            <span class="quiz__option-text">Nothing major, I just want a fresh look</span>
+          </label>
+        </div>
+        <p class="quiz__required-hint" id="hint-2">Please choose at least one option.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="1">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="3">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Vibe -->
+      <div class="quiz__step" id="step-3" data-step="3">
+        <h3 class="quiz__step-title">Your Vibe</h3>
+        <p class="quiz__step-desc">How should your new homepage feel to a first-time visitor?</p>
+        <label class="quiz__question-label">Pick the styles that fit you best *</label>
+        <span class="quiz__question-sub">Choose up to 2.</span>
+        <div class="quiz__options quiz__options--chips" data-max="2">
+          <label class="quiz__option">
+            <input type="checkbox" name="vibe" value="Clean and minimal">
+            <span class="quiz__option-text">Clean and minimal</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="vibe" value="Bold and modern">
+            <span class="quiz__option-text">Bold and modern</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="vibe" value="Warm and welcoming">
+            <span class="quiz__option-text">Warm and welcoming</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="vibe" value="Luxury and premium">
+            <span class="quiz__option-text">Luxury and premium</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="vibe" value="Fun and colorful">
+            <span class="quiz__option-text">Fun and colorful</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="vibe" value="Classic and professional">
+            <span class="quiz__option-text">Classic and professional</span>
+          </label>
+        </div>
+        <p class="quiz__required-hint" id="hint-3">Please choose at least one style.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="2">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="4">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Features (Enterprise check) -->
+      <div class="quiz__step" id="step-4" data-step="4">
+        <h3 class="quiz__step-title">Features</h3>
+        <p class="quiz__step-desc">If I build out your full website, will it need any of these?</p>
+        <label class="quiz__question-label">Choose all that apply *</label>
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="checkbox" name="features" value="None of these, a standard business site is perfect">
+            <span class="quiz__option-text">None of these. A standard business site (pages, contact form, gallery, reviews) is perfect.</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="features" value="Online booking or scheduling">
+            <span class="quiz__option-text">Online booking or scheduling</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="features" value="Payments, deposits, or an online store">
+            <span class="quiz__option-text">Payments, deposits, or an online store</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="features" value="Client portal or member logins">
+            <span class="quiz__option-text">Client portal or member logins</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="features" value="Automated emails or follow-ups">
+            <span class="quiz__option-text">Automated emails or follow-ups</span>
+          </label>
+          <label class="quiz__option">
+            <input type="checkbox" name="features" value="Custom integrations (CRM, POS, other software)">
+            <span class="quiz__option-text">Custom integrations (CRM, POS, or other software)</span>
+          </label>
+        </div>
+        <!-- Shown when any advanced feature is picked -->
+        <p class="quiz__delivery-note quiz__enterprise-note" id="enterpriseNote" hidden>
+          <strong>Heads up:</strong> these features are part of my Enterprise builds, which take more time to build and are quoted separately.
+          Your $80 homepage redesign stays the same. If we move forward, I'll send a separate estimate for these so there are no surprises.
+        </p>
+        <p class="quiz__required-hint" id="hint-4">Please choose at least one option.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="3">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="5">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: Content readiness -->
+      <div class="quiz__step" id="step-5" data-step="5">
+        <h3 class="quiz__step-title">Your Content</h3>
+        <p class="quiz__step-desc">Real photos and reviews make your redesign look its best.</p>
+        <label class="quiz__question-label">Do you have a logo, photos, and reviews ready? *</label>
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="radio" name="contentReady" value="All of it">
+            <span class="quiz__option-text">Yes, all of it</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="contentReady" value="Some of it">
+            <span class="quiz__option-text">Some of it</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="contentReady" value="None yet">
+            <span class="quiz__option-text">Not yet</span>
+          </label>
+        </div>
+        <p class="quiz__required-hint" id="hint-5">Please choose an option.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="4">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="6">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: After the redesign -->
+      <div class="quiz__step" id="step-6" data-step="6">
+        <h3 class="quiz__step-title">After Your Redesign</h3>
+        <p class="quiz__step-desc">No commitment here. This just helps me plan.</p>
+        <label class="quiz__question-label">If you love your new homepage, what would you most likely do next? *</label>
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="radio" name="nextStep" value="Build out my full website with MigsFlow">
+            <span class="quiz__option-text">Build out my full website with MigsFlow</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="nextStep" value="Talk it through on a call first">
+            <span class="quiz__option-text">Talk it through on a call first</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="nextStep" value="Just get the redesign for now">
+            <span class="quiz__option-text">Just get the redesign for now</span>
+          </label>
+        </div>
+        <label class="quiz__question-label">When would you ideally want a new site live? *</label>
+        <div class="quiz__options quiz__options--chips">
+          <label class="quiz__option">
+            <input type="radio" name="timeline" value="As soon as possible">
+            <span class="quiz__option-text">As soon as possible</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="timeline" value="In 1 to 2 months">
+            <span class="quiz__option-text">In 1 to 2 months</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="timeline" value="In 3+ months">
+            <span class="quiz__option-text">In 3+ months</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="timeline" value="No set timeline">
+            <span class="quiz__option-text">No set timeline</span>
+          </label>
+        </div>
+        <p class="quiz__required-hint" id="hint-6">Please answer both questions.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="5">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="7">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: Website details (typed) -->
+      <div class="quiz__step" id="step-7" data-step="7">
+        <h3 class="quiz__step-title">Your Website</h3>
+        <p class="quiz__step-desc">Now the details. Your current website is the one I'll be redesigning.</p>
+        <label class="quiz__question-label" for="businessName">Business name *</label>
+        <input class="quiz__input" id="businessName" name="businessName" type="text" placeholder="Your Business Name" autocomplete="organization" required>
+        <label class="quiz__question-label" for="websiteUrl">Current website link *</label>
+        <span class="quiz__question-sub">The site whose homepage you'd like redesigned.</span>
+        <input class="quiz__input" id="websiteUrl" name="websiteUrl" type="url" inputmode="url" placeholder="https://yourbusiness.com" autocomplete="url" required>
+        <label class="quiz__question-label" for="inspiration">Any websites you love the look of?</label>
+        <span class="quiz__question-sub">Optional. Paste links, or describe what you like about them.</span>
+        <textarea class="quiz__textarea quiz__textarea--short" id="inspiration" name="inspiration" placeholder="https://example.com, I love the big photos and simple layout"></textarea>
+        <label class="quiz__question-label" for="brandColors">Brand colors to keep</label>
+        <span class="quiz__question-sub">Optional. Leave blank if you're open to new colors.</span>
+        <input class="quiz__input" id="brandColors" name="brandColors" type="text" placeholder="Navy and gold">
+        <p class="quiz__required-hint" id="hint-7">Please add your business name and a valid website link.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="6">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="8">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 8: Contact + agreement -->
+      <div class="quiz__step" id="step-8" data-step="8">
+        <h3 class="quiz__step-title">Where should I reach you?</h3>
+        <p class="quiz__step-desc">Every application is reviewed personally. If we're a good fit, I'll be in touch within 24–48 hours with next steps.</p>
+        <label class="quiz__question-label" for="clientName">Your name *</label>
+        <input class="quiz__input" id="clientName" name="clientName" type="text" placeholder="Jane Doe" autocomplete="name" required>
+        <label class="quiz__question-label" for="clientEmail">Email address *</label>
+        <input class="quiz__input" id="clientEmail" name="clientEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <label class="quiz__question-label" for="clientPhone">Phone</label>
+        <span class="quiz__question-sub">Optional.</span>
+        <input class="quiz__input" id="clientPhone" name="clientPhone" type="tel" placeholder="(555) 555-5555" autocomplete="tel">
+        <label class="quiz__question-label" for="foundVia">How did you find me?</label>
+        <select class="quiz__input" id="foundVia" name="foundVia">
+          <option value="TikTok" selected>TikTok</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Google">Google</option>
+          <option value="Referral">A friend or referral</option>
+          <option value="Other">Other</option>
+        </select>
+        <label class="quiz__question-label" for="notes">Anything else I should know?</label>
+        <span class="quiz__question-sub">Optional.</span>
+        <textarea class="quiz__textarea quiz__textarea--short" id="notes" name="notes" placeholder="Goals, deadlines, anything you'd like me to focus on"></textarea>
+        <label class="quiz__option quiz__agree">
+          <input type="checkbox" id="agree" name="agree" value="Yes">
+          <span class="quiz__option-text">I understand the $80 redesign covers my homepage design only, is paid before work begins, and is credited toward my deposit if I move forward. *</span>
+        </label>
+        <!-- Honeypot: hidden from people (and screen readers), filled in by bots.
+             Netlify marks any submission where it has a value as spam. -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label for="appGotcha">Leave this field empty</label>
+          <input id="appGotcha" type="text" name="bot-field" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="quiz__required-hint" id="hint-8">Please add your name, a valid email, and check the box above.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="7">← Back</button>
+          <button class="quiz__btn-submit" type="button" id="submitBtn">Submit Application →</button>
+        </div>
+      </div>
+
+      <!-- Netlify Forms reads this hidden copy at deploy time to learn the
+           "redesign" form and its fields; the steps above are sent by the
+           script below with the same names. -->
+      <form name="redesign" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="text" name="businessName">
+        <input type="text" name="websiteUrl">
+        <input type="text" name="businessType">
+        <input type="text" name="currentIssues">
+        <input type="text" name="vibe">
+        <input type="text" name="inspiration">
+        <input type="text" name="brandColors">
+        <input type="text" name="features">
+        <input type="text" name="enterprise">
+        <input type="text" name="contentReady">
+        <input type="text" name="nextStep">
+        <input type="text" name="timeline">
+        <input type="text" name="name">
+        <input type="text" name="email">
+        <input type="text" name="phone">
+        <input type="text" name="foundVia">
+        <input type="text" name="notes">
+        <input type="text" name="agree">
+        <input type="text" name="bot-field">
+      </form>
+
+      <!-- Success -->
+      <div class="quiz__success" id="quizSuccess" aria-live="polite">
+        <div class="quiz__success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3 class="quiz__success-title">Application received!</h3>
+        <p class="quiz__success-text">
+          Every application is reviewed personally.<br>
+          If we're a good fit, I'll be in touch within 24–48 hours.
+        </p>
+        <p class="quiz__success-text">The redesign packet is on its way to your inbox. Want to read how it works now?</p>
+        <a class="quiz__btn-submit quiz__success-download" href="../downloads/migsflow-homepage-redesign-packet.pdf" download="MigsFlow-Homepage-Redesign-Packet.pdf">
+          Download the Redesign Packet ↓
+        </a>
+      </div>
+
+      <!-- Offer details, below the form (the header button links here) -->
+      <div class="offer fade-on-load" id="offer">
+        <div class="offer__price">
+          <span class="offer__amount">$80</span>
+          <span class="offer__label">custom homepage redesign</span>
+        </div>
+        <ul class="offer__list">
+          <li>A fresh, custom redesign of your current homepage</li>
+          <li>A walkthrough of what I changed and why</li>
+          <li>Delivered within <strong>3 business days</strong> of payment</li>
+          <li>Your $80 goes toward your deposit if you build your full site with me: <strong>$270 to start instead of $350</strong>, then $125/mo</li>
+        </ul>
+        <p class="offer__fine">For standard business websites. Advanced features like booking, payments, or custom integrations are quoted separately.</p>
+        <a class="offer__packet" href="../downloads/migsflow-homepage-redesign-packet.pdf" download="MigsFlow-Homepage-Redesign-Packet.pdf">See how it works (PDF) ↓</a>
+      </div>
+
+    </div>
+
+    <div class="star-field" aria-hidden="true">
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer fade-section" id="footer">
+    <div class="footer__container">
+      <div class="footer__top">
+        <div class="footer__brand fade-on-load">
+          <a class="footer__logo fade-on-load" href="../index.html" aria-label="MigsFlow home">
+            <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
+          </a>
+          <p class="footer__blurb fade-on-load">
+            Custom websites for small businesses that generate leads and look premium.
+          </p>
+          <div class="footer__social fade-on-load" aria-label="Social links">
+            <a class="footer__social-btn fade-on-load" href="https://www.instagram.com/migsflow/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M17.2 6.8h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a class="footer__social-btn fade-on-load" href="https://www.tiktok.com/@migs.flow" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M16.5 3c.3 2.2 1.5 3.6 3.5 3.9v2.6c-1.3.1-2.5-.3-3.5-1v5.9a5.2 5.2 0 1 1-5.2-5.2c.3 0 .5 0 .8.1v2.7a2.5 2.5 0 1 0 1.7 2.4V3h2.7Z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__cols fade-on-load" aria-label="Footer navigation">
+          <div class="footer__col fade-on-load">
+            <h3 class="footer__heading fade-on-load">Navigation</h3>
+            <a class="footer__link fade-on-load" href="../index.html#work">Work</a>
+            <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
+            <a class="footer__link fade-on-load" href="quote.html">Get Quote</a>
+            <a class="footer__link fade-on-load" href="../downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">Welcome Package</a>
+          </div>
+          <div class="footer__col fade-on-load">
+            <h3 class="footer__heading fade-on-load">Contact</h3>
+            <a class="footer__link fade-on-load" href="mailto:miguelle@migsflow.com" aria-label="Email MigsFlow">
+              <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+              <span>miguelle@migsflow.com</span>
+            </a>
+            <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
+              <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+              (832) 648-0539
+            </a>
+            <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View location">
+              <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+              Charleston, SC
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__hero fade-on-load">
+        <div class="footer__giant fade-on-load">LET'S COLLABORATE</div>
+        <a class="footer__bubble fade-on-load" href="contact.html" aria-label="Get in touch">
+          <span>GET IN TOUCH</span>
+        </a>
+      </div>
+      <div class="footer__bottom fade-on-load">
+        <div class="copyright fade-on-load"><p>© Copyright 2026 MigsFlow Web Design</p></div>
+      </div>
+    </div>
+    <div class="star-field" aria-hidden="true">
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+    </div>
+  </footer>
+
+  <script defer src="../main.js"></script>
+
+  <script>
+  /* Application steps: validate each step before moving on, show the
+     Enterprise note when an advanced feature is picked, limit the vibe to
+     two picks, then send everything to Netlify Forms ("redesign"). */
+  (function () {
+    var TOTAL = 8;
+    var current = 1;
+    var $ = function (id) { return document.getElementById(id); };
+    var checked = function (name) { return Array.prototype.map.call(document.querySelectorAll('input[name="' + name + '"]:checked'), function (el) { return el.value; }); };
+    var validUrl = function (v) { return /^(https?:\/\/)?[^\s.]+\.[^\s]{2,}$/i.test(v.trim()); };
+
+    function progress(step) {
+      var pct = Math.round((step / TOTAL) * 100);
+      $('progressFill').style.width = pct + '%';
+      $('progressLabel').textContent = 'Progress (' + step + '/' + TOTAL + ')';
+      $('progressPct').textContent = pct + '%';
+    }
+
+    function show(n) {
+      document.querySelectorAll('.quiz__step').forEach(function (el) { el.classList.remove('is-active'); });
+      var target = $('step-' + n);
+      target.classList.add('is-active');
+      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      current = n;
+      progress(n - 1);
+    }
+
+    function valid(n) {
+      switch (n) {
+        case 1: return checked('businessType').length;
+        case 2: return checked('currentIssues').length;
+        case 3: return checked('vibe').length;
+        case 4: return checked('features').length;
+        case 5: return checked('contentReady').length;
+        case 6: return checked('nextStep').length && checked('timeline').length;
+        case 7: return $('businessName').value.trim() && validUrl($('websiteUrl').value);
+        case 8: return $('clientName').value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('clientEmail').value.trim()) && $('agree').checked;
+      }
+      return true;
+    }
+
+    var hint = function (n, on) { $('hint-' + n).classList.toggle('is-visible', on); };
+
+    // "None of these" and the advanced features can't both be picked; any
+    // advanced feature shows the Enterprise note
+    var NONE = 'None of these, a standard business site is perfect';
+    document.querySelectorAll('input[name="features"]').forEach(function (box) {
+      box.addEventListener('change', function () {
+        if (box.checked) {
+          document.querySelectorAll('input[name="features"]').forEach(function (other) {
+            if (other !== box && (box.value === NONE || other.value === NONE)) other.checked = false;
+          });
+        }
+        $('enterpriseNote').hidden = !checked('features').some(function (v) { return v !== NONE; });
+      });
+    });
+
+    // Vibe: at most two
+    document.querySelectorAll('input[name="vibe"]').forEach(function (box) {
+      box.addEventListener('change', function () {
+        if (checked('vibe').length > 2) box.checked = false;
+      });
+    });
+
+    function answers() {
+      var url = $('websiteUrl').value.trim();
+      if (url && !/^https?:\/\//i.test(url)) url = 'https://' + url;
+      var features = checked('features');
+      return {
+        'form-name': 'redesign',
+        businessName: $('businessName').value.trim(),
+        websiteUrl: url,
+        businessType: checked('businessType').join(', '),
+        currentIssues: checked('currentIssues').join(', '),
+        vibe: checked('vibe').join(', '),
+        inspiration: $('inspiration').value.trim(),
+        brandColors: $('brandColors').value.trim(),
+        features: features.join(', '),
+        enterprise: features.some(function (v) { return v !== NONE; }) ? 'Yes, needs Enterprise features' : 'No',
+        contentReady: checked('contentReady').join(', '),
+        nextStep: checked('nextStep').join(', '),
+        timeline: checked('timeline').join(', '),
+        name: $('clientName').value.trim(),
+        email: $('clientEmail').value.trim(),
+        phone: $('clientPhone').value.trim(),
+        foundVia: $('foundVia').value,
+        notes: $('notes').value.trim(),
+        agree: $('agree').checked ? 'Yes' : 'No',
+        'bot-field': $('appGotcha').value
+      };
+    }
+
+    function success() {
+      $('progressWrap').style.display = 'none';
+      document.querySelectorAll('.quiz__step').forEach(function (el) { el.classList.remove('is-active'); });
+      $('quizSuccess').classList.add('is-active');
+      $('quizSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    document.querySelector('.quote__container').addEventListener('click', async function (e) {
+      var btn = e.target.closest('[data-next], [data-prev], #submitBtn');
+      if (!btn) return;
+      if (btn.dataset.next) {
+        if (!valid(current)) { hint(current, true); return; }
+        hint(current, false);
+        show(parseInt(btn.dataset.next, 10));
+      }
+      if (btn.dataset.prev) {
+        hint(current, false);
+        show(parseInt(btn.dataset.prev, 10));
+      }
+      if (btn.id === 'submitBtn') {
+        if (!valid(TOTAL)) { hint(TOTAL, true); return; }
+        hint(TOTAL, false);
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(answers()).toString()
+          });
+          if (!res.ok) throw new Error(res.status);
+          success();
+        } catch (err) {
+          btn.textContent = 'Submit Application →';
+          btn.disabled = false;
+          $('hint-8').textContent = 'Something went wrong. Please try again or email miguelle@migsflow.com.';
+          hint(TOTAL, true);
+        }
+      }
+    });
+
+    // Enter moves to the next step (not inside text areas)
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' || (document.activeElement && document.activeElement.tagName === 'TEXTAREA')) return;
+      var step = $('step-' + current);
+      var next = step && step.querySelector('[data-next], #submitBtn');
+      if (next) { e.preventDefault(); next.click(); }
+    });
+
+    progress(0);
+  })();
+  </script>
+
+<!-- Back to top: round button, fades in after one screen of scrolling (main.js) -->
+<button class="to-top" type="button" aria-label="Back to top" data-to-top>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+</button>
+</body>
+</html>

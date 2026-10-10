@@ -155,6 +155,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function closeItem(item) {
+    const btn = item.querySelector(".faq__question");
+    const ans = item.querySelector(".faq__answer");
+    if (!btn || !ans) return;
+
+    // From its exact current height (not 'none') so it eases shut
+    ans.style.maxHeight = ans.scrollHeight + "px";
+    requestAnimationFrame(() => {
+      item.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      ans.style.maxHeight = "0px";
+    });
+  }
+
   function refreshOpenHeights(panel) {
     panel.querySelectorAll(".faq__item.is-open").forEach((item) => {
       const ans = item.querySelector(".faq__answer");
@@ -193,9 +207,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const panel = btn.closest(".faq__panel");
     if (!item || !panel) return;
 
-    const isOpen = item.classList.contains("is-open");
-    closeAllInPanel(panel);
-    if (!isOpen) openItem(item);
+    // Each question opens and closes on its own. Closing the others as
+    // well made the list above shrink while this one opened, so the page
+    // shifted and the clicked question snapped upward.
+    if (item.classList.contains("is-open")) closeItem(item);
+    else openItem(item);
   });
 
   panels.forEach((panel) => {
@@ -327,91 +343,79 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// FAQ toggle for home page
+/* ===== HOME PAGE FAQ (<details> accordion) =====
+   Animates the <details> height between its closed height (just the
+   question) and its natural open height, and fades the answer in. Both
+   heights are measured, never guessed: the closed height before it's
+   opened, the open height right after. Clicking again mid-animation
+   reverses from wherever it is. Reduced motion: opens and closes
+   instantly, like a plain <details>.
+================================================================ */
+document.querySelectorAll('.faq__item').forEach((details) => {
+  const summary = details.querySelector('summary');
+  const answer = details.querySelector('.faq__answer');
+  // The FAQ page builds its items differently (buttons, no <summary>)
+  if (!summary || !answer) return;
 
- document.querySelectorAll('.faq__item').forEach(details => {
-    const summary = details.querySelector('summary');
-    const answer  = details.querySelector('.faq__answer');
-    let animation = null;
-    let isClosing = false;
-    let isOpening = false;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
+  let animation = null;
+  let fade = null;
 
-    summary.addEventListener('click', e => {
-      e.preventDefault();
-      details.style.overflow = 'hidden';
+  function run(from, to, opening) {
+    if (animation) animation.cancel();
+    if (fade) fade.cancel();
+    details.style.overflow = 'hidden';
+    animation = details.animate({ height: [from, to] }, { duration: opening ? 480 : 380, easing: EASE });
+    fade = answer.animate(
+      { opacity: opening ? [0, 1] : [1, 0], transform: opening ? ['translateY(-6px)', 'none'] : ['none', 'translateY(-6px)'] },
+      { duration: opening ? 420 : 220, easing: 'ease', fill: 'both' }
+    );
+    animation.onfinish = () => {
+      if (!opening) details.open = false;
+      details.style.overflow = '';
+      animation = null;
+      fade.cancel(); // drop the fill so the answer is plain again
+      fade = null;
+    };
+  }
 
-      if (isClosing || !details.open) {
-        open();
-      } else if (isOpening || details.open) {
-        close();
-      }
-    });
+  summary.addEventListener('click', (event) => {
+    if (reduceMotion) return; // let <details> toggle on its own
+    event.preventDefault();
 
-    function open() {
-      isOpening = true;
+    const current = `${details.offsetHeight}px`;
+    const isClosing = details.open && !(animation && details.dataset.state === 'closing');
+
+    if (isClosing) {
+      details.dataset.state = 'closing';
+      // Closed height = the question plus the item's own border
+      const closed = `${summary.offsetHeight + (details.offsetHeight - details.clientHeight)}px`;
+      run(current, closed, false);
+    } else {
+      details.dataset.state = 'opening';
       details.open = true;
-      const startH = `${details.offsetHeight}px`;
-      const endH   = `${summary.offsetHeight + answer.offsetHeight + 22}px`;
-
-      if (animation) animation.cancel();
-      animation = details.animate(
-        { height: [startH, endH] },
-        { duration: 320, easing: 'ease' }
-      );
-      animation.onfinish = () => {
-        animation = null;
-        isOpening = false;
-        details.style.height = '';
-        details.style.overflow = '';
-      };
-      animation.oncancel = () => isOpening = false;
-    }
-
-    function close() {
-      isClosing = true;
-      const startH = `${details.offsetHeight}px`;
-      const endH   = `${summary.offsetHeight}px`;
-
-      if (animation) animation.cancel();
-      animation = details.animate(
-        { height: [startH, endH] },
-        { duration: 280, easing: 'ease' }
-      );
-      animation.onfinish = () => {
-        animation  = null;
-        isClosing  = false;
-        details.open = false;
-        details.style.height   = '';
-        details.style.overflow = '';
-      };
-      animation.oncancel = () => isClosing = false;
+      if (animation) animation.cancel(); // measure the true open height
+      const open = `${details.offsetHeight}px`;
+      run(current, open, true);
     }
   });
+});
 
-/* ===== HERO WORK SHOWCASE =====
-   Cycles the MacBook + iPhone screens through the client sites every
-   5 seconds: both screens crossfade, the caption and dots follow, and the
-   device link plus "View Site" point at the site showing. Pauses on
-   hover, keyboard focus, while off screen or the tab is hidden, and for
-   good once the visitor presses pause. Swipe on touch screens. Reduced
-   motion: no auto-advance (arrows, dots and swipe still work).
-   The other sites' screens load only after the page has finished.
+
+/* ===== CAROUSEL HELPER (hero showcase + work slider) =====
+   Wires up the shared .carousel-controls (prev, dots, pause/play, next),
+   auto-advance and swipe for a carousel whose visuals are drawn by
+   `render(index)`. Auto-advance pauses on hover, keyboard focus, while
+   the carousel is off screen or the tab is hidden, and for good once the
+   visitor presses pause (the root gets .is-paused). Reduced motion: no
+   auto-advance; arrows, dots and swipe still work.
+   `swipeArea` swipes left/right; a swipe there isn't treated as a click.
 ================================================================ */
-(() => {
-  const showcase = document.querySelector("[data-showcase]");
-  if (!showcase) return;
-
+function setupCarousel({ root, count, render, interval, swipeArea, hoverArea }) {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const INTERVAL = 5000;
-
-  const laptopScreens = showcase.querySelectorAll(".showcase__device--laptop .showcase__screen");
-  const phoneScreens = showcase.querySelectorAll(".showcase__device--phone .showcase__screen");
-  const slides = showcase.querySelectorAll(".showcase__slide");
-  const dots = showcase.querySelectorAll("[data-showcase-dot]");
-  const stage = showcase.querySelector("[data-showcase-link]");
-  const visit = showcase.querySelector("[data-showcase-visit]");
-  const toggle = showcase.querySelector("[data-showcase-toggle]");
-  const total = slides.length;
+  const dots = root.querySelectorAll("[data-carousel-dot]");
+  const toggle = root.querySelector("[data-carousel-toggle]");
 
   let current = 0;
   let timer = null;
@@ -420,73 +424,33 @@ document.addEventListener("DOMContentLoaded", () => {
   let focused = false;
   let onScreen = true;
 
-  // Swap in the real image paths once everything else has loaded
-  const loadAll = () => {
-    showcase.querySelectorAll(".showcase__screen[data-src]").forEach((img) => {
-      img.src = img.dataset.src;
-      img.removeAttribute("data-src");
-    });
-  };
-  if (document.readyState === "complete") loadAll();
-  else window.addEventListener("load", loadAll, { once: true });
-
   function show(index) {
-    current = (index + total) % total;
-    // A visitor can click ahead before the rest have loaded
-    if (laptopScreens[current].dataset.src) loadAll();
-
-    [laptopScreens, phoneScreens].forEach((set) =>
-      set.forEach((img, i) => img.classList.toggle("is-active", i === current)));
-
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("is-active", i === current);
-      slide.hidden = i !== current;
-    });
-
+    current = (index + count) % count;
+    render(current);
     dots.forEach((dot, i) => {
       dot.classList.toggle("is-active", i === current);
       if (i === current) dot.setAttribute("aria-current", "true");
       else dot.removeAttribute("aria-current");
     });
-
-    const slide = slides[current];
-    const url = slide.dataset.url;
-    const name = slide.querySelector(".showcase__name").textContent;
-    if (url) {
-      stage.href = url;
-      visit.href = url;
-      stage.setAttribute("aria-label", `View the ${name} website (opens in a new tab)`);
-      visit.hidden = false;
-    } else {
-      // No live link yet: devices aren't a link, no View Site button
-      stage.removeAttribute("href");
-      stage.setAttribute("aria-label", `${name} website preview`);
-      visit.hidden = true;
-    }
   }
 
   function schedule() {
     clearInterval(timer);
     timer = null;
     if (pausedByVisitor || hovering || focused || !onScreen || document.hidden) return;
-    timer = setInterval(() => show(current + 1), INTERVAL);
+    timer = setInterval(() => show(current + 1), interval);
   }
 
-  function step(delta) {
-    show(current + delta);
-    schedule(); // restart the clock so the new site gets its full time
-  }
+  // Manual moves restart the clock so the new slide gets its full time
+  const step = (delta) => { show(current + delta); schedule(); };
 
-  showcase.querySelector("[data-showcase-prev]").addEventListener("click", () => step(-1));
-  showcase.querySelector("[data-showcase-next]").addEventListener("click", () => step(1));
-  dots.forEach((dot) => dot.addEventListener("click", () => {
-    show(Number(dot.dataset.showcaseDot));
-    schedule();
-  }));
+  root.querySelector("[data-carousel-prev]").addEventListener("click", () => step(-1));
+  root.querySelector("[data-carousel-next]").addEventListener("click", () => step(1));
+  dots.forEach((dot, i) => dot.addEventListener("click", () => { show(i); schedule(); }));
 
   function syncToggle() {
-    showcase.classList.toggle("is-paused", pausedByVisitor);
-    toggle.setAttribute("aria-label", pausedByVisitor ? "Play the showcase" : "Pause the showcase");
+    root.classList.toggle("is-paused", pausedByVisitor);
+    toggle.setAttribute("aria-label", pausedByVisitor ? "Play the carousel" : "Pause the carousel");
   }
   toggle.addEventListener("click", () => {
     pausedByVisitor = !pausedByVisitor;
@@ -495,39 +459,165 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   syncToggle();
 
-  stage.addEventListener("mouseenter", () => { hovering = true; schedule(); });
-  stage.addEventListener("mouseleave", () => { hovering = false; schedule(); });
-  showcase.addEventListener("focusin", () => { focused = true; schedule(); });
-  showcase.addEventListener("focusout", (event) => {
-    if (!showcase.contains(event.relatedTarget)) { focused = false; schedule(); }
+  (hoverArea || root).addEventListener("mouseenter", () => { hovering = true; schedule(); });
+  (hoverArea || root).addEventListener("mouseleave", () => { hovering = false; schedule(); });
+  root.addEventListener("focusin", () => { focused = true; schedule(); });
+  root.addEventListener("focusout", (event) => {
+    if (!root.contains(event.relatedTarget)) { focused = false; schedule(); }
   });
   document.addEventListener("visibilitychange", schedule);
   new IntersectionObserver(([entry]) => {
     onScreen = entry.isIntersecting;
     schedule();
-  }).observe(showcase);
+  }).observe(root);
 
-  // Swipe left/right over the devices; a swipe isn't a click on the link
-  let startX = null;
-  let swiped = false;
-  stage.addEventListener("pointerdown", (event) => {
-    if (event.pointerType === "mouse") return;
-    startX = event.clientX;
-    swiped = false;
-  });
-  stage.addEventListener("pointerup", (event) => {
-    if (startX === null) return;
-    const dx = event.clientX - startX;
-    startX = null;
-    if (Math.abs(dx) > 40) {
-      swiped = true;
-      step(dx < 0 ? 1 : -1);
-    }
-  });
-  stage.addEventListener("pointercancel", () => { startX = null; });
-  stage.addEventListener("click", (event) => {
-    if (swiped) { event.preventDefault(); swiped = false; }
-  });
+  if (swipeArea) {
+    let startX = null;
+    let swiped = false;
+    swipeArea.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse") return;
+      startX = event.clientX;
+      swiped = false;
+    });
+    swipeArea.addEventListener("pointerup", (event) => {
+      if (startX === null) return;
+      const dx = event.clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > 40) {
+        swiped = true;
+        step(dx < 0 ? 1 : -1);
+      }
+    });
+    swipeArea.addEventListener("pointercancel", () => { startX = null; });
+    swipeArea.addEventListener("click", (event) => {
+      if (swiped) { event.preventDefault(); swiped = false; }
+    }, true);
+  }
 
+  show(0);
   schedule();
+}
+
+
+/* ===== HERO WORK SHOWCASE =====
+   Every 5 seconds both device screens crossfade to the next client site,
+   the caption follows, and the device link plus "View Site" point at the
+   site showing. A site with no live link yet gets neither. The other
+   sites' screens load only after the page has finished.
+================================================================ */
+(() => {
+  const showcase = document.querySelector("[data-showcase]");
+  if (!showcase) return;
+
+  const laptopScreens = showcase.querySelectorAll(".devices__device--laptop .devices__screen");
+  const phoneScreens = showcase.querySelectorAll(".devices__device--phone .devices__screen");
+  const slides = showcase.querySelectorAll(".showcase__slide");
+  const stage = showcase.querySelector("[data-showcase-link]");
+  const visit = showcase.querySelector("[data-showcase-visit]");
+
+  const loadAll = () => {
+    showcase.querySelectorAll(".devices__screen[data-src]").forEach((img) => {
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+    });
+  };
+  if (document.readyState === "complete") loadAll();
+  else window.addEventListener("load", loadAll, { once: true });
+
+  setupCarousel({
+    root: showcase,
+    count: slides.length,
+    interval: 5000,
+    swipeArea: stage,
+    hoverArea: stage,
+    render(current) {
+      // A visitor can click ahead before the rest have loaded
+      if (laptopScreens[current].dataset.src) loadAll();
+
+      [laptopScreens, phoneScreens].forEach((set) =>
+        set.forEach((img, i) => img.classList.toggle("is-active", i === current)));
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("is-active", i === current);
+        slide.hidden = i !== current;
+      });
+
+      const slide = slides[current];
+      const url = slide.dataset.url;
+      const name = slide.querySelector(".showcase__name").textContent;
+      if (url) {
+        stage.href = url;
+        visit.href = url;
+        stage.setAttribute("aria-label", `View the ${name} website (opens in a new tab)`);
+        visit.hidden = false;
+      } else {
+        stage.removeAttribute("href");
+        stage.setAttribute("aria-label", `${name} website preview`);
+        visit.hidden = true;
+      }
+    },
+  });
 })();
+
+
+/* ===== WORK SLIDER =====
+   One project per slide, sliding sideways every 6 seconds. Slides that
+   aren't showing are inert, so keyboard users only tab through the
+   current one. Screens are lazy-loaded; the current slide and both
+   neighbours are switched to load straight away so a slide is never
+   blank when it arrives.
+================================================================ */
+(() => {
+  const slider = document.querySelector("[data-work-slider]");
+  if (!slider) return;
+
+  const track = slider.querySelector(".work__track");
+  const slides = slider.querySelectorAll(".work__slide");
+  const count = slides.length;
+
+  setupCarousel({
+    root: slider,
+    count,
+    interval: 6000,
+    swipeArea: track,
+    hoverArea: track,
+    render(current) {
+      track.style.transform = `translateX(${current * -100}%)`;
+      slides.forEach((slide, i) => {
+        const showing = i === current;
+        slide.inert = !showing;
+        slide.setAttribute("aria-hidden", String(!showing));
+        if (showing || i === (current + 1) % count || i === (current - 1 + count) % count) {
+          slide.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = "eager"; });
+        }
+      });
+    },
+  });
+})();
+
+
+/* ===== BACK TO TOP (every page) =====
+   Shows once the visitor has scrolled half a screen (short pages like
+   Contact never scroll a full one). Smooth scroll unless the visitor
+   prefers reduced motion; focus goes back to the top of the page so
+   keyboard users carry on from there. Waits for the page to be parsed,
+   since a couple of pages load main.js without defer.
+================================================================ */
+function setupToTop() {
+  const toTop = document.querySelector("[data-to-top]");
+  if (!toTop) return;
+
+  const update = () => toTop.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.5);
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+
+  toTop.addEventListener("click", () => {
+    const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+    const first = document.querySelector("header a, a");
+    if (first) first.focus({ preventScroll: true });
+  });
+}
+
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", setupToTop);
+else setupToTop();

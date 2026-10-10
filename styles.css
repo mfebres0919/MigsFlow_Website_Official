@@ -12,93 +12,167 @@
   margin-top: 5.5rem;
 }
 
-/* ── Hero work showcase ──
-   A stage sized in the MacBook's own proportions (frame image 1093×1049)
-   with the iPhone overlapping its front-left corner. Every position is a
-   percentage of the stage or of a device's frame image, so the screens
-   stay locked to the glass at any size. Screen boxes come from the warp
-   script: laptop glass 406,13 → 1076,781; phone glass 166,58 → 327,509. */
-.showcase {
-  width: 100%;
-  max-width: 620px;
-  margin-inline: auto;
+/* ── Hero social proof ──
+   Overlapping client photos + stars under the hero buttons; the whole
+   row links down to the testimonials. */
+.hero__proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: clamp(24px, 3vw, 34px);
+  padding: 10px 18px 10px 10px;
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-pill);
+  background: var(--surface-glass);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.showcase__stage {
+.hero__proof:hover,
+.hero__proof:focus-visible {
+  border-color: var(--accent-border);
+  background: rgba(24, 201, 255, 0.06);
+}
+
+.hero__proof-faces {
+  display: flex;
+}
+
+.hero__proof-faces img {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #05070f;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hero__proof-faces img + img {
+  margin-left: -12px;
+}
+
+.hero__proof-text {
+  display: grid;
+  gap: 2px;
+  line-height: 1.3;
+}
+
+.hero__proof-stars {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: #ffd640;
+}
+
+.hero__proof-label {
+  font-size: var(--fs-sm);
+}
+
+.hero__proof-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.hero__proof:hover .hero__proof-arrow {
+  transform: translateX(3px);
+}
+
+/* ── Device mockup (hero showcase + work slider) ──
+   A MacBook and an iPhone angled toward each other. .devices is a stage
+   sized in the MacBook's own proportions (frame image 1093×1049) with the
+   iPhone overlapping its front-left corner. Every position is a percentage
+   of the stage or of a device's frame image, so the screens stay locked to
+   the glass at any size. Screens are screenshots pre-warped to each
+   device's angle (images/showcase); glass boxes from the warp script:
+   laptop 406,13 → 1076,781; phone 166,58 → 327,509. The phone hangs 13.5%
+   off the stage's left edge, so leave room for it. */
+.devices {
   position: relative;
   display: block;
   aspect-ratio: 1210 / 1060;
   /* soft blue glow behind the devices */
   background: radial-gradient(closest-side at 58% 42%, rgba(24, 201, 255, 0.16), rgba(11, 60, 255, 0.06) 60%, transparent);
   border-radius: 50%;
-  touch-action: pan-y; /* horizontal swipes change the site (main.js) */
+  touch-action: pan-y; /* horizontal swipes belong to the carousel (main.js) */
 }
 
-.showcase__stage:focus-visible {
+a.devices:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 6px;
   border-radius: var(--radius-card);
 }
 
-.showcase__device {
+a.devices:not([href]) {
+  cursor: default;
+}
+
+.devices__device {
   position: absolute;
 }
 
-.showcase__device--laptop {
+/* Floats with the phone, but slower and out of step with it, so the two
+   drift past each other instead of bobbing in unison. The hover lift
+   uses `translate`, not `transform`, so it adds to the float. */
+.devices__device--laptop {
   top: 0.5%;
   left: 9.7%;
   width: 90.3%;
   aspect-ratio: 1093 / 1049;
   filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55));
-  /* Floats with the phone, but slower and out of step with it, so the
-     two drift past each other instead of bobbing in unison */
-  animation: showcase-float-laptop 7s ease-in-out -2s infinite;
+  animation: devices-float-laptop 7s ease-in-out -2s infinite;
+  transition: translate 0.5s ease;
 }
 
-.showcase__device--phone {
+.devices__device--phone {
   top: 39%;
   left: -13.5%;
   width: 47.5%;
   aspect-ratio: 500 / 572;
   filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.6));
-  animation: showcase-float 6s ease-in-out infinite;
+  animation: devices-float 6s ease-in-out infinite;
 }
 
-@keyframes showcase-float {
+a.devices:hover .devices__device--laptop {
+  translate: 0 -1.2%;
+}
+
+@keyframes devices-float {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-2.5%); }
 }
 
-@keyframes showcase-float-laptop {
+@keyframes devices-float-laptop {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-1.6%); }
 }
 
-.showcase__frame {
+.devices__frame {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.showcase__screens {
+.devices__screens {
   position: absolute;
 }
 
-.showcase__device--laptop .showcase__screens {
+.devices__device--laptop .devices__screens {
   left: 37.15%;
   top: 1.24%;
   width: 61.3%;
   height: 73.21%;
 }
 
-.showcase__device--phone .showcase__screens {
+.devices__device--phone .devices__screens {
   left: 33.2%;
   top: 10.14%;
   width: 32.2%;
   height: 78.85%;
 }
 
-.showcase__screen {
+/* A device can hold several screens; only .is-active shows (crossfade) */
+.devices__screen {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -107,23 +181,35 @@
   transition: opacity 0.8s ease;
 }
 
-.showcase__screen.is-active {
+.devices__screen.is-active {
   opacity: 1;
 }
 
 /* Phone follows the laptop by a beat */
-.showcase__device--phone .showcase__screen {
+.devices__device--phone .devices__screen {
   transition-delay: 0.12s;
 }
 
-/* Hovering the devices lifts the laptop a touch. Uses `translate`, not
-   `transform`, so it adds to the float animation instead of fighting it. */
-.showcase__device--laptop {
-  transition: translate 0.5s ease;
+@media (prefers-reduced-motion: reduce) {
+  .devices__device--laptop,
+  .devices__device--phone {
+    animation: none;
+  }
+
+  .devices__screen,
+  .devices__device--laptop {
+    transition: none;
+  }
 }
 
-.showcase__stage:hover .showcase__device--laptop {
-  translate: 0 -1.2%;
+
+/* ── Hero work showcase ──
+   The devices cycling through client sites (main.js), with the site's
+   name, View Site and the carousel controls underneath. */
+.showcase {
+  width: 100%;
+  max-width: 620px;
+  margin-inline: auto;
 }
 
 /* Name of the site showing + View Site */
@@ -220,11 +306,10 @@
   display: none;
 }
 
-.showcase__stage:not([href]) {
-  cursor: default;
-}
-
-.showcase__controls {
+/* ── Carousel controls (hero showcase + work slider) ──
+   Prev · dots · pause/play · next. The carousel root gets .is-paused
+   (main.js) to swap the pause icon for play. */
+.carousel-controls {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,7 +317,7 @@
   margin-top: 14px;
 }
 
-.showcase__arrow {
+.carousel-controls__arrow {
   display: inline-grid;
   place-items: center;
   width: 38px;
@@ -246,28 +331,28 @@
   transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.showcase__arrow:hover,
-.showcase__arrow:focus-visible {
+.carousel-controls__arrow:hover,
+.carousel-controls__arrow:focus-visible {
   border-color: var(--accent);
   background: rgba(24, 201, 255, 0.1);
   color: var(--accent);
 }
 
-.showcase__arrow svg {
+.carousel-controls__arrow svg {
   width: 16px;
   height: 16px;
 }
 
-.showcase__icon-play,
-.showcase.is-paused .showcase__icon-pause {
+.carousel-controls__icon-play,
+.is-paused .carousel-controls__icon-pause {
   display: none;
 }
 
-.showcase.is-paused .showcase__icon-play {
+.is-paused .carousel-controls__icon-play {
   display: block;
 }
 
-.showcase__dots {
+.carousel-controls__dots {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -275,7 +360,7 @@
 }
 
 /* 24px tap target around a small dot; the current one stretches into a pill */
-.showcase__dot {
+.carousel-controls__dot {
   position: relative;
   width: 14px;
   height: 24px;
@@ -286,7 +371,7 @@
   transition: width 0.4s ease;
 }
 
-.showcase__dot::before {
+.carousel-controls__dot::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -299,15 +384,15 @@
   transition: width 0.4s ease, background-color 0.3s ease;
 }
 
-.showcase__dot:hover::before {
+.carousel-controls__dot:hover::before {
   background: var(--text);
 }
 
-.showcase__dot.is-active {
+.carousel-controls__dot.is-active {
   width: 30px;
 }
 
-.showcase__dot.is-active::before {
+.carousel-controls__dot.is-active::before {
   width: 24px;
   background: var(--accent-gradient);
   box-shadow: 0 0 10px var(--accent-glow);
@@ -322,6 +407,27 @@
 }
 
 @media (max-width: 520px) {
+  .carousel-controls {
+    gap: 6px;
+  }
+
+  .carousel-controls__dots {
+    gap: 2px;
+    margin-inline: 2px;
+  }
+
+  .carousel-controls__dot {
+    width: 11px;
+  }
+
+  .carousel-controls__dot.is-active {
+    width: 24px;
+  }
+
+  .carousel-controls__dot.is-active::before {
+    width: 18px;
+  }
+
   .showcase__bar {
     padding: 12px 12px 12px 14px;
   }
@@ -332,15 +438,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .showcase__device--phone,
-  .showcase__device--laptop,
   .showcase__slide.is-active {
     animation: none;
-  }
-
-  .showcase__screen,
-  .showcase__device--laptop {
-    transition: none;
   }
 }
 
@@ -1003,14 +1102,72 @@
   line-height: 1.7;
 }
 
-.work__list { display: grid; gap: clamp(26px, 4vw, 48px); }
+/* Project slider: a viewport that clips a row of full-width slides; the
+   track slides sideways (main.js sets translateX). Each slide is the
+   device mockup beside the project copy, stacked on smaller screens. */
+.work__slider {
+  margin-top: clamp(28px, 4vw, 48px);
+}
 
-.work__item {
+.work__viewport {
+  overflow: hidden;
+}
+
+.work__track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+  touch-action: pan-y;
+}
+
+.work__slide {
+  flex: 0 0 100%;
+  min-width: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
-  padding: 2rem;
+  gap: 28px;
   align-items: center;
+  /* side padding leaves room for the phone hanging off the stage */
+  padding: 1.5rem 1.25rem 1.5rem 10%;
+}
+
+.work__media {
+  width: 100%;
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.work__content {
+  max-width: 520px;
+}
+
+.work__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+}
+
+.work__count {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+.work__tag {
+  padding: 4px 12px;
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.work__soon {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
 }
 
 .work__item-title {
@@ -1056,60 +1213,26 @@
   border: 1px solid var(--line-strong);
 }
 
-.work__media { width: 100%; }
-
-.work__frame {
-  position: relative;
-  border-radius: 26px;
-  background: rgba(0, 0, 0, 0.25);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
-  /* removed overflow: hidden from here */
+.work__slider .carousel-controls {
+  margin-top: 8px;
 }
-
-.work__frame::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 26px;
-  pointer-events: none;
-  border-left: 5px solid rgba(24, 201, 255, 0.75);
-  border-top: 5px solid rgba(24, 201, 255, 0.75);
-  box-shadow: 0 0 28px var(--accent-glow);
-  z-index: 2; /* add this */
-}
-
-.work__frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 26px;
-  pointer-events: none;
-  box-shadow: inset 0 0 0 1px var(--line-subtle);
-  z-index: 2; /* add this */
-}
-
-.work__frame picture {
-  display: block;
-  width: 100%;
-  border-radius: 26px;
-  overflow: hidden; /* moved here so it clips the image but not the pseudo-elements */
-}
-
-.work__frame img { width: 100%; height: auto; display: block; object-fit: cover; }
 
 @media (min-width: 980px) {
-  .work__item { grid-template-columns: 1fr 1.25fr; gap: clamp(26px, 4vw, 56px); }
-  .work__item--b { grid-template-columns: 1.25fr 1fr; }
-  .work__item--b .work__media   { order: 1; }
-  .work__item--b .work__content { order: 2; }
-  .work__item--a .work__content { padding-right: 12px; }
-  .work__item--b .work__content { padding-left: 12px; justify-self: end; }
+  .work__slide {
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    padding: 2rem 2rem 2rem 8%;
+  }
 }
 
 @media (max-width: 600px) {
   .work__content { max-width: 100%; }
   .work__item-title { text-align: left; }
-  .work__frame::before { border-left-width: 3px; border-top-width: 3px; }
+  .work__slide { padding-right: 0.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work__track { transition: none; }
 }
 
 

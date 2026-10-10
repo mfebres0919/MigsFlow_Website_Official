@@ -464,6 +464,16 @@ a.devices:hover .devices__device--laptop {
 
 .hero__content { max-width: 1220px; }
 
+/* Side by side: start the text near the top of the laptop rather than
+   centring it against the whole (taller) showcase column, which pushed
+   the headline far below the nav */
+@media (min-width: 981px) {
+  .hero__content {
+    align-self: start;
+    padding-top: clamp(16px, 3vw, 48px);
+  }
+}
+
 .hero__title {
   margin: 0 0 18px;
   line-height: 0.98;

@@ -116,7 +116,17 @@ function html({ firstName, business }) {
           <tr>
             <td style="padding:0 32px 32px;font-family:Arial,Helvetica,sans-serif;color:#c9cfdc;font-size:16px;line-height:1.65;">
               <p style="margin:0 0 24px;">If anything comes to mind before then, just reply to this email.</p>
-              <p style="margin:0;">Talk soon,<br><strong style="color:#ffffff;">Miguelle</strong><br><span style="color:#8a93a8;font-size:14px;">MigsFlow Web Design</span></p>
+              <!-- Sign-off with headshot (images/email/miguelle.png, transparent PNG) -->
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+                <tr>
+                  <td style="padding-right:16px;vertical-align:middle;">
+                    <img src="${SITE_URL}/images/email/miguelle.png" width="64" height="64" alt="Miguelle" style="display:block;width:64px;height:64px;border:0;border-radius:50%;">
+                  </td>
+                  <td style="vertical-align:middle;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#c9cfdc;">
+                    Talk soon,<br><strong style="color:#ffffff;">Miguelle</strong><br><span style="color:#8a93a8;font-size:14px;">MigsFlow Web Design</span>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
           <tr>

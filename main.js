@@ -387,3 +387,147 @@ document.addEventListener("DOMContentLoaded", () => {
       animation.oncancel = () => isClosing = false;
     }
   });
+
+/* ===== HERO WORK SHOWCASE =====
+   Cycles the MacBook + iPhone screens through the client sites every
+   5 seconds: both screens crossfade, the caption and dots follow, and the
+   device link plus "View Site" point at the site showing. Pauses on
+   hover, keyboard focus, while off screen or the tab is hidden, and for
+   good once the visitor presses pause. Swipe on touch screens. Reduced
+   motion: no auto-advance (arrows, dots and swipe still work).
+   The other sites' screens load only after the page has finished.
+================================================================ */
+(() => {
+  const showcase = document.querySelector("[data-showcase]");
+  if (!showcase) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const INTERVAL = 5000;
+
+  const laptopScreens = showcase.querySelectorAll(".showcase__device--laptop .showcase__screen");
+  const phoneScreens = showcase.querySelectorAll(".showcase__device--phone .showcase__screen");
+  const slides = showcase.querySelectorAll(".showcase__slide");
+  const dots = showcase.querySelectorAll("[data-showcase-dot]");
+  const stage = showcase.querySelector("[data-showcase-link]");
+  const visit = showcase.querySelector("[data-showcase-visit]");
+  const toggle = showcase.querySelector("[data-showcase-toggle]");
+  const total = slides.length;
+
+  let current = 0;
+  let timer = null;
+  let pausedByVisitor = reduceMotion;
+  let hovering = false;
+  let focused = false;
+  let onScreen = true;
+
+  // Swap in the real image paths once everything else has loaded
+  const loadAll = () => {
+    showcase.querySelectorAll(".showcase__screen[data-src]").forEach((img) => {
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+    });
+  };
+  if (document.readyState === "complete") loadAll();
+  else window.addEventListener("load", loadAll, { once: true });
+
+  function show(index) {
+    current = (index + total) % total;
+    // A visitor can click ahead before the rest have loaded
+    if (laptopScreens[current].dataset.src) loadAll();
+
+    [laptopScreens, phoneScreens].forEach((set) =>
+      set.forEach((img, i) => img.classList.toggle("is-active", i === current)));
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("is-active", i === current);
+      slide.hidden = i !== current;
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === current);
+      if (i === current) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+
+    const slide = slides[current];
+    const url = slide.dataset.url;
+    const name = slide.querySelector(".showcase__name").textContent;
+    if (url) {
+      stage.href = url;
+      visit.href = url;
+      stage.setAttribute("aria-label", `View the ${name} website (opens in a new tab)`);
+      visit.hidden = false;
+    } else {
+      // No live link yet: devices aren't a link, no View Site button
+      stage.removeAttribute("href");
+      stage.setAttribute("aria-label", `${name} website preview`);
+      visit.hidden = true;
+    }
+  }
+
+  function schedule() {
+    clearInterval(timer);
+    timer = null;
+    if (pausedByVisitor || hovering || focused || !onScreen || document.hidden) return;
+    timer = setInterval(() => show(current + 1), INTERVAL);
+  }
+
+  function step(delta) {
+    show(current + delta);
+    schedule(); // restart the clock so the new site gets its full time
+  }
+
+  showcase.querySelector("[data-showcase-prev]").addEventListener("click", () => step(-1));
+  showcase.querySelector("[data-showcase-next]").addEventListener("click", () => step(1));
+  dots.forEach((dot) => dot.addEventListener("click", () => {
+    show(Number(dot.dataset.showcaseDot));
+    schedule();
+  }));
+
+  function syncToggle() {
+    showcase.classList.toggle("is-paused", pausedByVisitor);
+    toggle.setAttribute("aria-label", pausedByVisitor ? "Play the showcase" : "Pause the showcase");
+  }
+  toggle.addEventListener("click", () => {
+    pausedByVisitor = !pausedByVisitor;
+    syncToggle();
+    schedule();
+  });
+  syncToggle();
+
+  stage.addEventListener("mouseenter", () => { hovering = true; schedule(); });
+  stage.addEventListener("mouseleave", () => { hovering = false; schedule(); });
+  showcase.addEventListener("focusin", () => { focused = true; schedule(); });
+  showcase.addEventListener("focusout", (event) => {
+    if (!showcase.contains(event.relatedTarget)) { focused = false; schedule(); }
+  });
+  document.addEventListener("visibilitychange", schedule);
+  new IntersectionObserver(([entry]) => {
+    onScreen = entry.isIntersecting;
+    schedule();
+  }).observe(showcase);
+
+  // Swipe left/right over the devices; a swipe isn't a click on the link
+  let startX = null;
+  let swiped = false;
+  stage.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "mouse") return;
+    startX = event.clientX;
+    swiped = false;
+  });
+  stage.addEventListener("pointerup", (event) => {
+    if (startX === null) return;
+    const dx = event.clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 40) {
+      swiped = true;
+      step(dx < 0 ? 1 : -1);
+    }
+  });
+  stage.addEventListener("pointercancel", () => { startX = null; });
+  stage.addEventListener("click", (event) => {
+    if (swiped) { event.preventDefault(); swiped = false; }
+  });
+
+  schedule();
+})();

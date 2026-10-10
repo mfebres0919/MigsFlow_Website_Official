@@ -12,22 +12,335 @@
   margin-top: 5.5rem;
 }
 
-.hero__portrait picture {
-  display: block;
+/* ── Hero work showcase ──
+   A stage sized in the MacBook's own proportions (frame image 1093×1049)
+   with the iPhone overlapping its front-left corner. Every position is a
+   percentage of the stage or of a device's frame image, so the screens
+   stay locked to the glass at any size. Screen boxes come from the warp
+   script: laptop glass 406,13 → 1076,781; phone glass 166,58 → 327,509. */
+.showcase {
   width: 100%;
+  max-width: 620px;
+  margin-inline: auto;
 }
 
-.hero__portrait img {
+.showcase__stage {
+  position: relative;
+  display: block;
+  aspect-ratio: 1210 / 1060;
+  /* soft blue glow behind the devices */
+  background: radial-gradient(closest-side at 58% 42%, rgba(24, 201, 255, 0.16), rgba(11, 60, 255, 0.06) 60%, transparent);
+  border-radius: 50%;
+  touch-action: pan-y; /* horizontal swipes change the site (main.js) */
+}
+
+.showcase__stage:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+  border-radius: var(--radius-card);
+}
+
+.showcase__device {
+  position: absolute;
+}
+
+.showcase__device--laptop {
+  top: 0.5%;
+  left: 9.7%;
+  width: 90.3%;
+  aspect-ratio: 1093 / 1049;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55));
+  /* Floats with the phone, but slower and out of step with it, so the
+     two drift past each other instead of bobbing in unison */
+  animation: showcase-float-laptop 7s ease-in-out -2s infinite;
+}
+
+.showcase__device--phone {
+  top: 39%;
+  left: -13.5%;
+  width: 47.5%;
+  aspect-ratio: 500 / 572;
+  filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.6));
+  animation: showcase-float 6s ease-in-out infinite;
+}
+
+@keyframes showcase-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2.5%); }
+}
+
+@keyframes showcase-float-laptop {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-1.6%); }
+}
+
+.showcase__frame {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
-  filter: contrast(1.05) saturate(1.05);
 }
 
-@media (max-width: 600px) {
-  .hero__portrait {
-    width: 90%;
-    margin: 0 auto;
+.showcase__screens {
+  position: absolute;
+}
+
+.showcase__device--laptop .showcase__screens {
+  left: 37.15%;
+  top: 1.24%;
+  width: 61.3%;
+  height: 73.21%;
+}
+
+.showcase__device--phone .showcase__screens {
+  left: 33.2%;
+  top: 10.14%;
+  width: 32.2%;
+  height: 78.85%;
+}
+
+.showcase__screen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.showcase__screen.is-active {
+  opacity: 1;
+}
+
+/* Phone follows the laptop by a beat */
+.showcase__device--phone .showcase__screen {
+  transition-delay: 0.12s;
+}
+
+/* Hovering the devices lifts the laptop a touch. Uses `translate`, not
+   `transform`, so it adds to the float animation instead of fighting it. */
+.showcase__device--laptop {
+  transition: translate 0.5s ease;
+}
+
+.showcase__stage:hover .showcase__device--laptop {
+  translate: 0 -1.2%;
+}
+
+/* Name of the site showing + View Site */
+.showcase__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 14px 16px 14px 20px;
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--surface-glass);
+}
+
+.showcase__slides {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-width: 0;
+}
+
+.showcase__slide {
+  display: grid;
+  gap: 2px;
+}
+
+.showcase__slide[hidden] {
+  display: none;
+}
+
+.showcase__slide.is-active {
+  animation: showcase-caption 0.5s ease;
+}
+
+@keyframes showcase-caption {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.showcase__count {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+}
+
+.showcase__name {
+  font-family: var(--font-heading);
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.showcase__kind {
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+}
+
+.showcase__visit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-gradient);
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  box-shadow: 0 0 18px var(--accent-glow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.showcase__visit svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.showcase__visit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(24, 201, 255, 0.35);
+}
+
+.showcase__visit:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* A site with no live link yet: no button, devices not clickable */
+.showcase__visit[hidden] {
+  display: none;
+}
+
+.showcase__stage:not([href]) {
+  cursor: default;
+}
+
+.showcase__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.showcase__arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.showcase__arrow:hover,
+.showcase__arrow:focus-visible {
+  border-color: var(--accent);
+  background: rgba(24, 201, 255, 0.1);
+  color: var(--accent);
+}
+
+.showcase__arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.showcase__icon-play,
+.showcase.is-paused .showcase__icon-pause {
+  display: none;
+}
+
+.showcase.is-paused .showcase__icon-play {
+  display: block;
+}
+
+.showcase__dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-inline: 6px;
+}
+
+/* 24px tap target around a small dot; the current one stretches into a pill */
+.showcase__dot {
+  position: relative;
+  width: 14px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: width 0.4s ease;
+}
+
+.showcase__dot::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--text-subtle);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, background-color 0.3s ease;
+}
+
+.showcase__dot:hover::before {
+  background: var(--text);
+}
+
+.showcase__dot.is-active {
+  width: 30px;
+}
+
+.showcase__dot.is-active::before {
+  width: 24px;
+  background: var(--accent-gradient);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+@media (max-width: 980px) {
+  .showcase {
+    max-width: 560px;
+    /* room for the phone hanging off the stage's left edge */
+    padding-left: 8%;
+  }
+}
+
+@media (max-width: 520px) {
+  .showcase__bar {
+    padding: 12px 12px 12px 14px;
+  }
+
+  .showcase__visit {
+    padding: 9px 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase__device--phone,
+  .showcase__device--laptop,
+  .showcase__slide.is-active {
+    animation: none;
+  }
+
+  .showcase__screen,
+  .showcase__device--laptop {
+    transition: none;
   }
 }
 
@@ -43,7 +356,7 @@
   width: min(1200px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.35fr 0.95fr;
+  grid-template-columns: 1.2fr 1fr;
   gap: clamp(22px, 4vw, 56px);
   align-items: center;
 }

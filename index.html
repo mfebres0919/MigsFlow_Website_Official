@@ -121,16 +121,116 @@
       </div>
     </div>
 
-    <!-- RIGHT: IMAGE -->
+    <!-- RIGHT: WORK SHOWCASE
+         A MacBook and an iPhone angled toward each other, cycling through
+         recent client sites every few seconds (main.js). Each screen is a
+         real screenshot pre-warped to the device's angle (images/showcase,
+         made from images/macbook-mockup.png and iphone-mockup.png), so the
+         frames stay put and only the screens crossfade. The devices are one
+         link to whichever site is showing. Only the first site's screens
+         load with the page; the rest load once it has finished. -->
     <div class="hero__media fade-on-load">
-      <div class="hero__portrait work__frame fade-on-load">
-        <picture>
-          <source media="(max-width: 600px)" srcset="images/project-2-d.png" type="image/png">
-          <source media="(max-width: 600px)" srcset="images/project-2-d.png">
-          <source srcset="images/project-2-d.png" type="image/png">
-          <source srcset="images/project-2-d.png">
-          <img class="fade-on-load" src="images/project-2-d.png" alt="Pool builder website preview" width="1056" height="1046" decoding="async" />
-        </picture>
+      <div class="showcase" data-showcase>
+        <a class="showcase__stage" href="https://mfebres0919.github.io/Ridgeline-Pools/" target="_blank" rel="noopener" data-showcase-link aria-label="View the Ridgeline Pools website (opens in a new tab)">
+          <div class="showcase__device showcase__device--laptop">
+            <img class="showcase__frame" src="images/showcase/macbook-frame.webp" alt="" width="1093" height="1049" decoding="async" fetchpriority="high">
+            <div class="showcase__screens">
+              <img class="showcase__screen is-active" src="images/showcase/ridgeline-laptop.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/bayou-laptop.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/lapope-exp-laptop.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/wwhd-laptop.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/brighthaven-laptop.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/crestline-laptop.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/warner-laptop.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/lapope-vo-laptop.webp" alt="" decoding="async">
+            </div>
+          </div>
+          <div class="showcase__device showcase__device--phone">
+            <img class="showcase__frame" src="images/showcase/iphone-frame.webp" alt="" width="500" height="572" decoding="async">
+            <div class="showcase__screens">
+              <img class="showcase__screen is-active" src="images/showcase/ridgeline-phone.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/bayou-phone.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/lapope-exp-phone.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/wwhd-phone.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/brighthaven-phone.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/crestline-phone.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/warner-phone.webp" alt="" decoding="async">
+              <img class="showcase__screen" data-src="images/showcase/lapope-vo-phone.webp" alt="" decoding="async">
+            </div>
+          </div>
+        </a>
+
+        <div class="showcase__bar">
+          <ul class="showcase__slides" aria-live="polite">
+            <li class="showcase__slide is-active" data-url="https://mfebres0919.github.io/Ridgeline-Pools/">
+              <span class="showcase__count">01 / 08</span>
+              <span class="showcase__name">Ridgeline Pools</span>
+              <span class="showcase__kind">Pool Builder · Austin, TX</span>
+            </li>
+            <li class="showcase__slide" data-url="https://mfebres0919.github.io/Moving_Company/" hidden>
+              <span class="showcase__count">02 / 08</span>
+              <span class="showcase__name">Bayou City Movers</span>
+              <span class="showcase__kind">Moving Company · Houston, TX</span>
+            </li>
+            <li class="showcase__slide" data-url="https://lapope.llc/" hidden>
+              <span class="showcase__count">03 / 08</span>
+              <span class="showcase__name">lapope // experiential</span>
+              <span class="showcase__kind">Event Marketing Agency</span>
+            </li>
+            <li class="showcase__slide" data-url="https://wwhdllc.com/" hidden>
+              <span class="showcase__count">04 / 08</span>
+              <span class="showcase__name">WW Housing Development</span>
+              <span class="showcase__kind">Affordable Housing · Houston, TX</span>
+            </li>
+            <li class="showcase__slide" data-url="https://mfebres0919.github.io/Cleaning_Company/" hidden>
+              <span class="showcase__count">05 / 08</span>
+              <span class="showcase__name">Bright Haven Cleaning</span>
+              <span class="showcase__kind">Cleaning Services</span>
+            </li>
+            <li class="showcase__slide" data-url="" hidden>
+              <span class="showcase__count">06 / 08</span>
+              <span class="showcase__name">Crestline Roofing</span>
+              <span class="showcase__kind">Roofing Contractor</span>
+            </li>
+            <li class="showcase__slide" data-url="https://warnerandassociates.com/" hidden>
+              <span class="showcase__count">07 / 08</span>
+              <span class="showcase__name">Warner &amp; Associates</span>
+              <span class="showcase__kind">Law Firm · Texas</span>
+            </li>
+            <li class="showcase__slide" data-url="https://voiceoversbylapope.com/" hidden>
+              <span class="showcase__count">08 / 08</span>
+              <span class="showcase__name">Voiceovers by L.A. Pope</span>
+              <span class="showcase__kind">Voiceover Artist</span>
+            </li>
+          </ul>
+          <a class="showcase__visit" href="https://mfebres0919.github.io/Ridgeline-Pools/" target="_blank" rel="noopener" data-showcase-visit>
+            View Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+          </a>
+        </div>
+
+        <div class="showcase__controls">
+          <button class="showcase__arrow" type="button" data-showcase-prev aria-label="Previous site">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+          </button>
+          <div class="showcase__dots">
+            <button class="showcase__dot is-active" type="button" data-showcase-dot="0" aria-label="Show Ridgeline Pools" aria-current="true"></button>
+            <button class="showcase__dot" type="button" data-showcase-dot="1" aria-label="Show Bayou City Movers"></button>
+            <button class="showcase__dot" type="button" data-showcase-dot="2" aria-label="Show lapope // experiential"></button>
+            <button class="showcase__dot" type="button" data-showcase-dot="3" aria-label="Show WW Housing Development"></button>
+            <button class="showcase__dot" type="button" data-showcase-dot="4" aria-label="Show Bright Haven Cleaning"></button>
+            <button class="showcase__dot" type="button" data-showcase-dot="5" aria-label="Show Crestline Roofing"></button>
+            <button class="showcase__dot" type="button" data-showcase-dot="6" aria-label="Show Warner &amp; Associates"></button>
+            <button class="showcase__dot" type="button" data-showcase-dot="7" aria-label="Show Voiceovers by L.A. Pope"></button>
+          </div>
+          <button class="showcase__arrow" type="button" data-showcase-toggle aria-label="Pause the showcase">
+            <svg class="showcase__icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg>
+            <svg class="showcase__icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" /></svg>
+          </button>
+          <button class="showcase__arrow" type="button" data-showcase-next aria-label="Next site">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>

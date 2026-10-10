@@ -338,7 +338,7 @@
              Formspree silently drops any submission where it has a value. -->
         <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
           <label for="quizGotcha">Leave this field empty</label>
-          <input id="quizGotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          <input id="quizGotcha" type="text" name="bot-field" tabindex="-1" autocomplete="off">
         </div>
 
         <p class="quiz__required-hint" id="hint-7">Please enter your name and a valid email address.</p>
@@ -347,6 +347,24 @@
           <button class="quiz__btn-submit" type="button" id="submitBtn">Submit →</button>
         </div>
       </div>
+
+      <!-- Netlify Forms reads this hidden copy at deploy time to learn the
+           "quote" form and its fields. The quiz above is sent by the script
+           below with the same names. Every verified submission also runs
+           netlify/functions/submission-created.mjs, which emails the
+           visitor the welcome package through Brevo. -->
+      <form name="quote" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="text" name="businessName">
+        <input type="url" name="websiteUrl">
+        <input type="text" name="purpose">
+        <input type="text" name="budget">
+        <input type="text" name="pageCount">
+        <input type="text" name="timeline">
+        <textarea name="projectDetails"></textarea>
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <input type="text" name="bot-field">
+      </form>
 
       <!-- Success -->
       <div class="quiz__success" id="quizSuccess" aria-live="polite">
@@ -360,6 +378,11 @@
           Every submission is reviewed personally.<br>
           If we look like a good fit, I'll reach out within 24–48 hours about next steps.
         </p>
+        <!-- Same welcome package that's emailed to them (netlify/functions/submission-created.mjs) -->
+        <p class="quiz__success-text">A copy of my welcome package is on its way to your inbox. Want it now?</p>
+        <a class="quiz__btn-submit quiz__success-download" href="../downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">
+          Download the Welcome Package ↓
+        </a>
       </div>
 
     </div>
@@ -409,6 +432,7 @@
             <a class="footer__link fade-on-load" href="../index.html#work">Work</a>
             <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
             <a class="footer__link fade-on-load active" href="#quote">Get Quote</a>
+            <a class="footer__link fade-on-load" href="../downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">Welcome Package</a>
           </div>
           <div class="footer__col fade-on-load">
             <h3 class="footer__heading fade-on-load">Contact</h3>
@@ -448,7 +472,8 @@
   <script>
   (function () {
     const TOTAL_STEPS   = 7;
-    const FORMSPREE_URL = 'https://formspree.io/f/mnjbaazy';
+    // Netlify Forms: posted to the site root as a normal form submission
+    const FORM_NAME = 'quote';
     let currentStep     = 1;
 
     const progressFill  = document.getElementById('progressFill');
@@ -511,7 +536,7 @@
       var businessName = document.getElementById('businessName').value.trim();
 
       return {
-        _subject:       'New quote request from ' + (businessName || clientName),
+        'form-name':    FORM_NAME,
         name:           clientName,
         email:          clientEmail,
         businessName:   businessName,
@@ -522,20 +547,20 @@
         timeline:       timelineEl ? timelineEl.value : '',
         projectDetails: document.getElementById('projectDetails').value.trim(),
         // Honeypot: always empty for real visitors
-        _gotcha:        document.getElementById('quizGotcha').value
+        'bot-field':    document.getElementById('quizGotcha').value
       };
     }
 
-    async function submitToFormspree(data) {
+    async function submitForm(data) {
       try {
-        var res = await fetch(FORMSPREE_URL, {
+        var res = await fetch('/', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(data)
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString()
         });
         return res;
       } catch (err) {
-        console.error('[MigsFlow Quiz] Formspree error:', err);
+        console.error('[MigsFlow Quiz] Form submission error:', err);
         return { ok: false };
       }
     }
@@ -567,7 +592,7 @@
         hideHint(7);
         btn.textContent = 'Sending...';
         btn.disabled    = true;
-        var result = await submitToFormspree(collectAnswers());
+        var result = await submitForm(collectAnswers());
         if (result.ok) {
           showSuccess();
         } else {

@@ -5,3 +5,7 @@
 [build.processing.js]
   bundle = true
   minify = true
+# Serverless functions. submission-created.mjs runs on every verified form
+# submission and emails quote requesters the welcome package via Brevo.
+[functions]
+  directory = "netlify/functions"

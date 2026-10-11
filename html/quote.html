@@ -104,27 +104,8 @@
         </div>
       </div>
 
-      <!-- STEP 1: Project -->
+      <!-- STEP 1: Purpose -->
       <div class="quiz__step is-active" id="step-1" data-step="1">
-        <h3 class="quiz__step-title">Your Business</h3>
-        <p class="quiz__step-desc">Tell us about your business so we can tailor your quote.</p>
-
-        <label class="quiz__question-label" for="businessName">Company Name *</label>
-        <input class="quiz__input" id="businessName" name="businessName" type="text" placeholder="Your Business Name" autocomplete="organization" required>
-
-        <label class="quiz__question-label" for="websiteUrl">Current Website URL</label>
-        <span class="quiz__question-sub">Optional — leave blank if you don't have one yet.</span>
-        <input class="quiz__input" id="websiteUrl" name="websiteUrl" type="url" placeholder="https://yoursite.com" autocomplete="url">
-
-        <p class="quiz__required-hint" id="hint-1">Please enter your company name to continue.</p>
-        <div class="quiz__nav">
-          <span class="quiz__nav-hint">Step 1 of 7</span>
-          <button class="quiz__btn-next" type="button" data-next="2">Next →</button>
-        </div>
-      </div>
-
-      <!-- STEP 2: Purpose -->
-      <div class="quiz__step" id="step-2" data-step="2">
         <h3 class="quiz__step-title">Website Goals</h3>
         <p class="quiz__step-desc">Select everything that applies. This helps us understand what your site needs to accomplish for your business.</p>
 
@@ -184,15 +165,15 @@
           </label>
         </div>
 
-        <p class="quiz__required-hint" id="hint-2">Please select at least one option.</p>
+        <p class="quiz__required-hint" id="hint-1">Please select at least one option.</p>
         <div class="quiz__nav">
-          <button class="quiz__btn-back" type="button" data-prev="1">← Back</button>
-          <button class="quiz__btn-next" type="button" data-next="3">Next →</button>
+          <span class="quiz__nav-hint">Step 1 of 7</span>
+          <button class="quiz__btn-next" type="button" data-next="2">Next →</button>
         </div>
       </div>
 
-      <!-- STEP 3: Budget -->
-      <div class="quiz__step" id="step-3" data-step="3">
+      <!-- STEP 2: Budget -->
+      <div class="quiz__step" id="step-2" data-step="2">
         <h3 class="quiz__step-title">Budget</h3>
         <p class="quiz__step-desc">This helps us provide a quote that fits your project. All builds start with custom design and hand-coded development.</p>
 
@@ -217,15 +198,15 @@
           </label>
         </div>
 
-        <p class="quiz__required-hint" id="hint-3">Please select a budget range.</p>
+        <p class="quiz__required-hint" id="hint-2">Please select a budget range.</p>
         <div class="quiz__nav">
-          <button class="quiz__btn-back" type="button" data-prev="2">← Back</button>
-          <button class="quiz__btn-next" type="button" data-next="4">Next →</button>
+          <button class="quiz__btn-back" type="button" data-prev="1">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="3">Next →</button>
         </div>
       </div>
 
-      <!-- STEP 4: Website Size -->
-      <div class="quiz__step" id="step-4" data-step="4">
+      <!-- STEP 3: Website Size -->
+      <div class="quiz__step" id="step-3" data-step="3">
         <h3 class="quiz__step-title">Website Size</h3>
         <p class="quiz__step-desc">Helps us estimate scope and complexity right away.</p>
 
@@ -254,15 +235,15 @@
           </label>
         </div>
 
-        <p class="quiz__required-hint" id="hint-4">Please select a page count.</p>
+        <p class="quiz__required-hint" id="hint-3">Please select a page count.</p>
         <div class="quiz__nav">
-          <button class="quiz__btn-back" type="button" data-prev="3">← Back</button>
-          <button class="quiz__btn-next" type="button" data-next="5">Next →</button>
+          <button class="quiz__btn-back" type="button" data-prev="2">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="4">Next →</button>
         </div>
       </div>
 
-      <!-- STEP 5: Timeline -->
-      <div class="quiz__step" id="step-5" data-step="5">
+      <!-- STEP 4: Timeline -->
+      <div class="quiz__step" id="step-4" data-step="4">
         <h3 class="quiz__step-title">Timeline</h3>
         <p class="quiz__step-desc">
           Knowing when you'd like to get started helps us plan your project and give you an accurate schedule.
@@ -293,6 +274,40 @@
           </label>
         </div>
 
+        <p class="quiz__required-hint" id="hint-4">Please select an option.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="3">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="5">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: Content -->
+      <div class="quiz__step" id="step-5" data-step="5">
+        <h3 class="quiz__step-title">Your Content</h3>
+        <p class="quiz__step-desc">Websites come together faster when the content is ready, but don't worry if it isn't. I can help with that too.</p>
+
+        <label class="quiz__question-label">Do you have content ready for your website? *</label>
+        <span class="quiz__question-sub">Things like your logo, photos of your work or team, text about your services, customer reviews, and brand colors.</span>
+
+        <div class="quiz__options">
+          <label class="quiz__option">
+            <input type="radio" name="content" value="Yes, I have everything ready">
+            <span class="quiz__option-text">Yes, I have everything ready</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="content" value="I have some of it">
+            <span class="quiz__option-text">I have some of it</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="content" value="Not yet, I'm starting from scratch">
+            <span class="quiz__option-text">Not yet, I'm starting from scratch</span>
+          </label>
+          <label class="quiz__option">
+            <input type="radio" name="content" value="I'll need help getting photos">
+            <span class="quiz__option-text">I'll need help getting photos</span>
+          </label>
+        </div>
+
         <p class="quiz__required-hint" id="hint-5">Please select an option.</p>
         <div class="quiz__nav">
           <button class="quiz__btn-back" type="button" data-prev="4">← Back</button>
@@ -318,15 +333,22 @@
         </div>
       </div>
 
-      <!-- STEP 7: Delivery -->
+      <!-- STEP 7: Business and contact details -->
       <div class="quiz__step" id="step-7" data-step="7">
-        <h3 class="quiz__step-title">Where should we send your quote?</h3>
+        <h3 class="quiz__step-title">Last step: where should we send your quote?</h3>
         <p class="quiz__step-desc">Every submission gets a personal review. If we're aligned on goals and budget, I'll be in touch within 24–48 hours about next steps.</p>
 
         <p class="quiz__delivery-note">
           Your privacy is protected and we never send spam.
           You are NOT signing up for a newsletter — you will only be contacted regarding this submission.
         </p>
+
+        <label class="quiz__question-label" for="businessName">Company Name *</label>
+        <input class="quiz__input" id="businessName" name="businessName" type="text" placeholder="Your Business Name" autocomplete="organization" required>
+
+        <label class="quiz__question-label" for="websiteUrl">Current Website URL</label>
+        <span class="quiz__question-sub">Optional — leave blank if you don't have one yet.</span>
+        <input class="quiz__input" id="websiteUrl" name="websiteUrl" type="url" placeholder="https://yoursite.com" autocomplete="url">
 
         <label class="quiz__question-label" for="clientName">Your name *</label>
         <input class="quiz__input" id="clientName" name="clientName" type="text" placeholder="Jane Doe" autocomplete="name" required>
@@ -335,13 +357,13 @@
         <input class="quiz__input" id="clientEmail" name="clientEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
 
         <!-- Honeypot: hidden from people (and screen readers), filled in by bots.
-             Formspree silently drops any submission where it has a value. -->
+             Netlify silently drops any submission where it has a value. -->
         <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
           <label for="quizGotcha">Leave this field empty</label>
           <input id="quizGotcha" type="text" name="bot-field" tabindex="-1" autocomplete="off">
         </div>
 
-        <p class="quiz__required-hint" id="hint-7">Please enter your name and a valid email address.</p>
+        <p class="quiz__required-hint" id="hint-7">Please enter your company name, your name, and a valid email address.</p>
         <div class="quiz__nav">
           <button class="quiz__btn-back" type="button" data-prev="6">← Back</button>
           <button class="quiz__btn-submit" type="button" id="submitBtn">Submit →</button>
@@ -360,6 +382,7 @@
         <input type="text" name="budget">
         <input type="text" name="pageCount">
         <input type="text" name="timeline">
+        <input type="text" name="content">
         <textarea name="projectDetails"></textarea>
         <input type="text" name="name">
         <input type="email" name="email">
@@ -510,16 +533,17 @@
 
     function validateStep(n) {
       switch (n) {
-        case 1: return document.getElementById('businessName').value.trim().length > 0;
-        case 2: return document.querySelectorAll('input[name="purpose"]:checked').length > 0;
-        case 3: return !!document.querySelector('input[name="budget"]:checked');
-        case 4: return !!document.querySelector('input[name="pageCount"]:checked');
-        case 5: return !!document.querySelector('input[name="timeline"]:checked');
+        case 1: return document.querySelectorAll('input[name="purpose"]:checked').length > 0;
+        case 2: return !!document.querySelector('input[name="budget"]:checked');
+        case 3: return !!document.querySelector('input[name="pageCount"]:checked');
+        case 4: return !!document.querySelector('input[name="timeline"]:checked');
+        case 5: return !!document.querySelector('input[name="content"]:checked');
         case 6: return document.getElementById('projectDetails').value.trim().length > 0;
         case 7: {
-          var name  = document.getElementById('clientName').value.trim();
-          var email = document.getElementById('clientEmail').value.trim();
-          return name.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          var business = document.getElementById('businessName').value.trim();
+          var name     = document.getElementById('clientName').value.trim();
+          var email    = document.getElementById('clientEmail').value.trim();
+          return business.length > 0 && name.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
         default: return true;
       }
@@ -531,6 +555,7 @@
       var budgetEl     = document.querySelector('input[name="budget"]:checked');
       var pageEl       = document.querySelector('input[name="pageCount"]:checked');
       var timelineEl   = document.querySelector('input[name="timeline"]:checked');
+      var contentEl    = document.querySelector('input[name="content"]:checked');
       var clientName   = document.getElementById('clientName').value.trim();
       var clientEmail  = document.getElementById('clientEmail').value.trim();
       var businessName = document.getElementById('businessName').value.trim();
@@ -541,10 +566,12 @@
         email:          clientEmail,
         businessName:   businessName,
         websiteUrl:     document.getElementById('websiteUrl').value.trim(),
-        purpose:        purposeVals.join(', '),
+        // Semicolons, since some options contain commas (split into bullets in the notification email)
+        purpose:        purposeVals.join('; '),
         budget:         budgetEl ? budgetEl.value : '',
         pageCount:      pageEl   ? pageEl.value   : '',
         timeline:       timelineEl ? timelineEl.value : '',
+        content:        contentEl  ? contentEl.value  : '',
         projectDetails: document.getElementById('projectDetails').value.trim(),
         // Honeypot: always empty for real visitors
         'bot-field':    document.getElementById('quizGotcha').value
@@ -605,7 +632,7 @@
       }
     });
 
-    // Enter key advances to next step (except textarea on step 6)
+    // Enter key advances to next step (except in the textarea on step 6)
     document.addEventListener('keydown', async function (e) {
       if (e.key !== 'Enter') return;
 

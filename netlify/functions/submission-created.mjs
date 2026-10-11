@@ -53,18 +53,21 @@ const EMAILS = {
 };
 
 /* My notification for each form: its title, then [field, question] in the
-   order the questions are asked on the page. */
+   order the questions are asked on the page. LIST marks a choose-several
+   question: the page joins those answers with "; " and they show as bullets. */
+const LIST = true;
 const NOTIFY = {
   quote: {
     title: 'New Quote Request',
     fields: [
-      ['businessName', 'Company name'],
-      ['websiteUrl', 'Current website URL'],
-      ['purpose', 'What do you need your website to do?'],
+      ['purpose', 'What do you need your website to do?', LIST],
       ['budget', 'What budget range are you considering?'],
       ['pageCount', 'Roughly how many pages will you need?'],
       ['timeline', 'What is your timeline?'],
+      ['content', 'Do you have content ready for your website?'],
       ['projectDetails', 'Briefly describe your website'],
+      ['businessName', 'Company name'],
+      ['websiteUrl', 'Current website URL'],
       ['name', 'Name'],
       ['email', 'Email'],
     ],
@@ -73,9 +76,9 @@ const NOTIFY = {
     title: 'New Redesign Application',
     fields: [
       ['businessType', 'What type of business do you run?'],
-      ['currentIssues', "What's not working about your current site?"],
-      ['vibe', 'Styles that fit you best'],
-      ['features', 'Features'],
+      ['currentIssues', "What's not working about your current site?", LIST],
+      ['vibe', 'Styles that fit you best', LIST],
+      ['features', 'Features', LIST],
       ['enterprise', 'Needs Enterprise features?'],
       ['contentReady', 'Do you have a logo, photos, and reviews ready?'],
       ['nextStep', 'If you love your new homepage, what would you most likely do next?'],
@@ -276,24 +279,35 @@ function html(config, { firstName, business }) {
 
 const answer = (data, field) => String(data[field] ?? '').trim();
 
+const items = (value) => value.split(';').map((item) => item.trim()).filter(Boolean);
+
 function notificationText(notify, data) {
-  return notify.fields.map(([field, question]) => `${question}\n${answer(data, field) || '—'}`).join('\n\n');
+  return notify.fields.map(([field, question, list]) => {
+    const value = answer(data, field);
+    const shown = !value ? '—' : list ? items(value).map((item) => `• ${item}`).join('\n') : value;
+    return `${question}\n${shown}`;
+  }).join('\n\n');
 }
 
 /* Plain and light so it's quick to scan: each question in bold, the answer
-   underneath, a thin line between them. */
+   underneath (as bullets when several were picked), a thin line between them. */
 function notificationHtml(notify, data, createdAt) {
   const when = createdAt
     ? new Date(createdAt).toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'medium', timeStyle: 'short' }) + ' ET'
     : '';
-  const rows = notify.fields.map(([field, question]) => {
+  const rows = notify.fields.map(([field, question, list]) => {
     const value = answer(data, field);
-    const shown = value ? escape(value).replace(/\n/g, '<br>') : '<span style="color:#9aa3b5;">—</span>';
+    let shown = '<span style="color:#9aa3b5;">—</span>';
+    if (value && list) {
+      shown = `<ul style="margin:0;padding-left:20px;">${items(value).map((item) => `<li style="margin:2px 0;">${escape(item)}</li>`).join('')}</ul>`;
+    } else if (value) {
+      shown = escape(value).replace(/\n/g, '<br>');
+    }
     return `
           <tr>
             <td style="padding:14px 0;border-bottom:1px solid #e6e9f0;font-family:Arial,Helvetica,sans-serif;">
               <p style="margin:0 0 4px;font-size:14px;font-weight:bold;color:#0b1220;">${escape(question)}</p>
-              <p style="margin:0;font-size:15px;line-height:1.5;color:#3d4659;">${shown}</p>
+              <div style="margin:0;font-size:15px;line-height:1.5;color:#3d4659;">${shown}</div>
             </td>
           </tr>`;
   }).join('');

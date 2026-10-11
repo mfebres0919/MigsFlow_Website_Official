@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maliaka Home Care: Website Questions | MigsFlow</title>
+  <!-- Private questionnaire for one client: not linked anywhere, kept out of search -->
+  <meta name="robots" content="noindex,nofollow">
+
+  <link rel="preload" as="font" href="../fonts/orbitron-v35-latin-600.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../fonts/poppins-v24-latin-regular.woff2" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/contact.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="manifest" href="../site.webmanifest">
+</head>
+
+<body class="page-quote page-redesign page-lead-form">
+
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="../index.html" aria-label="MigsFlow home">
+        <img src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" fetchpriority="high" decoding="async">
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="hamburger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <div class="nav__links" id="primary-nav">
+        <a class="nav__link" href="../index.html#work">Work</a>
+        <a class="nav__link" href="../index.html#about">About</a>
+        <a class="nav__link" href="../index.html#testimonials">Testimonials</a>
+        <a class="nav__link" href="../index.html#faq">FAQ</a>
+        <a class="nav__link" href="pricing.html">Pricing</a>
+        <a class="nav__link" href="quote.html">Get Quote</a>
+      </div>
+
+      <a class="nav__cta" href="contact.html">
+        <span>Contact</span>
+        <span class="nav__cta-icon" aria-hidden="true">
+          <img src="../images/vectors/code-blue.svg" alt="" width="24" height="24" decoding="async">
+        </span>
+      </a>
+    </nav>
+  </header>
+
+
+  <!-- MALIAKA HOME CARE QUESTIONNAIRE
+       One-off client questions in steps, like the quote form. Answers go to
+       the Netlify form "maliaka-questions" (Forms in the Netlify dashboard).
+       No emails are sent from here: it isn't in
+       netlify/functions/submission-created.mjs. Every question is optional. -->
+  <section class="quote-section" id="questions">
+    <div class="quote__container">
+
+      <div class="quote__header fade-on-load">
+        <div class="quote__pill">
+          <span class="quote__dot"></span>
+          About 5 minutes
+        </div>
+        <h1 class="quote__title">
+          <span class="quote__title-accent">Maliaka Home Care:</span><br>
+          Website Questions
+        </h1>
+      </div>
+
+      <div class="quiz__intro lead-form__intro fade-on-load">
+        <p class="quiz__intro-text">Hi Leetu, thanks for sharing so much about Maliaka Home Care. These questions fill in a few gaps so I can recommend the right website plan for you.</p>
+        <ul class="lead-form__tips">
+          <li>Most answers are multiple choice and take about 5 minutes.</li>
+          <li>&ldquo;Not sure yet&rdquo; is always a fine answer.</li>
+          <li>You can skip anything you&rsquo;d rather talk through.</li>
+        </ul>
+        <p class="quiz__intro-text">Once you submit, I&rsquo;ll follow up by email. Questions in the meantime? Reach me at <a class="quiz__inline-link" href="mailto:miguelle@migsflow.com">miguelle@migsflow.com</a> or <a class="quiz__inline-link" href="tel:+18326480539">(832) 648-0539</a>.</p>
+        <p class="lead-form__sign">Miguelle, MigsFlow Web Design</p>
+      </div>
+
+      <div class="quiz__progress-wrap fade-on-load" id="progressWrap">
+        <div class="quiz__progress-row">
+          <span class="quiz__progress-label" id="progressLabel">Progress (0/6)</span>
+          <span class="quiz__progress-pct" id="progressPct">0%</span>
+        </div>
+        <div class="quiz__progress-track">
+          <div class="quiz__progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- The real form: Netlify reads it at deploy time. The script below
+           sends it in the background so the thank-you shows on this page. -->
+      <form class="lead-form" id="leadForm" name="maliaka-questions" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="maliaka-questions">
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label for="leadGotcha">Leave this field empty</label>
+          <input id="leadGotcha" type="text" name="bot-field" tabindex="-1" autocomplete="off">
+        </div>
+
+      <!-- STEP 1: Client Portal -->
+      <div class="quiz__step is-active" id="step-1" data-step="1">
+        <h2 class="quiz__step-title">Client Portal</h2>
+        <p class="quiz__step-desc">Who it&rsquo;s for, what it shows, and how it&rsquo;s kept up to date.</p>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Who would use the portal: clients, families, or both?</legend>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="portalUsers" value="Clients">
+              <span class="quiz__option-text">Clients</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="portalUsers" value="Families">
+              <span class="quiz__option-text">Families</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="portalUsers" value="Both">
+              <span class="quiz__option-text">Both</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="portalUsers" value="Not sure yet">
+              <span class="quiz__option-text">Not sure yet</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="portalUsers" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="portalUsers" placeholder="Tell me more" aria-label="Who would use the portal: clients, families, or both? (other)" hidden>
+        </fieldset>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">What should they see?</legend>
+          <span class="quiz__question-sub">Choose all that apply.</span>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="checkbox" name="portalView" value="Care schedule">
+              <span class="quiz__option-text">Care schedule</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="portalView" value="Visit notes">
+              <span class="quiz__option-text">Visit notes</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="portalView" value="Caregiver info">
+              <span class="quiz__option-text">Caregiver info</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="portalView" value="Not sure yet">
+              <span class="quiz__option-text">Not sure yet</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="portalView" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="portalView" placeholder="Tell me more" aria-label="What should they see? (other)" hidden>
+        </fieldset>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Who updates it, you or your team?</legend>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="portalUpdates" value="Me">
+              <span class="quiz__option-text">Me</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="portalUpdates" value="My team">
+              <span class="quiz__option-text">My team</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="portalUpdates" value="Not sure yet">
+              <span class="quiz__option-text">Not sure yet</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="portalUpdates" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="portalUpdates" placeholder="Tell me more" aria-label="Who updates it, you or your team? (other)" hidden>
+        </fieldset>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Would you like families to pay invoices online?</legend>
+          <span class="quiz__question-sub">For example, paying for care by card through the website.</span>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="payments" value="Yes">
+              <span class="quiz__option-text">Yes</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="payments" value="No">
+              <span class="quiz__option-text">No</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="payments" value="Not sure yet">
+              <span class="quiz__option-text">Not sure yet</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="payments" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="payments" placeholder="Tell me more" aria-label="Would you like families to pay invoices online? (other)" hidden>
+        </fieldset>
+
+        <div class="quiz__nav">
+          <span class="quiz__nav-hint">Step 1 of 6</span>
+          <button class="quiz__btn-next" type="button" data-next="2">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Forms & Tools -->
+      <div class="quiz__step" id="step-2" data-step="2">
+        <h2 class="quiz__step-title">Forms &amp; Tools</h2>
+        <p class="quiz__step-desc">So your forms and the website work with what you already use.</p>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Any scheduling, CRM, or email tools you already use?</legend>
+          <span class="quiz__question-sub">Choose all that apply.</span>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="checkbox" name="tools" value="Scheduling tool">
+              <span class="quiz__option-text">Scheduling tool</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="tools" value="CRM">
+              <span class="quiz__option-text">CRM</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="tools" value="Email tool">
+              <span class="quiz__option-text">Email tool</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="tools" value="None yet">
+              <span class="quiz__option-text">None yet</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="tools" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="tools" placeholder="Tell me more" aria-label="Any scheduling, CRM, or email tools you already use? (other)" hidden>
+        </fieldset>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Should caregiver applicants be able to upload a resume or documents?</legend>
+          <span class="quiz__question-sub">For the Careers page application.</span>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="careerUploads" value="Yes, uploads would help">
+              <span class="quiz__option-text">Yes, uploads would help</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="careerUploads" value="No, a simple form is fine">
+              <span class="quiz__option-text">No, a simple form is fine</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="careerUploads" value="Not sure yet">
+              <span class="quiz__option-text">Not sure yet</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="careerUploads" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="careerUploads" placeholder="Tell me more" aria-label="Should caregiver applicants be able to upload a resume or documents? (other)" hidden>
+        </fieldset>
+
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="1">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="3">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Content & Brand -->
+      <div class="quiz__step" id="step-3" data-step="3">
+        <h2 class="quiz__step-title">Content &amp; Brand</h2>
+        <p class="quiz__step-desc">What you already have, and where you might want a hand.</p>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Do you have a logo and brand colors, or need help with those?</legend>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="branding" value="I have both">
+              <span class="quiz__option-text">I have both</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="branding" value="I have a logo only">
+              <span class="quiz__option-text">I have a logo only</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="branding" value="I need help with both">
+              <span class="quiz__option-text">I need help with both</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="branding" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="branding" placeholder="Tell me more" aria-label="Do you have a logo and brand colors, or need help with those? (other)" hidden>
+        </fieldset>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Do you have photos, or should we plan around stock images?</legend>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="photos" value="I have photos">
+              <span class="quiz__option-text">I have photos</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="photos" value="Plan around stock images">
+              <span class="quiz__option-text">Plan around stock images</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="photos" value="A mix of both">
+              <span class="quiz__option-text">A mix of both</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="photos" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="photos" placeholder="Tell me more" aria-label="Do you have photos, or should we plan around stock images? (other)" hidden>
+        </fieldset>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Is your copy written (services, mission, values), or do you want help?</legend>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="copy" value="Written and ready">
+              <span class="quiz__option-text">Written and ready</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="copy" value="Partly written">
+              <span class="quiz__option-text">Partly written</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="copy" value="I want help">
+              <span class="quiz__option-text">I want help</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="copy" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="copy" placeholder="Tell me more" aria-label="Is your copy written (services, mission, values), or do you want help? (other)" hidden>
+        </fieldset>
+
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="2">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="4">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Online Presence -->
+      <div class="quiz__step" id="step-4" data-step="4">
+        <h2 class="quiz__step-title">Online Presence</h2>
+        <p class="quiz__step-desc">Your web address, email, and Google listing.</p>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Do you have a domain?</legend>
+          <span class="quiz__question-sub">Your web address, like maliakahomecare.com.</span>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="domain" value="Yes">
+              <span class="quiz__option-text">Yes</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="domain" value="No">
+              <span class="quiz__option-text">No</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="domain" value="Not sure">
+              <span class="quiz__option-text">Not sure</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="domain" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="domain" placeholder="Tell me more" aria-label="Do you have a domain? (other)" hidden>
+        </fieldset>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Do you have a business email address?</legend>
+          <span class="quiz__question-sub">An email that ends in your domain, like info@maliakahomecare.com.</span>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="businessEmail" value="Yes">
+              <span class="quiz__option-text">Yes</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="businessEmail" value="No, I&#x27;d like help setting one up">
+              <span class="quiz__option-text">No, I&#x27;d like help setting one up</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="businessEmail" value="Not sure">
+              <span class="quiz__option-text">Not sure</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="businessEmail" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="businessEmail" placeholder="Tell me more" aria-label="Do you have a business email address? (other)" hidden>
+        </fieldset>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Do you have a Google Business Profile?</legend>
+          <span class="quiz__question-sub">The listing that shows your business on Google Search and Maps.</span>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="googleProfile" value="Yes">
+              <span class="quiz__option-text">Yes</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="googleProfile" value="No">
+              <span class="quiz__option-text">No</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="googleProfile" value="Not sure">
+              <span class="quiz__option-text">Not sure</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="googleProfile" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="googleProfile" placeholder="Tell me more" aria-label="Do you have a Google Business Profile? (other)" hidden>
+        </fieldset>
+
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="3">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="5">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: After Launch -->
+      <div class="quiz__step" id="step-5" data-step="5">
+        <h2 class="quiz__step-title">After Launch</h2>
+        <p class="quiz__step-desc">How the site is looked after once it&rsquo;s live.</p>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Who should handle website updates after launch?</legend>
+          <span class="quiz__question-sub">Things like new photos, service changes, or updating availability once licensing is approved.</span>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="maintenance" value="I&#x27;d like MigsFlow to handle them">
+              <span class="quiz__option-text">I&#x27;d like MigsFlow to handle them</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="maintenance" value="I&#x27;ll update it myself">
+              <span class="quiz__option-text">I&#x27;ll update it myself</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="maintenance" value="Not sure yet">
+              <span class="quiz__option-text">Not sure yet</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="maintenance" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="maintenance" placeholder="Tell me more" aria-label="Who should handle website updates after launch? (other)" hidden>
+        </fieldset>
+
+        <fieldset class="lead-form__question">
+          <legend class="quiz__question-label">Should the website be in any language besides English?</legend>
+          <div class="quiz__options quiz__options--chips">
+            <label class="quiz__option">
+              <input type="radio" name="languages" value="English only">
+              <span class="quiz__option-text">English only</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="languages" value="English and Spanish">
+              <span class="quiz__option-text">English and Spanish</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="languages" value="Not sure yet">
+              <span class="quiz__option-text">Not sure yet</span>
+            </label>
+            <label class="quiz__option">
+              <input type="radio" name="languages" value="Other" data-other>
+              <span class="quiz__option-text">Other</span>
+            </label>
+          </div>
+          <input class="quiz__input lead-form__other" type="text" data-other-for="languages" placeholder="Tell me more" aria-label="Should the website be in any language besides English? (other)" hidden>
+        </fieldset>
+
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="4">← Back</button>
+          <button class="quiz__btn-next" type="button" data-next="6">Next →</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: Final Details -->
+      <div class="quiz__step" id="step-6" data-step="6">
+        <h2 class="quiz__step-title">Final Details</h2>
+        <p class="quiz__step-desc">A few short answers and you&rsquo;re done.</p>
+
+        <label class="quiz__question-label" for="serviceAreas">Which areas do you want families to find you in on Google?</label>
+        <span class="quiz__question-sub">For example, Aurora, Denver, Centennial.</span>
+        <input class="quiz__input" id="serviceAreas" name="serviceAreas" type="text">
+
+        <label class="quiz__question-label" for="inspiration">Any sites you love or want to avoid?</label>
+        <span class="quiz__question-sub">Add a name or link.</span>
+        <input class="quiz__input" id="inspiration" name="inspiration" type="text">
+
+        <label class="quiz__question-label" for="notes">Anything else you’d like me to know?</label>
+        <textarea class="quiz__textarea quiz__textarea--short" id="notes" name="notes"></textarea>
+
+        <p class="quiz__required-hint" id="leadError">Something went wrong. Please try again, or email me at miguelle@migsflow.com.</p>
+        <div class="quiz__nav">
+          <button class="quiz__btn-back" type="button" data-prev="5">← Back</button>
+          <button class="quiz__btn-submit" type="submit" id="submitBtn">Send My Answers →</button>
+        </div>
+      </div>
+      </form>
+
+      <!-- Thank-you -->
+      <div class="quiz__success" id="quizSuccess" aria-live="polite">
+        <div class="quiz__success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="26" height="26">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h2 class="quiz__success-title">Thanks, Leetu!</h2>
+        <p class="quiz__success-text">I&rsquo;ve got your answers. I&rsquo;ll look them over and follow up by email with my recommendation.</p>
+      </div>
+
+    </div>
+
+    <div class="star-field" aria-hidden="true">
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer fade-section" id="footer">
+    <div class="footer__container">
+      <div class="footer__top">
+        <div class="footer__brand fade-on-load">
+          <a class="footer__logo fade-on-load" href="../index.html" aria-label="MigsFlow home">
+            <img class="fade-on-load" src="../images/migsflow-logo(2).svg" alt="MigsFlow logo" width="150" height="40" loading="lazy" decoding="async">
+          </a>
+          <p class="footer__blurb fade-on-load">
+            Custom websites for small businesses that generate leads and look premium.
+          </p>
+          <div class="footer__social fade-on-load" aria-label="Social links">
+            <a class="footer__social-btn fade-on-load" href="https://www.instagram.com/migsflow/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M17.2 6.8h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a class="footer__social-btn fade-on-load" href="https://www.tiktok.com/@migs.flow" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M16.5 3c.3 2.2 1.5 3.6 3.5 3.9v2.6c-1.3.1-2.5-.3-3.5-1v5.9a5.2 5.2 0 1 1-5.2-5.2c.3 0 .5 0 .8.1v2.7a2.5 2.5 0 1 0 1.7 2.4V3h2.7Z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer__cols fade-on-load" aria-label="Footer navigation">
+          <div class="footer__col fade-on-load">
+            <h3 class="footer__heading fade-on-load">Navigation</h3>
+            <a class="footer__link fade-on-load" href="../index.html#work">Work</a>
+            <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
+            <a class="footer__link fade-on-load" href="quote.html">Get Quote</a>
+            <a class="footer__link fade-on-load" href="../downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">Welcome Package</a>
+          </div>
+          <div class="footer__col fade-on-load">
+            <h3 class="footer__heading fade-on-load">Contact</h3>
+            <a class="footer__link fade-on-load" href="mailto:miguelle@migsflow.com" aria-label="Email MigsFlow">
+              <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+              <span>miguelle@migsflow.com</span>
+            </a>
+            <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
+              <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+              (832) 648-0539
+            </a>
+            <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View location">
+              <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
+              Charleston, SC
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__hero fade-on-load">
+        <div class="footer__giant fade-on-load">LET'S COLLABORATE</div>
+        <a class="footer__bubble fade-on-load" href="contact.html" aria-label="Get in touch">
+          <span>GET IN TOUCH</span>
+        </a>
+      </div>
+      <div class="footer__bottom fade-on-load">
+        <div class="copyright fade-on-load"><p>© Copyright 2026 MigsFlow Web Design</p></div>
+      </div>
+    </div>
+    <div class="star-field" aria-hidden="true">
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span>
+    </div>
+  </footer>
+
+  <script defer src="../main.js"></script>
+
+  <script>
+  /* Steps with a progress bar (nothing required, so Next always works).
+     Picking "Other" shows a text box. On submit, answers go to Netlify
+     Forms: several picks are joined with "; ", and "Other" becomes
+     "Other: <what they typed>". */
+  (function () {
+    var TOTAL = 6;
+    var form = document.getElementById('leadForm');
+    var current = 1;
+
+    function progress(done) {
+      var pct = Math.round((done / TOTAL) * 100);
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressLabel').textContent = 'Progress (' + done + '/' + TOTAL + ')';
+      document.getElementById('progressPct').textContent = pct + '%';
+    }
+
+    function show(n) {
+      document.querySelectorAll('.quiz__step').forEach(function (el) { el.classList.remove('is-active'); });
+      var step = document.getElementById('step-' + n);
+      step.classList.add('is-active');
+      step.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      current = n;
+      progress(n - 1);
+    }
+
+    form.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-next], [data-prev]');
+      if (!btn) return;
+      show(parseInt(btn.dataset.next || btn.dataset.prev, 10));
+    });
+
+    // Enter moves to the next step (or submits on the last); in a text box it adds a new line
+    form.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON') return;
+      e.preventDefault();
+      if (current < TOTAL) show(current + 1);
+      else form.requestSubmit();
+    });
+
+    form.addEventListener('change', function (e) {
+      var input = e.target;
+      if (input.type !== 'radio' && input.type !== 'checkbox') return;
+      var other = form.querySelector('[name="' + input.name + '"][data-other]');
+      if (!other) return;
+      var box = form.querySelector('[data-other-for="' + input.name + '"]');
+      box.hidden = !other.checked;
+      if (other.checked && input === other) box.focus();
+    });
+
+    function answers() {
+      var data = {};
+      new FormData(form).forEach(function (value, name) {
+        if (value === 'Other') {
+          var typed = form.querySelector('[data-other-for="' + name + '"]').value.trim();
+          if (typed) value = 'Other: ' + typed;
+        }
+        data[name] = data[name] ? data[name] + '; ' + value : value;
+      });
+      return data;
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('submitBtn');
+      var error = document.getElementById('leadError');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      error.classList.remove('is-visible');
+      try {
+        var res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(answers()).toString()
+        });
+        if (!res.ok) throw new Error(res.status);
+        form.hidden = true;
+        document.querySelector('.lead-form__intro').hidden = true;
+        document.getElementById('progressWrap').style.display = 'none';
+        document.getElementById('quizSuccess').classList.add('is-active');
+        document.getElementById('questions').scrollIntoView({ behavior: 'smooth' });
+      } catch (err) {
+        btn.textContent = 'Send My Answers →';
+        btn.disabled = false;
+        error.classList.add('is-visible');
+      }
+    });
+
+    progress(0);
+  })();
+  </script>
+
+<!-- Back to top: round button, fades in after one screen of scrolling (main.js) -->
+<button class="to-top" type="button" aria-label="Back to top" data-to-top>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+</button>
+</body>
+</html>

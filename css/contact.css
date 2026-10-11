@@ -1251,3 +1251,57 @@ select.quiz__input option {
     scroll-behavior: smooth;
   }
 }
+
+/* ---------- One-off client questionnaires (html/maliaka.html) ----------
+   Same steps as the quote form; these add the intro list, grouped
+   questions and the "Other" text box. Nothing is required. */
+.lead-form[hidden],
+.lead-form__intro[hidden] {
+  display: none;
+}
+
+.lead-form__intro .quiz__intro-text + .quiz__intro-text {
+  margin-top: 12px;
+}
+
+.lead-form__tips {
+  margin: 14px 0;
+  padding-left: 20px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.lead-form__sign {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.lead-form__question {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.lead-form__question legend {
+  padding: 0;
+}
+
+/* Space between questions on a step */
+.page-lead-form .lead-form__question + .lead-form__question,
+.page-lead-form .quiz__textarea + .quiz__question-label,
+.page-lead-form .quiz__input + .quiz__question-label {
+  margin-top: 26px;
+}
+
+.lead-form__other {
+  margin-top: 10px;
+}
+
+.lead-form__other[hidden] {
+  display: none;
+}

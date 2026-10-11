@@ -126,8 +126,15 @@ function html(config, { firstName, business }) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light">
   <title>${escape(config.button)}</title>
+  <style>
+    /* Gmail's app flips this dark email to light and turns the white button
+       text dark. These two blend layers (Gmail only, via "u + .body") flip
+       the text back to white. */
+    u + .body .gmail-screen { background:#000; mix-blend-mode:screen; }
+    u + .body .gmail-difference { background:#000; mix-blend-mode:difference; }
+  </style>
 </head>
-<body style="margin:0;padding:0;background-color:#05070f;">
+<body class="body" style="margin:0;padding:0;background-color:#05070f;">
   <div style="display:none;max-height:0;overflow:hidden;">${escape(config.preheader)}</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#05070f;">
     <tr>
@@ -148,7 +155,7 @@ function html(config, { firstName, business }) {
           </tr>
           <tr>
             <td align="center" style="padding:0 32px 28px;">
-              <a href="${config.link}" style="display:inline-block;padding:14px 28px;border-radius:999px;background-color:#0b6bff;background-image:linear-gradient(90deg,#18c9ff,#0b3cff);color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;text-decoration:none;">${escape(config.button)}</a>
+              <a href="${config.link}" style="display:inline-block;padding:14px 28px;border-radius:999px;background-color:#0b6bff;background-image:linear-gradient(90deg,#18c9ff,#0b3cff);color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;text-decoration:none;"><span class="gmail-screen"><span class="gmail-difference">${escape(config.button)}</span></span></a>
             </td>
           </tr>
           <tr>

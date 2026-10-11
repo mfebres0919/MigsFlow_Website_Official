@@ -1305,3 +1305,12 @@ select.quiz__input option {
 .lead-form__other[hidden] {
   display: none;
 }
+
+/* "Other" answer box, opened by picking Other (redesign business type) */
+.quiz__other {
+  margin-top: 12px;
+}
+
+.quiz__other[hidden] {
+  display: none;
+}

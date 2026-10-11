@@ -130,7 +130,8 @@
             <span class="quiz__option-text">Other</span>
           </label>
         </div>
-        <p class="quiz__required-hint" id="hint-1">Please choose your business type.</p>
+        <input class="quiz__input quiz__other" id="businessTypeOther" type="text" placeholder="What type of business?" aria-label="Your type of business" hidden>
+        <p class="quiz__required-hint" id="hint-1">Please choose your business type (and tell me what it is if you picked Other).</p>
         <div class="quiz__nav">
           <span class="quiz__nav-hint">Step 1 of 8</span>
           <button class="quiz__btn-next" type="button" data-next="2">Next →</button>
@@ -560,7 +561,7 @@
 
     function valid(n) {
       switch (n) {
-        case 1: return checked('businessType').length;
+        case 1: return checked('businessType').length && (!otherType() || $('businessTypeOther').value.trim());
         case 2: return checked('currentIssues').length;
         case 3: return checked('vibe').length;
         case 4: return checked('features').length;
@@ -588,6 +589,15 @@
       });
     });
 
+    // Business type: "Other" opens a box to say what it is
+    var otherType = function () { return checked('businessType')[0] === 'Other'; };
+    document.querySelectorAll('input[name="businessType"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        $('businessTypeOther').hidden = !otherType();
+        if (otherType()) $('businessTypeOther').focus();
+      });
+    });
+
     // Vibe: at most two
     document.querySelectorAll('input[name="vibe"]').forEach(function (box) {
       box.addEventListener('change', function () {
@@ -603,7 +613,7 @@
         'form-name': 'redesign',
         businessName: $('businessName').value.trim(),
         websiteUrl: url,
-        businessType: checked('businessType').join(', '),
+        businessType: otherType() ? 'Other: ' + $('businessTypeOther').value.trim() : checked('businessType').join(', '),
         currentIssues: checked('currentIssues').join('; '),
         vibe: checked('vibe').join('; '),
         inspiration: $('inspiration').value.trim(),

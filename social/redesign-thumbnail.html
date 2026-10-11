@@ -1,0 +1,86 @@
+<!doctype html>
+<!-- TikTok cover for the $80 homepage redesign video (1080x1920, 9:16).
+     Export: headless Chrome --screenshot --window-size=1080,1920 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>$80 Homepage Redesigns</title>
+<style>
+  @font-face { font-family: Orbitron; font-weight: 600; src: url(../fonts/orbitron-v35-latin-600.woff2) format("woff2"); }
+  @font-face { font-family: Orbitron; font-weight: 500; src: url(../fonts/orbitron-v35-latin-500.woff2) format("woff2"); }
+  @font-face { font-family: Poppins; src: url(../fonts/poppins-v24-latin-regular.woff2) format("woff2"); }
+
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; }
+  body {
+    position: relative;
+    background: #04070e; /* matches the mockup photo's background */
+    color: #fff;
+    font-family: Orbitron, sans-serif;
+    text-align: center;
+  }
+
+  /* Soft blue glows */
+  .glow { position: absolute; border-radius: 50%; filter: blur(120px); }
+  .glow--top { width: 900px; height: 600px; left: 90px; top: 180px; background: rgba(24, 201, 255, 0.16); }
+  .glow--mock { width: 1000px; height: 700px; left: 40px; top: 980px; background: rgba(11, 60, 255, 0.22); }
+
+  .stars span { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #fff; opacity: 0.5; }
+
+  .logo { position: absolute; top: 130px; left: 50%; transform: translateX(-50%); width: 300px; }
+
+  .title { position: absolute; top: 330px; left: 0; right: 0; }
+  .title__price {
+    display: block;
+    font-weight: 600;
+    font-size: 330px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #18c9ff;
+    background: linear-gradient(90deg, #18c9ff 0%, #0b3cff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 40px rgba(24, 201, 255, 0.35));
+  }
+  .title__words {
+    display: block;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 104px;
+    line-height: 1.08;
+    letter-spacing: 0.01em;
+  }
+
+  /* Mockup photo */
+  .mockup {
+    position: absolute;
+    top: 960px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1060px;
+    mix-blend-mode: lighten; /* the photo's near-black background drops out, so no edges */
+  }
+</style>
+</head>
+<body>
+  <div class="glow glow--top"></div>
+  <div class="glow glow--mock"></div>
+  <div class="stars" aria-hidden="true">
+    <span style="left:90px;top:260px"></span><span style="left:960px;top:150px"></span>
+    <span style="left:180px;top:860px;opacity:.3"></span><span style="left:1000px;top:900px"></span>
+    <span style="left:60px;top:1500px;opacity:.35"></span><span style="left:1010px;top:1650px;opacity:.35"></span>
+    <span style="left:520px;top:80px;opacity:.3"></span><span style="left:840px;top:330px;opacity:.3"></span>
+    <span style="left:300px;top:1820px;opacity:.3"></span><span style="left:760px;top:1800px;opacity:.4"></span>
+  </div>
+
+  <img class="logo" src="../images/migsflow-logo(2).svg" alt="MigsFlow">
+
+  <h1 class="title">
+    <span class="title__price">$80</span>
+    <span class="title__words">HOMEPAGE<br>REDESIGNS</span>
+  </h1>
+
+  <img class="mockup" src="../packet-source/mockup.jpg" alt="">
+</body>
+</html>

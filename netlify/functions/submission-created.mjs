@@ -1,14 +1,18 @@
 /* ==========================================================================
-   FORM FOLLOW-UP EMAILS
+   FORM EMAILS
    Netlify runs this automatically after every verified form submission
    (the file name "submission-created" is what hooks it to that event;
-   spam caught by the honeypot never reaches it). Each form listed in
-   EMAILS gets its own thank-you email with a packet to download, sent
-   through Brevo's transactional email API. Other forms (e.g. "contact")
-   are ignored.
+   spam caught by the honeypot never reaches it). Emails go out through
+   Brevo's transactional email API:
+
+   1. A notification to me with every answer, question in bold above it
+      (forms listed in NOTIFY). Replying goes straight to the person.
+   2. A thank-you to the person with a packet to download
+      (forms listed in EMAILS).
 
      quote     → html/quote.html     → welcome package
      redesign  → html/redesign.html  → $80 homepage redesign packet
+     contact   → html/contact.html   → notification only
 
    Needs two environment variables in Netlify
    (Site configuration → Environment variables):
@@ -16,6 +20,7 @@
      BREVO_SENDER_EMAIL  a sender verified in Brevo, e.g. miguelle@migsflow.com
    Optional:
      BREVO_SENDER_NAME   defaults to "Miguelle at MigsFlow"
+     NOTIFY_EMAIL        where notifications go, defaults to BREVO_SENDER_EMAIL
    ========================================================================== */
 
 const SITE_URL = 'https://migsflow.com';
@@ -47,44 +52,124 @@ const EMAILS = {
   },
 };
 
+/* My notification for each form: its title, then [field, question] in the
+   order the questions are asked on the page. */
+const NOTIFY = {
+  quote: {
+    title: 'New Quote Request',
+    fields: [
+      ['businessName', 'Company name'],
+      ['websiteUrl', 'Current website URL'],
+      ['purpose', 'What do you need your website to do?'],
+      ['budget', 'What budget range are you considering?'],
+      ['pageCount', 'Roughly how many pages will you need?'],
+      ['timeline', 'What is your timeline?'],
+      ['projectDetails', 'Briefly describe your website'],
+      ['name', 'Name'],
+      ['email', 'Email'],
+    ],
+  },
+  redesign: {
+    title: 'New Redesign Application',
+    fields: [
+      ['businessType', 'What type of business do you run?'],
+      ['currentIssues', "What's not working about your current site?"],
+      ['vibe', 'Styles that fit you best'],
+      ['features', 'Features'],
+      ['enterprise', 'Needs Enterprise features?'],
+      ['contentReady', 'Do you have a logo, photos, and reviews ready?'],
+      ['nextStep', 'If you love your new homepage, what would you most likely do next?'],
+      ['timeline', 'When would you ideally want a new site live?'],
+      ['businessName', 'Business name'],
+      ['websiteUrl', 'Current website link'],
+      ['inspiration', 'Websites you love the look of'],
+      ['brandColors', 'Brand colors to keep'],
+      ['name', 'Name'],
+      ['email', 'Email'],
+      ['phone', 'Phone'],
+      ['foundVia', 'How did you find me?'],
+      ['notes', 'Anything else I should know?'],
+      ['agree', 'Agreed to the $80 terms'],
+    ],
+  },
+  contact: {
+    title: 'New Contact Message',
+    fields: [
+      ['name', 'Name'],
+      ['email', 'Email'],
+      ['message', 'Message'],
+    ],
+  },
+};
+
 export const handler = async (event) => {
   const { payload } = JSON.parse(event.body || '{}');
-  const config = payload && EMAILS[payload.form_name];
-  if (!config) return { statusCode: 200, body: 'No follow-up email for this form' };
-
-  const data = payload.data || {};
-  const email = (data.email || '').trim();
-  if (!email) return { statusCode: 200, body: 'No email address' };
+  const form = payload && payload.form_name;
+  const notify = NOTIFY[form];
+  const config = EMAILS[form];
+  if (!notify && !config) return { statusCode: 200, body: 'No emails for this form' };
 
   const { BREVO_API_KEY, BREVO_SENDER_EMAIL, BREVO_SENDER_NAME = 'Miguelle at MigsFlow' } = process.env;
   if (!BREVO_API_KEY || !BREVO_SENDER_EMAIL) {
     console.error('Missing BREVO_API_KEY or BREVO_SENDER_EMAIL');
     return { statusCode: 500, body: 'Email not configured' };
   }
+  const sender = { name: BREVO_SENDER_NAME, email: BREVO_SENDER_EMAIL };
 
-  const firstName = (data.name || '').trim().split(/\s+/)[0] || 'there';
+  const data = payload.data || {};
+  const email = (data.email || '').trim();
+  const name = (data.name || '').trim();
+  const firstName = name.split(/\s+/)[0] || 'there';
   const business = (data.businessName || '').trim();
 
-  const response = await fetch('https://api.brevo.com/v3/smtp/email', {
-    method: 'POST',
-    headers: { 'api-key': BREVO_API_KEY, 'content-type': 'application/json', accept: 'application/json' },
-    body: JSON.stringify({
-      sender: { name: BREVO_SENDER_NAME, email: BREVO_SENDER_EMAIL },
-      to: [{ email, name: (data.name || '').trim() || undefined }],
-      replyTo: { email: BREVO_SENDER_EMAIL, name: BREVO_SENDER_NAME },
+  const sends = [];
+
+  // 1. Notification to me
+  if (notify) {
+    sends.push(send(BREVO_API_KEY, {
+      sender,
+      to: [{ email: process.env.NOTIFY_EMAIL || BREVO_SENDER_EMAIL }],
+      ...(email && { replyTo: { email, name: name || undefined } }),
+      subject: `${notify.title} – ${business || name || 'MigsFlow'}`,
+      htmlContent: notificationHtml(notify, data, payload.created_at),
+      textContent: notificationText(notify, data),
+      tags: [`${form}-notification`],
+    }));
+  }
+
+  // 2. Thank-you to the person
+  if (config && email) {
+    sends.push(send(BREVO_API_KEY, {
+      sender,
+      to: [{ email, name: name || undefined }],
+      replyTo: sender,
       subject: config.subject(firstName),
       htmlContent: html(config, { firstName, business }),
       textContent: text(config, { firstName, business }),
       tags: [config.tag],
-    }),
-  });
-
-  if (!response.ok) {
-    console.error('Brevo error', response.status, await response.text());
-    return { statusCode: 502, body: 'Email failed' };
+    }));
   }
-  return { statusCode: 200, body: `${payload.form_name} email sent` };
+
+  const results = await Promise.all(sends);
+  if (results.includes(false)) return { statusCode: 502, body: 'An email failed' };
+  return { statusCode: 200, body: `${form} emails sent` };
 };
+
+// One Brevo send; logs and returns false on failure so the other email still goes out
+async function send(apiKey, message) {
+  try {
+    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method: 'POST',
+      headers: { 'api-key': apiKey, 'content-type': 'application/json', accept: 'application/json' },
+      body: JSON.stringify(message),
+    });
+    if (response.ok) return true;
+    console.error('Brevo error', response.status, await response.text());
+  } catch (error) {
+    console.error('Brevo request failed', error);
+  }
+  return false;
+}
 
 /* ---------- Email content ---------- */
 
@@ -177,6 +262,65 @@ function html(config, { firstName, business }) {
           <tr>
             <td style="padding:18px 32px;border-top:1px solid #1c2a4a;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#8a93a8;">
               <a href="${SITE_URL}" style="color:#18c9ff;text-decoration:none;">migsflow.com</a> &nbsp;·&nbsp; ${escape(config.reason)}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+}
+
+/* ---------- My notification ---------- */
+
+const answer = (data, field) => String(data[field] ?? '').trim();
+
+function notificationText(notify, data) {
+  return notify.fields.map(([field, question]) => `${question}\n${answer(data, field) || '—'}`).join('\n\n');
+}
+
+/* Plain and light so it's quick to scan: each question in bold, the answer
+   underneath, a thin line between them. */
+function notificationHtml(notify, data, createdAt) {
+  const when = createdAt
+    ? new Date(createdAt).toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'medium', timeStyle: 'short' }) + ' ET'
+    : '';
+  const rows = notify.fields.map(([field, question]) => {
+    const value = answer(data, field);
+    const shown = value ? escape(value).replace(/\n/g, '<br>') : '<span style="color:#9aa3b5;">—</span>';
+    return `
+          <tr>
+            <td style="padding:14px 0;border-bottom:1px solid #e6e9f0;font-family:Arial,Helvetica,sans-serif;">
+              <p style="margin:0 0 4px;font-size:14px;font-weight:bold;color:#0b1220;">${escape(question)}</p>
+              <p style="margin:0;font-size:15px;line-height:1.5;color:#3d4659;">${shown}</p>
+            </td>
+          </tr>`;
+  }).join('');
+
+  return `<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(notify.title)}</title></head>
+<body style="margin:0;padding:0;background-color:#f3f5f9;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f3f5f9;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background-color:#ffffff;border:1px solid #e1e5ee;border-radius:14px;">
+          <tr>
+            <td style="padding:24px 28px 8px;font-family:Arial,Helvetica,sans-serif;">
+              <h1 style="margin:0;font-size:20px;color:#0b1220;">${escape(notify.title)}</h1>
+              ${when ? `<p style="margin:4px 0 0;font-size:13px;color:#7a8396;">${escape(when)}</p>` : ''}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 28px 20px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 28px 24px;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#7a8396;">
+              Reply to this email to answer them directly.
             </td>
           </tr>
         </table>

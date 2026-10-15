@@ -308,6 +308,34 @@
           </label>
         </div>
 
+        <!-- Follow-up: only shown for "I have some of it" -->
+        <div class="quiz__followup" id="contentHaveWrap" hidden>
+          <label class="quiz__question-label">Which of these do you already have? *</label>
+          <span class="quiz__question-sub">Choose all that apply.</span>
+          <div class="quiz__options quiz__options--grid">
+            <label class="quiz__option">
+              <input type="checkbox" name="contentHave" value="Logo">
+              <span class="quiz__option-text">Logo</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="contentHave" value="Photos of my work or team">
+              <span class="quiz__option-text">Photos of my work or team</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="contentHave" value="Text about my services">
+              <span class="quiz__option-text">Text about my services</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="contentHave" value="Customer reviews">
+              <span class="quiz__option-text">Customer reviews</span>
+            </label>
+            <label class="quiz__option">
+              <input type="checkbox" name="contentHave" value="Brand colors">
+              <span class="quiz__option-text">Brand colors</span>
+            </label>
+          </div>
+        </div>
+
         <p class="quiz__required-hint" id="hint-5">Please select an option.</p>
         <div class="quiz__nav">
           <button class="quiz__btn-back" type="button" data-prev="4">← Back</button>
@@ -383,6 +411,7 @@
         <input type="text" name="pageCount">
         <input type="text" name="timeline">
         <input type="text" name="content">
+        <input type="text" name="contentHave">
         <textarea name="projectDetails"></textarea>
         <input type="text" name="name">
         <input type="email" name="email">
@@ -499,6 +528,20 @@
     const FORM_NAME = 'quote';
     let currentStep     = 1;
 
+    // Step 5 follow-up: "I have some of it" asks which pieces they have
+    const CONTENT_SOME    = 'I have some of it';
+    const contentHaveWrap = document.getElementById('contentHaveWrap');
+    document.querySelectorAll('input[name="content"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        var some = radio.checked && radio.value === CONTENT_SOME;
+        contentHaveWrap.hidden = !some;
+        if (!some) {
+          document.querySelectorAll('input[name="contentHave"]').forEach(function (box) { box.checked = false; });
+        }
+        hideHint(5);
+      });
+    });
+
     const progressFill  = document.getElementById('progressFill');
     const progressLabel = document.getElementById('progressLabel');
     const progressPct   = document.getElementById('progressPct');
@@ -537,7 +580,16 @@
         case 2: return !!document.querySelector('input[name="budget"]:checked');
         case 3: return !!document.querySelector('input[name="pageCount"]:checked');
         case 4: return !!document.querySelector('input[name="timeline"]:checked');
-        case 5: return !!document.querySelector('input[name="content"]:checked');
+        case 5: {
+          var picked = document.querySelector('input[name="content"]:checked');
+          var hint5  = document.getElementById('hint-5');
+          if (!picked) { hint5.textContent = 'Please select an option.'; return false; }
+          if (picked.value === CONTENT_SOME && !document.querySelector('input[name="contentHave"]:checked')) {
+            hint5.textContent = 'Please check what you already have.';
+            return false;
+          }
+          return true;
+        }
         case 6: return document.getElementById('projectDetails').value.trim().length > 0;
         case 7: {
           var business = document.getElementById('businessName').value.trim();
@@ -556,6 +608,10 @@
       var pageEl       = document.querySelector('input[name="pageCount"]:checked');
       var timelineEl   = document.querySelector('input[name="timeline"]:checked');
       var contentEl    = document.querySelector('input[name="content"]:checked');
+      var haveVals     = [];
+      if (contentEl && contentEl.value === CONTENT_SOME) {
+        document.querySelectorAll('input[name="contentHave"]:checked').forEach(function (el) { haveVals.push(el.value); });
+      }
       var clientName   = document.getElementById('clientName').value.trim();
       var clientEmail  = document.getElementById('clientEmail').value.trim();
       var businessName = document.getElementById('businessName').value.trim();
@@ -572,6 +628,7 @@
         pageCount:      pageEl   ? pageEl.value   : '',
         timeline:       timelineEl ? timelineEl.value : '',
         content:        contentEl  ? contentEl.value  : '',
+        contentHave:    haveVals.join('; '),
         projectDetails: document.getElementById('projectDetails').value.trim(),
         // Honeypot: always empty for real visitors
         'bot-field':    document.getElementById('quizGotcha').value

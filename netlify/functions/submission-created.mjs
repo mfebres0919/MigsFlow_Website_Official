@@ -65,6 +65,7 @@ const NOTIFY = {
       ['pageCount', 'Roughly how many pages will you need?'],
       ['timeline', 'What is your timeline?'],
       ['content', 'Do you have content ready for your website?'],
+      ['contentHave', 'Which content do they already have?', LIST],
       ['projectDetails', 'Briefly describe your website'],
       ['businessName', 'Company name'],
       ['websiteUrl', 'Current website URL'],

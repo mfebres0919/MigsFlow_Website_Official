@@ -621,3 +621,46 @@ function setupToTop() {
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", setupToTop);
 else setupToTop();
+
+/* ================================================================
+   Form success animation (contact, quote and redesign forms)
+   MigsFlowForm.sending(button, true) swaps the button label for a
+   spinner while the message sends. MigsFlowForm.reveal(hideEls,
+   successEl) then fades the form out, shows the success card with a
+   spinning ring that turns into the blue check, and fades the text in.
+   Styles: css/contact.css ("Form success animation").
+================================================================ */
+window.MigsFlowForm = (function () {
+  const reduce = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const wait = (ms) => new Promise((r) => setTimeout(r, reduce() ? 0 : ms));
+
+  function sending(btn, on) {
+    if (!btn) return;
+    btn.classList.toggle("is-sending", on);
+    btn.disabled = on;
+    btn.setAttribute("aria-busy", String(on));
+  }
+
+  async function reveal(hideEls, success) {
+    const els = (hideEls || []).filter(Boolean);
+    els.forEach((el) => el.classList.add("form-leaving"));
+    await wait(350);
+    els.forEach((el) => { el.style.display = "none"; el.classList.remove("form-leaving"); });
+
+    // The ring sits in the check's circle; the check's line draws itself
+    const icon = success.querySelector(".quiz__success-icon");
+    if (icon && !icon.querySelector(".success-loader")) {
+      const ring = document.createElement("span");
+      ring.className = "success-loader";
+      icon.prepend(ring);
+      icon.querySelectorAll("polyline, path").forEach((line) => line.setAttribute("pathLength", "1"));
+    }
+
+    success.classList.add("is-animating", "is-active");
+    success.scrollIntoView({ behavior: reduce() ? "auto" : "smooth", block: "center" });
+    await wait(1100);
+    success.classList.add("is-done");
+  }
+
+  return { sending, reveal };
+})();

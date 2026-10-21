@@ -42,10 +42,10 @@ const EMAILS = {
   redesign: {
     tag: 'redesign-application',
     subject: (firstName) => `Got your redesign application, ${firstName}! Here's how it works`,
-    preheader: "If we're a good fit, I'll be in touch within 24–48 hours. Here's how the redesign works.",
+    preheader: "Only 4 redesigns a week: spots go to whoever pays first. Here's how it works.",
     heading: (firstName) => `Thanks for applying, ${firstName}!`,
     intro: "Thank you for applying for a homepage redesign{business}. I review every application personally, and if we're a good fit, I'll be in touch within the next **24–48 hours** with next steps.",
-    body: "In the meantime, the redesign packet walks you through how it works: what's included, what happens after you apply, and how your $80 is credited toward your website if you decide to move forward.",
+    body: "A quick heads-up: due to the overwhelming support on this special, I'm only taking on **4 redesigns per week**. Spots go to whoever pays their invoice first, and invoices are held for **48 hours**. If this week is full, you'll be placed on the waitlist, and I'll always let you know exactly where you fall.\n\nIn the meantime, the redesign packet walks you through how it works: what's included, what happens after you apply, and how your $80 is credited toward your website if you decide to move forward.",
     button: 'Read the Redesign Packet',
     link: `${SITE_URL}/downloads/migsflow-homepage-redesign-packet.pdf`,
     reason: 'You applied for a homepage redesign on migsflow.com.',
@@ -194,7 +194,7 @@ function text(config, { firstName, business }) {
 
 ${plain(config.intro, business)}
 
-${config.body}
+${plain(config.body, business)}
 ${config.link}
 
 If anything comes to mind before then, just reply to this email.
@@ -239,7 +239,7 @@ function html(config, { firstName, business }) {
             <td style="padding:24px 32px 0;font-family:Arial,Helvetica,sans-serif;color:#c9cfdc;font-size:16px;line-height:1.65;">
               <h1 style="margin:0 0 16px;font-size:24px;line-height:1.3;color:#ffffff;">${escape(config.heading(firstName))}</h1>
               <p style="margin:0 0 16px;">${rich(config.intro, business)}</p>
-              <p style="margin:0 0 24px;">${rich(config.body, business)}</p>
+              ${config.body.split('\n\n').map((para, i, all) => `<p style="margin:0 0 ${i === all.length - 1 ? 24 : 16}px;">${rich(para, business)}</p>`).join('\n              ')}
             </td>
           </tr>
           <tr>

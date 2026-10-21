@@ -33,7 +33,7 @@
   .mock { display: block; width: 100%; max-height: 4.6in; object-fit: contain; object-position: left top; margin-top: 18px; }
   .steps { display: grid; gap: 30px; margin-top: 10px; }
   .step { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start; }
-  .num { width: 64px; height: 64px; border-radius: 14px; display: grid; place-items: center; font-family: "Orbitron"; font-size: 22px; color: #fff; background: linear-gradient(135deg,#18c9ff,#0b3cff); box-shadow: 0 0 22px rgba(24,201,255,.35); }
+  .num { width: 64px; height: 64px; border-radius: 14px; display: grid; place-items: center; font-family: "Orbitron"; font-size: 22px; color: #fff; background: linear-gradient(135deg,#18c9ff,#0b3cff); border: 3px solid rgba(24,201,255,.25); background-clip: padding-box; } /* no glow: PDF viewers flatten shadows into boxes */
   .step p { margin: 0; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
@@ -45,7 +45,7 @@
   .price { display: flex; align-items: center; gap: 18px; margin: 6px 0 4px; }
   .price .big { font-family: "Orbitron"; font-size: 54px; color: #fff; line-height: 1; }
   .price s { font-size: 20px; color: rgba(255,255,255,.45); }
-  .faq h3 { margin-top: 22px; }
+  .faq h3 { margin-top: 16px; }
   .faq p { margin-bottom: 4px; }
   .footer { position: absolute; left: .75in; right: .75in; bottom: .45in; display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.1); font-size: 11px; color: rgba(255,255,255,.6); }
   .footer .pg { font-family: "Orbitron"; font-size: 14px; color: #18c9ff; }
@@ -60,12 +60,12 @@
   <div style="margin-top:70px">
     <p class="eyebrow">/ homepage redesign</p>
     <h1>See your new homepage <span class="accent">before you commit.</span></h1>
-    <p class="lead" style="margin-top:18px;max-width:5.4in">A custom redesign of your current homepage for $80, plus a walkthrough of what I changed and why. If you love it, your $80 goes toward building your full website.</p>
+    <p class="lead" style="margin-top:18px;max-width:5.4in">A custom redesign of your current homepage for $80, delivered as a PDF of the new design plus a private link to view it live. If you love it, your $80 goes toward building your full website.</p>
   </div>
   <div class="meta">
     <div class="card"><span>Price</span><strong>$80</strong></div>
     <div class="card"><span>Delivered</span><strong>Within 3 business days</strong></div>
-    <div class="card"><span>Spots</span><strong>5 per week</strong></div>
+    <div class="card"><span>Spots</span><strong>4 per week</strong></div>
   </div>
   <img class="mock" src="mockup.jpg" alt="">
   <div class="footer"><span>miguelle@migsflow.com · migsflow.com</span><span class="pg">01</span></div>
@@ -78,8 +78,8 @@
   <div class="steps">
     <div class="step"><div class="num">1</div><div><h3>Apply</h3><p>Fill out the short application with your current website, your business, and the vibe you're going for. It takes about two minutes.</p></div></div>
     <div class="step"><div class="num">2</div><div><h3>I review your site</h3><p>Every application is reviewed personally. If we're a good fit, I'll reach out within 24–48 hours to confirm the details.</p></div></div>
-    <div class="step"><div class="num">3</div><div><h3>Pay your $80 invoice</h3><p>I'll send your invoice through HoneyBook, where you can pay securely by card (payments are processed by Stripe). Work starts once it's paid.</p></div></div>
-    <div class="step"><div class="num">4</div><div><h3>Get your redesign</h3><p>Within 3 business days, you'll receive your redesigned homepage along with a walkthrough of what I changed and why each change helps your business.</p></div></div>
+    <div class="step"><div class="num">3</div><div><h3>Pay your $80 invoice to claim your spot</h3><p>I'll send your invoice through HoneyBook, where you can pay securely by card (payments are processed by Stripe). There are only 4 spots each week, and they go to whoever pays first. Applying alone doesn't hold a spot. Invoices are held for 48 hours; after that, the spot opens to the next person. If the week is full, you'll join the waitlist and I'll email you to tell you exactly where you fall.</p></div></div>
+    <div class="step"><div class="num">4</div><div><h3>Get your redesign</h3><p>Within 3 business days, you'll receive a PDF of your new homepage design along with a private, confidential link so you can click through the live version yourself.</p></div></div>
     <div class="step"><div class="num">5</div><div><h3>You decide</h3><p>Love it and want the full site? Your $80 is credited toward your deposit. Not ready? No problem. There's no obligation to move forward.</p></div></div>
   </div>
   <div class="footer"><span>miguelle@migsflow.com · migsflow.com</span><span class="pg">02</span></div>
@@ -96,7 +96,7 @@
         <li>A custom redesign of your current homepage</li>
         <li>A fresh look matched to the vibe you choose</li>
         <li>Your logo, colors, and photos where you have them</li>
-        <li>A walkthrough of what I changed and why</li>
+        <li>A PDF of the new design, plus a private link to view it live</li>
         <li>Delivered within 3 business days of payment</li>
       </ul>
     </div>
@@ -154,8 +154,10 @@
     <p>No. Nothing on your live site changes unless you decide to move forward.</p>
     <h3>What if I don't have great photos or a logo?</h3>
     <p>That's okay. I'll work with what you have and let you know what would make the biggest difference.</p>
-    <h3>Why only 5 redesigns per week?</h3>
-    <p>Every redesign is done by me personally, so I keep the number small to give each one real attention.</p>
+    <h3>Why only 4 redesigns per week?</h3>
+    <p>Due to the overwhelming support on this special, I'm keeping it to four a week. Every redesign is done by me personally, so a small number means each one gets my full attention.</p>
+    <h3>How does the waitlist work?</h3>
+    <p>Spots go to whoever pays their invoice first, and invoices are held for 48 hours. If this week is full, you're added to the waitlist in order, and I'll always email you to let you know where you fall.</p>
   </div>
   <p style="margin-top:18px">Questions? Just reply to my email or reach me at <strong style="color:#fff">miguelle@migsflow.com</strong>.</p>
   <div class="footer"><span>miguelle@migsflow.com · migsflow.com</span><span class="pg">04</span></div>

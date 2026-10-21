@@ -650,10 +650,10 @@
     }
 
     function showSuccess() {
-      document.getElementById('progressWrap').style.display = 'none';
-      document.querySelectorAll('.quiz__step').forEach(function (el) { el.classList.remove('is-active'); });
-      document.querySelector('.quiz__intro').style.display = 'none';
-      document.getElementById('quizSuccess').classList.add('is-active');
+      var step = document.querySelector('.quiz__step.is-active');
+      return MigsFlowForm.reveal([document.getElementById('progressWrap'), document.querySelector('.quiz__intro'), step], document.getElementById('quizSuccess')).then(function () {
+        if (step) step.classList.remove('is-active');
+      });
     }
 
     document.querySelector('.quote__container').addEventListener('click', async function (e) {
@@ -674,14 +674,12 @@
       if (btn.id === 'submitBtn') {
         if (!validateStep(7)) { showHint(7); return; }
         hideHint(7);
-        btn.textContent = 'Sending...';
-        btn.disabled    = true;
+        MigsFlowForm.sending(btn, true);
         var result = await submitForm(collectAnswers());
+        MigsFlowForm.sending(btn, false);
         if (result.ok) {
           showSuccess();
         } else {
-          btn.textContent = 'Submit →';
-          btn.disabled    = false;
           var hint = document.getElementById('hint-7');
           hint.textContent = 'Something went wrong. Please try again or email us directly.';
           hint.classList.add('is-visible');

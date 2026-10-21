@@ -163,7 +163,7 @@
             <polyline points="20 6 9 17 4 12"/>
           </svg>
         </div>
-        <h3 class="quiz__success-title">Message sent!</h3>
+        <h3 class="quiz__success-title">Message received!</h3>
         <p class="quiz__success-text">
           Thanks for reaching out.<br>
           I read every message personally and will get back to you within 24–48 hours.
@@ -270,7 +270,7 @@
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       var btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
+      MigsFlowForm.sending(btn, true);
       try {
         var res = await fetch('/', {
           method: 'POST',
@@ -278,12 +278,10 @@
           body: new URLSearchParams(new FormData(form)).toString()
         });
         if (!res.ok) throw new Error(res.status);
-        form.hidden = true;
         status.hidden = true;
-        success.classList.add('is-active');
-        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        await MigsFlowForm.reveal([form], success);
       } catch (err) {
-        btn.disabled = false;
+        MigsFlowForm.sending(btn, false);
         status.textContent = 'Something went wrong. Please try again or email miguelle@migsflow.com.';
         status.hidden = false;
       }

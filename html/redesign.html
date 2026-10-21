@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>$80 Homepage Redesign | MigsFlow Web Design</title>
 
-  <meta name="description" content="Get a custom redesign of your website's homepage for $80, plus a walkthrough of every change. Credited toward your deposit if you move forward. Only 5 spots per week.">
+  <meta name="description" content="Get a custom redesign of your website's homepage for $80, delivered as a PDF plus a private link to view it live. Credited toward your deposit if you move forward. Only 4 spots per week.">
   <!-- Offer page for the TikTok campaign: kept out of search results -->
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" href="https://migsflow.com/html/redesign.html">
@@ -13,13 +13,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://migsflow.com/html/redesign.html">
   <meta property="og:title" content="$80 Homepage Redesign | MigsFlow">
-  <meta property="og:description" content="See what a fresh, custom homepage could look like for your business. Only 5 spots per week.">
+  <meta property="og:description" content="See what a fresh, custom homepage could look like for your business. Only 4 spots per week.">
   <meta property="og:image" content="https://migsflow.com/images/og-cover.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://migsflow.com/html/redesign.html">
   <meta name="twitter:title" content="$80 Homepage Redesign | MigsFlow">
-  <meta name="twitter:description" content="See what a fresh, custom homepage could look like for your business. Only 5 spots per week.">
+  <meta name="twitter:description" content="See what a fresh, custom homepage could look like for your business. Only 4 spots per week.">
   <meta name="twitter:image" content="https://migsflow.com/images/og-cover.png">
 
   <link rel="preload" as="font" href="../fonts/orbitron-v35-latin-600.woff2" type="font/woff2" crossorigin>
@@ -80,7 +80,7 @@
       <div class="quote__header fade-on-load">
         <div class="quote__pill">
           <span class="quote__dot"></span>
-          Homepage Redesign · Only 5 spots per week
+          Homepage Redesign · Only 4 spots per week
         </div>
         <h1 class="quote__title">
           <span class="quote__title-accent">$80 Homepage Redesign.</span><br>
@@ -458,7 +458,7 @@
         </div>
         <ul class="offer__list">
           <li>A fresh, custom redesign of your current homepage</li>
-          <li>A walkthrough of what I changed and why</li>
+          <li>A PDF of the new design, plus a private link to view it live</li>
           <li>Delivered within <strong>3 business days</strong> of payment</li>
           <li>Your $80 goes toward your deposit if you build your full site with me: <strong>$270 to start instead of $350</strong>, then $125/mo</li>
         </ul>
@@ -652,10 +652,10 @@
     }
 
     function success() {
-      $('progressWrap').style.display = 'none';
-      document.querySelectorAll('.quiz__step').forEach(function (el) { el.classList.remove('is-active'); });
-      $('quizSuccess').classList.add('is-active');
-      $('quizSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      var step = document.querySelector('.quiz__step.is-active');
+      return MigsFlowForm.reveal([$('progressWrap'), step], $('quizSuccess')).then(function () {
+        if (step) step.classList.remove('is-active');
+      });
     }
 
     document.querySelector('.quote__container').addEventListener('click', async function (e) {
@@ -673,8 +673,7 @@
       if (btn.id === 'submitBtn') {
         if (!valid(TOTAL)) { hint(TOTAL, true); return; }
         hint(TOTAL, false);
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
+        MigsFlowForm.sending(btn, true);
         try {
           var res = await fetch('/', {
             method: 'POST',
@@ -682,10 +681,10 @@
             body: new URLSearchParams(answers()).toString()
           });
           if (!res.ok) throw new Error(res.status);
+          MigsFlowForm.sending(btn, false);
           success();
         } catch (err) {
-          btn.textContent = 'Submit Application →';
-          btn.disabled = false;
+          MigsFlowForm.sending(btn, false);
           $('hint-8').textContent = 'Something went wrong. Please try again or email miguelle@migsflow.com.';
           hint(TOTAL, true);
         }

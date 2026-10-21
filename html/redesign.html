@@ -417,6 +417,7 @@
         <input type="text" name="foundVia">
         <input type="text" name="notes">
         <input type="text" name="agree">
+        <input type="text" name="waitlistAcknowledged">
         <input type="text" name="bot-field">
       </form>
 
@@ -432,6 +433,17 @@
           Every application is reviewed personally.<br>
           If we're a good fit, I'll be in touch within 24–48 hours.
         </p>
+        <!-- Waitlist reminder: only 4 redesigns a week -->
+        <div class="waitlist-note">
+          <span class="waitlist-note__face"><picture>
+            <source srcset="../images/email/miguelle-160.webp" type="image/webp">
+            <img src="../images/email/miguelle-160.png" alt="Miguelle, founder of MigsFlow" width="56" height="56" decoding="async">
+          </picture></span>
+          <div class="waitlist-note__body">
+            <p class="waitlist-note__title">You may be placed on the waitlist</p>
+            <p class="waitlist-note__text">Due to the overwhelming support on this special, I take on only <strong>4 redesigns per week</strong>. Spots go to whoever pays their invoice first (invoices are held for 48 hours), and I'll email you to let you know exactly where you fall on the waitlist.</p>
+          </div>
+        </div>
         <p class="quiz__success-text">The redesign packet is on its way to your inbox. Want to read how it works now?</p>
         <a class="quiz__btn-submit quiz__success-download" href="../downloads/migsflow-homepage-redesign-packet.pdf" download="MigsFlow-Homepage-Redesign-Packet.pdf">
           Download the Redesign Packet ↓
@@ -535,6 +547,7 @@
   </footer>
 
   <script defer src="../main.js"></script>
+  <script defer src="../redesign-waitlist.js"></script>
 
   <script>
   /* Application steps: validate each step before moving on, show the
@@ -633,6 +646,7 @@
         foundVia: $('foundVia').value,
         notes: $('notes').value.trim(),
         agree: $('agree').checked ? 'Yes' : 'No',
+        waitlistAcknowledged: document.documentElement.dataset.waitlist === 'yes' ? 'Yes' : 'No',
         'bot-field': $('appGotcha').value
       };
     }
@@ -689,6 +703,33 @@
     progress(0);
   })();
   </script>
+
+<!-- Waitlist notice: opens on arrival (redesign-waitlist.js). "Not right now"
+     goes back to the homepage; once confirmed it won't show again this visit. -->
+<dialog class="waitlist" id="waitlistModal" aria-labelledby="waitlistTitle" aria-describedby="waitlistText">
+  <div class="waitlist__card">
+    <span class="waitlist__glow" aria-hidden="true"></span>
+    <div class="waitlist__face">
+      <picture>
+        <source srcset="../images/email/miguelle-160.webp" type="image/webp">
+        <img src="../images/email/miguelle-160.png" alt="Miguelle, founder of MigsFlow" width="80" height="80" decoding="async">
+      </picture>
+      <span class="waitlist__status" aria-hidden="true"></span>
+    </div>
+    <p class="waitlist__eyebrow">A quick heads-up from Miguelle</p>
+    <h2 class="waitlist__title" id="waitlistTitle">Only <span>4 redesigns</span> per week</h2>
+    <p class="waitlist__text" id="waitlistText">Due to the overwhelming support and inquiries on this special, I'm limiting redesigns to four per week. That way every project gets my full attention, and I can keep the quality high without spreading myself too thin.</p>
+    <ul class="waitlist__points">
+      <li><span>1</span>Spots go to whoever pays their invoice first. Applying alone doesn't hold a spot.</li>
+      <li><span>2</span>Invoices are held for 48 hours. After that, the spot opens to the next person.</li>
+      <li><span>3</span>If this week is full, you'll join the waitlist, and I'll always email you to tell you exactly where you fall.</li>
+    </ul>
+    <div class="waitlist__actions">
+      <button class="waitlist__confirm" type="button" data-waitlist="confirm">Yes, I&rsquo;m happy to move forward &rarr;</button>
+      <a class="waitlist__decline" href="../index.html">Not right now</a>
+    </div>
+  </div>
+</dialog>
 
 <!-- Back to top: round button, fades in after one screen of scrolling (main.js) -->
 <button class="to-top" type="button" aria-label="Back to top" data-to-top>

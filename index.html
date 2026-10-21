@@ -679,7 +679,7 @@
         How We <span class="work__title-accent">Work</span>
       </h2>
       <p class="work__subtext fade-on-load">
-        A clear, collaborative process built around your business — from strategy to launch.
+        A clear, collaborative process built around your business — from onboarding to launch.
       </p>
     </div>
 
@@ -689,19 +689,20 @@
         <div class="process__card-top">
           <span class="process__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
-              <path d="M12 20h9"/>
-              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              <path d="M9 4h6v3H9z"/>
+              <path d="M7 5H5v15h14V5h-2"/>
+              <path d="m9 13 2 2 4-4"/>
             </svg>
           </span>
           <span class="process__step-label">Step 01</span>
         </div>
-        <h3 class="process__card-title">Design</h3>
+        <h3 class="process__card-title">Onboarding</h3>
         <p class="process__card-desc">
-          We start with your brand, your work, and the customers you want to attract.
-          From there we design a site that feels premium and positions your business
-          as the obvious choice in your market.
+          You send me your logo, photos, and content using a simple checklist,
+          so I have everything I need to start building. Nothing gets lost
+          in long email threads.
         </p>
-        <span class="process__tag">Custom Design &amp; Strategy</span>
+        <span class="process__tag">Simple Content Checklist</span>
         <a class="contact-btn process__tag" href="html/quote.html">Get Started →</a>
       </div>
 
@@ -717,14 +718,14 @@
           </span>
           <span class="process__step-label">Step 02</span>
         </div>
-        <h3 class="process__card-title">Development</h3>
+        <h3 class="process__card-title">Design + Build</h3>
         <p class="process__card-desc">
-          Every site is hand-coded from scratch. Fast load times, seamless mobile experience, 
-          and smooth lead-capture systems built in — so every visit has a clear path to 
-          booking a consultation with you.
+          I design and build side by side, starting with your key pages so you can
+          react early. Every site is hand-coded and mobile-first, and a private link
+          lets you follow along as it comes together.
         </p>
         <span class="process__tag">Hand-Coded &amp; Mobile-First</span>
-        <a class="contact-btn process__tag" href="html/contact.html">Get Started →</a>
+        <a class="contact-btn process__tag" href="html/quote.html">Get Started →</a>
       </div>
 
       <div class="process__divider" aria-hidden="true">→</div>
@@ -741,14 +742,14 @@
           </span>
           <span class="process__step-label">Step 03</span>
         </div>
-        <h3 class="process__card-title">Launch</h3>
+        <h3 class="process__card-title">Setup, Handoff &amp; Launch</h3>
         <p class="process__card-desc">
-          We handle domain setup, hosting, and go-live. Before launch every site is speed 
-          tested, mobile checked, and ready to start converting visitors into leads from 
-          day one, with 30-day post-launch support included.
+          We connect your domain and contact forms, then test every link, form,
+          and page on mobile together. Once it&rsquo;s perfect, your site goes live,
+          and I stick around after launch to keep the handoff smooth.
         </p>
         <span class="process__tag">Launch &amp; Ongoing Support</span>
-        <a class="contact-btn process__tag" href="html/contact.html">Get Started →</a>
+        <a class="contact-btn process__tag" href="html/quote.html">Get Started →</a>
       </div>
 
     </div>
@@ -1262,7 +1263,32 @@
   </div>
 </footer>
 
+<!-- Redesign special popup: shows once per visit, a moment after the page
+     loads (redesign-promo.js). "Maybe later", Esc or a click outside closes it. -->
+<dialog class="promo" id="redesignPromo" aria-labelledby="promoTitle">
+  <div class="promo__card">
+    <button class="promo__close" type="button" aria-label="Close" data-promo-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <picture class="promo__media">
+      <source srcset="images/mockups/redesign-promo.webp" type="image/webp">
+      <img src="images/mockups/redesign-promo.jpg" alt="A homepage redesign shown on a laptop and phone" width="640" height="496" loading="lazy" decoding="async">
+    </picture>
+    <div class="promo__body">
+      <p class="promo__eyebrow"><span class="promo__dot" aria-hidden="true"></span>Limited special · 4 spots per week</p>
+      <h2 class="promo__title" id="promoTitle">The <span>$80 Homepage Redesign</span> Special</h2>
+      <p class="promo__sub">See your new homepage before you commit.</p>
+      <p class="promo__text">I'll redesign your current homepage and send it within 3 business days as a PDF, plus a private link to view it live. Love it? Your $80 goes toward your full website.</p>
+      <div class="promo__actions">
+        <a class="promo__cta" href="html/redesign.html">Claim a Spot &rarr;</a>
+        <button class="promo__later" type="button" data-promo-close>Maybe later</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
 <script defer src="main.js"></script>
+<script defer src="redesign-promo.js"></script>
 
 
 <!-- Back to top: round button, fades in after one screen of scrolling (main.js) -->

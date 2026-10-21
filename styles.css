@@ -1397,7 +1397,7 @@ PROCESS SECTION
 
 .process__steps {
   display: flex;
-  align-items: center;
+  align-items: stretch; /* equal-height cards */
   gap: 12px;
   margin-top: clamp(32px, 4vw, 52px);
 }
@@ -1460,6 +1460,15 @@ PROCESS SECTION
   color: var(--text-primary);
   margin: 0;
   line-height: 1.2;
+}
+
+/* Tags and button sit at the foot so all three cards line up */
+.process__card-desc + .process__tag {
+  margin-top: auto;
+}
+
+.process__divider {
+  align-self: center;
 }
 
 .process__card-desc {
@@ -1956,4 +1965,207 @@ TESTIMONIALS SECTION
   .faq__answer {
     padding: 0 2px 18px;
   }
+}
+
+/* ==========================================================================
+   Redesign special popup (homepage, redesign-promo.js)
+   ========================================================================== */
+.promo {
+  width: min(calc(100% - 2rem), 34rem);
+  max-height: calc(100vh - 2rem);
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  color: var(--text);
+  background: none;
+  border: 0;
+}
+
+.promo::backdrop {
+  background: rgba(3, 8, 20, 0.75);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.promo[open] { animation: promo-in 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+.promo.is-closing { animation: promo-out 0.25s ease forwards; }
+
+@keyframes promo-in {
+  from { opacity: 0; transform: translateY(1.25rem) scale(0.97); }
+}
+
+@keyframes promo-out {
+  to { opacity: 0; transform: translateY(0.75rem) scale(0.98); }
+}
+
+.promo__card {
+  position: relative;
+  max-height: calc(100vh - 2rem);
+  overflow: hidden auto;
+  background: linear-gradient(160deg, rgba(20, 30, 60, 0.98) 0%, rgba(8, 12, 28, 0.98) 100%);
+  border: 1px solid var(--accent-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 80px -20px rgba(11, 60, 255, 0.45);
+}
+
+.promo__close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: #fff;
+  background: rgba(5, 7, 15, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.promo__close svg { width: 1rem; height: 1rem; }
+
+.promo__media {
+  display: block;
+  width: 72%;
+  margin: 0 auto;
+  padding-top: 1.25rem;
+  background: radial-gradient(ellipse at 50% 60%, var(--accent-glow) 0%, transparent 70%);
+}
+
+.promo__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 640 / 496;
+  object-fit: cover;
+  /* Soft fade on every edge so the photo's dark backdrop melts into the card */
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+}
+
+.promo__body {
+  margin-top: -0.5rem;
+  padding: 0 1.5rem 1.75rem;
+  text-align: center;
+}
+
+.promo__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.promo__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #ffb547;
+  border-radius: 50%;
+  animation: promo-pulse 2s ease-out infinite;
+}
+
+@keyframes promo-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 181, 71, 0.6); }
+  100% { box-shadow: 0 0 0 0.5rem rgba(255, 181, 71, 0); }
+}
+
+.promo__title {
+  margin-top: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 4.5vw, 1.65rem);
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.promo__title span {
+  display: inline;
+  font-size: inherit;
+  white-space: nowrap;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.promo__sub {
+  margin-top: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.promo__text {
+  margin-top: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.promo__text strong { color: #fff; }
+
+.promo__actions {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+}
+
+/* Fill sweeps left to right on hover (handbook button standard) */
+.promo__cta {
+  position: relative;
+  padding: 0.95rem 1.25rem;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent-gradient);
+  border-radius: 999px;
+  isolation: isolate;
+}
+
+.promo__cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #0b3cff 0%, #18c9ff 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+}
+
+.promo__cta:hover::before,
+.promo__cta:focus-visible::before { transform: scaleX(1); }
+
+.promo__later {
+  padding: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.promo__later:hover { color: var(--text-secondary); }
+
+@media (prefers-reduced-motion: reduce) {
+  .promo[open],
+  .promo.is-closing,
+  .promo__dot { animation: none; }
+  .promo__cta::before { transition: none; }
+}
+
+@media (min-width: 640px) {
+  .promo__body { padding: 0 2.25rem 2rem; }
 }

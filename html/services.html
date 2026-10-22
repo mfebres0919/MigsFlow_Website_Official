@@ -50,6 +50,7 @@
 </head>
 
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <!-- NAVIGATION MENU -->
 <header class="site-header">
   <nav class="nav" aria-label="Primary">
@@ -65,7 +66,7 @@
 
     <div class="nav__links" id="primary-nav">
       <a class="nav__link" href="../index.html">Home</a>
-      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="../index.html#about">About</a>
 
       <!-- Services dropdown -->
       <div class="nav__dropdown">
@@ -104,6 +105,8 @@
   </nav>
 </header>
 
+<main id="main">
+
 
 
 <!-- WHY MIGSFLOW SECTION -->
@@ -126,9 +129,9 @@
       <span class="poppins">Services</span>
     </div>
 
-    <h2 class="why__title fade-on-load">
+    <h1 class="why__title fade-on-load">
       <span class="why__title-accent">What</span> I Offer
-    </h2>
+    </h1>
 
     <p class="why__subtext fade-on-load">
       Whether you need a full custom website, help maintaining your existing site, or just want to add a new feature or two, I’ve got you covered. Here are some of the key services I provide:
@@ -138,42 +141,42 @@
       <!-- Card 1 -->
       <article class="why__card fade-on-load">
         <div class="why__icon" aria-hidden="true"><img src="../images/vectors/design.svg" alt="" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Custom UX/UI Design</h3>
+        <h2 class="why__card-title">Custom UX/UI Design</h2>
         <p class="why__card-text">Custom design created with professional UX/UI designers.</p>
       </article>
 
       <!-- Card 2 -->
       <article class="why__card fade-on-load">
         <div class="why__icon" aria-hidden="true"><img class="white" src="../images/vectors/code2.svg" alt="" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Hand Coded</h3>
+        <h2 class="why__card-title">Hand Coded</h2>
         <p class="why__card-text">Every site built from scratch using clean HTML, CSS, and JavaScript.</p>
       </article>
 
       <!-- Card 3 -->
       <article class="why__card fade-on-load">
         <div class="why__icon" aria-hidden="true"><img class="white" src="../images/vectors/ownership.svg" alt="" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Mobile Responsiveness</h3>
+        <h2 class="why__card-title">Mobile Responsiveness</h2>
         <p class="why__card-text">Mobile responsiveness and browser compatibility</p>
       </article>
 
       <!-- Card 4 -->
       <article class="why__card fade-on-load">
         <div class="why__icon" aria-hidden="true"><img class="white" src="../images/vectors/ownership.svg" alt="" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">You Own It</h3>
+        <h2 class="why__card-title">You Own It</h2>
         <p class="why__card-text">Complete ownership of your site files and source code.</p>
       </article>
 
       <!-- Card 5 -->
       <article class="why__card fade-on-load">
         <div class="why__icon" aria-hidden="true"><img class="white" src="../images/vectors/testing.svg" alt="" height="30" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Monthly Maintenance</h3>
+        <h2 class="why__card-title">Monthly Maintenance</h2>
         <p class="why__card-text">Optional monthly support and updates</p>
       </article>
 
       <!-- Card 6 -->
       <article class="why__card fade-on-load">
         <div class="why__icon" aria-hidden="true"><img class="white" src="../images/vectors/fast.svg" alt="" loading="lazy" decoding="async"></div>
-        <h3 class="why__card-title">Fast Performance</h3>
+        <h2 class="why__card-title">Fast Performance</h2>
         <p class="why__card-text">Lightweight, optimized code for lightning-fast load times.</p>
       </article>
     </div>
@@ -331,6 +334,8 @@
     <span class="star"></span>
   </div>     
 </section>
+</main>
+
 
 <!-- ===================== -->
 <!-- ====== FOOTER ======= -->
@@ -362,29 +367,30 @@
       </div>
       <div class="footer__cols fade-on-load" aria-label="Footer navigation">
         <div class="footer__col fade-on-load">
-          <h3 class="footer__heading fade-on-load">Navigation</h3>
+          <h2 class="footer__heading fade-on-load">Navigation</h2>
           <a class="footer__link fade-on-load" href="../index.html">Home</a>
-          <a class="footer__link fade-on-load" href="about.html">About</a>
+          <a class="footer__link fade-on-load" href="../index.html#about">About</a>
           <a class="footer__link fade-on-load" href="shop.html">Template Shop</a>
           <a class="footer__link fade-on-load" href="custom.html">Custom Websites</a>
           <a class="footer__link fade-on-load" href="contact.html">Contact</a>
           <a class="footer__link fade-on-load" href="faq.html">FAQs</a>
-          <a class="footer__link fade-on-load" href="../downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">Welcome Package</a>
+          <a class="footer__link fade-on-load" href="../downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">Welcome Package<span class="visually-hidden"> (PDF download)</span></a>
+          <a class="footer__link fade-on-load" href="accessibility.html">Accessibility</a>
         </div>
 
         <div class="footer__col fade-on-load">
-          <h3 class="footer__heading fade-on-load">Contact</h3>
-          <a class="footer__link fade-on-load" href="mailto:miguelle@migsflow.com" aria-label="Email MigsFlow">
+          <h2 class="footer__heading fade-on-load">Contact</h2>
+          <a class="footer__link fade-on-load" href="mailto:miguelle@migsflow.com">
             <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
-            <span>miguelle@migsflow.com</span>
+            <span>miguelle@migsflow.com</span><span class="visually-hidden"> (opens your email app)</span>
           </a>
-          <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
+          <a class="footer__link fade-on-load" href="tel:+18326480539">
             <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             (832) 648-0539
           </a>
-          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View MigsFlow's location">
+          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Houston%2C%20TX" target="_blank" rel="noopener">
             <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
-            Houston, TX
+            Houston, TX<span class="visually-hidden"> (opens Google Maps in a new tab)</span>
           </a>
         </div>
       </div>

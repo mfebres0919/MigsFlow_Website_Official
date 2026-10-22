@@ -36,6 +36,7 @@
 </head>
 
 <body class="page-quote page-redesign">
+<a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- NAVIGATION -->
   <header class="site-header">
@@ -67,6 +68,8 @@
       </a>
     </nav>
   </header>
+
+<main id="main">
 
 
   <!-- REDESIGN OFFER + APPLICATION
@@ -101,7 +104,7 @@
 
       <!-- STEP 1: Business type -->
       <div class="quiz__step is-active" id="step-1" data-step="1">
-        <h3 class="quiz__step-title">Your Business</h3>
+        <h2 class="quiz__step-title">Your Business</h2>
         <p class="quiz__step-desc">A few quick taps first, then the details at the end. Want to know what's included? <a class="quiz__inline-link" href="#offer">See the offer</a>.</p>
         <label class="quiz__question-label">What type of business do you run? *</label>
         <div class="quiz__options quiz__options--chips">
@@ -140,7 +143,7 @@
 
       <!-- STEP 2: What's not working -->
       <div class="quiz__step" id="step-2" data-step="2">
-        <h3 class="quiz__step-title">Your Current Website</h3>
+        <h2 class="quiz__step-title">Your Current Website</h2>
         <p class="quiz__step-desc">This tells me what your new homepage needs to fix first.</p>
         <label class="quiz__question-label">What's not working about your current site? *</label>
         <span class="quiz__question-sub">Choose all that apply.</span>
@@ -179,7 +182,7 @@
 
       <!-- STEP 3: Vibe -->
       <div class="quiz__step" id="step-3" data-step="3">
-        <h3 class="quiz__step-title">Your Vibe</h3>
+        <h2 class="quiz__step-title">Your Vibe</h2>
         <p class="quiz__step-desc">How should your new homepage feel to a first-time visitor?</p>
         <label class="quiz__question-label">Pick the styles that fit you best *</label>
         <span class="quiz__question-sub">Choose up to 2.</span>
@@ -218,7 +221,7 @@
 
       <!-- STEP 4: Features (Enterprise check) -->
       <div class="quiz__step" id="step-4" data-step="4">
-        <h3 class="quiz__step-title">Features</h3>
+        <h2 class="quiz__step-title">Features</h2>
         <p class="quiz__step-desc">If I build out your full website, will it need any of these?</p>
         <label class="quiz__question-label">Choose all that apply *</label>
         <div class="quiz__options">
@@ -261,7 +264,7 @@
 
       <!-- STEP 5: Content readiness -->
       <div class="quiz__step" id="step-5" data-step="5">
-        <h3 class="quiz__step-title">Your Content</h3>
+        <h2 class="quiz__step-title">Your Content</h2>
         <p class="quiz__step-desc">Real photos and reviews make your redesign look its best.</p>
         <label class="quiz__question-label">Do you have a logo, photos, and reviews ready? *</label>
         <div class="quiz__options">
@@ -287,7 +290,7 @@
 
       <!-- STEP 6: After the redesign -->
       <div class="quiz__step" id="step-6" data-step="6">
-        <h3 class="quiz__step-title">After Your Redesign</h3>
+        <h2 class="quiz__step-title">After Your Redesign</h2>
         <p class="quiz__step-desc">No commitment here. This just helps me plan.</p>
         <label class="quiz__question-label">If you love your new homepage, what would you most likely do next? *</label>
         <div class="quiz__options">
@@ -336,7 +339,7 @@
 
       <!-- STEP 7: Website details (typed) -->
       <div class="quiz__step" id="step-7" data-step="7">
-        <h3 class="quiz__step-title">Your Website</h3>
+        <h2 class="quiz__step-title">Your Website</h2>
         <p class="quiz__step-desc">Now the details. Your current website is the one I'll be redesigning.</p>
         <label class="quiz__question-label" for="businessName">Business name *</label>
         <input class="quiz__input" id="businessName" name="businessName" type="text" placeholder="Your Business Name" autocomplete="organization" required>
@@ -358,7 +361,7 @@
 
       <!-- STEP 8: Contact + agreement -->
       <div class="quiz__step" id="step-8" data-step="8">
-        <h3 class="quiz__step-title">Where should I reach you?</h3>
+        <h2 class="quiz__step-title">Where should I reach you?</h2>
         <p class="quiz__step-desc">Every application is reviewed personally. If we're a good fit, I'll be in touch within 24–48 hours with next steps.</p>
         <label class="quiz__question-label" for="clientName">Your name *</label>
         <input class="quiz__input" id="clientName" name="clientName" type="text" placeholder="Jane Doe" autocomplete="name" required>
@@ -428,7 +431,7 @@
             <polyline points="20 6 9 17 4 12"/>
           </svg>
         </div>
-        <h3 class="quiz__success-title">Application received!</h3>
+        <h2 class="quiz__success-title">Application received!</h2>
         <p class="quiz__success-text">
           Every application is reviewed personally.<br>
           If we're a good fit, I'll be in touch within 24–48 hours.
@@ -478,6 +481,8 @@
       <span class="star"></span><span class="star"></span>
     </div>
   </section>
+</main>
+
 
   <!-- FOOTER -->
   <footer class="footer fade-section" id="footer">
@@ -507,25 +512,26 @@
         </div>
         <div class="footer__cols fade-on-load" aria-label="Footer navigation">
           <div class="footer__col fade-on-load">
-            <h3 class="footer__heading fade-on-load">Navigation</h3>
+            <h2 class="footer__heading fade-on-load">Navigation</h2>
             <a class="footer__link fade-on-load" href="../index.html#work">Work</a>
             <a class="footer__link fade-on-load" href="pricing.html">Pricing</a>
             <a class="footer__link fade-on-load" href="quote.html">Get Quote</a>
-            <a class="footer__link fade-on-load" href="../downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">Welcome Package</a>
+            <a class="footer__link fade-on-load" href="../downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">Welcome Package<span class="visually-hidden"> (PDF download)</span></a>
+            <a class="footer__link fade-on-load" href="accessibility.html">Accessibility</a>
           </div>
           <div class="footer__col fade-on-load">
-            <h3 class="footer__heading fade-on-load">Contact</h3>
-            <a class="footer__link fade-on-load" href="mailto:miguelle@migsflow.com" aria-label="Email MigsFlow">
+            <h2 class="footer__heading fade-on-load">Contact</h2>
+            <a class="footer__link fade-on-load" href="mailto:miguelle@migsflow.com">
               <img class="email" src="../images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
-              <span>miguelle@migsflow.com</span>
+              <span>miguelle@migsflow.com</span><span class="visually-hidden"> (opens your email app)</span>
             </a>
-            <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
+            <a class="footer__link fade-on-load" href="tel:+18326480539">
               <img class="phone" src="../images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
               (832) 648-0539
             </a>
-            <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View location">
+            <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Houston%2C%20TX" target="_blank" rel="noopener" aria-label="View location">
               <img class="location" src="../images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
-              Houston, TX
+              Houston, TX<span class="visually-hidden"> (opens Google Maps in a new tab)</span>
             </a>
           </div>
         </div>

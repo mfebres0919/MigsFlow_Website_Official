@@ -549,6 +549,8 @@ function setupCarousel({ root, count, render, interval, swipeArea, hoverArea }) 
         stage.href = url;
         visit.href = url;
         stage.setAttribute("aria-label", `View the ${name} website (opens in a new tab)`);
+        const visitName = visit.querySelector("[data-showcase-visit-name]");
+        if (visitName) visitName.textContent = `: ${name} (opens in a new tab)`;
         visit.hidden = false;
       } else {
         stage.removeAttribute("href");

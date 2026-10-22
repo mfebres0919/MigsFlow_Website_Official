@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!-- Source for downloads/migsflow-welcome-package.pdf (sent by netlify/functions/submission-created.mjs
+     and linked in every footer). Pages are laid out at 900 x 1164 px and printed to Letter at scale 0.9067.
+     Re-export as a TAGGED PDF so screen readers can read it: Chrome headless Page.printToPDF with
+     generateTaggedPDF + generateDocumentOutline, printBackground, margins 0, scale 0.9067.
+     (Chrome's Print > Save as PDF also tags it; set Scale to 91, Margins none, Background graphics on.) -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MigsFlow Welcome Package</title>
+<meta name="description" content="A short intro to MigsFlow Web Design before your proposal: about, services and pricing, process, recent work, and FAQ.">
+<meta name="author" content="Miguelle Febres, MigsFlow Web Design">
+<style>
+  @font-face { font-family: "Poppins"; src: url("../fonts/poppins-v24-latin-regular.woff2") format("woff2"); font-weight: 400; }
+  @font-face { font-family: "Poppins"; src: url("../fonts/poppins-v24-latin-500.woff2") format("woff2"); font-weight: 500; }
+  @font-face { font-family: "Poppins"; src: url("../fonts/poppins-v24-latin-600.woff2") format("woff2"); font-weight: 600; }
+  @font-face { font-family: "Poppins"; src: url("../fonts/poppins-v24-latin-700.woff2") format("woff2"); font-weight: 700; }
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #05070f; }
+  body { font-family: "Poppins", Arial, sans-serif; color: rgba(255,255,255,.82); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { color: #fff; margin: 0; font-weight: 700; }
+  p { margin: 0; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+  .accent { color: #8cc8ff; }
+
+  /* Page frame. Arcs and glows are CSS backgrounds so they export as decorative artifacts, not content. */
+  .page { position: relative; width: 900px; height: 1164px; overflow: hidden; padding: 62px 90px 0; break-after: page;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='1164'%3E%3Cg fill='none'%3E%3Ccircle cx='1010' cy='1000' r='150' stroke='%238cc8ff' stroke-opacity='.18' stroke-width='2'/%3E%3Ccircle cx='1010' cy='1000' r='180' stroke='%238cc8ff' stroke-opacity='.1'/%3E%3C/g%3E%3C/svg%3E") no-repeat,
+      radial-gradient(ellipse 45% 30% at 0% 100%, rgba(24,80,200,.22), transparent 70%),
+      #05070f; }
+  .page:last-child { break-after: auto; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.1); font-size: 13px; }
+  .topbar .sec { display: flex; align-items: center; gap: 12px; letter-spacing: .12em; color: rgba(255,255,255,.6); }
+  .topbar .sec::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #6fb6ff; box-shadow: 0 0 6px #6fb6ff; margin-right: -4px; }
+  .topbar .slug { color: #8cc8ff; letter-spacing: 0; }
+  .topbar .brand { font-size: 11px; letter-spacing: .2em; color: rgba(255,255,255,.55); }
+  .page-title { font-size: 36px; line-height: 1.2; margin-top: 26px; letter-spacing: -.01em; }
+  .intro { font-size: 16px; line-height: 1.45; color: rgba(255,255,255,.78); margin-top: 4px; max-width: 560px; }
+  #work .intro { max-width: 640px; }
+  .footer { position: absolute; left: 0; right: 0; bottom: 0; height: 70px; padding: 0 90px 0 95px; display: flex; align-items: center; justify-content: space-between;
+    background: #0b0e17; border-top: 1px solid rgba(255,255,255,.07); font-size: 12px; color: rgba(255,255,255,.82); }
+  .footer img { height: 32px; width: auto; display: block; }
+  .footer .links { display: flex; gap: 32px; margin-left: 60px; }
+  .footer .links span::before { content: ""; display: inline-block; width: 11px; height: 11px; margin-right: 9px; vertical-align: -1px;
+    background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238cc8ff' stroke-width='2'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='m3 7 9 6 9-6'/%3E%3C/svg%3E"); }
+  .footer .links span.web::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238cc8ff' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18'/%3E%3C/svg%3E"); }
+  .footer .pg { font-size: 20px; font-weight: 700; color: #8cc8ff; }
+
+  /* 01 Cover */
+  .cover { padding: 70px 74px 0;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='1164'%3E%3Cdefs%3E%3ClinearGradient id='f' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%238cc8ff' stop-opacity='.15'/%3E%3Cstop offset='.6' stop-color='%238cc8ff' stop-opacity='1'/%3E%3Cstop offset='1' stop-color='%238cc8ff' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' stroke='url(%23f)'%3E%3Ccircle cx='1030' cy='690' r='232' stroke-width='3'/%3E%3Ccircle cx='1030' cy='690' r='300' stroke-width='2' stroke-opacity='.75'/%3E%3Ccircle cx='1030' cy='690' r='370' stroke-width='1.5' stroke-opacity='.5'/%3E%3Ccircle cx='1030' cy='690' r='430' stroke-width='1' stroke-opacity='.3'/%3E%3C/g%3E%3C/svg%3E") no-repeat,
+      radial-gradient(ellipse 55% 35% at 95% 8%, rgba(40,90,200,.45), transparent 70%),
+      radial-gradient(ellipse 45% 30% at 0% 100%, rgba(24,80,200,.2), transparent 70%),
+      #05070f; }
+  .cover .logo { display: block; width: 196px; height: auto; margin: 0 auto; }
+  .cover .eyebrow { margin-top: 52px; font-size: 14px; color: #8cc8ff; }
+  .cover h1 { font-size: 52px; line-height: 1.07; margin-top: 18px; letter-spacing: -.015em; max-width: 600px; }
+  .cover h1 .accent { color: #8cc8ff; }
+  .facts { margin-top: 52px; display: grid; gap: 24px; }
+  .facts li { display: grid; grid-template-columns: 42px 1fr; column-gap: 17px; align-items: center; }
+  .facts .ico { grid-row: span 2; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(140,200,255,.25); background: #0c1426 center / 16px no-repeat; }
+  .facts .ico.brief { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238cc8ff' stroke-width='2'%3E%3Crect x='3' y='7' width='18' height='13' rx='2'/%3E%3Cpath d='M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18'/%3E%3C/svg%3E"); }
+  .facts .ico.clock { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238cc8ff' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E"); }
+  .facts .k { font-size: 13px; color: rgba(255,255,255,.55); }
+  .facts .v { font-size: 16px; font-weight: 600; color: #fff; }
+  .cover .mock { display: block; width: 413px; height: 320px; margin-top: 44px; border-radius: 14px; }
+
+  /* 02 Contents */
+  .toc { margin-top: 40px; border-top: 1px solid rgba(255,255,255,.1); }
+  .toc li { border-bottom: 1px solid rgba(255,255,255,.1); }
+  .toc a { display: grid; grid-template-columns: 59px 1fr; padding: 24px 0 21px 4px; }
+  .toc .n { font-size: 17px; font-weight: 700; color: #8cc8ff; line-height: 1.6; }
+  .toc .t { font-size: 18px; font-weight: 700; color: #fff; display: block; }
+  .toc .d { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,.8); display: block; margin-top: 6px; max-width: 310px; }
+  .hurry { margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.1); text-align: center; font-size: 14px; color: rgba(255,255,255,.5); }
+
+  /* 03 About */
+  .hello { display: flex; align-items: center; gap: 32px; margin-top: 34px; }
+  .hello img { width: 169px; height: 169px; display: block; }
+  .hello h2 { font-size: 34px; }
+  .hello .role { font-size: 14px; color: #8cc8ff; margin-top: 16px; }
+  .bio { margin-top: 44px; max-width: 605px; display: grid; gap: 20px; }
+  .bio p { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,.82); }
+  .bio strong { color: #fff; font-weight: 600; }
+  .quote { position: absolute; left: 90px; right: 90px; top: 892px; padding: 40px 40px 40px 82px; border: 1px solid rgba(140,200,255,.15); border-radius: 12px; background: #0c0f19; margin: 0; }
+  .quote::before { content: "\201C"; position: absolute; left: 38px; top: 42px; font-size: 40px; line-height: 1; font-weight: 700; color: #8cc8ff; }
+  .quote figcaption { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #8cc8ff; }
+  .quote blockquote { margin: 12px 0 0; font-size: 17px; font-weight: 600; line-height: 1.65; color: #fff; }
+
+  /* 04 Services */
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+  .plan { border: 1px solid rgba(255,255,255,.1); border-radius: 12px; background: #0c0f19; padding: 26px 20px 22px 22px; height: 693px; }
+  .plan.featured { border-color: rgba(90,150,255,.6); }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .08em; color: #fff; background: linear-gradient(90deg,#3f7ef0,#5d9bf8); border-radius: 999px; padding: 4px 11px; margin-bottom: 14px; }
+  .plan .kind { font-size: 10px; letter-spacing: .14em; color: rgba(255,255,255,.55); }
+  .plan h3 { font-size: 21px; margin-top: 8px; }
+  .plan .price { font-size: 38px; font-weight: 700; color: #fff; margin-top: 10px; line-height: 1.1; }
+  .plan .price .cur { font-size: 18px; color: #8cc8ff; vertical-align: 12px; margin-right: 2px; }
+  .plan .price .per { font-size: 15px; font-weight: 400; color: rgba(255,255,255,.55); }
+  .plan .price .plus { font-size: 22px; color: #8cc8ff; vertical-align: 6px; }
+  .plan .terms { font-size: 12px; line-height: 1.5; color: rgba(255,255,255,.55); margin-top: 8px; }
+  .plan .fit { font-size: 12.5px; line-height: 1.45; color: #fff; margin-top: 18px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .plan ul { margin-top: 16px; display: grid; gap: 9px; }
+  .plan li { position: relative; padding-left: 26px; font-size: 12.5px; line-height: 1.35; color: #fff; }
+  .plan li::before { content: ""; position: absolute; left: 0; top: 1px; width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(140,200,255,.5);
+    background: center / 9px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238cc8ff' stroke-width='3'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E"); }
+  .budget { margin-top: 20px; border-left: 3px solid #4f86e8; padding: 2px 0 2px 13px; display: grid; gap: 14px; }
+  .budget p { font-size: 12.5px; line-height: 1.6; color: rgba(255,255,255,.85); }
+
+  /* 05 Process */
+  .stages { margin-top: 30px; border-top: 1px solid rgba(255,255,255,.1); }
+  .stages li { display: grid; grid-template-columns: 73px 1fr 160px; padding: 18px 0 16px; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .stages .n { font-size: 21px; font-weight: 700; color: rgba(255,255,255,.45); padding-top: 6px; }
+  .stages h3 { font-size: 17px; font-weight: 600; margin-top: 2px; }
+  .stages p { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.82); margin-top: 4px; max-width: 480px; }
+  .stages .dur { font-size: 12px; color: #8cc8ff; text-align: right; }
+  .total { margin-top: 24px; border: 1px solid rgba(140,200,255,.18); border-radius: 12px; background: #0c0f19; padding: 16px 29px 12px; display: grid; grid-template-columns: 1fr auto; }
+  .total .lab { font-size: 14px; color: #fff; padding-top: 4px; }
+  .total .wk { font-size: 20px; font-weight: 700; color: #8cc8ff; grid-row: 1; grid-column: 2; }
+  .total .sub { grid-column: 1 / -1; font-size: 11px; color: rgba(255,255,255,.5); margin-top: 10px; }
+
+  /* 06 Work */
+  .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; margin-top: 30px; }
+  .projects img { display: block; width: 100%; height: 128px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,.12); }
+  .projects .cat { font-size: 10px; letter-spacing: .1em; color: #8cc8ff; margin-top: 14px; text-transform: uppercase; }
+  .projects h3 { font-size: 15px; line-height: 1.45; margin-top: 6px; }
+  .projects p { font-size: 12px; line-height: 1.5; color: rgba(255,255,255,.82); margin-top: 8px; }
+  .kind-words { font-size: 13px; font-weight: 400; color: #8cc8ff; margin-top: 30px; }
+  .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; margin-top: 16px; }
+  .review { border: 1px solid rgba(255,255,255,.1); border-radius: 10px; background: #0c0f19; padding: 20px 18px 22px 20px; height: 329px; position: relative; margin: 0; }
+  .stars { color: #f4b740; font-size: 12px; letter-spacing: 3px; }
+  .review blockquote { margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: rgba(255,255,255,.88); }
+  .review figcaption { position: absolute; left: 20px; bottom: 22px; display: grid; grid-template-columns: 40px 1fr; column-gap: 8px; align-items: center; }
+  .review figcaption img { grid-row: span 2; width: 40px; height: 40px; border-radius: 50%; }
+  .review .who { font-size: 13px; font-weight: 700; color: #fff; }
+  .review .what { font-size: 10.5px; line-height: 1.4; color: rgba(255,255,255,.55); }
+  .ask { margin-top: 33px; padding-top: 23px; border-top: 1px solid rgba(255,255,255,.1); text-align: center; font-size: 13px; color: rgba(255,255,255,.55); }
+
+  /* 07 FAQ */
+  .faq { margin-top: 16px; border-top: 1px solid rgba(255,255,255,.1); }
+  .faq div { padding: 12px 0 11px; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .faq h3 { font-size: 14.5px; font-weight: 700; }
+  .faq p { font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,.85); margin-top: 6px; max-width: 640px; }
+  .best { margin-top: 18px; border: 1px solid rgba(140,200,255,.15); border-radius: 10px; background: #0c0f19; padding: 16px 22px 14px; }
+  .best h3 { font-size: 14.5px; font-weight: 700; }
+  .best ul { margin-top: 8px; display: grid; gap: 4px; }
+  .best li { font-size: 13px; color: rgba(255,255,255,.85); padding-left: 20px; position: relative; line-height: 1.5; }
+  .best li::before { content: "\2014"; position: absolute; left: 0; color: #6fb6ff; }
+  .next { text-align: center; margin-top: 40px; }
+  .next h3 { font-size: 25px; font-weight: 600; }
+  .next p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.85); margin: 14px auto 0; max-width: 420px; }
+  .btn { display: inline-block; margin-top: 18px; padding: 14px 30px; border-radius: 999px; background: linear-gradient(90deg,#4a86ec,#6aaaf7); color: #fff; font-size: 14px; font-weight: 600; letter-spacing: .03em; }
+</style>
+</head>
+<body>
+
+<!-- 01 Cover -->
+<section class="page cover" id="cover" aria-labelledby="cover-title">
+  <img class="logo" src="../images/migsflow-logo(2).svg" alt="MigsFlow Web Design">
+  <p class="eyebrow">/ before we talk proposals</p>
+  <h1 id="cover-title">Let's see if we're a <span class="accent">good</span> fit!</h1>
+  <ul class="facts">
+    <li><span class="ico brief" aria-hidden="true"></span><span class="k">What this is</span><span class="v">A short intro before your proposal</span></li>
+    <li><span class="ico clock" aria-hidden="true"></span><span class="k">Read time</span><span class="v">~5 minutes</span></li>
+  </ul>
+  <img class="mock" src="welcome/cover-mockup.jpg" alt="A laptop and phone showing the Bayou City Movers website built by MigsFlow, with the headline Stress Free Moves Across Houston.">
+  <footer class="footer">
+    <img src="../images/migsflow-logo(2).svg" alt="" aria-hidden="true">
+    <p class="links"><a href="mailto:miguelle@migsflow.com"><span>miguelle@migsflow.com</span></a> <a href="https://www.migsflow.com"><span class="web">www.migsflow.com</span></a></p>
+    <p class="pg"><span class="visually-hidden">Page </span>01</p>
+  </footer>
+</section>
+
+<!-- 02 Contents -->
+<section class="page" id="contents" aria-labelledby="contents-title">
+  <div class="topbar" aria-hidden="true"><span class="sec">02 <span class="slug">/contents</span></span><span class="brand">MIGS FLOW</span></div>
+  <h2 class="page-title" id="contents-title">What's inside</h2>
+  <p class="intro">Five short sections. Tap any of them to jump straight there.</p>
+  <ol class="toc">
+    <li><a href="#about"><span class="n">03</span><span><span class="t">About</span><span class="d">Who I am and how I like to work</span></span></a></li>
+    <li><a href="#services"><span class="n">04</span><span><span class="t">Services &amp; pricing</span><span class="d">The three ways to work together, and what each costs</span></span></a></li>
+    <li><a href="#process"><span class="n">05</span><span><span class="t">Process</span><span class="d">The six stages every project moves through</span></span></a></li>
+    <li><a href="#work"><span class="n">06</span><span><span class="t">Recent work</span><span class="d">A few projects, plus kind words from past clients</span></span></a></li>
+    <li><a href="#faq"><span class="n">07</span><span><span class="t">FAQ &amp; next steps</span><span class="d">Common questions, is-this-you checklist, and how to move forward</span></span></a></li>
+  </ol>
+  <p class="hurry">In a hurry? Services &amp; pricing and Process cover the essentials.</p>
+  <div class="footer" aria-hidden="true"><img src="../images/migsflow-logo(2).svg" alt=""><span class="links"><span>miguelle@migsflow.com</span><span class="web">www.migsflow.com</span></span><span class="pg">02</span></div>
+</section>
+
+<!-- 03 About -->
+<section class="page" id="about" aria-labelledby="about-title">
+  <div class="topbar" aria-hidden="true"><span class="sec">03 <span class="slug">/about</span></span><span class="brand">MIGS FLOW</span></div>
+  <div class="hello">
+    <img src="welcome/about-photo.jpg" alt="Portrait of Miguelle, founder of MigsFlow, seated with her chin resting on her hand.">
+    <div>
+      <h2 id="about-title">Hi, I'm Miguelle!</h2>
+      <p class="role">Web designer &amp; developer at migs flow</p>
+    </div>
+  </div>
+  <div class="bio">
+    <p>I design and build websites for small businesses that need more than just something that looks good on launch day. I create sites that are built to support your business, whether that means booking more calls, selling products, or generating consistent leads.</p>
+    <p>My background is in <strong>Mechanical Engineering</strong>, and I taught myself how to code in 2024. That problem-solving mindset shapes how I approach every project — I look at the bigger picture first, which means we start with your business goals, not a ready-made template.</p>
+    <p>Once my team and I understand what your website needs to accomplish, we move into the design process. You'll get a partner who explains decisions in plain language, respects deadlines, and is honest when something may not be the right fit for your business.</p>
+    <p>Outside of client work, I love going for walks, playing video games, and spending time with family.</p>
+  </div>
+  <figure class="quote">
+    <figcaption>Miguelle's philosophy</figcaption>
+    <blockquote>"A website's job is to do the selling when you can't be in the room."</blockquote>
+  </figure>
+  <div class="footer" aria-hidden="true"><img src="../images/migsflow-logo(2).svg" alt=""><span class="links"><span>miguelle@migsflow.com</span><span class="web">www.migsflow.com</span></span><span class="pg">03</span></div>
+</section>
+
+<!-- 04 Services -->
+<section class="page" id="services" aria-labelledby="services-title">
+  <div class="topbar" aria-hidden="true"><span class="sec">04 <span class="slug">/services</span></span><span class="brand">MIGS FLOW</span></div>
+  <h2 class="page-title" id="services-title">What I can build for you</h2>
+  <p class="intro">Three ways to work together, depending on how you'd rather pay and who manages the site long-term.</p>
+  <div class="plans">
+    <article class="plan featured" aria-labelledby="plan-monthly">
+      <span class="badge">MOST AFFORDABLE</span>
+      <p class="kind">SUBSCRIPTION</p>
+      <h3 id="plan-monthly">Monthly</h3>
+      <p class="price"><span class="cur">$</span>125<span class="per">/mo</span></p>
+      <p class="terms">6-month minimum · then month-to-month</p>
+      <p class="fit">Best for small businesses that want a premium, lead-generating site without managing hosting, updates, or maintenance themselves.</p>
+      <ul>
+        <li>Custom design &amp; development</li>
+        <li>Includes hosting</li>
+        <li>Up to 5 pages included</li>
+        <li>$100 one-time fee per page after 5</li>
+        <li>Consultation request form built in</li>
+        <li>Project portfolio / photo gallery</li>
+        <li>Unlimited edits</li>
+        <li>24/7 support</li>
+        <li>Lifetime updates</li>
+      </ul>
+    </article>
+    <article class="plan" aria-labelledby="plan-lump">
+      <p class="kind">ONE-TIME PAYMENT</p>
+      <h3 id="plan-lump">Lump Sum</h3>
+      <p class="price"><span class="cur">$</span>1,250</p>
+      <p class="terms">Starting price · up to 5 pages · +$25/mo if hosting needed</p>
+      <p class="fit">Best for small businesses that want full ownership of their site and prefer to pay once upfront rather than monthly.</p>
+      <ul>
+        <li>Custom design &amp; development</li>
+        <li>Up to 5 pages included</li>
+        <li>+$100 per additional page</li>
+        <li>Consultation request form built in</li>
+        <li>Project portfolio / photo gallery</li>
+        <li>30-day post-launch support</li>
+        <li>Full ownership — you keep the site</li>
+      </ul>
+    </article>
+    <article class="plan" aria-labelledby="plan-ent">
+      <p class="kind">FULL SYSTEM BUILD</p>
+      <h3 id="plan-ent">Enterprise</h3>
+      <p class="price"><span class="cur">$</span>2,000<span class="plus">+</span></p>
+      <p class="terms">Scoped &amp; priced per project</p>
+      <p class="fit">For businesses that want advanced lead systems, automated follow-up, client portals, and custom integrations built into their site.</p>
+      <ul>
+        <li>Everything in Lump Sum</li>
+        <li>Online estimate &amp; deposit systems</li>
+        <li>Automated lead follow-up &amp; CRM integration</li>
+        <li>Client login portal &amp; project dashboard</li>
+        <li>Booking &amp; consultation scheduling</li>
+        <li>Custom backend logic &amp; API integrations</li>
+      </ul>
+    </article>
+  </div>
+  <div class="budget">
+    <p>Every project is scoped individually once we know your goals — this page is a starting point, not a final quote.</p>
+    <p>Not sure what your budget looks like yet? Don't be afraid to reach out. I've worked with plenty of clients who didn't have a big budget to start, and was still able to help them get a baseline site up with what they had. Tell me what you're working with, and I'll tell you what's possible.</p>
+  </div>
+  <div class="footer" aria-hidden="true"><img src="../images/migsflow-logo(2).svg" alt=""><span class="links"><span>miguelle@migsflow.com</span><span class="web">www.migsflow.com</span></span><span class="pg">04</span></div>
+</section>
+
+<!-- 05 Process -->
+<section class="page" id="process" aria-labelledby="process-title">
+  <div class="topbar" aria-hidden="true"><span class="sec">05 <span class="slug">/process</span></span><span class="brand">MIGS FLOW</span></div>
+  <h2 class="page-title" id="process-title">How we'd work together</h2>
+  <p class="intro">Every project moves through the same six stages. You'll always know what's happening and what's next.</p>
+  <ol class="stages">
+    <li><span class="n" aria-hidden="true">01</span><div><h3>Discover</h3><p>We talk through your goals, audience, and what "success" looks like for the site. This shapes everything after it.</p></div><p class="dur">[1–2 days]</p></li>
+    <li><span class="n" aria-hidden="true">02</span><div><h3>Onboarding</h3><p>You send me your logo, photos, and content using a simple checklist, so I have everything I need to start building.</p></div><p class="dur">[1 week max]</p></li>
+    <li><span class="n" aria-hidden="true">03</span><div><h3>Design + Build</h3><p>I design and build side by side, starting with key pages so you can react early. A private link lets you follow along as it comes together.</p></div><p class="dur">[1–3 weeks]</p></li>
+    <li><span class="n" aria-hidden="true">04</span><div><h3>Setup &amp; Handoff</h3><p>We get the practical pieces in place — contact forms, domain connection, and (if you're taking ownership of the site) getting you set up with a GitHub account. Small step, but it means nothing gets missed.</p></div><p class="dur">[1–2 days]</p></li>
+    <li><span class="n" aria-hidden="true">05</span><div><h3>Review</h3><p>We test everything together — links, forms, load speed, mobile — and make final adjustments before anything goes live.</p></div><p class="dur">[2–3 days]</p></li>
+    <li><span class="n" aria-hidden="true">06</span><div><h3>Launch</h3><p>Your site goes live. I stick around after launch to fix anything that comes up and make sure the handoff is smooth.</p></div><p class="dur">[1 day]</p></li>
+  </ol>
+  <div class="total">
+    <p class="lab">Most projects run start to finish in</p>
+    <p class="wk">[2–5 weeks]</p>
+    <p class="sub">Larger projects can range from 6–12 weeks, depending on complexity.</p>
+  </div>
+  <div class="footer" aria-hidden="true"><img src="../images/migsflow-logo(2).svg" alt=""><span class="links"><span>miguelle@migsflow.com</span><span class="web">www.migsflow.com</span></span><span class="pg">05</span></div>
+</section>
+
+<!-- 06 Work -->
+<section class="page" id="work" aria-labelledby="work-title">
+  <div class="topbar" aria-hidden="true"><span class="sec">06 <span class="slug">/work</span></span><span class="brand">MIGS FLOW</span></div>
+  <h2 class="page-title" id="work-title">Recent work</h2>
+  <p class="intro">A few projects from the last year. Full case studies available on request.</p>
+  <ul class="projects">
+    <li>
+      <img src="welcome/work-meridian.jpg" alt="Meridian Pools homepage on a laptop, with the headline Your Backyard Deserves More Than a Generic Pool.">
+      <p class="cat">Home services</p>
+      <h3>Meridian Pools — Custom Pool Builder Site</h3>
+      <p>A fully custom pool builder site built to showcase premium work, build trust fast, and guide visitors from first click to consultation request.</p>
+    </li>
+    <li>
+      <img src="welcome/work-lapope.jpg" alt="L.A. Pope voiceover website on a laptop, showing her name and a photo of her in the studio.">
+      <p class="cat">Voiceover &amp; entertainment</p>
+      <h3>L.A. Pope — Voiceover &amp; Narration</h3>
+      <p>A clean, personality-driven portfolio designed to let her voice and brand take center stage while making it effortless for producers to book.</p>
+    </li>
+    <li>
+      <img src="welcome/work-warner.jpg" alt="Warner &amp; Associates law firm homepage on a laptop, with the headline Trusted Legal Partner in Every Matter.">
+      <p class="cat">Legal</p>
+      <h3>Warner &amp; Associates — Business Law Firm</h3>
+      <p>A polished, trust-first site built to establish authority instantly and guide clients straight to a booked consultation.</p>
+    </li>
+  </ul>
+  <h3 class="kind-words">/kind-words<span class="visually-hidden">: what past clients say</span></h3>
+  <div class="reviews">
+    <figure class="review">
+      <p class="stars"><span aria-hidden="true">★★★★★</span><span class="visually-hidden">5 out of 5 stars</span></p>
+      <blockquote>"Working with MigsFlow Web Design, and especially Miguelle, was an absolute dream. I needed a new website built quickly after learning my old site had been dismantled, and Miguelle stepped in right away with calm, clear guidance and real expertise."</blockquote>
+      <figcaption><img src="welcome/av-lori.jpg" alt="" aria-hidden="true"><span class="who">Lori P.</span><span class="what">Voice Narrator</span></figcaption>
+    </figure>
+    <figure class="review">
+      <p class="stars"><span aria-hidden="true">★★★★★</span><span class="visually-hidden">5 out of 5 stars</span></p>
+      <blockquote>"I am beyond grateful to Miguelle for fully coding my new website. She is professional, intelligent, patient, and an incredible web designer. I truly hope she goes far because her work speaks for itself."</blockquote>
+      <figcaption><img src="welcome/av-asia.jpg" alt="" aria-hidden="true"><span class="who">Asia J.</span><span class="what">Founder, Anjelic Hair Care</span></figcaption>
+    </figure>
+    <figure class="review">
+      <p class="stars"><span aria-hidden="true">★★★★★</span><span class="visually-hidden">5 out of 5 stars</span></p>
+      <blockquote>"The website looks great and my wife loves it too. It's a 1000% upgrade from my old site!"</blockquote>
+      <figcaption><img src="welcome/av-deon.jpg" alt="" aria-hidden="true"><span class="who">Deon W.</span><span class="what">Corporate Real Estate Lawyer</span></figcaption>
+    </figure>
+  </div>
+  <p class="ask">Want to see full case studies or talk to a past client? Just ask — happy to share.</p>
+  <div class="footer" aria-hidden="true"><img src="../images/migsflow-logo(2).svg" alt=""><span class="links"><span>miguelle@migsflow.com</span><span class="web">www.migsflow.com</span></span><span class="pg">06</span></div>
+</section>
+
+<!-- 07 FAQ -->
+<section class="page" id="faq" aria-labelledby="faq-title">
+  <div class="topbar" aria-hidden="true"><span class="sec">07 <span class="slug">/faq</span></span><span class="brand">MIGS FLOW</span></div>
+  <h2 class="page-title" id="faq-title">Good to know</h2>
+  <div class="faq">
+    <div><h3>How long does a typical project take?</h3><p>It can take up to 2–5 weeks, but a lot depends on how quickly you get content to me and give feedback on changes and updates — the longer either takes, the longer the build takes. Larger projects can run 6–12 weeks. You'll get a clear timeline in your proposal, so you're never guessing.</p></div>
+    <div><h3>What's the difference between Monthly and Lump Sum?</h3><p>Monthly is essentially a lease — a more affordable way to get a professional site without paying everything upfront. It's a 6-month minimum, includes hosting and lifetime edits &amp; updates, and you don't own the site outright while subscribed. If you ever want to buy it out, you only pay the remaining balance — so if your site would've been $1,250 as a Lump Sum and you'd already paid 6 months at $125/mo ($750), you'd only owe $500 to own it outright. Lump Sum is the opposite: you pay the full price upfront (with a 50% deposit to start) and own the site outright from day one. Hosting is optional at +$25/mo, and unlimited edits can be added for +$50/mo.</p></div>
+    <div><h3>What do you need from me to get started?</h3><p>Brand assets like your logo, a clear idea of your goals, the content you want on the site, and a quick discovery call so I can get to know you and your business.</p></div>
+    <div><h3>What happens after the site launches?</h3><p>Lump Sum clients get a 15-day grace period where I'm available to help with anything that comes up, plus every file you need so you always have full access to your site. Monthly clients get ongoing monitoring — I'm keeping an eye on your site and available anytime you have questions.</p></div>
+  </div>
+  <div class="best">
+    <h3>This tends to work best when you're —</h3>
+    <ul>
+      <li>Ready to invest in a real site, not the cheapest option available</li>
+      <li>Able to give feedback and turn things around in a timely manner — a few days</li>
+      <li>Looking for a long-term web design partner, not just a one-off build</li>
+    </ul>
+  </div>
+  <div class="next">
+    <h3>Ready to talk specifics?</h3>
+    <p>If this feels like a fit, reply to this email or book a short call — I'll put together a full proposal for your project from there.</p>
+    <a class="btn" href="https://www.migsflow.com/html/quote.html">Let's get started →<span class="visually-hidden"> (opens the MigsFlow quote form)</span></a>
+  </div>
+  <div class="footer" aria-hidden="true"><img src="../images/migsflow-logo(2).svg" alt=""><span class="links"><span>miguelle@migsflow.com</span><span class="web">www.migsflow.com</span></span><span class="pg">07</span></div>
+</section>
+
+</body>
+</html>

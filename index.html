@@ -47,6 +47,7 @@
 </head>
 
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 
 <!-- =============================== -->
@@ -82,8 +83,9 @@
   </nav>
 </header>
 
+<main id="main">
 
-<main>
+
 
 
 <!-- =============================== -->
@@ -116,7 +118,7 @@
           <span class="hero__play" aria-hidden="true">
             <img class="play-icon" src="images/vectors/play-btn.svg" alt="" width="24" height="24" decoding="async">
           </span>
-          <span>View Work</span>
+          <span>View Work<span class="visually-hidden">: recent client websites</span></span>
         </a>
       </div>
 
@@ -149,27 +151,27 @@
           <div class="devices__device devices__device--laptop">
             <img class="devices__frame" src="images/showcase/macbook-frame.webp" alt="" width="1093" height="1049" decoding="async" fetchpriority="high">
             <div class="devices__screens">
-              <img class="devices__screen is-active" src="images/showcase/ridgeline-laptop.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/bayou-laptop.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/lapope-exp-laptop.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/wwhd-laptop.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/brighthaven-laptop.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/crestline-laptop.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/warner-laptop.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/lapope-vo-laptop.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen is-active" src="images/showcase/ridgeline-laptop.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/bayou-laptop.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/lapope-exp-laptop.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/wwhd-laptop.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/brighthaven-laptop.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/crestline-laptop.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/warner-laptop.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/lapope-vo-laptop.webp" alt="" decoding="async">
             </div>
           </div>
           <div class="devices__device devices__device--phone">
             <img class="devices__frame" src="images/showcase/iphone-frame.webp" alt="" width="500" height="572" decoding="async">
             <div class="devices__screens">
-              <img class="devices__screen is-active" src="images/showcase/ridgeline-phone.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/bayou-phone.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/lapope-exp-phone.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/wwhd-phone.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/brighthaven-phone.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/crestline-phone.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/warner-phone.webp" alt="" decoding="async">
-              <img class="devices__screen" data-src="images/showcase/lapope-vo-phone.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen is-active" src="images/showcase/ridgeline-phone.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/bayou-phone.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/lapope-exp-phone.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/wwhd-phone.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/brighthaven-phone.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/crestline-phone.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/warner-phone.webp" alt="" decoding="async">
+              <img aria-hidden="true" class="devices__screen" data-src="images/showcase/lapope-vo-phone.webp" alt="" decoding="async">
             </div>
           </div>
         </a>
@@ -218,7 +220,7 @@
             </li>
           </ul>
           <a class="showcase__visit" href="https://mfebres0919.github.io/Ridgeline-Pools/" target="_blank" rel="noopener" data-showcase-visit>
-            View Site
+            View Site<span class="visually-hidden" data-showcase-visit-name>: Ridgeline Pools (opens in a new tab)</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
           </a>
         </div>
@@ -227,7 +229,7 @@
           <button class="carousel-controls__arrow" type="button" data-carousel-prev aria-label="Previous site">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
           </button>
-          <div class="carousel-controls__dots">
+          <div class="carousel-controls__dots" role="group" aria-label="Choose a project to preview">
             <button class="carousel-controls__dot is-active" type="button" data-carousel-dot="0" aria-label="Show Ridgeline Pools" aria-current="true"></button>
             <button class="carousel-controls__dot" type="button" data-carousel-dot="1" aria-label="Show Bayou City Movers"></button>
             <button class="carousel-controls__dot" type="button" data-carousel-dot="2" aria-label="Show lapope // experiential"></button>
@@ -362,7 +364,7 @@
             <h3 class="work__item-title">Warner &amp; Associates — Business Law Firm</h3>
             <p class="work__item-text">A polished, trust-first site for a business law practice. Built to establish authority instantly and guide clients straight to a booked consultation — with a refined, professional feel throughout.</p>
             <a class="work__btn" href="https://warnerandassociates.com/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: Warner &amp; Associates (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -385,7 +387,7 @@
             <h3 class="work__item-title">L.A. Pope — Voiceover &amp; Narration</h3>
             <p class="work__item-text">A clean, personality-driven portfolio for a professional voice actor. Designed to let her voice and brand take center stage while making it effortless for producers to reach out and book.</p>
             <a class="work__btn" href="https://voiceoversbylapope.com/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: L.A. Pope (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -408,7 +410,7 @@
             <h3 class="work__item-title">lapope // experiential — Event Marketing Agency</h3>
             <p class="work__item-text">An editorial, photo-led site for an experiential marketing agency. Programs, services and a gallery of real events build credibility fast, with a clear path for brands to get in touch.</p>
             <a class="work__btn" href="https://lapope.llc/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: lapope // experiential (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -431,7 +433,7 @@
             <h3 class="work__item-title">WW Housing Development — Affordable Housing</h3>
             <p class="work__item-text">A trust-building site for a Houston housing developer. It walks churches, community groups and landowners through a complex process in plain language, all the way to a scheduled consultation.</p>
             <a class="work__btn" href="https://wwhdllc.com/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: WW Housing Development (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -454,7 +456,7 @@
             <h3 class="work__item-title">Ridgeline Pools — Custom Pool Builder Site</h3>
             <p class="work__item-text">A focused, mobile-first site that highlights Ridgeline's projects and converts visitors into booked consultations.</p>
             <a class="work__btn" href="https://mfebres0919.github.io/Ridgeline-Pools/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: Ridgeline Pools (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -477,7 +479,7 @@
             <h3 class="work__item-title">Meridian Pools — Custom Pool Builder Site</h3>
             <p class="work__item-text">A fully custom pool builder site built to showcase premium work, build trust fast, and guide visitors smoothly from first click to consultation request. Designed to look high-end and built to perform.</p>
             <a class="work__btn" href="https://mfebres0919.github.io/Meridian-Pools/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: Meridian Pools (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -500,7 +502,7 @@
             <h3 class="work__item-title">Lisa's Catering — Boutique Catering Co.</h3>
             <p class="work__item-text">A warm, appetite-driven site for a boutique caterer. Rich food photography and a clear menu flow work together to turn browsers into booked events and catering inquiries.</p>
             <a class="work__btn" href="https://mfebres0919.github.io/Lisas_Catering_5/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: Lisa's Catering (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -523,7 +525,7 @@
             <h3 class="work__item-title">Riley Vaughn — Creative Technologist</h3>
             <p class="work__item-text">A bold personal brand site for a creative technologist. A striking, modern layout that showcases her work and positions her as available for high-value collaborations.</p>
             <a class="work__btn" href="https://mfebres0919.github.io/Creative-Technologist/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: Riley Vaughn (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -546,7 +548,7 @@
             <h3 class="work__item-title">Bayou City Movers — Website Concept</h3>
             <p class="work__item-text">A high-energy concept for a Houston moving company. Instant-quote calls to action, a clear four-step process and service areas work together to turn stressed-out movers into booked quotes.</p>
             <a class="work__btn" href="https://mfebres0919.github.io/Moving_Company/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: Bayou City Movers (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -569,7 +571,7 @@
             <h3 class="work__item-title">Bright Haven Cleaning — Website Concept</h3>
             <p class="work__item-text">A bright, conversion-focused concept for a home and office cleaning company, with an estimate form right in the hero so visitors can request a quote without scrolling.</p>
             <a class="work__btn" href="https://mfebres0919.github.io/Cleaning_Company/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: Bright Haven Cleaning (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -612,7 +614,7 @@
             <h3 class="work__item-title">Wig Stylist — Website Concept</h3>
             <p class="work__item-text">A website concept designed for wig stylists to show what's possible beyond a booking link — a full brand experience that showcases their craft, builds trust, and turns visitors into booked clients.</p>
             <a class="work__btn" href="https://mfebres0919.github.io/flawless-template2/" target="_blank" rel="noopener">
-              <span>View Project</span>
+              <span>View Project<span class="visually-hidden">: Wig Stylist (opens in a new tab)</span></span>
               <img src="./images/vectors/code-white.svg" alt="" width="24" height="24" decoding="async">
             </a>
           </div>
@@ -624,7 +626,7 @@
         <button class="carousel-controls__arrow" type="button" data-carousel-prev aria-label="Previous project">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
         </button>
-        <div class="carousel-controls__dots">
+        <div class="carousel-controls__dots" role="group" aria-label="Choose a project to preview">
           <button class="carousel-controls__dot" type="button" data-carousel-dot aria-label="Show Warner &amp; Associates"></button>
           <button class="carousel-controls__dot" type="button" data-carousel-dot aria-label="Show L.A. Pope"></button>
           <button class="carousel-controls__dot" type="button" data-carousel-dot aria-label="Show lapope // experiential"></button>
@@ -835,7 +837,7 @@
   <div class="testimonials__outer">
     <div class="testimonials__track" id="testimonialsTrack">
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "Working with MigsFlow Web Design, and especially Miguelle, was an absolute dream. 
@@ -849,9 +851,9 @@
             <span class="testimonials__role">Voice Narrator</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "I am beyond grateful to Miguelle for fully coding my new website. She is professional,
@@ -865,9 +867,9 @@
             <span class="testimonials__role">Founder, Anjelic Hair Care</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "The website looks great and my wife loves it too. It's a 1000% upgrade from my old site!"
@@ -879,8 +881,8 @@
             <span class="testimonials__role">Corporate Real Estate Lawyer</span>
           </div>
         </div>
-      </article>
-      <article class="testimonials__card">
+      </div>
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "Working with MigsFlow Web Design, and especially Miguelle, was an absolute dream. 
@@ -894,9 +896,9 @@
             <span class="testimonials__role">Voice Narrator</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "I am beyond grateful to Miguelle for fully coding my new website. She is professional,
@@ -910,9 +912,9 @@
             <span class="testimonials__role">Founder, Anjelic Hair Care</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "The website looks great and my wife loves it too. It's a 1000% upgrade from my old site!"
@@ -924,8 +926,8 @@
             <span class="testimonials__role">Corporate Real Estate Lawyer</span>
           </div>
         </div>
-      </article>
-      <article class="testimonials__card">
+      </div>
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "Working with MigsFlow Web Design, and especially Miguelle, was an absolute dream. 
@@ -939,9 +941,9 @@
             <span class="testimonials__role">Voice Narrator</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "I am beyond grateful to Miguelle for fully coding my new website. She is professional,
@@ -955,9 +957,9 @@
             <span class="testimonials__role">Founder, Anjelic Hair Care</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "The website looks great and my wife loves it too. It's a 1000% upgrade from my old site!"
@@ -969,8 +971,8 @@
             <span class="testimonials__role">Corporate Real Estate Lawyer</span>
           </div>
         </div>
-      </article>
-      <article class="testimonials__card">
+      </div>
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "Working with MigsFlow Web Design, and especially Miguelle, was an absolute dream. 
@@ -984,9 +986,9 @@
             <span class="testimonials__role">Voice Narrator</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "I am beyond grateful to Miguelle for fully coding my new website. She is professional,
@@ -1000,9 +1002,9 @@
             <span class="testimonials__role">Founder, Anjelic Hair Care</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "The website looks great and my wife loves it too. It's a 1000% upgrade from my old site!"
@@ -1014,8 +1016,8 @@
             <span class="testimonials__role">Corporate Real Estate Lawyer</span>
           </div>
         </div>
-      </article>
-      <article class="testimonials__card">
+      </div>
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "Working with MigsFlow Web Design, and especially Miguelle, was an absolute dream. 
@@ -1029,9 +1031,9 @@
             <span class="testimonials__role">Voice Narrator</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "I am beyond grateful to Miguelle for fully coding my new website. She is professional,
@@ -1045,9 +1047,9 @@
             <span class="testimonials__role">Founder, Anjelic Hair Care</span>
           </div>
         </div>
-      </article>
+      </div>
 
-      <article class="testimonials__card">
+      <div class="testimonials__card">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
         <blockquote class="testimonials__quote">
           "The website looks great and my wife loves it too. It's a 1000% upgrade from my old site!"
@@ -1059,7 +1061,7 @@
             <span class="testimonials__role">Corporate Real Estate Lawyer</span>
           </div>
         </div>
-      </article>                        
+      </div>                        
 
     </div>
   </div>
@@ -1184,9 +1186,10 @@
     <span class="star"></span><span class="star"></span>
   </div>
 </section>
-
-
 </main>
+
+
+
 
 
 <!-- ===================== -->
@@ -1219,26 +1222,27 @@
       </div>
       <div class="footer__cols fade-on-load" aria-label="Footer navigation">
         <div class="footer__col fade-on-load">
-          <h3 class="footer__heading fade-on-load">Navigation</h3>
+          <h2 class="footer__heading fade-on-load">Navigation</h2>
           <a class="footer__link fade-on-load" href="#work">Work</a>
           <a class="footer__link fade-on-load" href="html/pricing.html">Pricing</a>
           <a class="footer__link fade-on-load" href="html/quote.html">Get Quote</a>
           <a class="footer__link fade-on-load" href="html/contact.html">Contact</a>
-          <a class="footer__link fade-on-load" href="downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">Welcome Package</a>
+          <a class="footer__link fade-on-load" href="downloads/migsflow-welcome-package.pdf" download="MigsFlow-Welcome-Package.pdf">Welcome Package<span class="visually-hidden"> (PDF download)</span></a>
+          <a class="footer__link fade-on-load" href="html/accessibility.html">Accessibility</a>
         </div>
         <div class="footer__col fade-on-load">
-          <h3 class="footer__heading fade-on-load">Contact</h3>
-          <a class="footer__link fade-on-load" href="mailto:miguelle@migsflow.com" aria-label="Email MigsFlow">
+          <h2 class="footer__heading fade-on-load">Contact</h2>
+          <a class="footer__link fade-on-load" href="mailto:miguelle@migsflow.com">
             <img class="email" src="images/logos/mail.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
-            <span>miguelle@migsflow.com</span>
+            <span>miguelle@migsflow.com</span><span class="visually-hidden"> (opens your email app)</span>
           </a>
-          <a class="footer__link fade-on-load" href="tel:+18326480539" aria-label="Call MigsFlow">
+          <a class="footer__link fade-on-load" href="tel:+18326480539">
             <img class="phone" src="images/logos/phone-call.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
             (832) 648-0539
           </a>
-          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Charleston%2C%20SC" target="_blank" rel="noopener" aria-label="View MigsFlow location">
+          <a class="footer__link fade-on-load" href="https://www.google.com/maps/search/?api=1&query=Houston%2C%20TX" target="_blank" rel="noopener">
             <img class="location" src="images/icons/location.svg" alt="" width="20" height="20" loading="lazy" decoding="async">
-            Houston, TX
+            Houston, TX<span class="visually-hidden"> (opens Google Maps in a new tab)</span>
           </a>
         </div>
       </div>

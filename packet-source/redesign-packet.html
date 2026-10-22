@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!-- Source for downloads/migsflow-homepage-redesign-packet.pdf.
-     Edit this file, then re-export to PDF (Chrome: Print > Save as PDF,
-     Letter, margins none, background graphics on). -->
+     Edit this file, then re-export as a TAGGED PDF: Chrome headless Page.printToPDF with
+     generateTaggedPDF + generateDocumentOutline, Letter, margins 0, printBackground.
+     (Chrome's Print > Save as PDF also tags it: Margins none, Background graphics on.) -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,13 +24,13 @@
   h2 { font-size: 30px; line-height: 1.2; margin-bottom: 26px; }
   h3 { font-size: 17px; letter-spacing: .02em; margin-bottom: 8px; }
   .accent { color: #18c9ff; }
-  p { font-size: 15px; line-height: 1.7; margin: 0 0 12px; }
-  .lead { font-size: 17px; color: rgba(255,255,255,.92); }
+  p { font-size: 14px; line-height: 1.7; margin: 0 0 12px; }
+  .lead { font-size: 15px; color: rgba(255,255,255,.92); }
   .card { border: 1px solid rgba(24,201,255,.3); border-radius: 16px; padding: 24px 26px; background: linear-gradient(160deg, rgba(24,201,255,.08), rgba(11,60,255,.04)); }
   .meta { display: flex; gap: 14px; margin: 26px 0; }
   .meta .card { flex: 1; padding: 14px 18px; }
   .meta span { display: block; font-size: 12px; color: rgba(255,255,255,.55); }
-  .meta strong { font-size: 17px; color: #fff; font-weight: 400; }
+  .meta strong { font-size: 14px; color: #fff; font-weight: 400; }
   .mock { display: block; width: 100%; max-height: 4.6in; object-fit: contain; object-position: left top; margin-top: 18px; }
   .steps { display: grid; gap: 30px; margin-top: 10px; }
   .step { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start; }
@@ -37,7 +38,7 @@
   .step p { margin: 0; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-  li { position: relative; padding-left: 26px; font-size: 15px; line-height: 1.55; }
+  li { position: relative; padding-left: 26px; font-size: 14px; line-height: 1.55; }
   li::before { content: "✓"; position: absolute; left: 0; top: 0; color: #18c9ff; font-weight: bold; }
   .no li::before { content: "–"; color: rgba(255,255,255,.5); }
   .note { border-color: rgba(255,196,0,.45); background: rgba(255,196,0,.06); }
@@ -67,7 +68,7 @@
     <div class="card"><span>Delivered</span><strong>Within 3 business days</strong></div>
     <div class="card"><span>Spots</span><strong>4 per week</strong></div>
   </div>
-  <img class="mock" src="mockup.jpg" alt="">
+  <img class="mock" src="mockup.jpg" alt="Example redesign: the Bayou City Movers homepage on a laptop and phone, with the headline Stress Free Moves Across Houston.">
   <div class="footer"><span>miguelle@migsflow.com · migsflow.com</span><span class="pg">01</span></div>
 </section>
 
